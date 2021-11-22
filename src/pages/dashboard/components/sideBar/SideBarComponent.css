@@ -1,0 +1,12 @@
+.sideBar{
+  background-color: blueviolet;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+.sideBar_menu{
+  
+}
