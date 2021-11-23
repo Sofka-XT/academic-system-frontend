@@ -1,4 +1,5 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
+import ListOfProgramsPageComponent from '../pages/program/ListOfProgramsPageComponent';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
 
 export const routesApp = [
@@ -16,6 +17,11 @@ export const routesApp = [
         path: 'casa',
         name: 'casa',
         component: <HomePageComponent />,
+      },
+      {
+        path: 'programs',
+        name: 'programs',
+        component: <ListOfProgramsPageComponent/>
       },
     ],
   },
