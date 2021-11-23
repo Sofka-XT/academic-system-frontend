@@ -58,10 +58,17 @@
 }
 
 .container_dashboard{
+  display: grid;
   width: 100%;
   margin-top: 40px;
   margin-left: 20%;
   height: 100vh;
   background-color:bisque;
   background-size: cover;
+}
+
+.sofka-logo{
+  top: -5px;
+  margin-left: 5%;
+  position: relative;
 }
