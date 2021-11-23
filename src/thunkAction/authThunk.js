@@ -13,12 +13,16 @@ export const loginWhitGoogle = createAsyncThunk(
   if (docSnap.exists()) {
     const data = {
       id : response.user.uid,
+      name : response.user.displayName,
+      photoUrl : response.user.photoURL,
       tipo: docSnap.data().tipo
     }
     return data;
   }
   return {
     id : response.user.uid,
+    name : response.user.displayName,
+    photoUrl : response.user.photoURL,
     tipo: "ESTUDIANTE"
   }
 }
