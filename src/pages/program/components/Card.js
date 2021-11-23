@@ -1,4 +1,4 @@
-export const Card = ({id,name,handleDelete}) => {
+export const Card = ({id,name,handleDelete,handleEdit}) => {
 
     return (
         <div>
@@ -8,6 +8,7 @@ export const Card = ({id,name,handleDelete}) => {
             <div>
               <h1>{name}</h1>  
               <button onClick={() => handleDelete(id)}>Delete</button>
+              <button onClick={() => handleEdit(id)}>Edit</button>
             </div>
         </div>
     );

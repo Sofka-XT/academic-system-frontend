@@ -13,12 +13,17 @@ const ListOfProgramsPageComponent = ({dispatch,loading,hasErrors,redirect,progra
       dispatch(deleteProgramByIdThunk(id))
     }
 
+    const handleEdit = (id) => {
+      console.log("editing... " + id)
+    }
+
 
     const renderPrograms = () => {
       if (loading) return <p>Loading Programs...</p>
       if (hasErrors) return <p>Unable to display Programs.</p>
 
-      return programs && programs.map(program => <Card key={program.id} name = {program.name} id = {program.id} handleDelete={handleDelete}/>)
+      return programs && programs.map(program => <Card key={program.id} name = {program.name} id = {program.id} handleDelete={handleDelete}
+      handleEdit = {handleEdit}/>)
     }
 
     return (
