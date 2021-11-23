@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { Card } from "../../common/card/Card";
 import { deleteProgramByIdThunk, getProgramsThunk } from "../../thunkAction/programThunk";
+import { Card } from "./components/Card";
 
 const ListOfProgramsPageComponent = ({dispatch,loading,hasErrors,redirect,programs }) => {
 
