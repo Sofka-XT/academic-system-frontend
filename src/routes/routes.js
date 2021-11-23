@@ -1,4 +1,5 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
+import EditionProgramPage from '../pages/Program/EditionProgramPage';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
 
 export const routesApp = [
@@ -17,6 +18,11 @@ export const routesApp = [
         name: 'casa',
         component: <HomePageComponent />,
       },
+      {
+        path: 'edit',
+        name: 'edit',
+        component: <EditionProgramPage />,
+      }
     ],
   },
 ];
