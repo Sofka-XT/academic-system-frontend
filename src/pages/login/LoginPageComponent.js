@@ -13,8 +13,10 @@ export const LoginPageComponent = () => {
         <p>Bienvenidos al</p>
         <p>Centro de Gestión de SofkaU</p>
         <br/><br/><br/>
-        <button className="button button2">Registrarse con Google</button>
-        <br/><br/>
+        <form action="https://accounts.google.com/" target="_blank">
+          <button id="button-registro-google" className="button button2">Registrarse con Google</button>
+        </form>
+        <br/>
         <GoogleButtonComponent />
       </div>
       {/*<GoogleButtonComponent />*/}
