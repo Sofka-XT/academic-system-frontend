@@ -13,16 +13,28 @@ export const CourseFormComponent = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="">Nombre Categoria</label>
-      <input defaultValue="" {...register('example', { required: true })} />
+    <form className="" onSubmit={handleSubmit(onSubmit)}>
+      <div class="form-group">
+        <label htmlFor="">Nombre Categoria</label>
+        <input
+          className="form-control"
+          defaultValue=""
+          {...register('example', { required: true })}
+        />
+      </div>
+
       {errors.exampleRequired && <span>This field is required</span>}
       <CategoryFormComponet
         control={control}
         register={register}
         handleAppendCategory={handleAppendCategory}
       />
-      <button type="button" onClick={() => handleAppendCategory.current()}>
+
+      <button
+        className=""
+        type="button"
+        onClick={() => handleAppendCategory.current()}
+      >
         {' '}
         agregar
       </button>
