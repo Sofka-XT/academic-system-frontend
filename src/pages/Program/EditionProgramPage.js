@@ -1,21 +1,16 @@
 import React, { useState } from "react";
-import ProgramFormComponent from "./components/ProgramFormComponent";
 
 export default function EditionProgramPage() {
   // Aquí toca traer la información del back para mostrar en el formulario y poder editar
   const [values, setValues] = useState({
     nameProgram: "",
-    startDate: "", // depende de cómo se recibe el date
-    duration: "",
     courses: [],
   });
 
   const handleChange = () => {
     setValues({
       nameProgram: "training C4",
-      startDate: "05/11/2022",
-      duration: "12",
-      courses: ["met", "prod", "git"],
+      courses: [{}]
     });
   };
 
@@ -23,9 +18,25 @@ export default function EditionProgramPage() {
 
   return (
     <div>
-      hello
-      {/* <ProgramFormComponent states={values} /> */}
-      <ProgramFormComponent states={{values:values,handle:handleChange}} />
+      <h1> Editar Programa </h1>
+      <div>
+        <label> Nombre del programa: </label>
+        <input></input>
+      </div>
+      <div>
+        <label>Curso</label>
+        <select>
+          {/* En el primer option coloco un estado para que se reemplace por el primer curso */}
+          <option>FullStack</option>
+        </select>
+        <div>
+          <label>Temas</label>
+          <ul>
+            <li> CategoryName</li>
+            <input placeholder="Duración en días"></input>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
