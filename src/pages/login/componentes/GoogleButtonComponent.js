@@ -2,6 +2,7 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router';
 import { useAppDispatch } from '../../../state/store.hook';
 import { loginWhitGoogle } from '../../../thunkAction/authThunk';
+import '../LoginPageComponent.css';
 
 export const GoogleButtonComponent = ({ history }) => {
   const dispatch = useAppDispatch();
@@ -16,13 +17,8 @@ export const GoogleButtonComponent = ({ history }) => {
 
   return (
     <>
-      <button className="" onClick={handleLogin} aria-hidden="true">
-        <img
-          width={'20px'}
-          src="https://static.cdnlogo.com/logos/g/35/google-icon.svg"
-          alt="GOOGLE"
-        />
-        Google
+      <button className="button button2" onClick={handleLogin} aria-hidden="true">
+      Iniciar sesión con Google
       </button>
     </>
   );
