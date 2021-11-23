@@ -1,15 +1,15 @@
 export const enviroment = {
   firabase: {
-    apiKey: 'AIzaSyDUeuu8-jjUtpcDeL33uc3xLM79Rj4jv9E',
+    apiKey: "AIzaSyAR4O3j8-ilSkYjg_LKPK1-wEzB132R06Y",
 
-    authDomain: 'challenger-reactive-fullstack.firebaseapp.com',
+    authDomain: "test-login-sofka.firebaseapp.com",
 
-    projectId: 'challenger-reactive-fullstack',
+    projectId: "test-login-sofka",
 
-    storageBucket: 'challenger-reactive-fullstack.appspot.com',
+    storageBucket: "test-login-sofka.appspot.com",
 
-    messagingSenderId: '20726481161',
+    messagingSenderId: "1048002011173",
 
-    appId: '1:20726481161:web:2ecf7641e976c04d3353d8',
+    appId: "1:1048002011173:web:7af620eb1ac0dff92b5fcc",
   },
 };

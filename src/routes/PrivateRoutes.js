@@ -3,10 +3,10 @@ import { Navigate } from 'react-router-dom';
 
 const PrivateRoutes = ({ user, children }) => {
 
+	console.log("EL USUARIO EN PRIVATE ROUTES: ", user)
 	if(!user){
 		return <Navigate to="/" replace={true} />;
 	}
-	console.log("EL CHILDREN : ", children )
 
 	return children;
 	

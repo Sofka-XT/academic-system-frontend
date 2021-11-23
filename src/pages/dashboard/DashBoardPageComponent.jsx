@@ -4,17 +4,18 @@ import { SideBarCoachComponent, SideBarStudentComponent } from './components/sid
 import { Outlet } from 'react-router-dom';
 import './DashBoardPageComponent.css';
 
-export const DashBoardPageComponent = ({user}) => {
+export const DashBoardPageComponent = ( {user} ) => {
 
+	const usuario = {id: "563456456345" , tipo: "ESTUDIANTE"}
 	return (
 		<div className="">
 			
 			{
-				user.tipo === "COACH" && <SideBarCoachComponent />
+				usuario.tipo === "COACH" && <SideBarCoachComponent />
 			}
 			
 			{
-				user.tipo === "ESTUDIANTE" && <SideBarStudentComponent/>
+				usuario.tipo === "ESTUDIANTE" && <SideBarStudentComponent/>
 			}
 			
 			<div className="container_dashboard">
