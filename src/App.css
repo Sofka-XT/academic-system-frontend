@@ -1,12 +1,14 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 .flex_column_center{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_row_center{
+  display: flex;
+  
   justify-content: center;
   align-items: center;
 }
