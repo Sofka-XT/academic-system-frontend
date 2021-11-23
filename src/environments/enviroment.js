@@ -1,15 +1,13 @@
 export const enviroment = {
   firabase: {
-    apiKey: 'AIzaSyDUeuu8-jjUtpcDeL33uc3xLM79Rj4jv9E',
+    apiKey: 'AIzaSyDAGnCkXYQf_toW_TqV4n6GDBUiYOzMsMw',
 
-    authDomain: 'challenger-reactive-fullstack.firebaseapp.com',
+    authDomain: 'academic-system-sofkau.firebaseapp.com',
 
-    projectId: 'challenger-reactive-fullstack',
+    projectId: 'academic-system-sofkau',
 
-    storageBucket: 'challenger-reactive-fullstack.appspot.com',
+    storageBucket: 'academic-system-sofkau.appspot.com',
 
-    messagingSenderId: '20726481161',
-
-    appId: '1:20726481161:web:2ecf7641e976c04d3353d8',
+    messagingSenderId: '27962594566',
   },
 };
