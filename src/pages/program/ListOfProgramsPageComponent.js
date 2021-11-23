@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { deleteProgramByIdThunk, getProgramsThunk } from "../../thunkAction/programThunk";
 import { Card } from "./components/Card";
 
+import './ListOfProgramsPageComponent.css'
+
 const ListOfProgramsPageComponent = ({dispatch,loading,hasErrors,redirect,programs }) => {
 
     useEffect(() => {
@@ -27,7 +29,7 @@ const ListOfProgramsPageComponent = ({dispatch,loading,hasErrors,redirect,progra
     }
 
     return (
-      <div>
+      <div className = "containerCards">
         {renderPrograms()}
       </div>
     );
