@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { loginGoogle, signOutFirebase } from '../api/auth/authRequest';
+
 export const loginWhitGoogle = createAsyncThunk(
   'auth/loginWhitGoogleStatus',
   async () => {
