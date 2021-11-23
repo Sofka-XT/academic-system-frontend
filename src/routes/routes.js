@@ -2,7 +2,12 @@ import { HomePageComponent } from '../pages/home/HomePageComponent';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
 
 export const routesApp = [
-	
+
+	{
+		path: '/welcome',
+		name: 'Welcome',
+		component: <DashBoardPageComponent />
+	},
 	{
 		path: '/dashboard',
 		name: 'DashBoard',
