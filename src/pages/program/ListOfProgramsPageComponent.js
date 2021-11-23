@@ -1,9 +1,14 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
+import { Card } from "../../common/card/Card";
 import { getProgramsThunk } from "../../thunkAction/programThunk";
 
 const ListOfProgramsPageComponent = ({dispatch, programs }) => {
 
+    const handleClick = (id) => {
+
+      console.log("card...." + id)
+    }
   
     useEffect(() => {
       dispatch(getProgramsThunk());
@@ -11,13 +16,23 @@ const ListOfProgramsPageComponent = ({dispatch, programs }) => {
 
     return (
       <div>
-        <h1>{console.log(programs)}</h1>
+        {
+          programs && (
+            programs.map((program) => {
+              return(
+                <div key={program.id} onClick={() => handleClick(program.id)}>
+                  <Card name = {program.name}/>
+                </div>
+              )
+            })
+          )
+        }
       </div>
     );
   };
   
   const mapStateToProps = state => ({
-    programs: state.programReducer,
+    programs: state.programReducer.programs
   });
 
 
