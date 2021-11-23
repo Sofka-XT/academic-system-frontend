@@ -1,3 +1,4 @@
+import ListaTrainingsComponent from '../pages/activeTrainingPrueba/ListaTrainingsComponent';
 import { HomePageComponent } from '../pages/home/HomePageComponent';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
 
@@ -19,4 +20,9 @@ export const routesApp = [
       },
     ],
   },
+  {
+    path: '/prueba',
+    name: 'Prueba',
+    component: <ListaTrainingsComponent />,
+  }
 ];

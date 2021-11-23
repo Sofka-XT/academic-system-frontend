@@ -15,8 +15,3 @@ export const success = payload => ({
 export const failure = () => ({
     type: LOADED_FAILURE 
 });
-
-export const fetchActiveTraining = (payload) => ({
-    type: LOADED_SUCCESS,
-    payload: payload,
-});

@@ -1,13 +1,13 @@
-import * as actions from "./programAction";
+import * as actions from "./activeTrainingAction";
 
 export const initialState = {
-    trainingActivos: [],
-    idtrainingseleted: null,
+    activeTrainings: [],
     hasErrors: false,
     loading: false,
+    redirect: null,
 };
 
-export default function programReducer(state = initialState, action) {
+export default function activeTrainingReducer(state = initialState, action) {
     switch (action.type) {
         case actions.LOADING:
         return { ...state, loading: true };
