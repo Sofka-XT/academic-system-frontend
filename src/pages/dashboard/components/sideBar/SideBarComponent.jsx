@@ -8,6 +8,7 @@ export const SideBarComponent = () => {
       <nav className="sideBar_menu flex_column_center">
         <ul>
           <Link to="casa">Dashboard</Link>
+          <Link to="trainingList">Training list</Link>
         </ul>
       </nav>
     </aside>

@@ -1,6 +1,7 @@
 import ListaTrainingsComponent from '../pages/activeTrainingPrueba/ListaTrainingsComponent';
 import { HomePageComponent } from '../pages/home/HomePageComponent';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
+import TrainingListPageComponent from '../pages/trainingListPage/TrainingListPageComponent.jsx'
 
 export const routesApp = [
   {
@@ -18,6 +19,12 @@ export const routesApp = [
         name: 'casa',
         component: <HomePageComponent />,
       },
+      {
+        path: 'trainingList',
+        name: 'trainingList',
+        component: <TrainingListPageComponent/>
+
+      }
     ],
   },
   {
