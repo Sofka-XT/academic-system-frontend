@@ -1,4 +1,5 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
+import { WelcomePageComponent } from '../pages/welcome/WelcomePageComponent';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
 
 export const routesApp = [
@@ -6,7 +7,7 @@ export const routesApp = [
 	{
 		path: '/welcome',
 		name: 'Welcome',
-		component: <DashBoardPageComponent />
+		component: <WelcomePageComponent/>
 	},
 	{
 		path: '/dashboard',

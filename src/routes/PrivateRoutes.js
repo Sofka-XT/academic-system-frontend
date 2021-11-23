@@ -19,11 +19,6 @@ const PrivateRoutes = ({ user, children }) => {
 };
 
 
-
-
-
-
-
 const mapState = (state) => ({
 	user: state.authReducer.user,
 });
