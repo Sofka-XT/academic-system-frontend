@@ -5,15 +5,18 @@ import { loginWhitGoogle } from '../../../thunkAction/authThunk';
 import '../LoginPageComponent.css';
 
 export const GoogleButtonComponent = ({ history }) => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const handleLogin = () => {
-    dispatch(loginWhitGoogle())
-      .then(unwrapResult)
-      .then(() => {
-        navigate('/dashboard');
-      });
-  };
+	
+	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
+	
+	const handleLogin = () => {
+		dispatch(loginWhitGoogle())
+			.then(unwrapResult)
+			.then(() => {
+				navigate('/dashboard');
+			});
+	};
+
 
   return (
     <>

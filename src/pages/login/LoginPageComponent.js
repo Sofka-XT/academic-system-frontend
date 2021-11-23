@@ -3,6 +3,7 @@ import { GoogleButtonComponent } from './componentes/GoogleButtonComponent';
 import '../login/LoginPageComponent.css';
 
 export const LoginPageComponent = () => {
+
   return (
     <div>
       <div class="bg-image"></div>
