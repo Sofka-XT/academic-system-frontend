@@ -10,8 +10,3 @@ export const success = (payload) => ({
 export const loading = () => ({ type: LOADING });
 
 export const failure = () => ({ type: LOADED_FAILURE });
-
-export const fetchProgramsAction = (payload) => ({
-  type: LOADED_SUCCESS,
-  payload: payload,
-});

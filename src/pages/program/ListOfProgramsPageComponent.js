@@ -1,38 +1,38 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Card } from "../../common/card/Card";
-import { getProgramsThunk } from "../../thunkAction/programThunk";
+import { deleteProgramByIdThunk, getProgramsThunk } from "../../thunkAction/programThunk";
 
-const ListOfProgramsPageComponent = ({dispatch, programs }) => {
+const ListOfProgramsPageComponent = ({dispatch,loading,hasErrors,redirect,programs }) => {
 
-    const handleClick = (id) => {
-
-      console.log("card...." + id)
-    }
-  
     useEffect(() => {
       dispatch(getProgramsThunk());
-    }, [dispatch]);
+    }, [redirect,dispatch]);
+
+    const handleDelete = (id) => {
+      dispatch(deleteProgramByIdThunk(id))
+    }
+
+
+    const renderPrograms = () => {
+      if (loading) return <p>Loading Programs...</p>
+      if (hasErrors) return <p>Unable to display Programs.</p>
+
+      return programs && programs.map(program => <Card key={program.id} name = {program.name} id = {program.id} handleDelete={handleDelete}/>)
+    }
 
     return (
       <div>
-        {
-          programs && (
-            programs.map((program) => {
-              return(
-                <div key={program.id} onClick={() => handleClick(program.id)}>
-                  <Card name = {program.name}/>
-                </div>
-              )
-            })
-          )
-        }
+        {renderPrograms()}
       </div>
     );
   };
   
   const mapStateToProps = state => ({
-    programs: state.programReducer.programs
+    programs: state.programReducer.programs,
+    loading: state.programReducer.loading,
+    hasErrors: state.programReducer.hasErrors,
+    redirect: state.programReducer.redirect,
   });
 
 
