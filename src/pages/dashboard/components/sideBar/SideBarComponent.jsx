@@ -6,15 +6,15 @@ export const SideBarComponent = () => {
   return (
     <aside className="sideBar">
       <nav className="sideBar_menu flex_column_center">
-        <ul>
+        <ul className = "links">
 			
-          <Link to="logout">Log Out Page</Link> <br/> <br/>
+          <Link to="logout" className = "link">Log Out Page</Link> <br/> <br/>
 
-          <Link to="trainingstory">Training Story</Link> <br/> <br/>
+          <Link to="trainingstory" className = "link">Training Story</Link> <br/> <br/>
 
-          <Link to="activeprograms">Active Programs</Link> <br/> <br/>
+          <Link to="activeprograms" className = "link">Active Programs</Link> <br/> <br/>
 
-          <Link to="program">Create Program</Link> <br/> <br/>
+          <Link to="program" className = "link">Create Program</Link> <br/> <br/>
 
         </ul>
       </nav>

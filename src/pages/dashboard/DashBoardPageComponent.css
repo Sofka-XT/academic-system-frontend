@@ -1,4 +1,67 @@
-.container_dashboard{
-  margin-left: 250px;
+*{
+  padding: 0;
+  margin: 0;
   
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  width: 100%;
+  height: 100vh;
+}
+
+.Navbar{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 40px;
+  background-color: rgb(155, 160, 202);
+  position: absolute;
+  z-index: 1;
+  justify-content: space-between;
+}
+
+.Navbar h5{
+  color: aliceblue;
+  margin-top: 3%;
+}
+
+.Navbar h6{
+  color: aliceblue;
+  margin-top: 3%;
+}
+
+.Navbar .right-side{
+  display: flex;
+  width: 25%;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.profile-picture{
+  border-radius: 50px;
+  position: relative;
+  height: 30px;
+  width: 30px;
+  margin-right: 5%;
+  margin-top: 1%;
+}
+
+.dashboard{
+  display: flex;
+  flex-direction: row;
+}
+
+.container_dashboard{
+  width: 100%;
+  margin-top: 40px;
+  margin-left: 20%;
+  height: 100vh;
+  background-color:bisque;
+  background-size: cover;
 }

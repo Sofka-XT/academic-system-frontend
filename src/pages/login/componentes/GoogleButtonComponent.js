@@ -13,7 +13,7 @@ export const GoogleButtonComponent = ({ history }) => {
 		dispatch(loginWhitGoogle())
 			.then(unwrapResult)
 			.then(() => {
-				navigate('/welcome');
+				navigate('/dashboard');
 			});
 	};
 

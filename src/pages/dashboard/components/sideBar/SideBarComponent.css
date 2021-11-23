@@ -1,12 +1,16 @@
 .sideBar{
-  background-color: blueviolet;
-  width: 250px;
+  background-color: rgb(33, 17, 126);
+  width: 20%;
   height: 100vh;
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
 }
-.sideBar_menu{
-  
+
+.links{
+  margin-top: 65%;
+}
+
+.links .link{
+  color: aliceblue;
 }
