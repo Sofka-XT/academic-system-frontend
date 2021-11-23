@@ -1,5 +1,6 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
-import EditionProgramPage from '../pages/Program/EditionProgramPage';
+import EditionProgramPage from '../pages/program/EditionProgramPage';
+import ListOfProgramsPageComponent from '../pages/program/ListOfProgramsPageComponent';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
 
 export const routesApp = [
@@ -22,7 +23,12 @@ export const routesApp = [
         path: 'edit',
         name: 'edit',
         component: <EditionProgramPage />,
-      }
+      },
+      {
+        path: 'programs',
+        name: 'programs',
+        component: <ListOfProgramsPageComponent/>
+      },
     ],
   },
 ];
