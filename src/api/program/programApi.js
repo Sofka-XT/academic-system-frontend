@@ -12,3 +12,14 @@ export const deleteProgramByIdApi = (id) => {
         }
     })
 }
+
+export const getProgramByIdApi = (id) => {
+  return fetch(`http://localhost:3001/programs/${id}`,
+  {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+}

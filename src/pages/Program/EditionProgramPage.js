@@ -1,42 +1,43 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { EditForm } from "./components/EditForm";
 
-export default function EditionProgramPage() {
+const EditionProgramPage = ({ program }) => {
   // Aquí toca traer la información del back para mostrar en el formulario y poder editar
-  const [values, setValues] = useState({
-    nameProgram: "",
-    courses: [],
-  });
+  // const [values, setValues] = useState({
+  //   nameProgram: "",
+  //   courses: [],
+  // });
 
-  const handleChange = () => {
-    setValues({
-      nameProgram: "training C4",
-      courses: [{}]
-    });
+
+  const renderEditPage = () => {
+
+    
+    const courses = program.courses;
+    console.log("entra al map")
+    console.log(program)
+
+    return courses.map((course) => (
+      <EditForm course={course} />
+    ));
   };
-
-  console.log("Estoy en la pagina de edición");
 
   return (
     <div>
-      <h1> Editar Programa </h1>
-      <div>
-        <label> Nombre del programa: </label>
-        <input></input>
-      </div>
-      <div>
-        <label>Curso</label>
-        <select>
-          {/* En el primer option coloco un estado para que se reemplace por el primer curso */}
-          <option>FullStack</option>
-        </select>
+      <form>
+        <h1> Editar Programa </h1>
         <div>
-          <label>Temas</label>
-          <ul>
-            <li> CategoryName</li>
-            <input placeholder="Duración en días"></input>
-          </ul>
+          <label> Nombre del programa: </label>
+          <input value={program.name}></input>
+          <div>{renderEditPage()}</div>
         </div>
-      </div>
+      </form>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => ({
+  program: state.programReducer.program,
+});
+
+export default connect(mapStateToProps)(EditionProgramPage);

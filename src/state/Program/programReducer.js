@@ -2,6 +2,7 @@ import * as actions from './programAction';
 
 export const initialState = {
   programs: [],
+  program: {},
   hasErrors: false,
   loading: false,
   redirect: null,

@@ -1,44 +1,60 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { deleteProgramByIdThunk, getProgramsThunk } from "../../thunkAction/programThunk";
+import { Link } from "react-router-dom"
+import {
+  deleteProgramByIdThunk,
+  getProgramsThunk,
+  getProgramByIdThunk,
+} from "../../thunkAction/programThunk";
 import { Card } from "./components/Card";
 
-const ListOfProgramsPageComponent = ({dispatch,loading,hasErrors,redirect,programs }) => {
+const ListOfProgramsPageComponent = ({
+  dispatch,
+  loading,
+  hasErrors,
+  redirect,
+  programs,
+}) => {
+  useEffect(() => {
+    dispatch(getProgramsThunk());
+  }, [redirect, dispatch]);
 
-    useEffect(() => {
-      dispatch(getProgramsThunk());
-    }, [redirect,dispatch]);
+  const handleDelete = (id) => {
+    dispatch(deleteProgramByIdThunk(id));
+  };
 
-    const handleDelete = (id) => {
-      dispatch(deleteProgramByIdThunk(id))
-    }
+  const handleEdit = (id) => {
+    console.log("editing... " + id);
+    dispatch(getProgramByIdThunk(id));
+    
+  };
 
-    const handleEdit = (id) => {
-      console.log("editing... " + id)
-    }
-
-
-    const renderPrograms = () => {
-      if (loading) return <p>Loading Programs...</p>
-      if (hasErrors) return <p>Unable to display Programs.</p>
-
-      return programs && programs.map(program => <Card key={program.id} name = {program.name} id = {program.id} handleDelete={handleDelete}
-      handleEdit = {handleEdit}/>)
-    }
-
+  const renderPrograms = () => {
+    if (loading) return <p>Loading Programs...</p>;
+    if (hasErrors) return <p>Unable to display Programs.</p>;
+    
     return (
-      <div>
-        {renderPrograms()}
-      </div>
+      programs &&
+      programs.map((program) => (
+        <Card
+          key={program.id}
+          name={program.name}
+          id={program.id}
+          handleDelete={handleDelete}
+          handleEdit={handleEdit}
+        />
+      ))
     );
   };
-  
-  const mapStateToProps = state => ({
-    programs: state.programReducer.programs,
-    loading: state.programReducer.loading,
-    hasErrors: state.programReducer.hasErrors,
-    redirect: state.programReducer.redirect,
-  });
 
+  return <div>{renderPrograms()}</div>;
+};
 
-  export default connect(mapStateToProps)(ListOfProgramsPageComponent);
+const mapStateToProps = (state) => ({
+  programs: state.programReducer.programs,
+  loading: state.programReducer.loading,
+  hasErrors: state.programReducer.hasErrors,
+  redirect: state.programReducer.redirect,
+});
+
+export default connect(mapStateToProps)(ListOfProgramsPageComponent);

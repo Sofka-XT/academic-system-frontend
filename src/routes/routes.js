@@ -20,8 +20,8 @@ export const routesApp = [
         component: <HomePageComponent />,
       },
       {
-        path: 'edit',
-        name: 'edit',
+        path: 'programs/editProgram',
+        name: 'editProgram',
         component: <EditionProgramPage />,
       },
       {
