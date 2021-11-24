@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useFieldArray } from 'react-hook-form';
-
+import './categoryFormComponent.css';
 export const CategoryFormComponet = ({
   register,
   control,
@@ -20,34 +20,33 @@ export const CategoryFormComponet = ({
     <>
       {fields.map((field, index) => {
         return (
-          <div key={field.id} className="">
-            <div className="form-row">
-              <div class="form-group col-md-6">
-                <label htmlFor="">Nombre Categoria</label>
-                <input
-                  className="form-control"
-                  {...register(`categories[${index}].name`)}
-                />
-              </div>
-
-              {/* <div class="form-group col-md-6"></div> */}
-
-              <div class="form-group col-md-6">
-                <label htmlFor="">Tipo</label>
-
-                <select
-                  className="form-control"
-                  name="type"
-                  id=""
-                  {...register(`categories[${index}].type`)}
-                >
-                  <option value="0">Roja</option>
-                  <option value="1">Amarrilla</option>
-                  <option value="2">verde</option>
-                </select>
-              </div>
+          <div key={field.id} className="container_category m-3">
+            <div class="form-group ">
+              <label htmlFor="">Nombre Categoria</label>
+              <input
+                className="form-control"
+                {...register(`categories[${index}].name`)}
+              />
             </div>
-            <div class="form-group col-md-6">
+
+            {/* <div class="form-group col-md-6"></div> */}
+
+            <div class="form-group ">
+              <label htmlFor="">Tipo</label>
+
+              <select
+                className="form-control"
+                name="type"
+                id=""
+                {...register(`categories[${index}].type`)}
+              >
+                <option value="0">Roja</option>
+                <option value="1">Amarrilla</option>
+                <option value="2">verde</option>
+              </select>
+            </div>
+
+            <div class="form-group ">
               <label htmlFor="">condicion</label>
 
               <select
@@ -62,7 +61,7 @@ export const CategoryFormComponet = ({
               </select>
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group ">
               <label htmlFor="">Porcentaje</label>
 
               <input
@@ -72,10 +71,16 @@ export const CategoryFormComponet = ({
               />
             </div>
 
-            <input
-              type="text"
-              {...register(`categories[${index}].feedback.name`)}
-            />
+            <div class="form-group col-md-6">
+              <label htmlFor="">FeedBack name</label>
+
+              <input
+                type="text"
+                className="form-control"
+                {...register(`categories[${index}].feedback.name`)}
+              />
+            </div>
+
             <button type="button" onClick={() => remove(index)}></button>
           </div>
         );
