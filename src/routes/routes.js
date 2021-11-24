@@ -79,7 +79,7 @@ export const studentRoutesApp = [
 	{
 		path: '/dashboard/student',
 		name: 'DashBoard',
-		component: <DashBoardStudentComponent />,
+		component: <DashBoardApprenticeComponent></DashBoardApprenticeComponent>,
 		child: [
 			{
 				path: 'logout',

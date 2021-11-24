@@ -26,8 +26,9 @@ export const SideBarApprenticeComponent = () => {
     <aside className="sideBar">
       <nav className="sideBar_menu flex_column_center">
         <ul className="links">
-          <NavLink className="link" activeClassName="active" end to="logout">LOG OUT</NavLink>
           <NavLink className="link" activeClassName="active" end to="activetraining">ACTIVE TRAINING</NavLink>
+          <NavLink className="link" activeClassName="active" end to="logout">LOG OUT</NavLink>
+
         </ul>
       </nav>
     </aside>

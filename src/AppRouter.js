@@ -18,8 +18,6 @@ export const AppRouter = () => {
 							path={route.path}
 							element={<PrivateRoutes>{route.component}</PrivateRoutes>}
 						>
-							{console.log(route.child)}
-
 							{route.child &&
 								route.child.map((element, index) => (
 									<Route
@@ -33,23 +31,13 @@ export const AppRouter = () => {
 					);
 				})}
 
-<<<<<<< HEAD
-				{studentRoutesApp.map((route, index) => {
-=======
 				{apprenticeRoutesApp.map((route, index) => {
->>>>>>> 545677851e281cfb0b2cd6e534aefbb3a585fcc3
 					return (
 						<Route
 							key={index}
 							path={route.path}
-<<<<<<< HEAD
-							element={<PrivateStudentRoutes>{route.component}</PrivateStudentRoutes>}
-=======
 							element={<PrivateApprenticeRoutes>{route.component}</PrivateApprenticeRoutes>}
->>>>>>> 545677851e281cfb0b2cd6e534aefbb3a585fcc3
 						>
-							{console.log(route.child)}
-
 							{route.child &&
 								route.child.map((element, index) => (
 									<Route
