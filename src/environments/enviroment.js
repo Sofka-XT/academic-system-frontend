@@ -10,5 +10,4 @@ export const enviroment = {
 
     messagingSenderId: '27962594566',
   },
-  courseAPIurl: 'http://localhost:8080'
 };
