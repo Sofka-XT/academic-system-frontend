@@ -21,14 +21,13 @@ export const SideBarCoachComponent = () => {
   );
 };
 
-export const SideBarStudentComponent = () => {
+export const SideBarApprenticeComponent = () => {
   return (
     <aside className="sideBar">
       <nav className="sideBar_menu flex_column_center">
-        <ul>
-          <NavLink to="logout">Log Out Page</NavLink>
+        <ul className="links">
+          <NavLink className="link" activeClassName="active" end to="logout">LOG OUT</NavLink>
           <NavLink className="link" activeClassName="active" end to="activetraining">ACTIVE TRAINING</NavLink>
-          <NavLink to="exemple"> Otra Ruta de Estudiante </NavLink>
         </ul>
       </nav>
     </aside>

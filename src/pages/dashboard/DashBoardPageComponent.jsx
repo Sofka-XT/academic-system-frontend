@@ -1,4 +1,4 @@
-import { SideBarCoachComponent, SideBarStudentComponent } from './components/sideBar/SideBarComponent';
+import { SideBarCoachComponent, SideBarApprenticeComponent } from './components/sideBar/SideBarComponent';
 import Navbar from '../dashboard/components/Navbar'
 import { Outlet } from 'react-router-dom';
 import './DashBoardPageComponent.css';
@@ -26,11 +26,11 @@ export const DashBoardPageComponent = () => {
 	);
 };
 
-export const DashBoardStudentComponent = () => {
+export const DashBoardApprenticeComponent = () => {
 	return (
 		<div className="dashboard">
 			<Navbar />
-			<SideBarStudentComponent />
+			<SideBarApprenticeComponent />
 			<div className="container_dashboard">
 				<Outlet />
 			</div>

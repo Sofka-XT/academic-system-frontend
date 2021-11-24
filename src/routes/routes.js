@@ -1,6 +1,6 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
-import { DashBoardPageComponent, DashBoardStudentComponent } from './../pages/dashboard/DashBoardPageComponent';
 import Welcome from '../pages/dashboard/components/welcome/Welcome.jsx'
+import { DashBoardPageComponent, DashBoardApprenticeComponent } from './../pages/dashboard/DashBoardPageComponent';
 
 export const routesApp = [
 
@@ -53,12 +53,12 @@ export const routesApp = [
 	}
 ];
 
-export const studentRoutesApp = [
+export const apprenticeRoutesApp = [
 	
 	{
-		path: '/dashboard/student',
+		path: '/dashboard/apprentice',
 		name: 'DashBoard',
-		component: <DashBoardStudentComponent />,
+		component: <DashBoardApprenticeComponent />,
 		child: [
 			{
 				path: 'logout',
@@ -69,11 +69,6 @@ export const studentRoutesApp = [
 				path: 'activetraining',
 				name: 'Active Training',
 				component: <h1>Active Training</h1>,
-			},
-			{
-				path: 'exemple',
-				name: 'Otra Ruta',
-				component: <h1>Otra Ruta de Estudiante</h1>,
 			}
 		],
 	}
