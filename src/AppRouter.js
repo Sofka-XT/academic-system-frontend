@@ -1,5 +1,5 @@
 import { Routes, Route, HashRouter } from 'react-router-dom';
-import { LoginPageComponent } from './pages/login/LoginPageComponent';
+import LoginPageComponent  from './pages/login/LoginPageComponent';
 import PrivateRoutes from './routes/PrivateRoutes';
 import PrivateStudentRoutes from './routes/PrivateStudentRoutes';
 import { routesApp, studentRoutesApp } from './routes/routes';
