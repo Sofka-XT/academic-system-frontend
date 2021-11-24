@@ -21,7 +21,9 @@ export function postCourse(course){
 }
 
 export function deleteCourseById(id){
-    return fetch(`${URL_BASE}/course/delete/${id}`,
+    console.log(id)
+
+     return fetch(`${URL_BASE}/course/delete/${id}`,
                 {
                     method: 'DELETE',
                     mode: 'cors',

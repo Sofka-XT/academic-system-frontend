@@ -4,14 +4,19 @@ import { connect } from 'react-redux'
 import './components/CourseDetailComponent.css'
 import DeleteButtonComponent from './components/DeleteButtonComponent'
 import EditButtonComponent from './components/EditButtonComponent'
+import { useEffect } from 'react'
 
 
 const CourseDetail = ({courses}) => {
     const params = useParams()
 
-    const course = courses.filter((item)=>item.id===params.courseid)[0]
+    useEffect(() => {
 
+        course = courses.filter((item)=>item.id===params.courseid)[0]
+        
+    }, [courses])
 
+    let course = courses.filter((item)=>item.id===params.courseid)[0]
 
     return (
         <div className="contenedor">
@@ -25,11 +30,11 @@ const CourseDetail = ({courses}) => {
             <EditButtonComponent id={course.id} />
             </div>
 		
-			<p>{course.categories.map((categorie)=>{
+			<p>{course.categories?.map((categorie)=>{
 				return <div className="">
                     <h3>Categoria: {categorie.name}</h3>
                     <h4>Rules:</h4>
-                    {categorie.rules.map((rule)=>{
+                    {categorie.rules?.map((rule)=>{
                         return <div className="sidebar">
                             <p>Tipo: {rule.type}</p>
                             <p>Condicion: {rule.condition}{rule.average}</p>

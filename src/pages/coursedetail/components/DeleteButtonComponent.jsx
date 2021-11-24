@@ -1,13 +1,14 @@
 import React from 'react'
-import { deleteCourseById } from '../../../api/courses/coursesAPI'
+import { deleteCourse } from '../../../thunkAction/coursesThunk'
 import { connect } from 'react-redux'
 import { useNavigate } from 'react-router'
 import swal from 'sweetalert'
+import { useAppDispatch } from '../../../state/store.hook';
 
-const DeleteButtonComponent = (id) =>{
+export default function DeleteButtonComponent ({id}) {
 
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
-
     const handleDelete=()=>{
         swal({
             title: "Do you really want to delete this ?",
@@ -16,12 +17,15 @@ const DeleteButtonComponent = (id) =>{
             buttons: ["Cancel", "Confirm"]
           }).then((confirmed) => {
             if (confirmed) {
-                console.log(id)
-                navigate("/dashboard/courseslist")
+                dispatch(deleteCourse(id))
+                .then(
               swal({
                 text: "The course has been deleted successfully",
-                icon: "success"
-              })
+                icon: "success",
+                buttons: ["Confirm"]
+              })).then((confirmed) => {
+                if (confirmed) {
+                navigate("/dashboard/courseslist")}})
             }
           })
        /*  dispatch(deleteCourseById(id))
@@ -34,7 +38,5 @@ const DeleteButtonComponent = (id) =>{
         </button>
     )
 }
-const mapStateToProps = state => ({
-})
-export default connect(mapStateToProps)(DeleteButtonComponent)
+
 
