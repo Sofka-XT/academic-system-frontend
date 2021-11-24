@@ -1,4 +1,4 @@
-const URL_BASE = 'https://vast-everglades-55825.herokuapp.com';
+const URL_BASE = 'http://localhost:8080';
 
 export const LOADING = 'LOADING'
 export const LOADED_SUCCESS = 'LOADED_SUCCESS'
@@ -19,7 +19,7 @@ export function fetchPrograms() {
     return async () => {
         try {
             const response = await fetch(
-                `${URL_BASE}/${ruta-de-obtener-programas}`
+                `${URL_BASE}/program/getAll`
             )
             return await response.json()
         } catch(e){
