@@ -1,19 +1,29 @@
-import React from 'react';
-import { SideBarComponent } from './components/sideBar/SideBarComponent';
+import { SideBarCoachComponent, SideBarStudentComponent } from './components/sideBar/SideBarComponent';
+import Navbar from '../dashboard/components/Navbar'
 import { Outlet } from 'react-router-dom';
 import './DashBoardPageComponent.css';
-import Navbar from './components/Navbar';
+import React from 'react';
+
 export const DashBoardPageComponent = () => {
 	return (
-		<div className="">
-			<Navbar></Navbar>
-			<div className = "dashboard">
-				<SideBarComponent/>
-				<div className="container_dashboard">
-					<Outlet/>
-				</div>	
+		<div className="dashboard">
+			<Navbar />
+			<SideBarCoachComponent />
+			<div className="container_dashboard">
+				<Outlet />
 			</div>
-			
+		</div>
+	);
+};
+
+export const DashBoardStudentComponent = () => {
+	return (
+		<div className="dashboard">
+			<Navbar />
+			<SideBarStudentComponent />
+			<div className="container_dashboard">
+				<Outlet />
+			</div>
 		</div>
 	);
 };

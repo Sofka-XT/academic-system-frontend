@@ -1,5 +1,6 @@
 .sideBar{
-  background-color: rgb(33, 17, 126);
+  background-color: var(--main-color);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.445);
   width: 20%;
   height: 100vh;
   position: fixed;
@@ -8,9 +9,22 @@
 }
 
 .links{
-  margin-top: 65%;
+  margin-top: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 47px;
+  width: 100%;
 }
 
-.links .link{
-  color: aliceblue;
+.link{
+  color: var(--white-color);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding-left: 35px;
+}
+
+.active {
+  padding: 20px;
+  background-color: var(--third-color); 
 }
