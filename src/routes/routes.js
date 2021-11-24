@@ -63,11 +63,6 @@ export const studentRoutesApp = [
 				path: 'activetraining',
 				name: 'Active Training',
 				component: <h1>Active Training</h1>,
-			},
-			{
-				path: 'exemple',
-				name: 'Otra Ruta',
-				component: <h1>Otra Ruta de Estudiante</h1>,
 			}
 		],
 	}
