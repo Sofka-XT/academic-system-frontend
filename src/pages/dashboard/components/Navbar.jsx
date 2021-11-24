@@ -11,14 +11,14 @@ const ToggleButton = () => {
 
 function Navbar({ user }) {
     return (
-        <div className="Navbar">
+        <div className="Navbar" id = "Navbar">
             <img src="https://i.imgur.com/kmc2s6p.png" className="sofka-logo"></img>
-            <div className="right-side">
-                <div className="role-container">
+            <div className="right-side" id="right-side">
+                <div className="role-container" id="role-container">
                     <h6>{user.role}</h6>
                 </div>
                 <h5>{user.name}</h5>
-                <img className="profile-picture" src={user.photoUrl}></img>
+                <img className="profile-picture" id="profile-picture" src={user.photoUrl}></img>
             </div>
         </div>
     )

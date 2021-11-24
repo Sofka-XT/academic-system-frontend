@@ -1,5 +1,4 @@
 .grid-container{
-    margin-top: 20px;
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
     grid-template-rows: auto;

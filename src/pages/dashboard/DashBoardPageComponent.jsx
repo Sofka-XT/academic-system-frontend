@@ -2,24 +2,18 @@ import { SideBarCoachComponent, SideBarApprenticeComponent } from './components/
 import Navbar from '../dashboard/components/Navbar'
 import { Outlet } from 'react-router-dom';
 import './DashBoardPageComponent.css';
-import React, { useEffect } from 'react';
-import { signInwWithLocalStorage } from '../../thunkAction/authThunk';
+import React from 'react';
 import { useAppDispatch } from '../../state/store.hook';
 
 export const DashBoardPageComponent = () => {
-
+	
 	const dispatch = useAppDispatch();
 
-	useEffect(() => {
-		console.log("Use effect")
-		dispatch(signInwWithLocalStorage());
-	}, [])
-
 	return (
-		<div className="dashboard">
+		<div className="dashboard" id = "dashboard">
 			<Navbar />
 			<SideBarCoachComponent />
-			<div className="container_dashboard">
+			<div className="container_dashboard" id = "container_dashboard">
 				<Outlet />
 			</div>
 		</div>
@@ -28,10 +22,10 @@ export const DashBoardPageComponent = () => {
 
 export const DashBoardApprenticeComponent = () => {
 	return (
-		<div className="dashboard">
+		<div className="dashboard" id = "dashboard">
 			<Navbar />
 			<SideBarApprenticeComponent />
-			<div className="container_dashboard">
+			<div className="container_dashboard" id ="container_dashboard">
 				<Outlet />
 			</div>
 		</div>

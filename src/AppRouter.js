@@ -18,8 +18,6 @@ export const AppRouter = () => {
 							path={route.path}
 							element={<PrivateRoutes>{route.component}</PrivateRoutes>}
 						>
-							{console.log(route.child)}
-
 							{route.child &&
 								route.child.map((element, index) => (
 									<Route
@@ -40,8 +38,6 @@ export const AppRouter = () => {
 							path={route.path}
 							element={<PrivateApprenticeRoutes>{route.component}</PrivateApprenticeRoutes>}
 						>
-							{console.log(route.child)}
-
 							{route.child &&
 								route.child.map((element, index) => (
 									<Route
