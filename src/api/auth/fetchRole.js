@@ -23,7 +23,7 @@ const fetchRole = async (response) => {
       id : response.user.uid,
       name : response.user.displayName,
       photoUrl : response.user.photoURL,
-      role: "STUDENT"
+      role: "APPRENTICE"
     }
     window.localStorage.setItem(
       'loggedUser', JSON.stringify(data)

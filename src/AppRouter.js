@@ -1,8 +1,8 @@
 import { Routes, Route, HashRouter } from 'react-router-dom';
-import { LoginPageComponent } from './pages/login/LoginPageComponent';
+import LoginPageComponent  from './pages/login/LoginPageComponent';
+import PrivateApprenticeRoutes from './routes/PrivateApprenticeRoutes';
 import PrivateRoutes from './routes/PrivateRoutes';
-import PrivateStudentRoutes from './routes/PrivateStudentRoutes';
-import { routesApp, studentRoutesApp } from './routes/routes';
+import { apprenticeRoutesApp, routesApp} from './routes/routes';
 
 export const AppRouter = () => {
 	return (
@@ -33,12 +33,20 @@ export const AppRouter = () => {
 					);
 				})}
 
+<<<<<<< HEAD
 				{studentRoutesApp.map((route, index) => {
+=======
+				{apprenticeRoutesApp.map((route, index) => {
+>>>>>>> 545677851e281cfb0b2cd6e534aefbb3a585fcc3
 					return (
 						<Route
 							key={index}
 							path={route.path}
+<<<<<<< HEAD
 							element={<PrivateStudentRoutes>{route.component}</PrivateStudentRoutes>}
+=======
+							element={<PrivateApprenticeRoutes>{route.component}</PrivateApprenticeRoutes>}
+>>>>>>> 545677851e281cfb0b2cd6e534aefbb3a585fcc3
 						>
 							{console.log(route.child)}
 
