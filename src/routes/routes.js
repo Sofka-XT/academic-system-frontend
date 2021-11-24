@@ -18,11 +18,11 @@ export const routesApp = [
         name: 'casa',
         component: <HomePageComponent />,
       },
+      {
+        path: 'create/course',
+        name: 'courseCreate',
+        component: <CreateCoursePageComponent />,
+      },
     ],
-  },
-  {
-    path: '/create/course',
-    name: 'courseCreate',
-    component: <CreateCoursePageComponent />,
   },
 ];

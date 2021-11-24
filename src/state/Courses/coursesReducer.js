@@ -30,7 +30,8 @@ export const coursesReducer = createSlice({
 
     builder.addCase(addCourse.fulfilled, (state, action) => {
       state.loading = false;
-      state.courses = state.courses.push(action.payload);
+      console.log(action);
+      state.courses = [...state.courses, action.payload];
     });
     builder.addCase(addCourse.pending, (state) => {
       state.loading = true;

@@ -6,7 +6,7 @@ export const DashBoardPageComponent = () => {
   return (
     <div className="">
       <SideBarComponent />
-      <div className="container_dashboard">
+      <div className="container_dashboard flex_row_center ">
         <Outlet />
       </div>
     </div>

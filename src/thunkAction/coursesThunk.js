@@ -21,7 +21,7 @@ export const putCourse = createAsyncThunk('courses/putCourse', async () => {
   return response;
 });
 
-export const addCourse = createAsyncThunk('courses/addCourse', async () => {
+export const addCourse = createAsyncThunk('courses/addCourse', async (data) => {
   const response = await 'function api';
-  return response;
+  return data;
 });
