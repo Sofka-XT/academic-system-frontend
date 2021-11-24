@@ -11,10 +11,8 @@ export const Card = ({id,name,dispatch, handleDelete,handleEdit}) => {
             <div className="card-body">
                 <h4>{name}</h4>  
             <div>
-              <h1>{name}</h1>  
-              <button onClick={() => handleDelete(id)}>Delete</button>
-              <Link to="editProgram"> <button onClick={() => handleEdit(id)}>Edit</button></Link>
-                <DeleteButton idData={id} dispatch={dispatch}/>
+              <Link to="editProgram"> <button className="button-edit" onClick={() => handleEdit(id)}>Edit</button></Link>
+              <DeleteButton idData={id} dispatch={dispatch}/>
             </div>
             </div>
         </div>
