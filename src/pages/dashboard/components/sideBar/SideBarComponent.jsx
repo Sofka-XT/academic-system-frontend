@@ -5,8 +5,8 @@ import './SideBarComponent.css';
 
 export const SideBarCoachComponent = () => {
   return (
-    <aside className="sideBar">
-      <nav className="sideBar_menu flex_column_center">
+    <aside className="sideBar" id = "sideBar">
+      <nav className="sideBar_menu flex_column_center" id="sideBar_menu flex_column_center">
         <ul className="links">
 
           {coachLinks && coachLinks.map((data, index)=>{

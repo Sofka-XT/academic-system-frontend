@@ -2,9 +2,6 @@ import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 const PrivateRoutes = ({ user, children }) => {
-
-	console.log("LLEGA EL USUARIO : ", user)
-
 	try {
 		if(user.role!=="COACH"){
 			return <Navigate to="/dashboard/apprentice" replace={true} />;
@@ -15,7 +12,6 @@ const PrivateRoutes = ({ user, children }) => {
 	}
 	
 };
-
 
 const mapState = (state) => ({
 	user: state.authReducer.user,
