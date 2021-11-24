@@ -27,9 +27,4 @@ export const routesApp = [
       }
     ],
   },
-  {
-    path: '/prueba',
-    name: 'Prueba',
-    component: <ListaTrainingsComponent />,
-  }
 ];
