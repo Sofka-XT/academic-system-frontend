@@ -1,8 +1,5 @@
-import { CourseDetail } from '../pages/coursedetail/CourseDetail';
-import CoursesListComponent from '../pages/courseslist/CoursesListComponent';
 import { HomePageComponent } from '../pages/home/HomePageComponent';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
-import { CreateCoursePageComponent } from './../pages/createCourse/CreateCoursePageComponent';
 
 export const routesApp = [
   {
@@ -19,21 +16,6 @@ export const routesApp = [
         path: 'casa',
         name: 'casa',
         component: <HomePageComponent />,
-      },
-      {
-        path: 'create/course',
-        name: 'courseCreate',
-        component: <CreateCoursePageComponent />,
-      },
-      {
-        path: 'courseslist',
-        name: 'courseslist',
-        component: <CoursesListComponent />,
-      },
-      {
-        path: 'coursedetail/:courseid',
-        name: 'coursedetail',
-        component: <CourseDetail />,
       },
     ],
   },
