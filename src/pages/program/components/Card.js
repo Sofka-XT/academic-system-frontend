@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { DeleteButton } from "./DeleteButton";
 
 export const Card = ({id,name,handleDelete,handleEdit}) => {
 
@@ -11,7 +12,7 @@ export const Card = ({id,name,handleDelete,handleEdit}) => {
                 <h4>{name}</h4>  
             <div>
                 <Link to={`/dashboard/editProgram/`}><button className="button-edit">Edit</button></Link>
-                <button className="button-delete" onClick={() => handleDelete(id)}>Delete</button>
+                <DeleteButton idData={id}/>
             </div>
             </div>
         </div>
