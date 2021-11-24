@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { apprenticeLinks, coachLinks } from '../NavigateLinks/NavigateLinks';
 import './SideBarComponent.css';
 
 export const SideBarCoachComponent = () => {
@@ -7,14 +8,15 @@ export const SideBarCoachComponent = () => {
     <aside className="sideBar">
       <nav className="sideBar_menu flex_column_center">
         <ul className="links">
-          <NavLink className="link" activeClassName="active" end to="home">HOME</NavLink>
-          <NavLink className="link" activeClassName="active" end to="trainingstory">TRAINING HISTORY</NavLink>
-          <NavLink className="link" activeClassName="active" end to="programstory">PROGRMA HISTORY</NavLink>
-          <NavLink className="link" activeClassName="active" end to="activeprogram">ACTIVE PROGRAMS</NavLink>
-          <NavLink className="link" activeClassName="active" end to="activetraining">ACTIVE TRAINING</NavLink>
-          <NavLink className="link" activeClassName="active" end to="program">CREATE PROGRAM</NavLink>
-          <NavLink className="link" activeClassName="active" end to="training">CREATE TRAINING</NavLink>
-          <NavLink className="link" activeClassName="active" end to="logout">LOG OUT</NavLink>
+
+          {coachLinks && coachLinks.map((data, index)=>{
+            return (
+              <NavLink key={index} className="link" 
+              activeClassName="active" 
+              end to={data.path}> {data.name.toUpperCase()} </NavLink>
+            )
+          })}
+
         </ul>
       </nav>
     </aside>
@@ -26,8 +28,14 @@ export const SideBarApprenticeComponent = () => {
     <aside className="sideBar">
       <nav className="sideBar_menu flex_column_center">
         <ul className="links">
-          <NavLink className="link" activeClassName="active" end to="logout">LOG OUT</NavLink>
-          <NavLink className="link" activeClassName="active" end to="activetraining">ACTIVE TRAINING</NavLink>
+
+        {apprenticeLinks && apprenticeLinks.map((data, index)=>{
+            return (
+              <NavLink key={index} className="link" 
+              activeClassName="active" 
+              end to={data.path}> {data.name.toUpperCase()} </NavLink>
+            )
+          })}
         </ul>
       </nav>
     </aside>
