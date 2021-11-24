@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './SideBarComponent.css';
 
@@ -31,7 +30,7 @@ export const SideBarStudentComponent = () => {
         <ul>
 			
           <Link to="logout">Log Out Page</Link> <br/> <br/>
-
+          <Link to="exemple"> Otra Ruta de Estudiante </Link>
         </ul>
       </nav>
     </aside>

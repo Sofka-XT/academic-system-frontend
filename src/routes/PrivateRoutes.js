@@ -2,13 +2,14 @@ import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 const PrivateRoutes = ({ user, children }) => {
-
-	console.log("EL USUARIO EN PRIVATE ROUTES: ", user)
-	if(!user){
-		return <Navigate to="/" replace={true} />;
+	try {
+		if(user.role!=="COACH"){
+			return <Navigate to="/dashboard/student" replace={true} />;
+		}
+		return children;
+	} catch (error) {
+		return <Navigate to="/dashboard/student" replace={true} />;
 	}
-
-	return children;
 	
 };
 
