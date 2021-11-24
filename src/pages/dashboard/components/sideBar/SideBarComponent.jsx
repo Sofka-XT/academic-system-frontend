@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './SideBarComponent.css';
 
-export const SideBarComponent = () => {
+export const SideBarCoachComponent = () => {
   return (
     <aside className="sideBar">
       <nav className="sideBar_menu flex_column_center">
@@ -16,6 +16,21 @@ export const SideBarComponent = () => {
 
           <Link to="program">Create Program</Link> <br/> <br/>
 
+        </ul>
+      </nav>
+    </aside>
+  );
+};
+
+
+export const SideBarStudentComponent = () => {
+  return (
+    <aside className="sideBar">
+      <nav className="sideBar_menu flex_column_center">
+        <ul>
+			
+          <Link to="logout">Log Out Page</Link> <br/> <br/>
+          <Link to="exemple"> Otra Ruta de Estudiante </Link>
         </ul>
       </nav>
     </aside>

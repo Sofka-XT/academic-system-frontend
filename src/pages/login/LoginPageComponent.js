@@ -6,9 +6,9 @@ export const LoginPageComponent = () => {
 
   return (
     <div>
-      <div class="bg-image"></div>
+      <div className="bg-image"></div>
  
-      <div class="bg-text">
+      <div className="bg-text">
         <img src="https://i.imgur.com/Tia8Vk2.png"/><br/><br/>
         <p>Bienvenidos al</p>
         <p>Centro de Gestión de SofkaU</p>
