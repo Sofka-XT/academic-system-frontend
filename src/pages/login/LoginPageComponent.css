@@ -40,7 +40,7 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    width: 28%;
+    width: 380px;
     padding:40px;
     text-align: center;
     box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
