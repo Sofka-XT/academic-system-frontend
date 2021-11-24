@@ -25,7 +25,7 @@ const ListOfProgramsPageComponent = ({dispatch,loading,hasErrors,redirect,progra
       if (hasErrors) return <p>Unable to display Programs.</p>
 
       return programs && programs.map(program => <Card key={program.id} name = {program.name} id = {program.id} handleDelete={handleDelete}
-      handleEdit = {handleEdit}/>)
+      handleEdit = {handleEdit} dispatch={dispatch}/>)
     }
 
     return (
