@@ -24,7 +24,7 @@ export const getProgramByIdApi = (id) => {
   })
 }
 
-export const putProgramByIdApi = (program) => {
+export const updateProgramApi = (program) => {
   return fetch(`http://localhost:3001/programs/updatePrograms`,
   {
       method: 'PUT',

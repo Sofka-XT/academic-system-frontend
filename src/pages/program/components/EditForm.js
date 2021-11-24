@@ -1,5 +1,3 @@
-import { putProgramByIdApi } from "../../../api/program/programApi";
-import React, { useState } from "react";
 import { CategoriesListProgram } from "./CategoriesListProgram";
 
 export const EditForm = ({ course, program }) => {
@@ -14,6 +12,7 @@ export const EditForm = ({ course, program }) => {
         <ul>
           {categories.map((category) => (
             <CategoriesListProgram
+              key={categories.categoryId}
               categories={categories}
               category={category}
               program={program}

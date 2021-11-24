@@ -1,7 +1,7 @@
 import {
   deleteProgramByIdApi,
   getProgramByIdApi,
-  putProgramByIdApi,
+  updateProgramApi,
   fetchProgramsApi,
 } from "../api/program/programApi";
 import { loading, failure, success } from "../state/Program/programAction";
@@ -44,14 +44,26 @@ export const getProgramByIdThunk = (id) => {
   };
 };
 
-export const putProgramThunk = (program) => {
+export const updateProgramThunk = (program) => {
   return async (dispatch) => {
     dispatch(loading());
     try {
-      await putProgramByIdApi(program);
+      await updateProgramApi(program);
       dispatch(success({ redirect: "/programs" }));
     } catch (error) {
       dispatch(failure());
     }
   };
 };
+
+// export const putProgramThunk = (program) => {
+//   return async (dispatch) => {
+//     dispatch(loading());
+//     try {
+//       await putProgramByIdApi(program);
+//       dispatch(success({ redirect: "/programs" }));
+//     } catch (error) {
+//       dispatch(failure());
+//     }
+//   };
+// };
