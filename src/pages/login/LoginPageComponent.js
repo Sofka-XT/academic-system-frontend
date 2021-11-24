@@ -13,7 +13,7 @@ const LoginPageComponent = ( { user }) => {
 
   useEffect(() => {
     if (user) {
-      navigate('/dashboard')
+      navigate('/dashboard/home')
     }
 	}, [user, navigate])
 
