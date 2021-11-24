@@ -1,5 +1,5 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
-import { DashBoardPageComponent, DashBoardStudentComponent } from './../pages/dashboard/DashBoardPageComponent';
+import { DashBoardPageComponent, DashBoardApprenticeComponent } from './../pages/dashboard/DashBoardPageComponent';
 
 export const routesApp = [
 
@@ -47,12 +47,12 @@ export const routesApp = [
 	}
 ];
 
-export const studentRoutesApp = [
+export const apprenticeRoutesApp = [
 	
 	{
-		path: '/dashboard/student',
+		path: '/dashboard/apprentice',
 		name: 'DashBoard',
-		component: <DashBoardStudentComponent />,
+		component: <DashBoardApprenticeComponent />,
 		child: [
 			{
 				path: 'logout',

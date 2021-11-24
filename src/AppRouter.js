@@ -1,8 +1,8 @@
 import { Routes, Route, HashRouter } from 'react-router-dom';
 import LoginPageComponent  from './pages/login/LoginPageComponent';
+import PrivateApprenticeRoutes from './routes/PrivateApprenticeRoutes';
 import PrivateRoutes from './routes/PrivateRoutes';
-import PrivateStudentRoutes from './routes/PrivateStudentRoutes';
-import { routesApp, studentRoutesApp } from './routes/routes';
+import { apprenticeRoutesApp, routesApp} from './routes/routes';
 
 export const AppRouter = () => {
 	return (
@@ -33,12 +33,12 @@ export const AppRouter = () => {
 					);
 				})}
 
-				{studentRoutesApp.map((route, index) => {
+				{apprenticeRoutesApp.map((route, index) => {
 					return (
 						<Route
 							key={index}
 							path={route.path}
-							element={<PrivateStudentRoutes>{route.component}</PrivateStudentRoutes>}
+							element={<PrivateApprenticeRoutes>{route.component}</PrivateApprenticeRoutes>}
 						>
 							{console.log(route.child)}
 
