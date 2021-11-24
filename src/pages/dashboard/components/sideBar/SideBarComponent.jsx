@@ -10,6 +10,9 @@ export const SideBarComponent = () => {
           <Link to="casa">Dashboard</Link>
           <Link to="create/course">Crear Curso</Link>
         </ul>
+        <ul>
+          <Link to="courseslist">Courses List</Link>
+        </ul>
       </nav>
     </aside>
   );

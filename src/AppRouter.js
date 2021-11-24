@@ -15,7 +15,6 @@ export const AppRouter = () => {
               path={route.path}
               element={<PrivateRoutes>{route.component}</PrivateRoutes>}
             >
-              {console.log(route.child)}
               {route.child &&
                 route.child.map((element, index) => (
                   <Route

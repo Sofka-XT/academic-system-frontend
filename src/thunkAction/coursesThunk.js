@@ -1,27 +1,39 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import {
+  fetchCourses,
+  postCourse,
+  deleteCourseById,
+  updateCourse,
+} from '../api/courses/coursesAPI';
 
 export const setAllCourses = createAsyncThunk(
   'courses/getAllCourses',
   async () => {
-    const response = await 'function api';
-    return response;
+    const response = await fetchCourses();
+    return response.json();
   }
 );
 
 export const deleteCourse = createAsyncThunk(
   'courses/deleteCourse',
-  async () => {
-    const response = await 'function api';
+  async (id) => {
+    const response = await deleteCourseById(id);
+    return response.json();
+  }
+);
+
+export const putCourse = createAsyncThunk(
+  'courses/putCourse',
+  async (course) => {
+    const response = await updateCourse(course);
     return response;
   }
 );
 
-export const putCourse = createAsyncThunk('courses/putCourse', async () => {
-  const response = await 'function api';
-  return response;
-});
-
-export const addCourse = createAsyncThunk('courses/addCourse', async (data) => {
-  const response = await 'function api';
-  return data;
-});
+export const addCourse = createAsyncThunk(
+  'courses/addCourse',
+  async (course) => {
+    const response = await postCourse(course);
+    return response.json();
+  }
+);

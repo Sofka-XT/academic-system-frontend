@@ -12,7 +12,7 @@ export const CourseFormComponent = () => {
     control,
     register,
     handleSubmit,
-    watch,
+
     formState: { errors },
   } = useForm();
 
@@ -23,7 +23,7 @@ export const CourseFormComponent = () => {
 
   return (
     <form className="container_form my-4" onSubmit={handleSubmit(onSubmit)}>
-      <div class="form-group">
+      <div className="form-group">
         <label htmlFor="">Nombre Curso</label>
         <input
           className="form-control"
