@@ -29,7 +29,7 @@ export default function Welcome() {
             <div className="cards-four">
                 <div>
                     <Link to="/dashboard/programstory">
-                        VER HISTÓRICO DE PROGRAMAS
+                        VER HISTÓRICO DE<br></br>TRAINING
                     </Link>
                 </div>
             </div>
