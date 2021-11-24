@@ -1,4 +1,5 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
+import Welcome from '../pages/dashboard/components/welcome/Welcome.jsx'
 import { DashBoardPageComponent, DashBoardApprenticeComponent } from './../pages/dashboard/DashBoardPageComponent';
 
 export const routesApp = [
@@ -9,6 +10,11 @@ export const routesApp = [
 		component: <DashBoardPageComponent />,
 		child: [
 			{
+				path: 'home',
+				name: 'Home',
+				component: <Welcome />,
+			},
+			{
 				path: 'logout',
 				name: 'Log Out',
 				component: <HomePageComponent />,
@@ -16,7 +22,7 @@ export const routesApp = [
 			{
 				path: 'trainingstory',
 				name: 'Training Story',
-				component: <h1>Training Story</h1>,
+				component: <h1>TRAINING STORY</h1>,
 			},
 			{
 				path: 'activeprogram',
