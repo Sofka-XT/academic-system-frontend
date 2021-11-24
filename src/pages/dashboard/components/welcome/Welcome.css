@@ -1,0 +1,52 @@
+.grid-container{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: auto;
+    height: 100vh;
+    cursor: pointer;
+}
+
+.cards-one{
+    background-image: url(https://i.imgur.com/aCMkkjA.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.cards-one div{
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cards-one a{
+    color: var(--white-color);
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cards-one:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #21117e7e;
+}
+
+.cards-one:hover{
+    background-image: url(https://media0.giphy.com/media/1rPXcTh9YjMcMuRal5/giphy.gif?cid=790b7611b69bafeb87551d49277cb377376b75ba3540c308&rid=giphy.gif&ct=g);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

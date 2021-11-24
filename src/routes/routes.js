@@ -1,5 +1,6 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
 import { DashBoardPageComponent, DashBoardStudentComponent } from './../pages/dashboard/DashBoardPageComponent';
+import Welcome from '../pages/dashboard/components/welcome/Welcome.jsx'
 
 export const routesApp = [
 
@@ -16,7 +17,7 @@ export const routesApp = [
 			{
 				path: 'trainingstory',
 				name: 'Training Story',
-				component: <h1>Training Story</h1>,
+				component: <Welcome />,
 			},
 			{
 				path: 'activeprograms',
