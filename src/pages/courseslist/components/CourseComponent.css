@@ -1,0 +1,24 @@
+.course{
+    background-color: #9aa0ca;
+  }
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: minmax(80px, auto);
+  gap: 1em;
+  padding: 1em;
+  
+  
+  
+}
+
+.grid :hover{
+  border: 1px solid #21117e
+}
+
+.grid-item{
+  background-color: #9aa0ca;
+  padding: 1em;
+  text-align: center;
+}

@@ -1,10 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { fetchCourses } from '../api/courses/coursesAPI';
 
 export const setAllCourses = createAsyncThunk(
   'courses/getAllCourses',
   async () => {
-    const response = await 'function api';
-    return response;
+    const response = await fetchCourses();
+    return response.json();
   }
 );
 

@@ -4,11 +4,11 @@ const URL_BASE=enviroment.courseAPIurl;
 
 
 export function fetchCourses(){
-    return await fetch(`${URL_BASE}/course/getAll`)
+    return fetch(`${URL_BASE}/course/getAll`)
 }
 
 export function postCourse(course){
-    return await fetch(`${URL_BASE}/course/create`,
+    return fetch(`${URL_BASE}/course/create`,
                 {
                     method: 'POST',
                     mode: 'cors',
@@ -21,7 +21,7 @@ export function postCourse(course){
 }
 
 export function deleteCourseById(id){
-    return await fetch(`${URL_BASE}/course/delete/${id}`,
+    return fetch(`${URL_BASE}/course/delete/${id}`,
                 {
                     method: 'DELETE',
                     mode: 'cors',
@@ -33,7 +33,7 @@ export function deleteCourseById(id){
 }
 
 export function updateCourse(course){
-    return await fetch(`${URL_BASE}/course/updatecourse`,
+    return fetch(`${URL_BASE}/course/updatecourse`,
                 {
                     method: 'PUT',
                     mode: 'cors',

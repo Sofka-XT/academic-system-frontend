@@ -12,5 +12,5 @@ export const enviroment = {
 
     appId: '1:20726481161:web:2ecf7641e976c04d3353d8',
   },
-  courseAPIurl: 'localhost:8080'
+  courseAPIurl: 'http://localhost:8080'
 };
