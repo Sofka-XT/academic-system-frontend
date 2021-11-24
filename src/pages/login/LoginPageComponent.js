@@ -16,7 +16,6 @@ export const LoginPageComponent = () => {
         <br/>
         <GoogleButtonComponent />
       </div>
-      {/*<GoogleButtonComponent />*/}
     </div>
   );
 };
