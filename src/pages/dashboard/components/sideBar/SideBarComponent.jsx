@@ -9,11 +9,11 @@ export const SideBarCoachComponent = () => {
         <ul className="links">
           <NavLink className="link" activeClassName="active" end to="logout">LOG OUT</NavLink>
           <NavLink className="link" activeClassName="active" end to="trainingstory">TRAINING HISTORY</NavLink>
-          {/* <NavLink className="link" activeClassName="active" end to="/">PROGRMA HISTORY</NavLink> Este no funciona */}
+          <NavLink className="link" activeClassName="active" end to="/">PROGRMA HISTORY</NavLink>
           <NavLink className="link" activeClassName="active" end to="activeprograms">ACTIVE PROGRAMS</NavLink>
-          {/* <NavLink className="link" activeClassName="active" end to="/">ACTIVE TRAINING</NavLink> */}
+          <NavLink className="link" activeClassName="active" end to="/">ACTIVE TRAINING</NavLink>
           <NavLink className="link" activeClassName="active" end to="program">CREATE PROGRAM</NavLink>
-          {/* <NavLink className="link" activeClassName="active" end to="/">CREATE TRAINING</NavLink> */}
+          <NavLink className="link" activeClassName="active" end to="/">CREATE TRAINING</NavLink>
         </ul>
       </nav>
     </aside>

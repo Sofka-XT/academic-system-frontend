@@ -23,13 +23,12 @@
   background-color: rgb(155, 160, 202);
   position: absolute;
   z-index: 1;
-  padding: 0 50px 0 0;
+  padding: 0 15px;
 }
 
 .Navbar h5{
   color: #fff;
-  margin-right: 30px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .Navbar h6{
@@ -38,9 +37,10 @@
 
 .right-side{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  gap: 15px;
   align-items: center;
-  width: 200px;
+  width: 30%;
 }
 
 .profile-picture{
@@ -48,7 +48,7 @@
   position: relative;
   height: 30px;
   width: 30px;
-  margin-right: 5%;
+  margin-right: 2%;
   margin-top: 1%;
 }
 
@@ -61,35 +61,13 @@
   display: grid;
   width: 100%;
   margin-top: 40px;
-  margin-left: 20%;
+  margin-left: 18%;
   height: 100vh;
-  background-color:bisque;
+  background-color: var(--white-color);
   background-size: cover;
 }
 
 .sofka-logo{
   top: -5px;
-  margin-left: 5%;
   position: relative;
-}
-
-/* Hamburguer button  */
-
-#hamburger button{
-  background: none;
-  border: 0;
-  cursor: pointer;
-  padding: 0;
-  width: 60px;
-  height: 60px;
-}
-
-#hamburger button span{
-  border-radius: 5px;
-  background: white;
-  display: block;
-  width: 60%;
-  margin: 5px auto;
-  height: 2px;
-
 }
