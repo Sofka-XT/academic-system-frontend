@@ -2,34 +2,22 @@ import { setAllCourses } from "../../thunkAction/coursesThunk";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import './components/CourseComponent.css'
-import { useNavigate } from "react-router";
+import { Pager } from "./components/Pager";
+
+import RenderCourses from "./components/RenderCourses";
 
 
-const CoursesListComponent = ({dispatch,courses}) => {
+const CoursesListComponent = ({dispatch,courses,loading, hasError}) => {
 
     useEffect(() => {
         dispatch(setAllCourses())
         }
     , [dispatch])
 
-    const navigate = useNavigate();
-
-
-    const goToDetail=(id)=>{
-        navigate(`/dashboard/coursedetail/${id}`)
-    }
-
-    const renderItems = (items) => {
-        return <div className="grid">
-            {items.map(ele=><button onClick={()=>{goToDetail(ele.id)}} className="grid-item">{ele.name}</button>)}
-        </div>
-    }
-
     return (        
       <div>
-        <h1>Courses</h1>
-        {renderItems(courses)}
-        
+        <h1>Courses</h1> 
+        <Pager itemList={courses} loading={loading} hasErrors={hasError}/>     
       </div>
     )
   }

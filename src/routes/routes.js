@@ -1,4 +1,4 @@
-import { CourseDetail } from '../pages/coursedetail/CourseDetail';
+import { CourseDetail } from '../pages/coursedetail/CourseDetailComponent';
 import CoursesListComponent from '../pages/courseslist/CoursesListComponent';
 import { HomePageComponent } from '../pages/home/HomePageComponent';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';

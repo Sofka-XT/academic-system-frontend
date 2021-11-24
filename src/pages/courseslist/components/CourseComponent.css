@@ -14,11 +14,17 @@
 }
 
 .grid :hover{
-  border: 1px solid #21117e
+  background-color: #9aa0ca91;
 }
 
 .grid-item{
   background-color: #9aa0ca;
   padding: 1em;
   text-align: center;
+}
+
+.paginator-buttons{
+  margin:0 auto;
+  display: flex;
+  justify-content: center;
 }

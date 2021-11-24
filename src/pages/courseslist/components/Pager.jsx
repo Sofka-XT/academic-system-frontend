@@ -1,13 +1,14 @@
 import React from "react";
-import { Question } from "./Question";
 import { useState } from "react";
 import { CourseComponent } from "./CourseComponent";
+import RenderCourses from "./RenderCourses";
+import './CourseComponent.css'
 
 export const Pager= ({itemList,loading,hasErrors})=>{
 
     const [currentPage, setCurrentPage]=useState(1)
 
-    let paginatorProps=paginator(itemList,currentPage,10)
+    let paginatorProps=paginator(itemList,currentPage,30)
 
     function paginator(items, current_page, per_page_items) {
         let page = current_page || 1,
@@ -45,10 +46,12 @@ export const Pager= ({itemList,loading,hasErrors})=>{
     }
 
     return (<>
-    {renderItems(paginatorProps.data)}
+    <RenderCourses items={paginatorProps.data} />
+    <div className='paginator-buttons'>
     {paginatorProps.pre_page&&<button onClick={prevPage}>{paginatorProps.pre_page}</button>}
     <button disabled={true}>{paginatorProps.page}</button>
     {paginatorProps.next_page&&<button onClick={nextPage}>{paginatorProps.next_page}</button>}
+    </div>
     </>
     )
 }
