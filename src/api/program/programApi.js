@@ -29,3 +29,25 @@ export const postProgram = (data) => {
         }
     })
 }
+export const getProgramByIdApi = (id) => {
+  return fetch(`http://localhost:3001/programs/${id}`,
+  {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+}
+
+export const updateProgramApi = (program) => {
+  return fetch(`http://localhost:3001/programs/updatePrograms`,
+  {
+      method: 'PUT',
+      mode: 'cors',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(program)
+  })
+}

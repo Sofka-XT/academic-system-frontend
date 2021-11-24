@@ -3,6 +3,7 @@ import * as actions from './programAction';
 export const initialState = {
   programs: [],
   programCreate:[],
+  program: {},
   hasErrors: false,
   loading: false,
   redirect: null,
