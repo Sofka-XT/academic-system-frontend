@@ -15,7 +15,7 @@ const LoginPageComponent = ( { user }) => {
     if (user) {
       navigate('/dashboard')
     }
-	}, [user])
+	}, [user, navigate])
 
   useEffect(() => {
 		console.log("Use effect")

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-const PrivateStudentRoutes = ({ user, children }) => {
+const PrivateApprenticeRoutes = ({ user, children }) => {
 
 	try {
-		if( user.role!=="STUDENT"){
+		if( user.role!=="APPRENTICE"){
 			return <Navigate to="/dashboard" replace={true} />;
 		}
 		return children;
@@ -17,4 +17,4 @@ const PrivateStudentRoutes = ({ user, children }) => {
 const mapState = (state) => ({
 	user: state.authReducer.user,
 });
-export default connect(mapState)(PrivateStudentRoutes);
+export default connect(mapState)(PrivateApprenticeRoutes);
