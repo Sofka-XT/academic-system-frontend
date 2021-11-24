@@ -18,17 +18,15 @@ const LoginPageComponent = ( { user }) => {
 	}, [user, navigate])
 
   useEffect(() => {
-		console.log("Use effect")
 		dispatch(signInwWithLocalStorage());
-    console.log(user)
-	}, [])
+	}, [dispatch])
 
   return (
     <div>
       <div className="bg-image"></div>
  
       <div className="bg-text">
-        <img src="https://i.imgur.com/Tia8Vk2.png"/><br/><br/>
+        <img src="https://i.imgur.com/Tia8Vk2.png" alt="SofkaU logo"/><br/><br/>
         <p>Bienvenidos al</p>
         <p>Centro de Gestión de SofkaU</p>
         <br/><br/><br/><br/><br/>

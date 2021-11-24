@@ -12,7 +12,7 @@ export const SideBarCoachComponent = () => {
           {coachLinks && coachLinks.map((data, index)=>{
             return (
               <NavLink key={index} className="link" 
-              activeClassName="active" 
+              activeclassname="active" 
               end to={data.path}> {data.name.toUpperCase()} </NavLink>
             )
           })}
@@ -32,7 +32,7 @@ export const SideBarApprenticeComponent = () => {
         {apprenticeLinks && apprenticeLinks.map((data, index)=>{
             return (
               <NavLink key={index} className="link" 
-              activeClassName="active" 
+              activeclassname="active" 
               end to={data.path}> {data.name.toUpperCase()} </NavLink>
             )
           })}

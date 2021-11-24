@@ -3,11 +3,10 @@ import Navbar from '../dashboard/components/Navbar'
 import { Outlet } from 'react-router-dom';
 import './DashBoardPageComponent.css';
 import React from 'react';
-import { useAppDispatch } from '../../state/store.hook';
+
 
 export const DashBoardPageComponent = () => {
-	
-	const dispatch = useAppDispatch();
+
 
 	return (
 		<div className="dashboard" id = "dashboard">

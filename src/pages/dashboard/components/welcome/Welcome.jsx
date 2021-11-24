@@ -35,7 +35,7 @@ export default function Welcome() {
             </div>
             <div className="cards-five" id="cards-five">
                 <div>
-                    <Link end to="/dashboard/activetraining">
+                    <Link to="/dashboard/activetraining">
                         TRAINING ACTIVOS
                     </Link>
                 </div>
