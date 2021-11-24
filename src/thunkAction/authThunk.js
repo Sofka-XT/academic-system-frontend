@@ -15,3 +15,14 @@ export const loginWhitGoogle = createAsyncThunk(
 export const signOut = createAsyncThunk('auth/signOutStatus', async () => {
   return await signOutFirebase();
 });
+
+export const signInwWithLocalStorage = createAsyncThunk('auth/loginWhitGoogleStatus',
+  () => {
+    const loggedUserJson = window.localStorage.getItem('loggedUser')
+    if (loggedUserJson){
+      const user = JSON.parse(loggedUserJson)
+      return user;
+    }
+    return null;
+  }
+);

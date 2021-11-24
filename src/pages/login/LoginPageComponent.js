@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GoogleButtonComponent } from './componentes/GoogleButtonComponent';
 import '../login/LoginPageComponent.css';
+import { useAppDispatch } from '../../state/store.hook';
+import { signInwWithLocalStorage } from '../../thunkAction/authThunk';
+import { connect } from 'react-redux';
+import { useNavigate } from 'react-router';
 
-export const LoginPageComponent = () => {
+const LoginPageComponent = ( { user }) => {
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard')
+    }
+	}, [user])
+
+  useEffect(() => {
+		console.log("Use effect")
+		dispatch(signInwWithLocalStorage());
+    console.log(user)
+    if (user) {
+      navigate('/dashboard')
+    }
+	}, [])
 
   return (
     <div>
@@ -19,3 +41,9 @@ export const LoginPageComponent = () => {
     </div>
   );
 };
+
+
+const mapState = (state) => ({
+	user: state.authReducer.user,
+});
+export default connect(mapState)(LoginPageComponent);
