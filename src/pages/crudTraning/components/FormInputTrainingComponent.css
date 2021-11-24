@@ -189,5 +189,14 @@ main {
   padding: 15px;
 }
 
-.training__btn-upload button {
+.training__btn-upload {
+  background-color: red;
+}
+
+#training__div-file {
+}
+
+div #btn__upload-file {
+  background-color: yellow;
+  display: none;
 }

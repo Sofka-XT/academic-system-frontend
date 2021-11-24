@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useForm from "./../../../hooks/useForm";
+import CSVTableComponent from "./CSVTableComponent";
 
 import "./FormInputTrainingComponent.css";
 
 const LoginScreen = () => {
+  const inputFileRef = useRef(document.getElementById("btn__upload-file"));
+
   // const dispatch = useDispatch();
   // const { ui } = useSelector((state) => state);
   const [formValues, handleInputChange, resetFormValues] = useForm({
@@ -15,11 +18,29 @@ const LoginScreen = () => {
     coaches: [],
   });
 
+  const [tableState, setTableState] = useState(null);
+
   const { name, program, startingDate, apprentices, coaches } = formValues;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // dispatch(startLoginEmailAndPassword(email, password));
+  };
+
+  const handleUploadFile = (e) => {
+    inputFileRef.current.click();
+    // console.log(inputFile);
+  };
+
+  const handleInputFileChange = (e) => {
+    console.log(e.target.value);
+    Papa.parse(inputFileRef.current.files[0], {
+      delimiter: ",",
+      skipEmptyLines: true,
+      complete: (results) => {
+        setTableState({ header: results.data.slice(1), body: results.data[0] });
+      },
+    });
   };
 
   return (
@@ -137,16 +158,18 @@ const LoginScreen = () => {
               Subir archivo de aprendices
             </label>
             <input
+              id="btn__upload-file"
               type="file"
               name="apprentices"
               className="training__btn-upload"
               value={apprentices}
-              onChange={handleInputChange}
-              aria-label="Archivo"
+              onChange={handleInputFileChange}
             />
+            <button onClick={handleUploadFile}>Subir archivo</button>
           </div>
         </div>
       </form>
+      <CSVTableComponent data={tableState} />
     </div>
   );
 };
