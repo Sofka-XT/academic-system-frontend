@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import './Welcome.css'
 
 export default function Welcome() {
     return (
-        <div>
-            <h1>Hola</h1>
-            <h2>Mundo</h2>
-            <h3>Soy Santi</h3>
+        <div className="">
+            <div className=""></div>
+            <div className=""></div>
+            <div className=""></div>
+            <div className=""></div>
+            <div className=""></div>
         </div>
     )
 }

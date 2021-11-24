@@ -1,6 +1,7 @@
 .sideBar{
-  background-color: rgb(33, 17, 126);
-  width: 20%;
+  background-color: var(--main-color);
+  box-shadow: 10px 6px 16px 0px rgba(0, 0, 0, 0.267);
+  width: 18%;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -8,9 +9,31 @@
 }
 
 .links{
-  margin-top: 65%;
+  margin-top: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 47px;
+  width: 100%;
 }
 
-.links .link{
-  color: aliceblue;
+.link{
+  color: var(--white-color);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  padding-left: 35px;
+}
+
+.active {
+  padding: 15px;
+  background-color: var(--third-color); 
+}
+
+.role-container{
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 8px 30px;
+  border: 1px solid var(--white-color);
+  justify-content: center;
 }

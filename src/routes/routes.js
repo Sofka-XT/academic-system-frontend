@@ -1,5 +1,5 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
-import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
+import { DashBoardPageComponent, DashBoardStudentComponent } from './../pages/dashboard/DashBoardPageComponent';
 
 export const routesApp = [
 
@@ -28,6 +28,27 @@ export const routesApp = [
 				name: 'Create Program',
 				component: <h1>Create Program</h1>,
 			},
+		],
+	}
+];
+
+export const studentRoutesApp = [
+	
+	{
+		path: '/dashboard/student',
+		name: 'DashBoard',
+		component: <DashBoardStudentComponent />,
+		child: [
+			{
+				path: 'logout',
+				name: 'Log Out',
+				component: <HomePageComponent />,
+			},
+			{
+				path: 'exemple',
+				name: 'Otra Ruta',
+				component: <h1>Otra Ruta de Estudiante</h1>,
+			}
 		],
 	}
 ];
