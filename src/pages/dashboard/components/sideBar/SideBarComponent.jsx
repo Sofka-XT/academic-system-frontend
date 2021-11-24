@@ -4,17 +4,17 @@ import './SideBarComponent.css';
 
 export const SideBarCoachComponent = () => {
   return (
-    <aside className="sideBar">
-      <nav className="sideBar_menu flex_column_center">
+    <aside className="sideBar" id = "sideBar">
+      <nav className="sideBar_menu flex_column_center" id="sideBar_menu flex_column_center">
         <ul className="links">
-          <NavLink className="link" activeClassName="active" end to="home">HOME</NavLink>
-          <NavLink className="link" activeClassName="active" end to="trainingstory">TRAINING HISTORY</NavLink>
-          <NavLink className="link" activeClassName="active" end to="programstory">PROGRMA HISTORY</NavLink>
-          <NavLink className="link" activeClassName="active" end to="activeprogram">ACTIVE PROGRAMS</NavLink>
-          <NavLink className="link" activeClassName="active" end to="activetraining">ACTIVE TRAINING</NavLink>
-          <NavLink className="link" activeClassName="active" end to="program">CREATE PROGRAM</NavLink>
-          <NavLink className="link" activeClassName="active" end to="training">CREATE TRAINING</NavLink>
-          <NavLink className="link" activeClassName="active" end to="logout">LOG OUT</NavLink>
+          <NavLink className="link" id="link" activeClassName="active" end to="home">INICIO</NavLink>
+          <NavLink className="link" id="link" activeClassName="active" end to="programstory">HISTÓRICO DE PROGRAMAS</NavLink>
+          <NavLink className="link" id="link" activeClassName="active" end to="trainingstory">HISTÓRICO DE TRAINING</NavLink>
+          <NavLink className="link" id="link" activeClassName="active" end to="activeprogram">PROGRAMAS ACTIVOS</NavLink>
+          <NavLink className="link" id="link" activeClassName="active" end to="activetraining">TRAINING ACTIVOS</NavLink>
+          <NavLink className="link" id="link" activeClassName="active" end to="program">CREAR PROGRAMAS</NavLink>
+          <NavLink className="link" id="link" activeClassName="active" end to="training">CREAR TRAINING</NavLink>
+          <NavLink className="link" id="link" activeClassName="active" end to="logout">CERRAR SESIÓN</NavLink>
         </ul>
       </nav>
     </aside>
@@ -26,9 +26,8 @@ export const SideBarApprenticeComponent = () => {
     <aside className="sideBar">
       <nav className="sideBar_menu flex_column_center">
         <ul className="links">
-          <NavLink className="link" activeClassName="active" end to="activetraining">ACTIVE TRAINING</NavLink>
-          <NavLink className="link" activeClassName="active" end to="logout">LOG OUT</NavLink>
-
+          <NavLink className="link" id="link" activeClassName="active" end to="activetraining">TRAINING ACTIVOS</NavLink>
+          <NavLink className="link" id="link" activeClassName="active" end to="logout">CERRAR SESIÓN</NavLink>
         </ul>
       </nav>
     </aside>

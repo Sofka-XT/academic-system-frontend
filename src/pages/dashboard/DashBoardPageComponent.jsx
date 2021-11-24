@@ -10,10 +10,10 @@ export const DashBoardPageComponent = () => {
 	const dispatch = useAppDispatch();
 
 	return (
-		<div className="dashboard">
+		<div className="dashboard" id = "dashboard">
 			<Navbar />
 			<SideBarCoachComponent />
-			<div className="container_dashboard">
+			<div className="container_dashboard" id = "container_dashboard">
 				<Outlet />
 			</div>
 		</div>
@@ -22,10 +22,10 @@ export const DashBoardPageComponent = () => {
 
 export const DashBoardApprenticeComponent = () => {
 	return (
-		<div className="dashboard">
+		<div className="dashboard" id = "dashboard">
 			<Navbar />
 			<SideBarApprenticeComponent />
-			<div className="container_dashboard">
+			<div className="container_dashboard" id ="container_dashboard">
 				<Outlet />
 			</div>
 		</div>
