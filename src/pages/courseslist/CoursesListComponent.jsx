@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import './components/CourseComponent.css'
 import { Pager } from "./components/Pager";
 
-import RenderCourses from "./components/RenderCourses";
-
 
 const CoursesListComponent = ({dispatch,courses,loading, hasError}) => {
 

@@ -1,18 +1,20 @@
 import React from 'react'
 import './CourseComponent.css'
-import { useNavigate } from "react-router";
 import { connect } from "react-redux";
+import { CourseComponent } from './CourseComponent';
 
 function RenderCourses({items,loading,hasError}) {
-
-    const navigate = useNavigate()
 
     const renderCourses=()=>{
         if (loading) return <p>Loading courses...</p>
         if (hasError) return <p>Unable to display courses.</p>
-        return items.map(ele=><button onClick={()=>{
-            navigate(`/dashboard/coursedetail/${ele.id}`)}} 
-            className="grid-item">{ele.name}</button>)
+        if (items.length===0) return <p>There are no courses to display.</p>
+        
+        return items.map(ele=><CourseComponent 
+            className="grid-item"
+            key={ele.id}
+            id={ele.id}
+            name={ele.name}/>)
     }
 
     return (

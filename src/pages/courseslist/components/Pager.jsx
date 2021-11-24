@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { CourseComponent } from "./CourseComponent";
 import RenderCourses from "./RenderCourses";
 import './CourseComponent.css'
 
@@ -38,12 +37,7 @@ export const Pager= ({itemList,loading,hasErrors})=>{
 
     }
  
-    const renderItems = (data) => {
-        if (loading) return <p>Loading items...</p>
-        if (hasErrors) return <p>Unable to display items.</p>
-
-        return data.map(item => <CourseComponent name={item.name} id={item.id} />)
-    }
+   
 
     return (<>
     <RenderCourses items={paginatorProps.data} />

@@ -1,8 +1,12 @@
 import './CourseComponent.css'
-
+import { useNavigate } from 'react-router';
 
 export const CourseComponent = ({name, id}) =>{
+
+    const navigate = useNavigate();
+
     return(
-    <div className="course">{id} - {name}</div>
+    <button className="course"
+    onClick={()=>{navigate(`/dashboard/coursedetail/${id}`)}} >{name}</button>
     )
 }
