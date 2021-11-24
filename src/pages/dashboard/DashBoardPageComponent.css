@@ -1,4 +1,73 @@
-.container_dashboard{
-  margin-left: 250px;
+*{
+  padding: 0;
+  margin: 0;
   
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  width: 100%;
+  height: 100vh;
+}
+
+.Navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(155, 160, 202);
+  position: absolute;
+  z-index: 1;
+  padding: 0 15px;
+}
+
+.Navbar h5{
+  color: #fff;
+  font-size: 15px;
+}
+
+.Navbar h6{
+  color: aliceblue;
+}
+
+.right-side{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 15px;
+  align-items: center;
+  width: 30%;
+}
+
+.profile-picture{
+  border-radius: 50px;
+  position: relative;
+  height: 30px;
+  width: 30px;
+  margin-right: 2%;
+  margin-top: 1%;
+}
+
+.dashboard{
+  display: flex;
+  flex-direction: row;
+}
+
+.container_dashboard{
+  display: grid;
+  width: 100%;
+  margin-top: 40px;
+  margin-left: 18%;
+  height: 100vh;
+  background-color: var(--white-color);
+  background-size: cover;
+}
+
+.sofka-logo{
+  top: -5px;
+  position: relative;
 }

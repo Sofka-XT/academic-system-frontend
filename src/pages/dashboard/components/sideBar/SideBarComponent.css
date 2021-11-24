@@ -1,12 +1,39 @@
 .sideBar{
-  background-color: blueviolet;
-  width: 250px;
+  background-color: var(--main-color);
+  box-shadow: 10px 6px 16px 0px rgba(0, 0, 0, 0.267);
+  width: 18%;
   height: 100vh;
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
 }
-.sideBar_menu{
-  
+
+.links{
+  margin-top: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 47px;
+  width: 100%;
+}
+
+.link{
+  color: var(--white-color);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  padding-left: 35px;
+}
+
+.active {
+  padding: 15px;
+  background-color: var(--third-color); 
+}
+
+.role-container{
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 8px 30px;
+  border: 1px solid var(--white-color);
+  justify-content: center;
 }
