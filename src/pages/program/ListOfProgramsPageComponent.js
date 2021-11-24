@@ -4,8 +4,11 @@ import {
   deleteProgramByIdThunk,
   getProgramsThunk,
   getProgramByIdThunk,
+
 } from "../../thunkAction/programThunk";
 import { Card } from "./components/Card";
+
+import "./ListOfProgramsPageComponent.css";
 
 const ListOfProgramsPageComponent = ({
   dispatch,
@@ -25,13 +28,12 @@ const ListOfProgramsPageComponent = ({
   const handleEdit = (id) => {
     console.log("editing... " + id);
     dispatch(getProgramByIdThunk(id));
-    
   };
 
   const renderPrograms = () => {
     if (loading) return <p>Loading Programs...</p>;
     if (hasErrors) return <p>Unable to display Programs.</p>;
-    
+
     return (
       programs &&
       programs.map((program) => (
@@ -41,12 +43,13 @@ const ListOfProgramsPageComponent = ({
           id={program.id}
           handleDelete={handleDelete}
           handleEdit={handleEdit}
+          dispatch={dispatch}
         />
       ))
     );
   };
 
-  return <div>{renderPrograms()}</div>;
+  return <div className="containerCards">{renderPrograms()}</div>;
 };
 
 const mapStateToProps = (state) => ({

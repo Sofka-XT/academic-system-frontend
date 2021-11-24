@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import { LoginPageComponent } from './pages/login/LoginPageComponent';
 
 import { routesApp } from './routes/routes';
@@ -17,11 +17,11 @@ export const AppRouter = () => {
             >
               {/* {console.log(route.child)} */}
               {route.child &&
-                route.child.map((elemnet, index) => (
+                route.child.map((element, index) => (
                   <Route
                     key={index}
-                    path={elemnet.path}
-                    element={elemnet.component}
+                    path={element.path}
+                    element={element.component}
                   />
                 ))}
             </Route>
