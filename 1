@@ -1,0 +1,110 @@
+[33mcommit dae9fcbf25d2bc389d4bc4ccb36dbf79f4e63040[m
+Author: Santiago Franco <ktns0930@gmail.com>
+Date:   Tue Nov 23 15:06:12 2021 -0500
+
+    Welcome route has been added to the project and the package welcome, too.
+
+[33mcommit 7eb64b8489e0266f7129c64dcd42b52d292a8ea9[m
+Merge: beb3663 c0b5077
+Author: Santiago Franco <ktns0930@gmail.com>
+Date:   Tue Nov 23 14:16:48 2021 -0500
+
+    Merge branch 'HU01-LOGIN' of https://github.com/jeantr35/academic-system-frontend into HU01-DASHBOARD
+
+[33mcommit c0b5077258aa22aa10b303e8800230210c3470fb[m
+Merge: 48c4ada 38e4f79
+Author: jeantr35 <73139034+jeantr35@users.noreply.github.com>
+Date:   Tue Nov 23 14:15:52 2021 -0500
+
+    Merge pull request #2 from jeantr35/HU01-ROUTES
+    
+    Hu01 routes
+
+[33mcommit 38e4f79ea5bc24e1cbb0215ac21acfaaa245a6ae[m
+Merge: db6fa36 48c4ada
+Author: jeantr35 <73139034+jeantr35@users.noreply.github.com>
+Date:   Tue Nov 23 14:15:33 2021 -0500
+
+    Merge branch 'HU01-LOGIN' into HU01-ROUTES
+
+[33mcommit db6fa3638c8a53ba92b9fae2ee950bde1d08096f[m
+Author: joewatsonsbf <joewatson40@hotmail.com>
+Date:   Tue Nov 23 14:09:38 2021 -0500
+
+    Ejemplo de routers
+
+[33mcommit beb36634808f3eeac220edb2447460d3301d1a80[m
+Merge: 0167e13 48c4ada
+Author: Santiago Franco <ktns0930@gmail.com>
+Date:   Tue Nov 23 13:59:32 2021 -0500
+
+    Merge branch 'HU01-LOGIN' of https://github.com/jeantr35/academic-system-frontend into HU01-LOGIN
+
+[33mcommit 48c4ada198d8e8cc19dea5adbeb30a61ff1eae97[m
+Merge: aa22423 ff9a463
+Author: jeantr35 <73139034+jeantr35@users.noreply.github.com>
+Date:   Tue Nov 23 13:34:17 2021 -0500
+
+    Merge pull request #1 from jeantr35/HU01-LOGIN-VISTALOGIN #29 closed
+    
+    Hu01 login vistalogin #29 closed
+
+[33mcommit ff9a463d614e9ad023d577058bf83222a49208dd[m
+Author: Beycker <beycker_111@hotmail.com>
+Date:   Tue Nov 23 13:26:29 2021 -0500
+
+    Vista del login finalizada con el botón conectado de iniciar sesión con google se borro carpeta resources
+
+[33mcommit 57c27418fcbb2799fc016db934d2340bb34faa79[m
+Author: Beycker <beycker_111@hotmail.com>
+Date:   Tue Nov 23 13:02:55 2021 -0500
+
+    Vista del login finalizada con el botón conectado de iniciar sesión con google
+
+[33mcommit 0167e13b55d5c6611403ae19c3940ec08fbe69af[m
+Author: Raul A. Alzate <alzategomez.raul@gmail.com>
+Date:   Tue Nov 23 11:08:41 2021 -0500
+
+    ADD CI
+
+[33mcommit aa224230a541dd344cad28c7955bb67c3e12b3a4[m
+Author: sirlocust <jua56yu@hotmail.com>
+Date:   Tue Nov 23 09:38:50 2021 -0500
+
+    add variables css && font principal
+
+[33mcommit d579ef4a76b0d323648be1f3073997d9bb5e0198[m
+Author: sirlocust <jua56yu@hotmail.com>
+Date:   Mon Nov 22 22:29:50 2021 -0500
+
+    add dependency chart.js react-chartjs-2 for make graphics
+
+[33mcommit 911669e174a596639b83b3a8f5bf9ec73812ce03[m
+Author: sirlocust <jua56yu@hotmail.com>
+Date:   Mon Nov 22 22:14:39 2021 -0500
+
+    fixed bad redirect default route
+
+[33mcommit 45268501de1f6995b0dd647fafd86c2e17f64c01[m
+Author: sirlocust <jua56yu@hotmail.com>
+Date:   Mon Nov 22 19:59:46 2021 -0500
+
+    refactoring some names
+
+[33mcommit ba625677e6df9e5ae93ae13eb75fef502b9ee05d[m
+Author: sirlocust <jua56yu@hotmail.com>
+Date:   Mon Nov 22 19:55:06 2021 -0500
+
+    add dependecies react-hook-form && sweetAlert2
+
+[33mcommit d115379387f7d1e9394666a2118d34f279708130[m
+Author: sirlocust <jua56yu@hotmail.com>
+Date:   Mon Nov 22 17:51:51 2021 -0500
+
+    arquitectura base
+
+[33mcommit 1637c16e89eb277dc55789644a852ac0a7d34007[m
+Author: eXtreme Training <61291067+Sofka-XT@users.noreply.github.com>
+Date:   Sun Nov 21 10:27:41 2021 -0500
+
+    Initial commit
