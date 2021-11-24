@@ -1,6 +1,7 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
 import ListOfProgramsPageComponent from '../pages/program/ListOfProgramsPageComponent';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
+import FormCreateProgram from './../pages/program/components/FormCreateProgramComponent'
 
 export const routesApp = [
   {
@@ -23,6 +24,13 @@ export const routesApp = [
         name: 'programs',
         component: <ListOfProgramsPageComponent/>
       },
+
+      {
+        path: 'crearprograma',
+        name: 'crearprograma',
+        component: <FormCreateProgram/> 
+      }
+
     ],
   },
 ];
