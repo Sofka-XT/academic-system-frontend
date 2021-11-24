@@ -1,27 +1,23 @@
 import { updateProgramThunk } from "../../thunkAction/programThunk";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { EditForm } from "./components/EditForm";
 
 const EditionProgramPage = ({ program, dispatch, loading, hasErrors, redirect }) => {
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Program Courses.</p>;
+
   const copyProgram = {...program}
 
-  const handleOnClick = () => {
-    console.log("En la editionProgramPage button")
-    console.log(program.courses)
-    updateProgramThunk(copyProgram);
+  const handleOnClick = (id) => {
+    console.log(copyProgram)
   };
 
   const renderEditPage = () => {
     const courses = copyProgram.courses;
-    console.log(copyProgram);
     
-
-    return courses.map((course) => (
-      <EditForm key={course.id} course={course} program={copyProgram} />
-    ));
+    return(courses && courses.map((course) => (
+      <EditForm dispatch={dispatch} key={course.courseId} course={course} program={copyProgram}/>
+    )));
   };
 
   return (
@@ -30,10 +26,10 @@ const EditionProgramPage = ({ program, dispatch, loading, hasErrors, redirect })
         <h1> Editar Programa </h1>
         <div>
           <label> Nombre del programa: </label>
-          <input value={program.name}></input>
+          <label value={program.name}></label>
           <div>{renderEditPage()}</div>
         </div>
-          <button type="submit" onClick={handleOnClick}>
+          <button type="submit" onClick={() => handleOnClick(program.id)}>
             Enviar
           </button>
       </form>

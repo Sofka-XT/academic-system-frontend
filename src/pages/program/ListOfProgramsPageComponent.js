@@ -26,7 +26,7 @@ const ListOfProgramsPageComponent = ({
   };
 
   const handleEdit = (id) => {
-    console.log("editing... " + id);
+    // console.log("editing... " + id);
     dispatch(getProgramByIdThunk(id));
   };
 

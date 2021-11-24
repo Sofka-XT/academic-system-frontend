@@ -24,14 +24,14 @@ export const getProgramByIdApi = (id) => {
   })
 }
 
-export const updateProgramApi = (program) => {
-  return fetch(`http://localhost:3001/programs/updatePrograms`,
+export const updateProgramApi = (id,data) => {
+  return fetch(`http://localhost:3001/programs/${id}`,
   {
       method: 'PUT',
       mode: 'cors',
       headers: {
           'Content-Type': 'application/json'
       },
-      body: JSON.stringify(program)
+      body: JSON.stringify(data)
   })
 }

@@ -1,6 +1,6 @@
 import { CategoriesListProgram } from "./CategoriesListProgram";
 
-export const EditForm = ({ course, program }) => {
+export const EditForm = ({ course, program, dispatch }) => {
   const categories = course.categories;
 
   return (
@@ -10,14 +10,17 @@ export const EditForm = ({ course, program }) => {
       <div>
         <label>Temas</label>
         <ul>
-          {categories.map((category) => (
-            <CategoriesListProgram
-              key={categories.categoryId}
-              categories={categories}
-              category={category}
-              program={program}
-            />
-          ))}
+          {categories && 
+            categories.map((category) => (
+              <CategoriesListProgram
+                key={category.categoryId}
+                categories={categories}
+                category={category}
+                program={program}
+                dispatch={dispatch}
+              />
+            ))
+          }
         </ul>
       </div>
     </div>
