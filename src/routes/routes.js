@@ -1,4 +1,3 @@
-import ListaTrainingsComponent from '../pages/activeTrainingPrueba/ListaTrainingsComponent';
 import { HomePageComponent } from '../pages/home/HomePageComponent';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
 import TrainingListPageComponent from '../pages/trainingListPage/TrainingListPageComponent.jsx'
