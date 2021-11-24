@@ -1,4 +1,4 @@
-export const Links = [
+export const linksNavigate = [
   {
     to: '/ruta',
     nameLink: 'ir a ruta ',
