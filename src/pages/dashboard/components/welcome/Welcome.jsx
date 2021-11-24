@@ -28,7 +28,7 @@ export default function Welcome() {
             </div>
             <div className="cards-four" id="cards-four">
                 <div>
-                    <Link to="/dashboard/programstory">
+                    <Link to="/dashboard/trainingstory">
                         VER HISTÓRICO DE<br></br>TRAINING
                     </Link>
                 </div>

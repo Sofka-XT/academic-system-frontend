@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { apprenticeLinks, coachLinks } from '../NavigateLinks/NavigateLinks';
 import './SideBarComponent.css';
 
 export const SideBarCoachComponent = () => {
@@ -7,14 +8,15 @@ export const SideBarCoachComponent = () => {
     <aside className="sideBar" id = "sideBar">
       <nav className="sideBar_menu flex_column_center" id="sideBar_menu flex_column_center">
         <ul className="links">
-          <NavLink className="link" id="link" activeClassName="active" end to="home">INICIO</NavLink>
-          <NavLink className="link" id="link" activeClassName="active" end to="programstory">HISTÓRICO DE PROGRAMAS</NavLink>
-          <NavLink className="link" id="link" activeClassName="active" end to="trainingstory">HISTÓRICO DE TRAINING</NavLink>
-          <NavLink className="link" id="link" activeClassName="active" end to="activeprogram">PROGRAMAS ACTIVOS</NavLink>
-          <NavLink className="link" id="link" activeClassName="active" end to="activetraining">TRAINING ACTIVOS</NavLink>
-          <NavLink className="link" id="link" activeClassName="active" end to="program">CREAR PROGRAMAS</NavLink>
-          <NavLink className="link" id="link" activeClassName="active" end to="training">CREAR TRAINING</NavLink>
-          <NavLink className="link" id="link" activeClassName="active" end to="logout">CERRAR SESIÓN</NavLink>
+
+          {coachLinks && coachLinks.map((data, index)=>{
+            return (
+              <NavLink key={index} className="link" 
+              activeClassName="active" 
+              end to={data.path}> {data.name.toUpperCase()} </NavLink>
+            )
+          })}
+
         </ul>
       </nav>
     </aside>
@@ -26,8 +28,14 @@ export const SideBarApprenticeComponent = () => {
     <aside className="sideBar">
       <nav className="sideBar_menu flex_column_center">
         <ul className="links">
-          <NavLink className="link" id="link" activeClassName="active" end to="activetraining">TRAINING ACTIVOS</NavLink>
-          <NavLink className="link" id="link" activeClassName="active" end to="logout">CERRAR SESIÓN</NavLink>
+
+        {apprenticeLinks && apprenticeLinks.map((data, index)=>{
+            return (
+              <NavLink key={index} className="link" 
+              activeClassName="active" 
+              end to={data.path}> {data.name.toUpperCase()} </NavLink>
+            )
+          })}
         </ul>
       </nav>
     </aside>
