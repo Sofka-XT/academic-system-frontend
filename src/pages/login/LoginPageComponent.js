@@ -31,7 +31,7 @@ const LoginPageComponent = ( { user }) => {
       <div className="bg-image"></div>
  
       <div className="bg-text">
-        <img src="https://i.imgur.com/Tia8Vk2.png"/><br/><br/>
+        <img src="https://i.imgur.com/Tia8Vk2.png" alt="img1"/><br/><br/>
         <p>Bienvenidos al</p>
         <p>Centro de Gestión de SofkaU</p>
         <br/><br/><br/><br/><br/>
