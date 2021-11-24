@@ -7,43 +7,43 @@ export default function Welcome() {
         <div className="grid-container">
             <div className="cards-one">
                 <div>
-                    <Link to="/">
+                    <Link to="/dashboard/programstory">
                         VER HISTÓRICO DE PROGRAMAS
                     </Link>
                 </div>
             </div>
-            <div className="cards-one">
+            <div className="cards-two">
                 <div>
-                    <Link to="/">
+                    <Link to="/dashboard/activeprogram">
                         PROGRAMAS ACTIVOS
                     </Link>
                 </div>
             </div>
-            <div className="cards-one">
+            <div className="cards-three">
                 <div>
-                    <Link to="/">
-                        
+                    <Link to="/dashboard/program">
+                        CREAR PROGRAMAS
                     </Link>
                 </div>
             </div>
-            <div className="cards-one">
+            <div className="cards-four">
                 <div>
-                    <Link to="/">
+                    <Link to="/dashboard/programstory">
                         VER HISTÓRICO DE PROGRAMAS
                     </Link>
                 </div>
             </div>
-            <div className="cards-one">
+            <div className="cards-five">
                 <div>
-                    <Link to="/">
-                        VER HISTÓRICO DE PROGRAMAS
+                    <Link end to="/dashboard/activetraining">
+                        TRAINING ACTIVOS
                     </Link>
                 </div>
             </div>
-            <div className="cards-one">
+            <div className="cards-six">
                 <div>
-                    <Link to="/">
-                        VER HISTÓRICO DE PROGRAMAS
+                    <Link to="/dashboard/training">
+                        CREAR TRAINING
                     </Link>
                 </div>
             </div>

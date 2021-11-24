@@ -10,6 +10,11 @@ export const routesApp = [
 		component: <DashBoardPageComponent />,
 		child: [
 			{
+				path: 'home',
+				name: 'Home',
+				component: <Welcome />,
+			},
+			{
 				path: 'logout',
 				name: 'Log Out',
 				component: <HomePageComponent />,
@@ -17,7 +22,7 @@ export const routesApp = [
 			{
 				path: 'trainingstory',
 				name: 'Training Story',
-				component: <Welcome />,
+				component: <h1>TRAINING STORY</h1>,
 			},
 			{
 				path: 'activeprogram',

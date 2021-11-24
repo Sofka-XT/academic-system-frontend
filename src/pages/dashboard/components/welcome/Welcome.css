@@ -6,7 +6,7 @@
     height: 100vh;
     cursor: pointer;
 }
-
+/* ----------------------------------------------- */
 .cards-one{
     background-image: url(https://i.imgur.com/aCMkkjA.png);
     background-size: cover;
@@ -46,6 +46,234 @@
 
 .cards-one:hover{
     background-image: url(https://media0.giphy.com/media/1rPXcTh9YjMcMuRal5/giphy.gif?cid=790b7611b69bafeb87551d49277cb377376b75ba3540c308&rid=giphy.gif&ct=g);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* --------------------------------------------------------- */
+
+.cards-two{
+    background-image: url(https://i.imgur.com/s0oUtCh.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.cards-two div{
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cards-two a{
+    color: var(--white-color);
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cards-two:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #21117e7e;
+}
+
+.cards-two:hover{
+    background-image: url(https://media3.giphy.com/media/l378gW7GaWG6Leeas/giphy.gif?cid=790b7611455b8e71cb84c6515082eabdede53235f9b4a25e&rid=giphy.gif&ct=g);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ------------------------------------------------------------------- */
+
+.cards-three{
+    background-image: url(https://i.imgur.com/nP6YXUM.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.cards-three div{
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cards-three a{
+    color: var(--white-color);
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cards-three:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #21117e7e;
+}
+
+.cards-three:hover{
+    background-image: url(https://media0.giphy.com/media/5zkRQaVoQz2XRUSo0l/giphy.gif?cid=790b7611c784e1d05a1f0337029ae91567380871dbf8fceb&rid=giphy.gif&ct=g);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* ------------------------------------------------------- */
+
+.cards-four{
+    background-image: url(https://i.imgur.com/JEk2Ecj.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.cards-four div{
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cards-four a{
+    color: var(--white-color);
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cards-four:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #21117e7e;
+}
+
+.cards-four:hover{
+    background-image: url(https://media1.giphy.com/media/12kyWuAifOjDhu/giphy.gif?cid=790b7611727dca06345bf0dae2d2fdec6ece6cedd3b8ef1b&rid=giphy.gif&ct=g);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* -------------------------------------------------  */
+
+.cards-five{
+    background-image: url(https://i.imgur.com/SgeqHHV.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.cards-five div{
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cards-five a{
+    color: var(--white-color);
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cards-five:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #21117e7e;
+}
+
+.cards-five:hover{
+    background-image: url(https://media0.giphy.com/media/3o6ZsXhBzpoRApBkPK/giphy.gif?cid=790b7611b7fcd56be4fa2153440cdd9036e2230bfda0f116&rid=giphy.gif&ct=g);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ----------------------------------------------------  */
+
+.cards-six{
+    background-image: url(https://i.imgur.com/p0iE2Rq.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.cards-six div{
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cards-six a{
+    color: var(--white-color);
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cards-six:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #21117e7e;
+}
+
+.cards-six:hover{
+    background-image: url(https://media1.giphy.com/media/3o7WIz0R4XwKgs2fHG/giphy.gif?cid=790b7611fc88bd9995ae29e78baa38931a77dfbf3307e3f5&rid=giphy.gif&ct=g);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
