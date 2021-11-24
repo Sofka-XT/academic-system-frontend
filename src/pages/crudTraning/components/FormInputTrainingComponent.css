@@ -147,6 +147,11 @@ main {
   width: 100%;
 }
 
+.training__file-input {
+  width: 70%;
+  height: 10%;
+}
+
 .trainings__date-input {
   width: 70%;
 }

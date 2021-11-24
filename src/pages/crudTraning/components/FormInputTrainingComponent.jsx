@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useForm from "./../../../hooks/useForm";
 import CSVTableComponent from "./CSVTableComponent";
+import { CSVReader } from 'react-papaparse'
 
 import "./FormInputTrainingComponent.css";
 
@@ -27,20 +28,31 @@ const LoginScreen = () => {
     // dispatch(startLoginEmailAndPassword(email, password));
   };
 
+
+  const handleOnDrop = (e) => {
+    console.log("handleOnDrop")
+    console.log(e)
+  }
+
+  const handleOnError = (e) => {
+    console.log("handleOnError")
+    console.log(e);
+  }
+
+  const handleOnRemoveFile = (e) => {
+    console.log("handleOnRemoveFile")
+    console.log(e)
+  }
+
+
   const handleUploadFile = (e) => {
     inputFileRef.current.click();
     // console.log(inputFile);
   };
 
   const handleInputFileChange = (e) => {
-    console.log(e.target.value);
-    Papa.parse(inputFileRef.current.files[0], {
-      delimiter: ",",
-      skipEmptyLines: true,
-      complete: (results) => {
-        setTableState({ header: results.data.slice(1), body: results.data[0] });
-      },
-    });
+    // console.log(e.target.value);
+    
   };
 
   return (
@@ -107,6 +119,7 @@ const LoginScreen = () => {
             >
               Fecha de Inicio
             </label>
+          
             <input
               type="date"
               name="startingDate"
@@ -157,15 +170,19 @@ const LoginScreen = () => {
             >
               Subir archivo de aprendices
             </label>
-            <input
-              id="btn__upload-file"
-              type="file"
-              name="apprentices"
-              className="training__btn-upload"
-              value={apprentices}
-              onChange={handleInputFileChange}
-            />
-            <button onClick={handleUploadFile}>Subir archivo</button>
+            
+            <div className="training__file-input">
+            <CSVReader 
+              
+              onDrop={handleOnDrop}
+              onError={handleOnError}
+              noDrag
+              addRemoveButton
+              onRemoveFile={handleOnRemoveFile}
+            >
+              <span>Click to upload.</span>
+            </CSVReader>
+            </div>
           </div>
         </div>
       </form>
