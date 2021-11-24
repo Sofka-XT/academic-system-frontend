@@ -3,22 +3,14 @@ import { connect } from "react-redux";
 import { EditForm } from "./components/EditForm";
 
 const EditionProgramPage = ({ program }) => {
-  // Aquí toca traer la información del back para mostrar en el formulario y poder editar
-  // const [values, setValues] = useState({
-  //   nameProgram: "",
-  //   courses: [],
-  // });
 
 
   const renderEditPage = () => {
-
-    
     const courses = program.courses;
-    console.log("entra al map")
     console.log(program)
 
     return courses.map((course) => (
-      <EditForm course={course} />
+      <EditForm  key={course.id} course={course} program={program} />
     ));
   };
 

@@ -1,7 +1,10 @@
-export const EditForm = ({ course }) => {
+import { putProgramByIdApi } from "../../../api/program/programApi";
+import React, { useState } from "react";
+import { CategoriesListProgram } from "./CategoriesListProgram";
+
+export const EditForm = ({ course, program }) => {
   const categories = course.categories;
-  console.log(course);
-  console.log(categories);
+
   return (
     <div>
       <label>Curso</label>
@@ -10,10 +13,11 @@ export const EditForm = ({ course }) => {
         <label>Temas</label>
         <ul>
           {categories.map((category) => (
-            <div>
-              <li>{category.categoryName}</li>
-              <input value={category.days}></input>
-            </div>
+            <CategoriesListProgram
+              categories={categories}
+              category={category}
+              program={program}
+            />
           ))}
         </ul>
       </div>
