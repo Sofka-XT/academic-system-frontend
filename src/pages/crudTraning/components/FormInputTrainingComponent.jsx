@@ -35,9 +35,10 @@ const LoginScreen = () => {
     setTableState(data)
   }
 
+
+
   const handleOnError = (e) => {
-    // console.log("handleOnError")
-    // console.log(e);
+    
   }
 
   const handleOnRemoveFile = (e) => {
