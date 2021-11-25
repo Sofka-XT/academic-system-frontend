@@ -29,31 +29,25 @@ const LoginScreen = () => {
   };
 
 
-  const handleOnDrop = (e) => {
-    console.log("handleOnDrop")
-    console.log(e)
+  const handleOnDrop = (csvInfo) => {
+    
+    const data = csvInfo.map((item)=>item.data).map(infoArray => ({name:infoArray[0], email:infoArray[1], tel:infoArray[2]}));
+    console.log(data)
+    setTableState(data)
   }
 
   const handleOnError = (e) => {
-    console.log("handleOnError")
-    console.log(e);
+    // console.log("handleOnError")
+    // console.log(e);
   }
 
   const handleOnRemoveFile = (e) => {
-    console.log("handleOnRemoveFile")
-    console.log(e)
+    // console.log("handleOnRemoveFile")
+    // console.log(e)
   }
 
 
-  const handleUploadFile = (e) => {
-    inputFileRef.current.click();
-    // console.log(inputFile);
-  };
-
-  const handleInputFileChange = (e) => {
-    // console.log(e.target.value);
-    
-  };
+  
 
   return (
     <div className="trainings__main-container">
