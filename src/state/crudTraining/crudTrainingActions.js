@@ -3,7 +3,8 @@ const URL_BASE = "http://localhost:8080";
 export const LOADING = "LOADING";
 export const LOADED_SUCCESS = "LOADED_SUCCESS";
 export const LOADED_FAILURE = "LOADED_FAILURE";
-export const POST_PROGRAM_SUCCES = "POST_PORGRAM_SUCCES";
+export const POST_PROGRAM_SUCCESS = "POST_PORGRAM_SUCCES";
+export const 
 
 export const loading = () => ({ type: LOADING });
 
@@ -39,6 +40,33 @@ export const fetchPrograms=async()=> {
   }
 
 export function postTraining(training) {
+  //   {
+  //     "name": "Training Qa",
+  //     "startingDate": "2021-12-21",
+  //     "apprentices": [{
+  //         "id": "123kisdha8",
+  //         "name": "Pedro",
+  //         "phoneNumber": "21232454",
+  //         "emailAddress": "santiago@gmail.com"
+
+  //     },
+  //     {
+  //         "id": "qwedfws44ef",
+  //         "name": "Camilo",
+  //         "phoneNumber": "234dfsdt",
+  //         "emailAddress": "camilo@gmail.com"
+
+  //     }
+  //     ],
+  //     "coaches": [{
+  //         "id": "wagary55",
+  //         "name": "Raul",
+  //         "phoneNumber": "12355656",
+  //         "emailAddress": "raul@gmail.com"
+  //     }],
+  //     "program": "123iasdias909"
+  // }
+
   return async (dispatch) => {
     dispatch(loading());
     try {

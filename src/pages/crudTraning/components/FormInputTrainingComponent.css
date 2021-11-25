@@ -6,7 +6,7 @@
 html,
 body {
   height: 100vh;
-  width: 100vw;
+  width: 100vw !important;
 }
 
 main {
@@ -149,7 +149,8 @@ main {
 
 .training__file-input {
   width: 70%;
-  height: 10%;
+  height: 60%;
+  margin-top: 5%;
 }
 
 .trainings__date-input {
@@ -182,6 +183,7 @@ main {
 .training__input-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 400px;
 }
 
@@ -192,12 +194,6 @@ main {
 
 .training__btn-upload {
   padding: 15px;
-}
-
-.training__btn-upload {
-}
-
-#training__div-file {
 }
 
 .training__coach-list {
@@ -212,4 +208,23 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.training__table-apprentices {
+  width: 300px;
+}
+
+.training__table-container {
+  max-width: 1000px;
+  margin-top: 0px;
+}
+
+.training__table-apprentices {
+  outline: 1px solid darkgray;
+  margin-bottom: 100px;
+}
+
+.training__alert-primary {
+  width: 60%;
+  margin: auto 20%;
 }
