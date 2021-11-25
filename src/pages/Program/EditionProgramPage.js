@@ -47,7 +47,7 @@ const EditionProgramPage = ({
     const MySwal = withReactContent(Swal);
 
     MySwal.fire({
-      title: "¿Quiere editar este program?",
+      title: "¿Quiere editar este programa?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -59,7 +59,7 @@ const EditionProgramPage = ({
           text: "El programa ha sido editado",
           icon: "success",
           showConfirmButton: false,
-          timer: 1500,
+          timer: 1000,
         });
         dispatch(updateProgramThunk(program));
       }
@@ -83,38 +83,40 @@ const EditionProgramPage = ({
     if (Object.keys(program).length !== 0) {
       const courses = program.courses;
       return (
-        courses &&
-        courses.map((course) => (
-          <div key={course.courseId}>
-            <h3>Cursos:</h3>
-            <div className="course-container">
-              <h4>{course.courseName}</h4>
-              {courses.length !== 1 && (
-                <DeleteButtonCourses
-                  dispatch={dispatch}
-                  programId={program.id}
-                  courseId={course.courseId}
-                />
-              )}
-            </div>
-            <div className="topics-list">
-              <h5 className="topics-label">Temas:</h5>
-              <ul>
-                {course.categories &&
-                  course.categories.map((category) => (
-                    <InputPrograms
-                      key={category.categoryId}
-                      categoryId={category.categoryId}
-                      category={category}
-                      courseId={course.courseId}
-                      programId={program.id}
+        <div>
+          <h3>Cursos:</h3>
+          {courses &&
+            courses.map((course) => (
+              <div key={course.courseId}>
+                <div className="course-container">
+                  <h4>{course.courseName}</h4>
+                  {courses.length !== 1 && (
+                    <DeleteButtonCourses
                       dispatch={dispatch}
+                      programId={program.id}
+                      courseId={course.courseId}
                     />
-                  ))}
-              </ul>
-            </div>
-          </div>
-        ))
+                  )}
+                </div>
+                <div className="topics-list">
+                  <h5 className="topics-label">Temas:</h5>
+                  <ul>
+                    {course.categories &&
+                      course.categories.map((category) => (
+                        <InputPrograms
+                          key={category.categoryId}
+                          categoryId={category.categoryId}
+                          category={category}
+                          courseId={course.courseId}
+                          programId={program.id}
+                          dispatch={dispatch}
+                        />
+                      ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+        </div>
       );
     }
   };
@@ -135,8 +137,9 @@ const EditionProgramPage = ({
             />
           </div>
           <div className="totaldays-container">
-            <label className="totaldays-name">Total del días:</label> <p className="totaldays-name-num"> {totalDays} </p>
-          </div> 
+            <label className="totaldays-name">Total del días:</label>{" "}
+            <p className="totaldays-name-num"> {totalDays} </p>
+          </div>
         </div>
         <div>
           <div>{renderEditPage()}</div>

@@ -11,17 +11,17 @@ export const DeleteButton = ({  dispatch,idData }) => {
 
   const handleOpenModal = () => {
     MySwal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Está seguro?',
+      text: "No será capaz de devolver esta acción!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
+      confirmButtonText: 'Sí, borrelo!',
+      cancelButtonText: 'No, cancelar!',
       reverseButtons: true,
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteProgramByIdThunk(idData)).then(() => {
-          MySwal.fire('Deleted!', 'Your file has been deleted.', 'success')
+          MySwal.fire('Borrado!', 'El programa ha sido borrado.', 'exito')
         })
       } else if (
         /* Read more about handling dismissals below */
