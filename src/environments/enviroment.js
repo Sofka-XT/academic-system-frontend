@@ -8,12 +8,26 @@ export const HOST_API = process.env.REACT_APP_HOST_API;
 
 export const enviroment = {
   firabase: {
+    appId: "1:1048002011173:web:7af620eb1ac0dff92b5fcc",
     apiKey: FB_API_KEY || 'AIzaSyDAGnCkXYQf_toW_TqV4n6GDBUiYOzMsMw',
     authDomain: FB_AUTH_DOMAIN || 'academic-system-sofkau.firebaseapp.com',
     projectId: FB_PROJECT_ID || 'academic-system-sofkau',
     storageBucket: FB_STORAGE_BUCKET ||'academic-system-sofkau.appspot.com',
     messagingSenderId: FB_MESSAGING_SENDER_ID || '27962594566',
   },
+  firebase_HU01:{
+    apiKey: "AIzaSyAR4O3j8-ilSkYjg_LKPK1-wEzB132R06Y",
+
+    authDomain: "test-login-sofka.firebaseapp.com",
+
+    projectId: "test-login-sofka",
+
+    storageBucket: "test-login-sofka.appspot.com",
+
+    messagingSenderId: "1048002011173",
+  }
+  ,
   host: HOST_API || "http://localhost:8080"
+
 };
 
