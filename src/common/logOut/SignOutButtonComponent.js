@@ -11,7 +11,7 @@ export const SignOutButtonComponent = () => {
   };
   return (
     <>
-      <button className="button-singout" onClick={handleSignOut}>
+      <button className="button-singout" id="logout button" onClick={handleSignOut}>
         Cerrar sesión
       </button>
     </>
