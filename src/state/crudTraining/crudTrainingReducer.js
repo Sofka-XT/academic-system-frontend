@@ -10,6 +10,7 @@ export const initialState = {
     apprenticesList: [],
     coachesList: [],
   },
+  programs: [],
   redirect: null,
   hasErrors: false,
 };
@@ -28,5 +29,7 @@ export default function crudTrainingReducer(state = initialState, action) {
       };
     case actions.LOADED_FAILURE:
       return { ...state, loading: false, hasErrors: true };
+    default:
+      return state;
   }
 }

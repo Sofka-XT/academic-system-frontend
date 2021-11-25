@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 import useForm from "./../../../hooks/useForm";
 import CSVTableComponent from "./CSVTableComponent";
 import { CSVReader } from "react-papaparse";
-import {fetchPrograms} from '../../../state/crudTraining/crudTrainingActions'
+import { fetchPrograms } from "../../../state/crudTraining/crudTrainingActions";
 
 import "./FormInputTrainingComponent.css";
+import ProgramsListComponent from "./ProgramsListComponent";
+import { useSelector } from "react-redux";
 
 const FormInputTrainingComponent = () => {
   // const dispatch = useDispatch();
-  // const {  } = useSelector((state) => state);
+  const trainingState = useSelector((state) => state.crudTrainingReducer);
+  console.log(trainingState);
   const [formValues, handleInputChange, resetFormValues] = useForm({
     name: "",
     program: "",
@@ -33,24 +36,7 @@ const FormInputTrainingComponent = () => {
     },
   ]);
 
-  const [programs, setPrograms] = useState([
-    {
-      id: "1",
-      name: "Desarrollo",
-    },
-    {
-      id: "2",
-      name: "QA",
-    },
-    {
-      id: "3",
-      name: "SCRUM",
-    },
-    {
-      id: "4",
-      name: "Arquitectura",
-    },
-  ]);
+  const [programs, setPrograms] = useState([]);
 
   const [tableState, setTableState] = useState(null);
 
@@ -91,11 +77,15 @@ const FormInputTrainingComponent = () => {
   };
 
   useEffect(() => {
-    fetchPrograms().then(result => {
-      console.log(result);
+    fetchPrograms().then((result) => {
+      const programs = result.map((program) => ({
+        ...program,
+        selected: false,
+      }));
+      setPrograms(programs);
     });
-    console.log("estamos en el useefect")
-  }, [])
+    console.log("estamos en el useefect");
+  }, []);
 
   return (
     <div className="trainings__main-container mb-3">
@@ -216,6 +206,7 @@ const FormInputTrainingComponent = () => {
           </div>
         </div>
       </form>
+      <ProgramsListComponent programs={programs} />
       <CSVTableComponent data={tableState} />
     </div>
   );

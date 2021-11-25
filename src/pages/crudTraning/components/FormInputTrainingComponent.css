@@ -228,3 +228,93 @@ main {
   width: 60%;
   margin: auto 20%;
 }
+
+.portfolio__grid {
+  width: 90%;
+  margin: auto 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.portfolio__item {
+  background: white;
+  border-radius: 10px;
+  position: relative;
+  object-fit: cover;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.portfolio__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 1s;
+  filter: grayscale(0.5);
+}
+
+.portfolio__description {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 300px;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.portfolio__item:hover .portfolio__description {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s;
+  transform: translateY(-300px);
+}
+
+.portfolio__item:hover .portfolio__img {
+  transition: all 1s;
+  transform: scale(1.3);
+}
+
+.portfolio__description--title {
+  text-align: center;
+  color: #40bad5;
+  font-size: 30px;
+  margin-top: -50px;
+  padding-top: 0px;
+}
+
+.portfolio__description--subtitle {
+  font-size: 18px;
+  color: aliceblue;
+}
+
+.portfolio__description--text {
+  margin: 10px 0;
+  color: red;
+}
+
+.porfolio__tech-images {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.portfolio__tech-image {
+  width: 10%;
+  margin: 20px 5px;
+}
+
+.training__program-selected {
+  font-size: 30px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  color: #40bad5;
+}
