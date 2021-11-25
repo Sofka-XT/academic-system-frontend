@@ -27,7 +27,7 @@ export const enviroment = {
     messagingSenderId: "1048002011173",
   }
   ,
-  host: HOST_API || "http://localhost:8080"
+  host: HOST_API || "https://vast-everglades-55825.herokuapp.com"
 
 };
 
