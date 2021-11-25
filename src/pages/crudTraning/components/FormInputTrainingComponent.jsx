@@ -61,7 +61,12 @@ const FormInputTrainingComponent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //Validacion de los campos de entradas
+    //Actualizacion de el estado global para enviar a validacion antes de afectar el back
+    dispatch({ type: actions.ADD_COACHES_LIST, payload: coaches });
+    dispatch({ type: actions.ADD_TRAINING_NAME, payload: name });
+    //ejecucion de validacion
+    console.log("Global state updated from submiting the form")
+
   };
 
   const handleListSelectedCoaches = (e) => {
