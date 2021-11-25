@@ -7,6 +7,7 @@ export const initialState = {
   hasErrors: false,
   loading: false,
   redirect: null,
+  totalDays: 0,
 };
 
 export default function programReducer(state = initialState, action) {
@@ -33,6 +34,16 @@ export default function programReducer(state = initialState, action) {
       })}}
     case actions.CREATE_PROGRAM:
       return { ...state,  programCreate:action.payload };
+
+    case actions.DELETED_COURSEBYID:
+      return {...state, program: {...state.program, courses: state.program.courses.filter((course) => course.courseId !== action.payload.courseId)}} 
+      
+    case actions.UPDATE_NAMEPROGRAM:
+      return {...state, program: {...state.program, name: action.payload.name}};
+
+    case actions.UPDATE_TOTALDAYS:
+      return {...state, totalDays: action.payload.totalDays}  
+
     default:
       return state;
   }

@@ -5,8 +5,6 @@ export const InputPrograms = ({ category,categoryId,courseId,programId,dispatch 
 
   const [duration, setDuration] = useState(category.days);
 
-
-
   const handleDurationChange = (e) => {
     e.preventDefault();
     setDuration(e.target.value);
