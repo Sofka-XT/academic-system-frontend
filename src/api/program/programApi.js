@@ -14,21 +14,21 @@ export const deleteProgramByIdApi = (id) => {
 }
 
 
-export const getAllcourses = () => {
-    return fetch('http://localhost:8080/course/getAll')
+export const getAllcoursesApi = () => {
+    return fetch('http://localhost:3001/cursos')
 }
 
-export const postProgram = (data) => {
+export const postProgramApi = (data) => {
 
     console.log(data);
     return fetch('http://localhost:8080/program/create',
     {
         method: 'POST',
-        body: JSON.stringify(data),
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify(data)
     })
 }
 export const getProgramByIdApi = (id) => {

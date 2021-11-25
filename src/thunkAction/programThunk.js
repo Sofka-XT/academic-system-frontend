@@ -3,6 +3,8 @@ import {
   getProgramByIdApi,
   updateProgramApi,
   fetchProgramsApi,
+  getAllcoursesApi,
+  postProgramApi,
 } from "../api/program/programApi";
 import { loading, failure, success } from "../state/Program/programAction";
 
@@ -13,6 +15,19 @@ export const getProgramsThunk = () => {
       const response = await fetchProgramsApi();
       const data = await response.json();
       dispatch(success({ programs: data, redirect: null }));
+    } catch (error) {
+      dispatch(failure());
+    }
+  };
+};
+
+export const getCoursesThunk = () => {
+  return async (dispatch) => {
+    dispatch(loading());
+    try {
+      const response = await getAllcoursesApi();
+      const data = await response.json();
+      dispatch(success({ courses: data, redirect: null }));
     } catch (error) {
       dispatch(failure());
     }
@@ -49,6 +64,18 @@ export const updateProgramThunk = (program) => {
     dispatch(loading());
     try {
       await updateProgramApi(program);
+      dispatch(success({}));
+    } catch (error) {
+      dispatch(failure());
+    }
+  };
+};
+
+export const postProgramThunk = (program) => {
+  return async (dispatch) => {
+    dispatch(loading());
+    try {
+      await postProgramApi(program);
       dispatch(success({}));
     } catch (error) {
       dispatch(failure());

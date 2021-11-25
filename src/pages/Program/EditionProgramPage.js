@@ -3,11 +3,14 @@ import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import React from "react";
 import { useEffect, useState } from "react";
+import { useNavigate} from 'react-router-dom';
 import {
+  AddCourseToCurrentProgram,
+  updateCurrentProgram,
   updateNameProgram,
   updateTotalDays,
 } from "../../state/Program/programAction";
-import { updateProgramThunk } from "../../thunkAction/programThunk";
+import { getCoursesThunk, updateProgramThunk } from "../../thunkAction/programThunk";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
@@ -18,8 +21,11 @@ const EditionProgramPage = ({
   loading,
   hasErrors,
   totalDays,
+  courses,
 }) => {
-  const [days, setDays] = useState(program.totalDays);
+  const [selectedCourse, setSelectedCourse] = useState({})
+  
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (program.courses) {
@@ -28,8 +34,10 @@ const EditionProgramPage = ({
         if (course.categories) {
           course.categories.map((category) => {
             sumDays += parseInt(category.days);
+            return null;
           });
         }
+        return null; 
       });
 
       let data = {
@@ -40,12 +48,29 @@ const EditionProgramPage = ({
     }
   }, [program]);
 
+  useEffect(() => {
+    //1. UseEffec, traer los cursos para el select
+    dispatch(getCoursesThunk())
+    let data = {
+        program: {
+            name: "",
+            courses: []
+        }
+      }
+      dispatch(updateCurrentProgram(data))
+}, [])
+  
+  useEffect(() => {
+    if(courses[0] !== undefined){
+        setSelectedCourse(courses[0])
+    }
+  }, [])
+
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Show Program.</p>;
 
   const handleOnClick = (id) => {
     const MySwal = withReactContent(Swal);
-
     MySwal.fire({
       title: "¿Quiere editar este programa?",
       icon: "warning",
@@ -54,7 +79,7 @@ const EditionProgramPage = ({
       cancelButtonColor: "#d33",
       confirmButtonText: "Si, Editalo!",
     }).then((itemToEdit) => {
-      if (itemToEdit) {
+      if (itemToEdit.isConfirmed) {
         MySwal.fire({
           text: "El programa ha sido editado",
           icon: "success",
@@ -62,6 +87,11 @@ const EditionProgramPage = ({
           timer: 1000,
         });
         dispatch(updateProgramThunk(program));
+        navigate(`/dashboard/programs`);
+      } else if (
+        itemToEdit.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire('Cancelado', 'No se efectuaron cambios en el programa', 'error')
       }
     });
   };
@@ -78,6 +108,26 @@ const EditionProgramPage = ({
     };
     dispatch(updateNameProgram(data));
   };
+
+  const handleSelect = (e) => {
+    setSelectedCourse(courses[e.target.value])
+  }
+
+  const handleAddCourse = () => {
+    let data = {
+         courseId: selectedCourse.id, courseName : selectedCourse.name, 
+            categories : selectedCourse.categories.map((category) => {
+                return(
+                    {   categoryId : category.id,
+                        categoryName: category.name,
+                    }
+                )
+            })
+    }
+    
+    dispatch(AddCourseToCurrentProgram(data))
+    
+  }
 
   const renderEditPage = () => {
     if (Object.keys(program).length !== 0) {
@@ -141,6 +191,34 @@ const EditionProgramPage = ({
             <p className="totaldays-name-num"> {totalDays} </p>
           </div>
         </div>
+
+        <div>
+          <select defaultValue={'DEFAULT'} onChange={(e) => handleSelect(e)}>
+            <option disabled value={'DEFAULT'}>
+              Seleccione un curso
+            </option>
+            {courses.map((course, index) => {
+              return (
+                <option key={index} value={index}>
+                  {course.name}
+                </option>
+              );
+            })}
+          </select>
+
+          {Object.keys(selectedCourse).length !== 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                handleAddCourse();
+              }}
+            >
+              Añadir curso
+            </button>
+          )}
+          <br />
+        </div>
+
         <div>
           <div>{renderEditPage()}</div>
         </div>
@@ -157,6 +235,7 @@ const EditionProgramPage = ({
 
 const mapStateToProps = (state) => ({
   programs: state.programReducer.programs,
+  courses: state.programReducer.courses,
   program: state.programReducer.program,
   loading: state.programReducer.loading,
   hasErrors: state.programReducer.hasErrors,

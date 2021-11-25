@@ -2,7 +2,7 @@ import * as actions from './programAction';
 
 export const initialState = {
   programs: [],
-  programCreate:[],
+  courses: [],
   program: {},
   hasErrors: false,
   loading: false,
@@ -18,7 +18,7 @@ export default function programReducer(state = initialState, action) {
       return { ...state, ...action.payload, loading: false, hasErrors: false };
     case actions.LOADED_FAILURE:
       return { ...state, loading: false, hasErrors: true };
-    case actions.UPDATED_CURRENTPROGRAM:
+    case actions.UPDATED_DAYSCURRENTPROGRAM:
       return { ...state, program: { ...state.program, courses: state.program.courses.map((course) => {
         if(course.courseId === action.payload.courseId){
           course = { ...course, categories: course.categories.map((category) => {
@@ -43,6 +43,15 @@ export default function programReducer(state = initialState, action) {
 
     case actions.UPDATE_TOTALDAYS:
       return {...state, totalDays: action.payload.totalDays}  
+
+    case actions.UPDATE_NAMECURRENTPROGRAM:
+      return{...state, program: {...state.program, name: action.payload.name}}  
+
+    case actions.UPDATED_CURRENTPROGRAM:
+      return{...state, program : action.payload.program}  
+
+    case actions.ADD_COURSETOCURRENTPROGRAM:
+      return{...state, program : {...state.program, courses : [...state.program.courses, action.payload] }}  
 
     default:
       return state;

@@ -17,7 +17,6 @@ export const DeleteButton = ({  dispatch,idData }) => {
       showCancelButton: true,
       confirmButtonText: 'Sí, borrar!',
       cancelButtonText: 'No, cancelar!',
-      reverseButtons: true,
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteProgramByIdThunk(idData)).then(() => {
@@ -27,7 +26,7 @@ export const DeleteButton = ({  dispatch,idData }) => {
         /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel
       ) {
-        Swal.fire('Cancelled', 'Your imaginary file is safe :)', 'error')
+        Swal.fire('Cancelado', 'No se borro el programa', 'error')
       }
     })
   }
