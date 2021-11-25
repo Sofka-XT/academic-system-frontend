@@ -1,0 +1,10 @@
+.message_span{
+  
+ 
+}
+.message{
+  padding: 10px;
+  border: 1px solid red ;
+  background-color: rgb(252, 163, 163);
+  border-radius: 5px;
+}
