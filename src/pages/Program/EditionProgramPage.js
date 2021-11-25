@@ -13,12 +13,14 @@ const EditionProgramPage = ({dispatch, program, loading, hasErrors, totalDays })
 
 
   useEffect(() => {
-    if(program){
+    if(program.courses){
       let sumDays = 0;
       program.courses.map(course => {
-        course.categories.map(category => {
-          sumDays += parseInt(category.days);
-        })
+        if(course.categories){
+          course.categories.map(category => {
+            sumDays += parseInt(category.days);
+          })
+        }
       })
   
       let data = {
@@ -53,8 +55,11 @@ const EditionProgramPage = ({dispatch, program, loading, hasErrors, totalDays })
         <div key={course.courseId}>
           <input value={program.name} onChange={(e) => {handleInputChange(e)}}/>
           <h3>{course.courseName}</h3>
-
-          <DeleteButtonCourses dispatch={dispatch} programId={program.id} courseId={course.courseId}/>
+          {console.log(courses)}
+          {courses.length !== 1 && (
+            <DeleteButtonCourses dispatch={dispatch} programId={program.id} courseId={course.courseId}/>
+          )}
+          
           <div>
             <label>Temas</label>
             
