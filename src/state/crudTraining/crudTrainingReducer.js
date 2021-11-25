@@ -79,7 +79,7 @@ export default function crudTrainingReducer(state = initialState, action) {
         redirect: null,
         hasErrors: false,
       };
-    case actions.ADD_COACHES_LIST:
+    case actions.SET_STARTING_DATE:
       const trainingWithStartingDate = { ...state.training };
       trainingWithStartingDate.startingDate = action.payload;
 
