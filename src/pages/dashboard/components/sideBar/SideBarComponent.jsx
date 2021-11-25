@@ -12,6 +12,9 @@ export const SideBarComponent = () => {
         <ul>
           <Link to="programs">Programs</Link>
         </ul>
+        <ul>
+          <Link to="crearPrograma">Crear Programa</Link>
+        </ul>
       </nav>
     </aside>
   );

@@ -51,9 +51,11 @@ const EditionProgramPage = ({dispatch, program, loading, hasErrors, totalDays })
   const renderEditPage = () => {
     if(Object.keys(program).length !== 0 ){
       const courses = program.courses;
-      return(courses && courses.map((course) => (
+      return(
+ 
+        courses && courses.map((course) => (
         <div key={course.courseId}>
-          <input value={program.name} onChange={(e) => {handleInputChange(e)}}/>
+          
           <h3>{course.courseName}</h3>
           {console.log(courses)}
           {courses.length !== 1 && (
@@ -71,13 +73,14 @@ const EditionProgramPage = ({dispatch, program, loading, hasErrors, totalDays })
                     categoryId={category.categoryId} 
                     category={category} courseId={course.courseId} 
                     programId={program.id} 
-                    dispatch={dispatch}/>
+                    dispatch={dispatch}
+                    name={category.categoryName}/>
                 ))
               }
             </ul>
           </div>
         </div>
-      )));
+      )))
     }
   };
 
@@ -88,6 +91,7 @@ const EditionProgramPage = ({dispatch, program, loading, hasErrors, totalDays })
         <p> { totalDays } </p>
         <div>
           <label> Nombre del programa: </label>
+          <input value={program.name} onChange={(e) => {handleInputChange(e)}}/>
           <label value={program.name}></label>
           <div>{renderEditPage()}</div>
         </div>

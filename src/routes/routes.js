@@ -2,7 +2,7 @@ import { HomePageComponent } from '../pages/home/HomePageComponent';
 import EditionProgramPage from '../pages/Program/EditionProgramPage';
 import ListOfProgramsPageComponent from '../pages/Program/ListOfProgramsPageComponent';
 import { DashBoardPageComponent } from './../pages/dashboard/DashBoardPageComponent';
-import FormCreateProgram from './../pages/Program/components/FormCreateProgramComponent'
+import FormCreateProgramPageComponent from '../pages/Program/FormCreateProgramPageComponent';
 
 export const routesApp = [
   {
@@ -34,7 +34,7 @@ export const routesApp = [
       {
         path: 'crearprograma',
         name: 'crearprograma',
-        component: <FormCreateProgram/> 
+        component: <FormCreateProgramPageComponent/> 
       }
 
     ],
