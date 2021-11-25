@@ -46,6 +46,17 @@ export default function crudTrainingReducer(state = initialState, action) {
         redirect: null,
         hasErrors: false,
       };
+    case actions.ADD_LIST_APPRENTICES:
+      const trainingWithApprentices = {...state.training}
+      trainingWithApprentices.apprentices = action.payload
+
+      return {
+        ...state,
+        training: trainingWithApprentices,
+        loading: false,
+        redirect: null,
+        hasErrors: false,
+      };
     case actions.LOADED_FAILURE:
       return { ...state, loading: false, hasErrors: true };
     default:
