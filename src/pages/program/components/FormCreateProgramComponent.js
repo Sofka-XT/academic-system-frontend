@@ -43,7 +43,7 @@ const FormCreateProgram = () => {
 
         event.preventDefault();
 
-        console.log(target.name.value)
+        console.log(event.target.name.value)
 
         console.log(coursesTime);
 
@@ -51,7 +51,7 @@ const FormCreateProgram = () => {
 
         const program = {
 
-            name: target.name.value,
+            name: event.target.name.value,
             courses:[coursesTime]
             
         }
