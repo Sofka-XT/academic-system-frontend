@@ -1,6 +1,5 @@
 import React from 'react'
 import { deleteCourse } from '../../../thunkAction/coursesThunk'
-import { connect } from 'react-redux'
 import { useNavigate } from 'react-router'
 import swal from 'sweetalert'
 import { useAppDispatch } from '../../../state/store.hook';
@@ -28,8 +27,6 @@ export default function DeleteButtonComponent ({id}) {
                 navigate("/dashboard/courseslist")}})
             }
           })
-       /*  dispatch(deleteCourseById(id))
-        .then(navigate("/dashboard/courseslist")) */
     }
 
     return (

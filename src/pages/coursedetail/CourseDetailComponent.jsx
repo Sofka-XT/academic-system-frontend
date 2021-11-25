@@ -4,17 +4,12 @@ import { connect } from 'react-redux'
 import './components/CourseDetailComponent.css'
 import DeleteButtonComponent from './components/DeleteButtonComponent'
 import EditButtonComponent from './components/EditButtonComponent'
-import { useEffect } from 'react'
 
 
 const CourseDetail = ({courses}) => {
     const params = useParams()
 
-    useEffect(() => {
-
-        course = courses.filter((item)=>item.id===params.courseid)[0]
-        
-    }, [courses])
+    
 
     let course = courses.filter((item)=>item.id===params.courseid)[0]
 

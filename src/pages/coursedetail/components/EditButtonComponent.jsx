@@ -1,10 +1,7 @@
 
-import { useNavigate } from "react-router";
-import { connect } from "react-redux";
 
-const EditButtonComponent = (id) =>{
+export default function EditButtonComponent (id){
 
-    const navigate = useNavigate();
 
     const handleEdit=()=>{
         console.log(id)
@@ -16,6 +13,3 @@ const EditButtonComponent = (id) =>{
         </button>
     )
 }
-const mapStateToProps = state => ({
-})
-export default connect(mapStateToProps)(EditButtonComponent)
