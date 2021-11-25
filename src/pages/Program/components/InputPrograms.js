@@ -23,6 +23,7 @@ export const InputPrograms = ({ category,categoryId,courseId,programId,dispatch 
     <div>
       <li className="categoriesList">{category.categoryName}</li>
       <input
+        className="program-inputs"
         value={duration}
         onChange={(e) => {
           handleDurationChange(e, category);

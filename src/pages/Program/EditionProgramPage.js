@@ -1,25 +1,22 @@
 import { connect } from "react-redux";
-import withReactContent from 'sweetalert2-react-content'
+import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import { updateProgramThunk } from "../../thunkAction/programThunk";
 import { InputPrograms } from "./components/InputPrograms";
-
-
-
+import "./EditionProgramPage.css";
 
 const EditionProgramPage = ({
   dispatch,
   program,
   loading,
   hasErrors,
-  programs
+  programs,
 }) => {
-
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Show Program.</p>;
 
   const handleOnClick = (id) => {
-    const MySwal = withReactContent(Swal)
+    const MySwal = withReactContent(Swal);
 
     MySwal.fire({
       title: "¿Quiere editar este program?",
@@ -52,18 +49,20 @@ const EditionProgramPage = ({
         courses &&
         courses.map((course) => (
           <div key={course.courseId}>
-            <label>Curso</label>
-            <h3>{course.courseName}</h3>
-
-            <button
-              onClick={() => {
-                handleDeleteCourse(program.id, course.courseId);
-              }}
-            >
-              Eliminar
-            </button>
-            <div>
-              <label>Temas</label>
+            <h3>Cursos:</h3>
+            <div className="course-container">
+              <h4>{course.courseName}</h4>
+              <button
+              className="button-edit"
+                onClick={() => {
+                  handleDeleteCourse(program.id, course.courseId);
+                }}
+              >
+                Eliminar
+              </button>
+            </div>
+            <div className="topics-list">
+              <h5 className="topics-label">Temas:</h5>
               <ul>
                 {course.categories &&
                   course.categories.map((category) => (
@@ -86,14 +85,15 @@ const EditionProgramPage = ({
 
   return (
     <div>
-      <form>
+      <form className="form-container">
         <h1> Editar Programa </h1>
         <div className="program-name-container">
           <h2 className="program-name"> Nombre del programa: </h2>
-          <input className="" value={program.name}></input>
-          <div>{renderEditPage()}</div>
+          <input className="program-inputs-name" value={program.name}></input>
         </div>
-        <button onClick={() => handleOnClick(program.id)}>Enviar</button>
+        <div>{renderEditPage()}</div>
+
+        <button className="button-edit" onClick={() => handleOnClick(program.id)}>Enviar</button>
       </form>
     </div>
   );
