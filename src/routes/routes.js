@@ -16,7 +16,6 @@ import EditCoursePageComponent from './../pages/createCourse/Components/EditCour
 import CoursesListComponent from './../pages/courseslist/CoursesListComponent';
 import CourseDetail from './../pages/coursedetail/CourseDetailComponent';
 export const routesApp = [
-<<<<<<< HEAD
   {
     path: '/dashboard',
     name: 'DashBoard',
@@ -84,7 +83,6 @@ export const routesApp = [
       },
     ],
   },
-=======
 
 	{
 		path: '/dashboard',
@@ -133,7 +131,6 @@ export const routesApp = [
 			},
 		],
 	}
->>>>>>> 956e62f406fe53742a6a737d5f929233ddf50992
 ];
 
 export const apprenticeRoutesApp = [

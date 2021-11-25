@@ -1,5 +1,4 @@
 export const coachLinks = [
-<<<<<<< HEAD
   {
     path: 'home',
     name: 'INICIO',
@@ -42,7 +41,6 @@ export const coachLinks = [
     name: 'CERRAR SESION',
   },
 ];
-=======
     {
         path: 'home',
         name: 'INICIO'
@@ -76,7 +74,6 @@ export const coachLinks = [
         name: 'CERRAR SESION'
     }
 ]
->>>>>>> 956e62f406fe53742a6a737d5f929233ddf50992
 
 export const apprenticeLinks = [
   {
