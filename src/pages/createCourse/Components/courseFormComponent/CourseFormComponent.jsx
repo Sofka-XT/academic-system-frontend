@@ -30,7 +30,11 @@ const CourseFormComponent = ({ loading, error }) => {
     <>
       <h1>{error + ''}</h1>
       {!loading && (
-        <CourseGeneralFormComponent onSubmit={onSubmit} formDefaultValue={{}} />
+        <CourseGeneralFormComponent
+          onSubmit={onSubmit}
+          formDefaultValue={{}}
+          actionMsjButton={'CREAR'}
+        />
       )}
 
       {loading && <p>loading</p>}

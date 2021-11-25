@@ -40,6 +40,7 @@ const EditCoursePageComponent = ({ loading, error, courses }) => {
         <CourseGeneralFormComponent
           onSubmit={onSubmit}
           formDefaultValue={course}
+          actionMsjButton={'EDITAR'}
         />
       )}
 

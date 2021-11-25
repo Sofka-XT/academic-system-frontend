@@ -2,7 +2,11 @@ import React, { useRef } from 'react';
 import { MessageErrorFormComponent } from '../messageErrorFormComponent/MessageErrorFormComponent';
 import { CategoryFormComponet } from '../categoryFormComponent/CategoryFormComponet';
 import { useForm } from 'react-hook-form';
-export const CourseGeneralFormComponent = ({ onSubmit, formDefaultValue }) => {
+export const CourseGeneralFormComponent = ({
+  onSubmit,
+  formDefaultValue,
+  actionMsjButton,
+}) => {
   const handleAppendCategory = useRef(null);
   const {
     control,
@@ -45,7 +49,7 @@ export const CourseGeneralFormComponent = ({ onSubmit, formDefaultValue }) => {
           disabled={Object.keys(errors).length > 0}
           type="submit"
         >
-          CREAR CURSO
+          {actionMsjButton}
         </button>
       </div>
     </form>
