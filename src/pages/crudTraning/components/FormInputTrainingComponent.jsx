@@ -7,14 +7,12 @@ import { CSVReader } from "react-papaparse";
 import "./FormInputTrainingComponent.css";
 
 const LoginScreen = () => {
-  const inputFileRef = useRef(document.getElementById("btn__upload-file"));
-
   // const dispatch = useDispatch();
-  // const { ui } = useSelector((state) => state);
+  // const {  } = useSelector((state) => state);
   const [formValues, handleInputChange, resetFormValues] = useForm({
     name: "",
     program: "",
-    startingDate: new Date(),
+    startingDate: Date.now(),
     apprentices: [],
     coaches: [],
   });
@@ -34,9 +32,29 @@ const LoginScreen = () => {
     },
   ]);
 
+  const [programs, setPrograms] = useState([
+    {
+      id: "1",
+      name: "Desarrollo",
+    },
+    {
+      id: "2",
+      name: "QA",
+    },
+    {
+      id: "3",
+      name: "SCRUM",
+    },
+    {
+      id: "4",
+      name: "Arquitectura",
+    },
+  ]);
+
   const [tableState, setTableState] = useState(null);
 
   const { name, program, startingDate, apprentices, coaches } = formValues;
+  console.log(startingDate);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,8 +73,14 @@ const LoginScreen = () => {
         email: infoArray[1],
         tel: infoArray[2],
       }));
-    console.log(data);
     setTableState(data);
+    const e = {
+      target: {
+        name: "apprentices",
+        value: tableState,
+      },
+    };
+    handleInputChange(e);
   };
 
   const handleOnError = (e) => {};
@@ -104,21 +128,9 @@ const LoginScreen = () => {
               value={program}
               onChange={handleListSelectedCoaches}
             >
-              <option value="1" className="training__options-programs">
-                Desarrollo
-              </option>
-              <option value="2" className="training__options-programs">
-                QA
-              </option>
-              <option value="3" className="training__options-programs">
-                SCRUM
-              </option>
-              <option value="4" className="training__options-programs">
-                Arquitectura
-              </option>
-              <option value="5" className="training__options-programs">
-                Otro
-              </option>
+              {programs.map((program) => (
+                <option value={program.id}>{program.name}</option>
+              ))}
             </select>
           </div>
 
@@ -172,12 +184,12 @@ const LoginScreen = () => {
           </div>
 
           <div className="training__input-container">
-            <label
+            {/* <label
               htmlFor="training__categoria"
               className="trainings__input-label"
             >
               Subir archivo de aprendices
-            </label>
+            </label> */}
 
             <div className="training__file-input">
               <CSVReader
@@ -187,7 +199,10 @@ const LoginScreen = () => {
                 addRemoveButton
                 onRemoveFile={handleOnRemoveFile}
               >
-                <span>Click to upload.</span>
+                <span className="text-center small">
+                  Subir el archivo .CSV de los aprendices para el nuevo
+                  trainings
+                </span>
               </CSVReader>
             </div>
           </div>
