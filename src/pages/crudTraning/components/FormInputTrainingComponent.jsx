@@ -8,11 +8,13 @@ import { fetchPrograms } from "../../../state/crudTraining/crudTrainingActions";
 import "./FormInputTrainingComponent.css";
 import ProgramsListComponent from "./ProgramsListComponent";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import * as actions from "../../../state/crudTraining/crudTrainingActions";
 
 const FormInputTrainingComponent = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const trainingState = useSelector((state) => state.crudTrainingReducer);
-  console.log(trainingState);
+
   const [formValues, handleInputChange, resetFormValues] = useForm({
     name: "",
     program: "",
@@ -82,9 +84,9 @@ const FormInputTrainingComponent = () => {
         ...program,
         selected: false,
       }));
-      setPrograms(programs);
+      //dispatch({ type: actions.ADD_LIST_PROGRAMS, payload: programs });
     });
-    console.log("estamos en el useefect");
+    //console.log("estamos en el useefect");
   }, []);
 
   return (
@@ -126,7 +128,7 @@ const FormInputTrainingComponent = () => {
               value={program}
               onChange={handleListSelectedCoaches}
             >
-              {programs.map((program) => (
+              {trainingState.programs.map((program) => (
                 <option value={program.id}>{program.name}</option>
               ))}
             </select>
