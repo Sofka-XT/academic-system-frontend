@@ -36,12 +36,45 @@ export default function crudTrainingReducer(state = initialState, action) {
         hasErrors: false,
       };
     case actions.ADD_PROGRAM_SELECTED:
-      const trainingWithProgram = {...state.training}
-      trainingWithProgram.program = action.payload
+      const trainingWithProgram = { ...state.training };
+      trainingWithProgram.program = action.payload;
 
       return {
         ...state,
         training: trainingWithProgram,
+        loading: false,
+        redirect: null,
+        hasErrors: false,
+      };
+    case actions.ADD_LIST_APPRENTICES:
+      const trainingWithApprentices = { ...state.training };
+      trainingWithApprentices.apprentices = action.payload;
+
+      return {
+        ...state,
+        training: trainingWithApprentices,
+        loading: false,
+        redirect: null,
+        hasErrors: false,
+      };
+    case actions.ADD_TRAINING_NAME:
+      const trainingWithName = { ...state.training };
+      trainingWithName.name = action.payload;
+
+      return {
+        ...state,
+        training: trainingWithName,
+        loading: false,
+        redirect: null,
+        hasErrors: false,
+      };
+    case actions.ADD_COACHES_LIST:
+      const trainingWithCoachList = { ...state.training };
+      trainingWithCoachList.coaches = action.payload;
+
+      return {
+        ...state,
+        training: trainingWithCoachList,
         loading: false,
         redirect: null,
         hasErrors: false,

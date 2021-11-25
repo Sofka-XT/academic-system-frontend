@@ -23,6 +23,12 @@ const FormInputTrainingComponent = () => {
   });
 
   const [coachesList, setCoachesList] = useState([
+    //Debemos agregar un valor por defecto que tenga id=0 y
+    //que cuando se selecciona si tiene este id el coach seleccionado no se ejecute nnguna de las funciones
+    {
+      id: "0",
+      name: "Seleccione al menos un coach",
+    },
     {
       id: "1",
       name: "Raul",
@@ -52,11 +58,15 @@ const FormInputTrainingComponent = () => {
   const [tableState, setTableState] = useState(null);
 
   const { name, program, startingDate, apprentices, coaches } = formValues;
-  console.log(startingDate);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //Validacion de los campos de entradas
+    //Actualizacion de el estado global para enviar a validacion antes de afectar el back
+    dispatch({ type: actions.ADD_COACHES_LIST, payload: coaches });
+    dispatch({ type: actions.ADD_TRAINING_NAME, payload: name });
+    //ejecucion de validacion
+    console.log("Global state updated from submiting the form")
+
   };
 
   const handleListSelectedCoaches = (e) => {
@@ -78,6 +88,7 @@ const FormInputTrainingComponent = () => {
         value: data,
       },
     };
+    dispatch({ type: actions.ADD_LIST_APPRENTICES, payload: data });
     handleInputChange(e);
   };
 
@@ -87,14 +98,42 @@ const FormInputTrainingComponent = () => {
     setTableState(null);
   };
 
+  const handleSelectCoach = (e) => {
+    if (e.target.value === "0") return;
+    const coachSelected = coachesList.filter(
+      (coach) => coach.id === e.target.value
+    )[0];
+    const event = {
+      target: { name: "coaches", value: [...coaches, coachSelected] },
+    };
+    const newCoachesList = coachesList.filter(
+      (coach) => coach.id !== e.target.value
+    );
+    setCoachesList(newCoachesList);
+    handleInputChange(event);
+  };
+
   useEffect(() => {
     fetchPrograms().then((result) => {
       dispatch({ type: actions.ADD_LIST_PROGRAMS, payload: result });
     });
   }, []);
 
+  const handleUnselectCoach = (id) => {
+    const coachToDelete = coaches.filter((coach) => coach.id === id)[0];
+    const newCoachesSelected = coaches.filter((coach) => coach.id !== id);
+    const event = {
+      target: { name: "coaches", value: newCoachesSelected },
+    };
+    handleInputChange(event);
+    setCoachesList([...coachesList, coachToDelete]);
+  };
+
   return (
-    <div className="trainings__main-container mb-3">
+    <div
+      className="trainings__main-container"
+      style={{ paddingBottom: "50px" }}
+    >
       <form onSubmit={handleSubmit} className="trainings__form">
         <div className="training__input-form">
           <input
@@ -169,7 +208,7 @@ const FormInputTrainingComponent = () => {
               name="coaches"
               id="training__couches"
               className="trainings__select-input"
-              onChange={handleInputChange}
+              onChange={handleSelectCoach}
             >
               {coachesList.map((coach) => (
                 <option value={coach.id}>{coach.name}</option>
@@ -179,7 +218,10 @@ const FormInputTrainingComponent = () => {
               {coaches.map((coach) => (
                 <li key={coach.id} className="training__coach-selected">
                   <span> - {coach.name}</span>
-                  <button className="btn btn-danger">
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleUnselectCoach(coach.id)}
+                  >
                     <i className="fas fa-trash-alt"></i>
                   </button>
                 </li>
@@ -188,13 +230,6 @@ const FormInputTrainingComponent = () => {
           </div>
 
           <div className="training__input-container">
-            {/* <label
-              htmlFor="training__categoria"
-              className="trainings__input-label"
-            >
-              Subir archivo de aprendices
-            </label> */}
-
             <div className="training__file-input">
               <CSVReader
                 onDrop={handleOnDrop}

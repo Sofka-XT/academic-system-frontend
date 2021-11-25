@@ -160,6 +160,9 @@ main {
 .trainings__btn-submit {
   width: 120px;
   height: 30px;
+  background-color: #40bad5;
+  border: 2px solid darkgray;
+  border-radius: 3px;
   margin-top: 10px;
 }
 
@@ -234,16 +237,17 @@ main {
   margin: auto 5%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 50px;
 }
 
 .portfolio__item {
   background: white;
-  border-radius: 10px;
   position: relative;
   object-fit: cover;
   overflow: hidden;
   font-size: 14px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .portfolio__img {
@@ -284,13 +288,13 @@ main {
 .portfolio__description--title {
   text-align: center;
   color: #40bad5;
-  font-size: 30px;
+  font-size: 1.3em;
   margin-top: -50px;
-  padding-top: 0px;
 }
 
 .portfolio__description--subtitle {
-  font-size: 18px;
+  font-size: 1.1em;
+  margin-top: -10px;
   color: aliceblue;
 }
 
@@ -317,4 +321,13 @@ main {
   top: 5px;
   right: 10px;
   color: #40bad5;
+}
+
+.training__program-main-container {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 10px;
+  border-bottom: 10px solid blue;
+  background-color: lightgray;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
