@@ -16,21 +16,23 @@ const LoginScreen = () => {
     program: "",
     startingDate: new Date(),
     apprentices: [],
-    coaches: [
-      {
-        id: "1",
-        name: "Raul",
-      },
-      {
-        id: "2",
-        name: "Pablo",
-      },
-      {
-        id: "3",
-        name: "Oscar",
-      },
-    ],
+    coaches: [],
   });
+
+  const [coachesList, setCoachesList] = useState([
+    {
+      id: "1",
+      name: "Raul",
+    },
+    {
+      id: "2",
+      name: "Pablo",
+    },
+    {
+      id: "3",
+      name: "Oscar",
+    },
+  ]);
 
   const [tableState, setTableState] = useState(null);
 
@@ -153,32 +155,19 @@ const LoginScreen = () => {
               className="trainings__select-input"
               onChange={handleInputChange}
             >
-              <option value="1" className="training__options-coachs">
-                Raul
-              </option>
-              <option value="2" className="training__options-coachs">
-                Oscar
-              </option>
-              <option value="3" className="training__options-coachs">
-                Pablo
-              </option>
-              <option value="4" className="training__options-coachs">
-                Ivan
-              </option>
-              <option value="5" className="training__options-coachs">
-                Manuel
-              </option>
+              {coachesList.map((coach) => (
+                <option value={coach.id}>{coach.name}</option>
+              ))}
             </select>
             <ul className="training__coach-list">
               {coaches.map((coach) => (
                 <li key={coach.id} className="training__coach-selected">
-                  <span>{coach.name}</span>
-                  <button className="btn btn-primary">
-                    <i className="fas fa-trash-alt"></i> Remover coach
+                  <span> - {coach.name}</span>
+                  <button className="btn btn-danger">
+                    <i className="fas fa-trash-alt"></i>
                   </button>
                 </li>
               ))}
-              <li>Raul</li>
             </ul>
           </div>
 

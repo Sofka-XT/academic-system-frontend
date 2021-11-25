@@ -195,13 +195,21 @@ main {
 }
 
 .training__btn-upload {
-  background-color: red;
 }
 
 #training__div-file {
 }
 
-div #btn__upload-file {
-  background-color: yellow;
-  display: none;
+.training__coach-list {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.training__coach-selected {
+  font-size: 1.1em;
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
