@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useForm from "./../../../hooks/useForm";
 import CSVTableComponent from "./CSVTableComponent";
-import { CSVReader } from 'react-papaparse'
+import { CSVReader } from "react-papaparse";
 
 import "./FormInputTrainingComponent.css";
 
@@ -16,7 +16,20 @@ const LoginScreen = () => {
     program: "",
     startingDate: new Date(),
     apprentices: [],
-    coaches: [],
+    coaches: [
+      {
+        id: "1",
+        name: "Raul",
+      },
+      {
+        id: "2",
+        name: "Pablo",
+      },
+      {
+        id: "3",
+        name: "Oscar",
+      },
+    ],
   });
 
   const [tableState, setTableState] = useState(null);
@@ -28,25 +41,27 @@ const LoginScreen = () => {
     // dispatch(startLoginEmailAndPassword(email, password));
   };
 
+  const handleListSelectedCoaches = (e) => {
+    //pendeinte
+  };
 
   const handleOnDrop = (csvInfo) => {
-    const data = csvInfo.map((item)=>item.data).map(infoArray => ({name:infoArray[0], email:infoArray[1], tel:infoArray[2]}));
-    console.log(data)
-    setTableState(data)
-  }
+    const data = csvInfo
+      .map((item) => item.data)
+      .map((infoArray) => ({
+        name: infoArray[0],
+        email: infoArray[1],
+        tel: infoArray[2],
+      }));
+    console.log(data);
+    setTableState(data);
+  };
 
-
-
-  const handleOnError = (e) => {
-    
-  }
+  const handleOnError = (e) => {};
 
   const handleOnRemoveFile = (e) => {
-  
-  }
-
-
-  
+    setTableState(null);
+  };
 
   return (
     <div className="trainings__main-container">
@@ -85,7 +100,7 @@ const LoginScreen = () => {
               id="training__categoria"
               className="trainings__select-input"
               value={program}
-              onChange={handleInputChange}
+              onChange={handleListSelectedCoaches}
             >
               <option value="1" className="training__options-programs">
                 Desarrollo
@@ -112,7 +127,7 @@ const LoginScreen = () => {
             >
               Fecha de Inicio
             </label>
-          
+
             <input
               type="date"
               name="startingDate"
@@ -154,6 +169,17 @@ const LoginScreen = () => {
                 Manuel
               </option>
             </select>
+            <ul className="training__coach-list">
+              {coaches.map((coach) => (
+                <li key={coach.id} className="training__coach-selected">
+                  <span>{coach.name}</span>
+                  <button className="btn btn-primary">
+                    <i className="fas fa-trash-alt"></i> Remover coach
+                  </button>
+                </li>
+              ))}
+              <li>Raul</li>
+            </ul>
           </div>
 
           <div className="training__input-container">
@@ -163,18 +189,17 @@ const LoginScreen = () => {
             >
               Subir archivo de aprendices
             </label>
-            
+
             <div className="training__file-input">
-            <CSVReader 
-              
-              onDrop={handleOnDrop}
-              onError={handleOnError}
-              noDrag
-              addRemoveButton
-              onRemoveFile={handleOnRemoveFile}
-            >
-              <span>Click to upload.</span>
-            </CSVReader>
+              <CSVReader
+                onDrop={handleOnDrop}
+                onError={handleOnError}
+                noDrag
+                addRemoveButton
+                onRemoveFile={handleOnRemoveFile}
+              >
+                <span>Click to upload.</span>
+              </CSVReader>
             </div>
           </div>
         </div>
