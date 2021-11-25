@@ -20,7 +20,7 @@ export const coachLinks = [
     name: 'Histórico de Programas',
   },
   {
-    path: 'activetraining',
+    path: 'activetrainingcoach',
     name: 'TRAINING ACTIVO',
   },
   {
@@ -41,39 +41,6 @@ export const coachLinks = [
     name: 'CERRAR SESION',
   },
 ];
-    {
-        path: 'home',
-        name: 'INICIO'
-    },
-    {
-        path: 'trainingstory',
-        name: 'Histórico de Training'
-    },
-    {
-        path: 'activeprogram',
-        name: 'PROGRAMAS ACTIVOS'
-    },
-    {
-        path: 'program',
-        name: 'Crear Programa'
-    },
-    {
-        path: 'programstory',
-        name: 'Histórico de Programas'
-    },
-    {
-        path: 'activetrainingcoach',
-        name: 'TRAINING ACTIVO'
-    },
-    {
-        path: 'training',
-        name: 'Crear Training'
-    },
-    {
-        path: 'logout',
-        name: 'CERRAR SESION'
-    }
-]
 
 export const apprenticeLinks = [
   {
