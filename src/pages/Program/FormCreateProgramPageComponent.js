@@ -14,7 +14,6 @@ const FormCreateProgramPageComponent = ({dispatch,courses,loading, program}) => 
 
     const [selectedCourse, setSelectedCourse] = useState("")
 
-    console.log(selectedCourse)
 
 
     useEffect(() => {
@@ -30,7 +29,6 @@ const FormCreateProgramPageComponent = ({dispatch,courses,loading, program}) => 
           dispatch(updateCurrentProgram(data))
           if(courses[0] !== undefined){
             setSelectedCourse(courses[0])
-            console.log(courses[0])
             }
             
     }, [])

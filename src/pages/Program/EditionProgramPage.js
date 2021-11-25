@@ -160,6 +160,7 @@ const EditionProgramPage = ({
                           courseId={course.courseId}
                           programId={program.id}
                           dispatch={dispatch}
+                          currentDays = {category.days}
                         />
                       ))}
                   </ul>
