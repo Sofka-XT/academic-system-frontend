@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import CourseDetail from '../pages/coursedetail/CourseDetailComponent';
+import CoursesListComponent from '../pages/courseslist/CoursesListComponent';
+>>>>>>> be45b5b4ccf0f27bc6b33678b54317062319c7e2
 import { HomePageComponent } from '../pages/home/HomePageComponent';
 import Welcome from '../pages/dashboard/components/welcome/Welcome.jsx';
 import {
