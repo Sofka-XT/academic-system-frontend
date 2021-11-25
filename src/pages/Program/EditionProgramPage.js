@@ -1,4 +1,4 @@
-
+import React from 'react'
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { updateNameProgram, updateTotalDays } from "../../state/Program/programAction";
@@ -13,18 +13,20 @@ const EditionProgramPage = ({dispatch, program, loading, hasErrors, totalDays })
 
 
   useEffect(() => {
-    let sumDays = 0;
-    program.courses.map(course => {
-      course.categories.map(category => {
-        sumDays += parseInt(category.days);
+    if(program){
+      let sumDays = 0;
+      program.courses.map(course => {
+        course.categories.map(category => {
+          sumDays += parseInt(category.days);
+        })
       })
-    })
-
-    let data = {
-      totalDays : sumDays,
+  
+      let data = {
+        totalDays : sumDays,
+      }
+  
+      dispatch(updateTotalDays(data))
     }
-
-    dispatch(updateTotalDays(data))
   }, [program])
 
   if (loading) return <p>Loading Program to Edit...</p>;
