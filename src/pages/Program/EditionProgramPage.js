@@ -1,23 +1,44 @@
-import { updateProgramThunk } from "../../thunkAction/programThunk";
-import { connect } from "react-redux";
-import { EditForm } from "./components/EditForm";
 
-const EditionProgramPage = ({ program, dispatch, loading, hasErrors, redirect }) => {
+import { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { updateProgramThunk } from "../../thunkAction/programThunk";
+import { InputPrograms } from "./components/InputPrograms";
+
+
+const EditionProgramPage = ({dispatch, program, loading, hasErrors, programs }) => {
+
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Program Courses.</p>;
 
-  const copyProgram = {...program}
-
   const handleOnClick = (id) => {
-    console.log(copyProgram)
+    dispatch(updateProgramThunk(program))
   };
 
   const renderEditPage = () => {
-    const courses = copyProgram.courses;
-    
-    return(courses && courses.map((course) => (
-      <EditForm dispatch={dispatch} key={course.courseId} course={course} program={copyProgram}/>
-    )));
+    if(Object.keys(program).length !== 0 ){
+      const courses = program.courses;
+      return(courses && courses.map((course) => (
+        <div key={course.courseId}>
+          <label>Curso</label>
+          <h3>{course.courseName}</h3>
+          <div>
+            <label>Temas</label>
+            <ul>
+              {course.categories && 
+                course.categories.map((category) => (
+                    <InputPrograms 
+                    key={category.categoryId} 
+                    categoryId={category.categoryId} 
+                    category={category} courseId={course.courseId} 
+                    programId={program.id} 
+                    dispatch={dispatch}/>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      )));
+    }
   };
 
   return (
@@ -29,7 +50,7 @@ const EditionProgramPage = ({ program, dispatch, loading, hasErrors, redirect })
           <label value={program.name}></label>
           <div>{renderEditPage()}</div>
         </div>
-          <button type="submit" onClick={() => handleOnClick(program.id)}>
+          <button onClick={() => handleOnClick(program.id)}>
             Enviar
           </button>
       </form>
@@ -38,6 +59,7 @@ const EditionProgramPage = ({ program, dispatch, loading, hasErrors, redirect })
 };
 
 const mapStateToProps = (state) => ({
+  programs: state.programReducer.programs,
   program: state.programReducer.program,
   loading: state.programReducer.loading,
   hasErrors: state.programReducer.hasErrors,

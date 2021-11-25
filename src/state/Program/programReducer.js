@@ -16,6 +16,20 @@ export default function programReducer(state = initialState, action) {
       return { ...state, ...action.payload, loading: false, hasErrors: false };
     case actions.LOADED_FAILURE:
       return { ...state, loading: false, hasErrors: true };
+    case actions.UPDATED_CURRENTPROGRAM:
+      return { ...state, program: { ...state.program, courses: state.program.courses.map((course) => {
+        if(course.courseId === action.payload.courseId){
+          course = { ...course, categories: course.categories.map((category) => {
+            if(category.categoryId === action.payload.categoryId){
+              category = { ...category, days : action.payload.days }
+              return category
+            } 
+            return category
+          })}
+          return course
+        }
+        return course
+      })}}
     default:
       return state;
   }
