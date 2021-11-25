@@ -78,6 +78,7 @@ const FormInputTrainingComponent = () => {
         value: data,
       },
     };
+    // dispatch({ type: actions.ADD_LIST_APPRENTICES, payload: data });
     handleInputChange(e);
   };
 

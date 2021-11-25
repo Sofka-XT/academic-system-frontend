@@ -160,6 +160,9 @@ main {
 .trainings__btn-submit {
   width: 120px;
   height: 30px;
+  background-color: #40bad5;
+  border: 2px solid darkgray;
+  border-radius: 3px;
   margin-top: 10px;
 }
 

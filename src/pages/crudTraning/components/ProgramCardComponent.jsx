@@ -29,7 +29,7 @@ const ProgramCardComponent = ({ program }) => {
       <div
         className="training__program-selected"
         style={{
-          display: `${training.programId === program.id ? "unset" : "none"}`,
+          display: `${training.program === program.id ? "unset" : "none"}`,
         }}
       >
         <i class="fas fa-check-circle"></i>
