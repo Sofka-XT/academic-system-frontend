@@ -1,14 +1,3 @@
-*{
-  padding: 0;
-  margin: 0;
-  
-}
-
-*{
-  margin: 0;
-  padding: 0;
-}
-
 .container{
   width: 100%;
   height: 100vh;
@@ -26,13 +15,8 @@
   padding: 0 15px;
 }
 
-.Navbar h5{
-  color: #fff;
-  font-size: 14px;
-}
-
-.Navbar h6{
-  color: aliceblue;
+.Navbar span{
+  color: var(--white-color);
 }
 
 .right-side{
@@ -44,12 +28,10 @@
 }
 
 .profile-picture{
-  border-radius: 50px;
-  position: relative;
-  height: 30px;
-  width: 30px;
+  border-radius: 100%;
+  height: 32px;
+  width: 32px;
   margin-right: 2%;
-  margin-top: 1%;
 }
 
 .dashboard{
