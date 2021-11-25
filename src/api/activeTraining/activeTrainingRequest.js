@@ -5,6 +5,6 @@ import { enviroment } from "../../environments/enviroment"
 const URL_BASE=enviroment.host;
 //const URL_BASE='http://localhost:8080/training/list-actives'
 export const getActiveTrainingApi = () => {
-    return fetch(`${URL_BASE}/training/list-actives`)
+    return fetch(`${URL_BASE}training/list-actives`)
     //return fetch(URL_BASE);
 };

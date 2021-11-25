@@ -48,9 +48,9 @@ export const routesApp = [
         component: <h1>Program Story</h1>,
       },
       {
-        path: 'activetraining',
+        path: 'activetrainingcoach',
         name: 'Active Training',
-        component: <h1>Active Training</h1>,
+        component: <TrainingListPageComponent />,
       },
       {
         path: 'training',
@@ -79,7 +79,31 @@ export const routesApp = [
       },
     ],
   },
+];
 
+export const apprenticeRoutesApp = [
+  {
+    path: '/dashboard/apprentice',
+    name: 'DashBoard',
+    component: <DashBoardApprenticeComponent />,
+    child: [
+      {
+        path: 'logout',
+        name: 'Log Out',
+        component: <HomePageComponent />,
+      },
+      {
+        path: 'activetraining',
+        name: 'Active Training',
+        component: '',
+      },
+      {
+        path: 'createCourse',
+        name: 'Active Training',
+        component: <CreateCoursePageComponent />,
+      },
+    ],
+  },
   {
     path: '/dashboard',
     name: 'DashBoard',
@@ -116,7 +140,7 @@ export const routesApp = [
         component: <h1>Program Story</h1>,
       },
       {
-        path: 'activetrainingcoach',
+        path: 'activetraining',
         name: 'Active Training',
         component: <TrainingListPageComponent />,
       },
@@ -143,12 +167,7 @@ export const apprenticeRoutesApp = [
       {
         path: 'activetraining',
         name: 'Active Training',
-        component: '',
-      },
-      {
-        path: 'createCourse',
-        name: 'Active Training',
-        component: <CreateCoursePageComponent />,
+        component: <TrainingListPageComponent />,
       },
     ],
   },
