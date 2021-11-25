@@ -4,6 +4,8 @@ export const LOADING = "LOADING";
 export const LOADED_SUCCESS = "LOADED_SUCCESS";
 export const LOADED_FAILURE = "LOADED_FAILURE";
 export const POST_PROGRAM_SUCCESS = "POST_PORGRAM_SUCCES";
+export const ADD_LIST_PROGRAMS = "ADD_LIST_PROGRAMS";
+
 
 export const loading = () => ({ type: LOADING });
 
