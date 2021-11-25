@@ -9,12 +9,14 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import { connect } from 'react-redux';
 import { CourseGeneralFormComponent } from '../courseGeneralFormComponent/CourseGeneralFormComponent';
 import { LoaderLoadingComponent } from './../../../../common/Loader/LoaderLoadingComponent';
+import { MessageErrorFormComponent } from './../messageErrorFormComponent/MessageErrorFormComponent';
 
 const CourseFormComponent = ({ loading, error }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleCreateCourse = (data) => {
+    console.log(data);
     dispatch(addCourse(data))
       .then(unwrapResult)
       .then((course) => {
@@ -27,7 +29,7 @@ const CourseFormComponent = ({ loading, error }) => {
 
   return (
     <>
-      <h1>{error && error + ''}</h1>
+      <h1>{error && <MessageErrorFormComponent message={error + ''} />}</h1>
       {!loading && (
         <CourseGeneralFormComponent
           onSubmit={onSubmit}

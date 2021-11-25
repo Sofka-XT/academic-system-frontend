@@ -1,4 +1,5 @@
 import React from 'react';
+import { FileUploadComponent } from '../fileUploadComponent/FileUploadComponent';
 import { MessageErrorFormComponent } from './../messageErrorFormComponent/MessageErrorFormComponent';
 import './RulesFormComponent.css';
 export const RulesFormComponent = ({
@@ -6,12 +7,14 @@ export const RulesFormComponent = ({
   register,
   indexCategory,
   indexRule,
+  setValue,
   rule,
 }) => {
+  console.log(rule);
   const assingColorBg = () => {
-    return rule.value === 'DANGER'
+    return rule.type === 'DANGER'
       ? 'rule_red'
-      : rule.value === 'WARNING'
+      : rule.type === 'WARNING'
       ? 'rule_yellow'
       : 'rule_green';
   };
@@ -33,11 +36,7 @@ export const RulesFormComponent = ({
               }
             )}
           >
-            <option
-              defaultValue={rule.value}
-              option="select"
-              value={rule.value}
-            >
+            <option defaultValue={rule.type} value={rule.type} selected>
               {rule.color}
             </option>
           </select>
@@ -60,6 +59,7 @@ export const RulesFormComponent = ({
             <option value=">">{'>'}</option>
             <option value="=">=</option>
           </select>
+          <p>{rule.type}</p>
         </div>
       </div>
       <div className="row">
@@ -69,6 +69,8 @@ export const RulesFormComponent = ({
           <input
             className="form-control"
             type="number"
+            min="0"
+            max="100"
             {...register(
               `categories[${indexCategory}].rules[${indexRule}].average`,
               {
@@ -103,6 +105,16 @@ export const RulesFormComponent = ({
                 message={'debe agregar un nombre al feedback'}
               />
             )}
+        </div>
+
+        <div>
+          <FileUploadComponent
+            register={register}
+            indexCategory={indexCategory}
+            indexRule={indexRule}
+            errors={errors}
+            setValue={setValue}
+          />
         </div>
       </div>
     </div>

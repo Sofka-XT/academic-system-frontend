@@ -9,6 +9,7 @@ import { putCourse } from '../../../thunkAction/coursesThunk';
 
 import { CourseGeneralFormComponent } from './courseGeneralFormComponent/CourseGeneralFormComponent';
 import { LoaderLoadingComponent } from './../../../common/Loader/LoaderLoadingComponent';
+import { MessageErrorFormComponent } from './messageErrorFormComponent/MessageErrorFormComponent';
 
 const EditCoursePageComponent = ({ loading, error, courses }) => {
   const dispatch = useAppDispatch();
@@ -37,7 +38,7 @@ const EditCoursePageComponent = ({ loading, error, courses }) => {
 
   return (
     <>
-      <h1>{error + ''}</h1>
+      <h1>{error && <MessageErrorFormComponent message={error + ''} />}</h1>
       {!loading && (
         <CourseGeneralFormComponent
           onSubmit={onSubmit}

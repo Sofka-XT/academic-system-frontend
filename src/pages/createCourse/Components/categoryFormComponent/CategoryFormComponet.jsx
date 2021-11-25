@@ -7,6 +7,8 @@ export const CategoryFormComponet = ({
   errors,
   register,
   control,
+  setValue,
+  getValues,
   handleAppendCategory,
 }) => {
   const { fields, append, remove } = useFieldArray({
@@ -20,24 +22,32 @@ export const CategoryFormComponet = ({
     handleAppendCategory.current = handleAppend;
   }, [append, handleAppendCategory]);
 
-  const rules = [
+  let rules = [
     {
       color: 'Roja',
-      value: 'DANGER',
+      type: 'DANGER',
     },
     {
       color: 'Amarilla',
-      value: 'WARNING',
+      type: 'WARNING',
     },
     {
       color: 'Verde',
-      value: 'SUCCESS',
+      type: 'SUCCESS',
     },
   ];
+
+  const handleCreateRules = (index) => {
+    const rulesEdit = getValues(`categories[${index}].rules`);
+    if (rulesEdit) {
+      rules = rulesEdit;
+    }
+  };
 
   return (
     <>
       {fields.map((field, index) => {
+        handleCreateRules(index);
         return (
           <div key={field.id} className="container_category my-3">
             <button
@@ -73,6 +83,7 @@ export const CategoryFormComponet = ({
                   indexCategory={index}
                   indexRule={indexRule}
                   rule={rule}
+                  setValue={setValue}
                 />
               );
             })}

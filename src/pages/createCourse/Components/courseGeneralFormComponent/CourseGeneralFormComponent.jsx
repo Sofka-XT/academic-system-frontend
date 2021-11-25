@@ -12,7 +12,8 @@ export const CourseGeneralFormComponent = ({
     control,
     register,
     handleSubmit,
-
+    setValue,
+    getValues,
     formState: { errors },
   } = useForm({ defaultValues: formDefaultValue });
   return (
@@ -34,6 +35,8 @@ export const CourseGeneralFormComponent = ({
         control={control}
         register={register}
         handleAppendCategory={handleAppendCategory}
+        setValue={setValue}
+        getValues={getValues}
       />
 
       <div className="p-2 my-3">
