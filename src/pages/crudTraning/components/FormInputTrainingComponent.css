@@ -149,8 +149,9 @@ main {
 
 .training__file-input {
   width: 70%;
-  height: 60%;
-  margin-top: 5%;
+  height: 90px;
+  margin-top: 0%;
+  padding: 0px;
 }
 
 .trainings__date-input {

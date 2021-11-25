@@ -19,7 +19,7 @@ export default function crudTrainingReducer(state = initialState, action) {
   switch (action.type) {
     case actions.LOADING:
       return { ...state, loading: true };
-    case actions.POST_PROGRAM_SUCCESS:
+    case actions.POST_TRAINING_SUCCESS:
       return {
         ...state,
         training: action.payload,
@@ -75,6 +75,17 @@ export default function crudTrainingReducer(state = initialState, action) {
       return {
         ...state,
         training: trainingWithCoachList,
+        loading: false,
+        redirect: null,
+        hasErrors: false,
+      };
+    case actions.SET_STARTING_DATE:
+      const trainingWithStartingDate = { ...state.training };
+      trainingWithStartingDate.startingDate = action.payload;
+
+      return {
+        ...state,
+        training: trainingWithStartingDate,
         loading: false,
         redirect: null,
         hasErrors: false,

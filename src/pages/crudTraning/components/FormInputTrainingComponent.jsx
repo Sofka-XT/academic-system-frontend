@@ -13,12 +13,17 @@ import * as actions from "../../../state/crudTraining/crudTrainingActions";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
-  const trainingState = useSelector((state) => state.crudTrainingReducer);
+  const { training } = useSelector((state) => state.crudTrainingReducer);
 
   const [formValues, handleInputChange, resetFormValues] = useForm({
     name: "",
     program: "",
-    startingDate: Date.now(),
+    startingDate:
+      new Date().getFullYear() +
+      "-" +
+      `${parseInt(new Date().getMonth()) + 1}` +
+      "-" +
+      new Date().getDate(),
     apprentices: [],
     coaches: [],
   });
@@ -65,9 +70,12 @@ const FormInputTrainingComponent = () => {
     //Actualizacion de el estado global para enviar a validacion antes de afectar el back
     dispatch({ type: actions.ADD_COACHES_LIST, payload: coaches });
     dispatch({ type: actions.ADD_TRAINING_NAME, payload: name });
+    dispatch({ type: actions.SET_STARTING_DATE, payload: startingDate });
+    console.log('formValues: ')
+    console.log(formValues)
+    dispatch(actions.postTraining(formValues));
     //ejecucion de validacion
-    console.log("Global state updated from submiting the form")
-
+    console.log("Global state updated from submiting the form");
   };
 
   const handleListSelectedCoaches = (e) => {
@@ -79,8 +87,8 @@ const FormInputTrainingComponent = () => {
       .map((item) => item.data)
       .map((infoArray) => ({
         name: infoArray[0],
-        email: infoArray[1],
-        tel: infoArray[2],
+        emailAddress: infoArray[1],
+        phoneNumber: infoArray[2],
       }));
     setTableState(data);
     const e = {
@@ -162,27 +170,6 @@ const FormInputTrainingComponent = () => {
               htmlFor="training__categoria"
               className="trainings__input-label"
             >
-              Categoría del programa
-            </label>
-
-            <select
-              name="program"
-              id="training__categoria"
-              className="trainings__select-input"
-              value={program}
-              onChange={handleListSelectedCoaches}
-            >
-              {trainingState.programs.map((program) => (
-                <option value={program.id}>{program.name}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="training__input-container">
-            <label
-              htmlFor="training__categoria"
-              className="trainings__input-label"
-            >
               Fecha de Inicio
             </label>
 
@@ -210,6 +197,7 @@ const FormInputTrainingComponent = () => {
               id="training__couches"
               className="trainings__select-input"
               onChange={handleSelectCoach}
+              value={coachesList[0].id}
             >
               {coachesList.map((coach) => (
                 <option value={coach.id}>{coach.name}</option>
@@ -248,7 +236,7 @@ const FormInputTrainingComponent = () => {
           </div>
         </div>
       </form>
-      <ProgramsListComponent />
+      <ProgramsListComponent handleInputChange={handleInputChange}/>
       <CSVTableComponent data={tableState} />
     </div>
   );
