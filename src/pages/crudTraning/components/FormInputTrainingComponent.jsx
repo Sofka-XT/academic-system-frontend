@@ -23,6 +23,8 @@ const FormInputTrainingComponent = () => {
   });
 
   const [coachesList, setCoachesList] = useState([
+    //Debemos agregar un valor por defecto que tenga id=0 y
+    //que cuando se selecciona si tiene este id el coach seleccionado no se ejecute nnguna de las funciones
     {
       id: "1",
       name: "Raul",
@@ -95,6 +97,10 @@ const FormInputTrainingComponent = () => {
     const event = {
       target: { name: "coaches", value: [...coaches, coachSelected] },
     };
+    const newCoachesList = coachesList.filter(
+      (coach) => coach.id !== e.target.value
+    );
+    setCoachesList(newCoachesList);
     handleInputChange(event);
   };
 
@@ -105,7 +111,10 @@ const FormInputTrainingComponent = () => {
   }, []);
 
   return (
-    <div className="trainings__main-container mb-3">
+    <div
+      className="trainings__main-container"
+      style={{ paddingBottom: "50px" }}
+    >
       <form onSubmit={handleSubmit} className="trainings__form">
         <div className="training__input-form">
           <input
