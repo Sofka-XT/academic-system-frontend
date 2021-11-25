@@ -50,24 +50,18 @@ const FormCreateProgram = () => {
         //Enviar info al service
 
         const program = {
-
             name: event.target.name.value,
-            courses:[coursesTime]
-            
+            courses:coursesTime 
         }
 
+        console.log(program);
+
         try {
-
             await postProgram(program);
-
             setSuccess(true)
-
-
             
-        } catch (error) {
-
-            console.log(error)
-            
+        } catch (error) {   
+            console.log(error)   
         }
 
     
@@ -95,8 +89,7 @@ const FormCreateProgram = () => {
 
                 {
                     courseSelected.map(course => {
-                        console.log("COURSE")
-                        console.log(course)
+
                    
 
                         return (

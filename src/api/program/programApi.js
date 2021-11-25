@@ -19,6 +19,8 @@ export const getAllcourses = () => {
 }
 
 export const postProgram = (data) => {
+
+    console.log(data);
     return fetch('http://localhost:8080/program/create',
     {
         method: 'POST',
