@@ -45,6 +45,9 @@ export const SideBarApprenticeComponent = () => {
         <ul>
           <Link to="courseslist">Courses List</Link>
         </ul>
+        <ul>
+          <Link to="activetraining">Training activos</Link>
+        </ul>
       </nav>
     </aside>
   );
