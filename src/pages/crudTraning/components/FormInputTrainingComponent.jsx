@@ -70,7 +70,9 @@ const FormInputTrainingComponent = () => {
     dispatch({ type: actions.ADD_COACHES_LIST, payload: coaches });
     dispatch({ type: actions.ADD_TRAINING_NAME, payload: name });
     dispatch({ type: actions.SET_STARTING_DATE, payload: startingDate });
-    dispatch(actions.postTraining(training));
+    console.log('formValues: ')
+    console.log(formValues)
+    dispatch(actions.postTraining(formValues));
     //ejecucion de validacion
     console.log("Global state updated from submiting the form");
   };
@@ -84,8 +86,8 @@ const FormInputTrainingComponent = () => {
       .map((item) => item.data)
       .map((infoArray) => ({
         name: infoArray[0],
-        email: infoArray[1],
-        tel: infoArray[2],
+        emailAddress: infoArray[1],
+        phoneNumber: infoArray[2],
       }));
     setTableState(data);
     const e = {
@@ -194,6 +196,7 @@ const FormInputTrainingComponent = () => {
               id="training__couches"
               className="trainings__select-input"
               onChange={handleSelectCoach}
+              value={coachesList[0].id}
             >
               {coachesList.map((coach) => (
                 <option value={coach.id}>{coach.name}</option>
@@ -232,7 +235,7 @@ const FormInputTrainingComponent = () => {
           </div>
         </div>
       </form>
-      <ProgramsListComponent />
+      <ProgramsListComponent handleInputChange={handleInputChange}/>
       <CSVTableComponent data={tableState} />
     </div>
   );

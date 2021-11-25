@@ -2,11 +2,18 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../../state/crudTraining/crudTrainingActions";
 
-const ProgramCardComponent = ({ program }) => {
+const ProgramCardComponent = ({ program, handleInputChange }) => {
   const dispatch = useDispatch();
   const { training } = useSelector((state) => state.crudTrainingReducer);
 
   const handleSelectProgram = () => {
+    const e = {
+      target: {
+        name: "program",
+        value: program.id,
+      },
+    };
+    handleInputChange(e);
     dispatch({ type: actions.ADD_PROGRAM_SELECTED, payload: program.id });
   };
 
