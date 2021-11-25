@@ -3,12 +3,18 @@ import { Link } from "react-router-dom";
 import useForm from "./../../../hooks/useForm";
 import CSVTableComponent from "./CSVTableComponent";
 import { CSVReader } from "react-papaparse";
+import { fetchPrograms } from "../../../state/crudTraining/crudTrainingActions";
 
 import "./FormInputTrainingComponent.css";
+import ProgramsListComponent from "./ProgramsListComponent";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import * as actions from "../../../state/crudTraining/crudTrainingActions";
 
-const LoginScreen = () => {
-  // const dispatch = useDispatch();
-  // const {  } = useSelector((state) => state);
+const FormInputTrainingComponent = () => {
+  const dispatch = useDispatch();
+  const trainingState = useSelector((state) => state.crudTrainingReducer);
+
   const [formValues, handleInputChange, resetFormValues] = useForm({
     name: "",
     program: "",
@@ -32,24 +38,7 @@ const LoginScreen = () => {
     },
   ]);
 
-  const [programs, setPrograms] = useState([
-    {
-      id: "1",
-      name: "Desarrollo",
-    },
-    {
-      id: "2",
-      name: "QA",
-    },
-    {
-      id: "3",
-      name: "SCRUM",
-    },
-    {
-      id: "4",
-      name: "Arquitectura",
-    },
-  ]);
+  const [programs, setPrograms] = useState([]);
 
   const [tableState, setTableState] = useState(null);
 
@@ -77,7 +66,7 @@ const LoginScreen = () => {
     const e = {
       target: {
         name: "apprentices",
-        value: tableState,
+        value: data,
       },
     };
     handleInputChange(e);
@@ -89,8 +78,19 @@ const LoginScreen = () => {
     setTableState(null);
   };
 
+  useEffect(() => {
+    fetchPrograms().then((result) => {
+      const programs = result.map((program) => ({
+        ...program,
+        selected: false,
+      }));
+      //dispatch({ type: actions.ADD_LIST_PROGRAMS, payload: programs });
+    });
+    //console.log("estamos en el useefect");
+  }, []);
+
   return (
-    <div className="trainings__main-container">
+    <div className="trainings__main-container mb-3">
       <form onSubmit={handleSubmit} className="trainings__form">
         <div className="training__input-form">
           <input
@@ -128,7 +128,7 @@ const LoginScreen = () => {
               value={program}
               onChange={handleListSelectedCoaches}
             >
-              {programs.map((program) => (
+              {trainingState.programs.map((program) => (
                 <option value={program.id}>{program.name}</option>
               ))}
             </select>
@@ -208,73 +208,10 @@ const LoginScreen = () => {
           </div>
         </div>
       </form>
+      <ProgramsListComponent programs={programs} />
       <CSVTableComponent data={tableState} />
     </div>
   );
 };
 
-export default LoginScreen;
-
-/*
-
-<div className="auth__container">
-      <div className="text-center d-block">
-        <h5>
-          <img
-            src={process.env.PUBLIC_URL + "/assets/login-logo.png"}
-            className="hola"
-            alt="hola"
-          />
-          <p className="bold mt-2 mb-5">Signin to create memories!</p>
-        </h5>
-      </div>
-
-      <h3 className="auth__title">Login</h3>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          id="form-name"
-          placeholder="Nombre del training"
-          name="name"
-          className="auth__input"
-          autoComplete="off"
-          value={name}
-          onChange={handleInputChange}
-        />
-
-        <select
-          name="programId"
-          id=""
-          value={programId}
-          onChange={handleInputChange}
-        >
-          <option value="1" className="auth__training-options">
-            Desarrollo
-          </option>
-          <option value="2" className="auth__training-options">
-            QA
-          </option>
-          <option value="3" className="auth__training-options">
-            SCRUM
-          </option>
-          <option value="4" className="auth__training-options">
-            Arquitectura
-          </option>
-          <option value="5" className="auth__training-options">
-            Otro
-          </option>
-        </select>
-
-        <input
-          type="date"
-          name="startingDate"
-          className="auth__input"
-          value={startingDate}
-          onChange={handleInputChange}
-        />
-        <button type="submit" className="btn btn-primary btn-block">
-          Login
-        </button>
-      </form>
-    </div>
-*/
+export default FormInputTrainingComponent;
