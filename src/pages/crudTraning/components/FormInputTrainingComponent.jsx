@@ -26,6 +26,10 @@ const FormInputTrainingComponent = () => {
     //Debemos agregar un valor por defecto que tenga id=0 y
     //que cuando se selecciona si tiene este id el coach seleccionado no se ejecute nnguna de las funciones
     {
+      id: "0",
+      name: "Seleccione al menos un coach",
+    },
+    {
       id: "1",
       name: "Raul",
     },
@@ -90,10 +94,10 @@ const FormInputTrainingComponent = () => {
   };
 
   const handleSelectCoach = (e) => {
+    if (e.target.value === "0") return;
     const coachSelected = coachesList.filter(
       (coach) => coach.id === e.target.value
     )[0];
-
     const event = {
       target: { name: "coaches", value: [...coaches, coachSelected] },
     };
@@ -109,6 +113,16 @@ const FormInputTrainingComponent = () => {
       dispatch({ type: actions.ADD_LIST_PROGRAMS, payload: result });
     });
   }, []);
+
+  const handleUnselectCoach = (id) => {
+    const coachToDelete = coaches.filter((coach) => coach.id === id)[0];
+    const newCoachesSelected = coaches.filter((coach) => coach.id !== id);
+    const event = {
+      target: { name: "coaches", value: newCoachesSelected },
+    };
+    handleInputChange(event);
+    setCoachesList([...coachesList, coachToDelete]);
+  };
 
   return (
     <div
@@ -199,7 +213,10 @@ const FormInputTrainingComponent = () => {
               {coaches.map((coach) => (
                 <li key={coach.id} className="training__coach-selected">
                   <span> - {coach.name}</span>
-                  <button className="btn btn-danger">
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleUnselectCoach(coach.id)}
+                  >
                     <i className="fas fa-trash-alt"></i>
                   </button>
                 </li>
