@@ -14,7 +14,7 @@ const CoursesListComponent = ({dispatch,courses,loading, hasError}) => {
 
     return (        
       <div>
-        <h1>Courses</h1> 
+        <h1 className="header">Courses</h1> 
         <Pager itemList={courses} loading={loading} hasErrors={hasError}/>     
       </div>
     )

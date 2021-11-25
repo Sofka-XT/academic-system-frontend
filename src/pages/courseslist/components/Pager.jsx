@@ -42,9 +42,9 @@ export const Pager= ({itemList,loading,hasErrors})=>{
     return (<>
     <RenderCourses items={paginatorProps.data} />
     <div className='paginator-buttons'>
-    {paginatorProps.pre_page&&<button onClick={prevPage}>{paginatorProps.pre_page}</button>}
-    <button disabled={true}>{paginatorProps.page}</button>
-    {paginatorProps.next_page&&<button onClick={nextPage}>{paginatorProps.next_page}</button>}
+    {paginatorProps.pre_page&&<button onClick={prevPage} className="navigation-button">{paginatorProps.pre_page}</button>}
+    <button disabled={true} className="navigation-button">{paginatorProps.page}</button>
+    {paginatorProps.next_page&&<button onClick={nextPage} className="navigation-button">{paginatorProps.next_page}</button>}
     </div>
     </>
     )

@@ -21,14 +21,14 @@ const CourseDetail = ({courses}) => {
 
         <div className="contenido">
 			<p>{course.id}</p>
-            <DeleteButtonComponent id={course.id} />
+            <DeleteButtonComponent id={course.id}  />
             <EditButtonComponent id={course.id} />
             </div>
 		
 			<div>{course.categories?.map((categorie, index)=>{
-				return <div className="" key={course.id+"categorie#"+index}>
+				return <div className="categorie" key={course.id+"categorie#"+index}>
                     <h3>Categoria: {categorie.name}</h3>
-                    <h4>Rules:</h4>
+                    <h4>Reglas</h4>
                     {categorie.rules?.map((rule, index)=>{
                         return <div className="sidebar" key={course.id+"rule#"+index}>
                             <p>Tipo: {rule.type}</p>

@@ -10,16 +10,16 @@ export default function DeleteButtonComponent ({id}) {
     const navigate = useNavigate();
     const handleDelete=()=>{
         swal({
-            title: "Do you really want to delete this ?",
-            text: "Confirm if you want to delete this course",
+            title: "¿Estás seguro que quieres eliminar este curso?",
+            text: "Por favor confirme se desea hacerlo",
             icon: "warning",
-            buttons: ["Cancel", "Confirm"]
+            buttons: ["Cancelar", "Confirmar"]
           }).then((confirmed) => {
             if (confirmed) {
                 dispatch(deleteCourse(id))
                 .then(
               swal({
-                text: "The course has been deleted successfully",
+                text: "El curso se ha eliminado con éxito",
                 icon: "success",
                 buttons: ["Confirm"]
               })).then((confirmed) => {
@@ -30,7 +30,7 @@ export default function DeleteButtonComponent ({id}) {
     }
 
     return (
-        <button onClick={()=>{handleDelete()}}>
+        <button className="button" onClick={()=>{handleDelete()}}>
             Eliminar
         </button>
     )

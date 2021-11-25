@@ -8,7 +8,7 @@ export default function EditButtonComponent (id){
     }
 
     return (
-        <button onClick={()=>{handleEdit()}}>
+        <button className="button" onClick={()=>{handleEdit()}}>
             Editar
         </button>
     )
