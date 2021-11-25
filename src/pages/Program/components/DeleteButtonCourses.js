@@ -11,12 +11,12 @@ export const DeleteButtonCourses = ({  dispatch,programId,courseId }) => {
 
   const handleOpenModal = () => {
     MySwal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Estas seguro?',
+      text: "No será capaz de revertir esta acción!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
+      confirmButtonText: 'Sí, borrar!',
+      cancelButtonText: 'No, cancelar!',
       reverseButtons: true,
     }).then((result) => {
       if (result.isConfirmed) {

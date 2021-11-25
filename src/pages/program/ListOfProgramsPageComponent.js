@@ -34,7 +34,7 @@ const ListOfProgramsPageComponent = ({
   const renderPrograms = () => {
     if (loading) return <p>Loading Programs...</p>;
     if (hasErrors) return <p>Unable to display Programs.</p>;
-
+    console.log(programs)
     return (
       programs &&
       programs.map((program) => (
