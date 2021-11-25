@@ -30,7 +30,6 @@ const LoginScreen = () => {
 
 
   const handleOnDrop = (csvInfo) => {
-    
     const data = csvInfo.map((item)=>item.data).map(infoArray => ({name:infoArray[0], email:infoArray[1], tel:infoArray[2]}));
     console.log(data)
     setTableState(data)
