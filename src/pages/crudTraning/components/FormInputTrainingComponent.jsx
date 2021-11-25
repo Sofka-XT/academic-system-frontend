@@ -9,6 +9,7 @@ import ProgramsListComponent from "./ProgramsListComponent";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import * as actions from "../../../state/crudTraining/crudTrainingActions";
+//import validations from "../../../state/crudTraining/traningValidations/validations";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();

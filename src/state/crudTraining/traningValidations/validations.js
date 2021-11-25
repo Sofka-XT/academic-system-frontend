@@ -33,13 +33,55 @@ export default validateInputTraining = ({
   return true;
 };
 
-//Validacion de correo
+//Validación del campo nombre del training
+export const validateName = (name) => {
+  if (!name) {
+    return false;
+  }
+  if (name.length > 50 || name.length < 3) {
+    return false;
+  }
 
-//Validacion de telefono
-if (!pattern.test(input["Telefono"])) {
-  isValid = false;
-  errors["Telefono"] = "Por favor ingrese solo el número";
-} else if (input["Telefono"].length != 10) {
-  isValid = false;
-  errors["phone"] = "Ingrese un número de teléfono válido.";
-}
+  return true;
+};
+
+//Validación del campo fecha
+export const validateDate = (startingDate) => {
+  if (startingDate.length < 8) {
+    return false;
+  }
+  return true;
+};
+
+//Validación del campo coaches
+export const validateCoachesList = (coaches) => {
+  if (!coaches) {
+    return false;
+  }
+  return true;
+};
+
+//Validación del campo programas
+export const validateProgram = (program) => {
+  if (program.length < 3) {
+    return false;
+  }
+  return true;
+};
+
+//Validacion del campo aprendices
+export const validateApprenticesList = (apprentices) => {
+  apprentices.foreach((apprentice) => {
+    if (
+      apprentice.name === null ||
+      apprentice.name.length < 3 ||
+      apprentice.name.length > 50 ||
+      apprentice.phoneNumber.length < 7 ||
+      apprentice.emailAddress.length < 8 ||
+      apprentice.emailAddress == emailRegExp.test(value)
+    ) {
+      return false;
+    }
+    return true;
+  });
+};
