@@ -5,10 +5,10 @@ export const initialState = {
   trainings: [],
   training: {
     name: "",
-    programId: "",
+    program: "",
     startingDate: new Date(),
-    apprenticesList: [],
-    coachesList: [],
+    apprentices: [],
+    coaches: [],
   },
   programs: [],
   redirect: null,
@@ -31,6 +31,17 @@ export default function crudTrainingReducer(state = initialState, action) {
       return {
         ...state,
         programs: action.payload,
+        loading: false,
+        redirect: null,
+        hasErrors: false,
+      };
+    case actions.ADD_PROGRAM_SELECTED:
+      const trainingWithProgram = {...state.training}
+      trainingWithProgram.program = action.payload
+
+      return {
+        ...state,
+        training: trainingWithProgram,
         loading: false,
         redirect: null,
         hasErrors: false,
