@@ -8,9 +8,9 @@ function Navbar({ user }) {
             <img src="https://i.imgur.com/kmc2s6p.png" className="sofka-logo" alt="Sofka logo"></img>
             <div className="right-side" id="right-side">
                 <div className="role-container" id="role-container">
-                    <h6>{user.role}</h6>
+                    <span>{user.role}</span>
                 </div>
-                <h5>{user.name}</h5>
+                <span>{user.name}</span>
                 <img className="profile-picture" id="profile-picture" src={user.photoUrl} alt="user profile"></img>
             </div>
         </div>

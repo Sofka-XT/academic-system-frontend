@@ -1,52 +1,21 @@
+import WelcomeCard from './WelcomeCard';
 import React from 'react';
-import './Welcome.css'
-import { Link } from 'react-router-dom';
+import './Welcome.css';
 
 export default function Welcome() {
     return (
         <div className="grid-container" id="grid-container">
-            <div className="cards-one" id="cards-one">
-                <div>
-                    <Link to="/dashboard/programstory">
-                        VER HISTÓRICO DE PROGRAMAS
-                    </Link>
-                </div>
-            </div>
-            <div className="cards-two" id="cards-two">
-                <div>
-                    <Link to="/dashboard/activeprogram">
-                        PROGRAMAS ACTIVOS
-                    </Link>
-                </div>
-            </div>
-            <div className="cards-three" id="cards-three">
-                <div>
-                    <Link to="/dashboard/program">
-                        CREAR PROGRAMAS
-                    </Link>
-                </div>
-            </div>
-            <div className="cards-four" id="cards-four">
-                <div>
-                    <Link to="/dashboard/trainingstory">
-                        VER HISTÓRICO DE<br></br>TRAINING
-                    </Link>
-                </div>
-            </div>
-            <div className="cards-five" id="cards-five">
-                <div>
-                    <Link to="/dashboard/activetraining">
-                        TRAINING ACTIVOS
-                    </Link>
-                </div>
-            </div>
-            <div className="cards-six" id="cards-six">
-                <div>
-                    <Link to="/dashboard/training">
-                        CREAR TRAINING
-                    </Link>
-                </div>
-            </div>
+            <WelcomeCard styles="cards-one cards" title="VER HISTÓRICO DE PROGRAMAS" link="/dashboard/programstory" id="cards-one"/>
+            
+            <WelcomeCard styles="cards-two cards" title="PROGRAMAS ACTIVOS" link="/dashboard/activeprogram" id="cards-two"/>
+
+            <WelcomeCard styles="cards-three cards" title="CREAR PROGRAMAS" link="/dashboard/program" id="cards-three"/>
+            
+            <WelcomeCard styles="cards-four cards" title="HISTÓRICO TRAINING" link="/dashboard/trainingstory" id="cards-four"/>
+            
+            <WelcomeCard styles="cards-five cards" title="TRAINING ACTIVOS" link="/dashboard/activetraining" id="cards-five"/>
+            
+            <WelcomeCard styles="cards-six cards" title="CREAR TRAINING" link="/dashboard/training" id="cards-six"/>
         </div>
     )
 }
