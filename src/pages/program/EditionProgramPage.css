@@ -1,31 +1,44 @@
 
 .program-name-container{
-  width: bold;
+  width: 100%;
   /* border: 1px solid green; */
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: space-around;
+  justify-content: center;
   margin-top: 40px;
   margin-bottom: 40px;
+  text-transform: capitalize;
+  text-align: center;
  }
 .categoriesList{
   list-style: none;
   font-size: 16px;
-  width: bold;
+  font-weight:500;
+  text-transform: capitalize;
 }
 .topics-label{
-  width: bold;
+  text-transform: capitalize;
 }
 .program-inputs{
   border-radius: 10px;
   padding-left: 10px;
 }
-.program-inputs-name{
+.program-inputs-days{
   border-radius: 10px;
   padding-left: 10px;
-  font-size: 20px;
-  width: bold;
+  width: 20%;
+}
+.program-inputs-name{
+  border-radius: 10px;
+  padding: 0;
+  padding-left: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  /* width: 50%; */
+  height: 10%;
   border: none;
+  text-align: center;
 }
 .course-container{
   display: flex;
@@ -52,7 +65,7 @@
   border: 1px solid #7aa7c7;
   box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
   box-sizing: border-box;
-  color: #39739d;
+  color: #232323;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
@@ -88,3 +101,17 @@
   box-shadow: none;
   color: #2c5777;
 }
+.totaldays-container{
+  border: 3px solid #2c5777;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 40%;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
