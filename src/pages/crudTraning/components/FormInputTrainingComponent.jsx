@@ -42,8 +42,7 @@ const LoginScreen = () => {
   }
 
   const handleOnRemoveFile = (e) => {
-    // console.log("handleOnRemoveFile")
-    // console.log(e)
+  
   }
 
 
