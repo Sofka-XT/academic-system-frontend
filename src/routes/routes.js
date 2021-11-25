@@ -48,7 +48,7 @@ export const routesApp = [
         component: <h1>Program Story</h1>,
       },
       {
-        path: 'activetrainingcoach',
+        path: 'activetraining',
         name: 'Active Training',
         component: <TrainingListPageComponent />,
       },
@@ -95,7 +95,7 @@ export const apprenticeRoutesApp = [
       {
         path: 'activetraining',
         name: 'Active Training',
-        component: '',
+        component: <TrainingListPageComponent/>,
       },
       {
         path: 'createCourse',
@@ -153,25 +153,6 @@ export const apprenticeRoutesApp = [
   },
 ];
 
-export const apprenticeRoutesApp = [
-  {
-    path: '/dashboard/apprentice',
-    name: 'DashBoard',
-    component: <DashBoardApprenticeComponent />,
-    child: [
-      {
-        path: 'logout',
-        name: 'Log Out',
-        component: <HomePageComponent />,
-      },
-      {
-        path: 'activetraining',
-        name: 'Active Training',
-        component: <TrainingListPageComponent />,
-      },
-    ],
-  },
-];
 
 export const studentRoutesApp = [
   {
