@@ -4,9 +4,6 @@ import { updateCurrentProgram, updatePrograms } from "../../../state/Program/pro
 export const InputPrograms = ({ category,categoryId,courseId,programId,dispatch }) => {
 
   const [duration, setDuration] = useState(category.days);
-  const [name, setName] = useState()
-
-
 
   const handleDurationChange = (e) => {
     e.preventDefault();

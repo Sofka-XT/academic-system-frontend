@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { updateProgramThunk } from "../../thunkAction/programThunk";
+import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 
 
@@ -14,19 +15,16 @@ const EditionProgramPage = ({dispatch, program, loading, hasErrors, programs }) 
     dispatch(updateProgramThunk(program))
   };
 
-  const handleDeleteCourse = (programId, courseId) => {
-    console.log("deleting..." + programId + " " + courseId)
-  }
 
   const renderEditPage = () => {
     if(Object.keys(program).length !== 0 ){
       const courses = program.courses;
       return(courses && courses.map((course) => (
         <div key={course.courseId}>
-          <label>Curso</label>
+          <input value={program.name} onChange={(e) => {console.log(e.target.value)}}/>
           <h3>{course.courseName}</h3>
 
-          <button onClick={() => {handleDeleteCourse(program.id, course.courseId)}}>Eliminar</button>
+          <DeleteButtonCourses dispatch={dispatch} programId={program.id} courseId={course.courseId}/>
           <div>
             <label>Temas</label>
             

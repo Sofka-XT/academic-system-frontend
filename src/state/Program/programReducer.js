@@ -33,6 +33,9 @@ export default function programReducer(state = initialState, action) {
       })}}
     case actions.CREATE_PROGRAM:
       return { ...state,  programCreate:action.payload };
+
+    case actions.DELETED_COURSEBYID:
+      return {...state, program: {...state.program, courses: state.program.courses.filter((course) => course.courseId !== action.payload.courseId)}} 
     default:
       return state;
   }

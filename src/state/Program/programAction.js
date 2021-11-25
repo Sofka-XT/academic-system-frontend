@@ -23,4 +23,4 @@ export const updated = () => ({ type: UPDATED_PROGRAM})
 
 export const updateCurrentProgram = (data) => ({ type: UPDATED_CURRENTPROGRAM, payload: data})
 
-export const deleteCourseById = (id) => ({ type: DELETED_COURSEBYID })
+export const deleteCourseById = (data) => ({ type: DELETED_COURSEBYID, payload: data })
