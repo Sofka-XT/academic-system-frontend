@@ -15,7 +15,7 @@ export const DeleteButton = ({  dispatch,idData }) => {
       text: "No será capaz de devolver esta acción!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí, borrelo!',
+      confirmButtonText: 'Sí, borrar!',
       cancelButtonText: 'No, cancelar!',
       reverseButtons: true,
     }).then((result) => {
