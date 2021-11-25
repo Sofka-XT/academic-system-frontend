@@ -17,7 +17,12 @@ const FormInputTrainingComponent = () => {
   const [formValues, handleInputChange, resetFormValues] = useForm({
     name: "",
     program: "",
-    startingDate: Date.now(),
+    startingDate:
+      new Date().getFullYear() +
+      "-" +
+      `${parseInt(new Date().getMonth()) + 1}` +
+      "-" +
+      new Date().getDate(),
     apprentices: [],
     coaches: [],
   });
@@ -65,8 +70,7 @@ const FormInputTrainingComponent = () => {
     dispatch({ type: actions.ADD_COACHES_LIST, payload: coaches });
     dispatch({ type: actions.ADD_TRAINING_NAME, payload: name });
     //ejecucion de validacion
-    console.log("Global state updated from submiting the form")
-
+    console.log("Global state updated from submiting the form");
   };
 
   const handleListSelectedCoaches = (e) => {
@@ -156,27 +160,6 @@ const FormInputTrainingComponent = () => {
         </div>
 
         <div className="training__input-form">
-          <div className="training__input-container">
-            <label
-              htmlFor="training__categoria"
-              className="trainings__input-label"
-            >
-              Categoría del programa
-            </label>
-
-            <select
-              name="program"
-              id="training__categoria"
-              className="trainings__select-input"
-              value={program}
-              onChange={handleListSelectedCoaches}
-            >
-              {trainingState.programs.map((program) => (
-                <option value={program.id}>{program.name}</option>
-              ))}
-            </select>
-          </div>
-
           <div className="training__input-container">
             <label
               htmlFor="training__categoria"

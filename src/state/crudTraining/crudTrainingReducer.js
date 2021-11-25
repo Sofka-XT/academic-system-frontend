@@ -19,7 +19,7 @@ export default function crudTrainingReducer(state = initialState, action) {
   switch (action.type) {
     case actions.LOADING:
       return { ...state, loading: true };
-    case actions.POST_PROGRAM_SUCCESS:
+    case actions.POST_TRAINING_SUCCESS:
       return {
         ...state,
         training: action.payload,
