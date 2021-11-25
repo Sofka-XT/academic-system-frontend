@@ -1,12 +1,31 @@
 
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { updateNameProgram, updateTotalDays } from "../../state/Program/programAction";
 import { updateProgramThunk } from "../../thunkAction/programThunk";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 
 
-const EditionProgramPage = ({dispatch, program, loading, hasErrors, programs }) => {
+const EditionProgramPage = ({dispatch, program, loading, hasErrors, totalDays }) => {
+
+  const [days, setDays] = useState(program.totalDays)
+
+
+  useEffect(() => {
+    let sumDays = 0;
+    program.courses.map(course => {
+      course.categories.map(category => {
+        sumDays += parseInt(category.days);
+      })
+    })
+
+    let data = {
+      totalDays : sumDays,
+    }
+
+    dispatch(updateTotalDays(data))
+  }, [program])
 
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Program Courses.</p>;
@@ -15,13 +34,22 @@ const EditionProgramPage = ({dispatch, program, loading, hasErrors, programs }) 
     dispatch(updateProgramThunk(program))
   };
 
+  const handleInputChange = (e) => {
+    e.preventDefault()
+    let data = {
+      programId : program.programId,
+      name : e.target.value
+    }
+    dispatch(updateNameProgram(data))
+  }
+
 
   const renderEditPage = () => {
     if(Object.keys(program).length !== 0 ){
       const courses = program.courses;
       return(courses && courses.map((course) => (
         <div key={course.courseId}>
-          <input value={program.name} onChange={(e) => {console.log(e.target.value)}}/>
+          <input value={program.name} onChange={(e) => {handleInputChange(e)}}/>
           <h3>{course.courseName}</h3>
 
           <DeleteButtonCourses dispatch={dispatch} programId={program.id} courseId={course.courseId}/>
@@ -50,6 +78,7 @@ const EditionProgramPage = ({dispatch, program, loading, hasErrors, programs }) 
     <div>
       <form>
         <h1> Editar Programa </h1>
+        <p> { totalDays } </p>
         <div>
           <label> Nombre del programa: </label>
           <label value={program.name}></label>
@@ -68,7 +97,8 @@ const mapStateToProps = (state) => ({
   program: state.programReducer.program,
   loading: state.programReducer.loading,
   hasErrors: state.programReducer.hasErrors,
-  redirect: state.programReducer.redirect
+  redirect: state.programReducer.redirect,
+  totalDays: state.programReducer.totalDays
 });
 
 export default connect(mapStateToProps)(EditionProgramPage);
