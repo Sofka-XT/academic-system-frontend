@@ -52,7 +52,6 @@ const FormInputTrainingComponent = () => {
   const [tableState, setTableState] = useState(null);
 
   const { name, program, startingDate, apprentices, coaches } = formValues;
-  console.log(startingDate);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -86,6 +85,17 @@ const FormInputTrainingComponent = () => {
 
   const handleOnRemoveFile = (e) => {
     setTableState(null);
+  };
+
+  const handleSelectCoach = (e) => {
+    const coachSelected = coachesList.filter(
+      (coach) => coach.id === e.target.value
+    )[0];
+
+    const event = {
+      target: { name: "coaches", value: [...coaches, coachSelected] },
+    };
+    handleInputChange(event);
   };
 
   useEffect(() => {
@@ -170,7 +180,7 @@ const FormInputTrainingComponent = () => {
               name="coaches"
               id="training__couches"
               className="trainings__select-input"
-              onChange={handleInputChange}
+              onChange={handleSelectCoach}
             >
               {coachesList.map((coach) => (
                 <option value={coach.id}>{coach.name}</option>
@@ -189,13 +199,6 @@ const FormInputTrainingComponent = () => {
           </div>
 
           <div className="training__input-container">
-            {/* <label
-              htmlFor="training__categoria"
-              className="trainings__input-label"
-            >
-              Subir archivo de aprendices
-            </label> */}
-
             <div className="training__file-input">
               <CSVReader
                 onDrop={handleOnDrop}
