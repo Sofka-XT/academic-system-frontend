@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { updateDaysCurrentProgram, updatePrograms } from "../../../state/Program/programAction";
+import React, { useState } from "react";
+import { updateDaysCurrentProgram } from "../../../state/Program/programAction";
 
 export const InputPrograms = ({ category,categoryId,courseId,programId,dispatch,name }) => {
 

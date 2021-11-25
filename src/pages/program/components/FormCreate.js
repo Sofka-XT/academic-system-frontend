@@ -26,7 +26,7 @@ const FormCreate = ({ id, course }) => {
 
                 let categoriageneral = cat;
 
-                if (cat.id == category.id) {
+                if (cat.id === category.id) {
                     categoriageneral =  updateCategory 
                 }
 

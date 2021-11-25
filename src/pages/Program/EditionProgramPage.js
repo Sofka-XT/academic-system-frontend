@@ -3,6 +3,7 @@ import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import React from "react";
 import { useEffect, useState } from "react";
+import { useNavigate} from 'react-router-dom';
 import {
   AddCourseToCurrentProgram,
   updateCurrentProgram,
@@ -23,8 +24,8 @@ const EditionProgramPage = ({
   courses,
 }) => {
   const [selectedCourse, setSelectedCourse] = useState({})
-  const [days, setDays] = useState(program.totalDays);
   
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (program.courses) {
@@ -33,8 +34,10 @@ const EditionProgramPage = ({
         if (course.categories) {
           course.categories.map((category) => {
             sumDays += parseInt(category.days);
+            return null;
           });
         }
+        return null; 
       });
 
       let data = {
@@ -68,7 +71,6 @@ const EditionProgramPage = ({
 
   const handleOnClick = (id) => {
     const MySwal = withReactContent(Swal);
-
     MySwal.fire({
       title: "¿Quiere editar este programa?",
       icon: "warning",
@@ -77,7 +79,7 @@ const EditionProgramPage = ({
       cancelButtonColor: "#d33",
       confirmButtonText: "Si, Editalo!",
     }).then((itemToEdit) => {
-      if (itemToEdit) {
+      if (itemToEdit.isConfirmed) {
         MySwal.fire({
           text: "El programa ha sido editado",
           icon: "success",
@@ -85,6 +87,11 @@ const EditionProgramPage = ({
           timer: 1000,
         });
         dispatch(updateProgramThunk(program));
+        navigate(`/dashboard/programs`);
+      } else if (
+        itemToEdit.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire('Cancelado', 'No se efectuaron cambios en el programa', 'error')
       }
     });
   };
@@ -186,8 +193,8 @@ const EditionProgramPage = ({
         </div>
 
         <div>
-          <select onChange={(e) => handleSelect(e)}>
-            <option disabled selected>
+          <select defaultValue={'DEFAULT'} onChange={(e) => handleSelect(e)}>
+            <option disabled value={'DEFAULT'}>
               Seleccione un curso
             </option>
             {courses.map((course, index) => {

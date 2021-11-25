@@ -75,8 +75,8 @@ const FormCreateProgramPageComponent = ({dispatch,courses,loading, program}) => 
                 <input onChange={(e) => {handleInput(e)}} className="form-control" name="name" required/>
                 <label>Selecciones un curso</label>
 
-                <select onChange={(e) => handleSelect(e)}>
-                    <option disabled selected>Seleccione un curso</option>
+                <select defaultValue={'DEFAULT'} onChange={(e) => handleSelect(e)}>
+                    <option value="DEFAULT" disabled>Seleccione un curso</option>
                     {courses.map((course,index) => {
                         return (
                             <option key={index} value={index}>{course.name}</option>
