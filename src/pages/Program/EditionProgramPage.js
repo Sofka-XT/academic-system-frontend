@@ -14,6 +14,10 @@ const EditionProgramPage = ({dispatch, program, loading, hasErrors, programs }) 
     dispatch(updateProgramThunk(program))
   };
 
+  const handleDeleteCourse = (programId, courseId) => {
+    console.log("deleting..." + programId + " " + courseId)
+  }
+
   const renderEditPage = () => {
     if(Object.keys(program).length !== 0 ){
       const courses = program.courses;
@@ -21,8 +25,11 @@ const EditionProgramPage = ({dispatch, program, loading, hasErrors, programs }) 
         <div key={course.courseId}>
           <label>Curso</label>
           <h3>{course.courseName}</h3>
+
+          <button onClick={() => {handleDeleteCourse(program.id, course.courseId)}}>Eliminar</button>
           <div>
             <label>Temas</label>
+            
             <ul>
               {course.categories && 
                 course.categories.map((category) => (
