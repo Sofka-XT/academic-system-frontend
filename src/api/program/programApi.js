@@ -15,10 +15,12 @@ export const deleteProgramByIdApi = (id) => {
 
 
 export const getAllcourses = () => {
-    return fetch('http://localhost:8080/course/getAll')
+    return fetch('http://localhost:3002/courses')
 }
 
 export const postProgram = (data) => {
+
+    console.log(data);
     return fetch('http://localhost:8080/program/create',
     {
         method: 'POST',
