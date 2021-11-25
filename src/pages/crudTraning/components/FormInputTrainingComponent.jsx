@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useForm from "./../../../hooks/useForm";
 import CSVTableComponent from "./CSVTableComponent";
 import { CSVReader } from "react-papaparse";
+import {fetchPrograms} from '../../../state/crudTraining/crudTrainingActions'
 
 import "./FormInputTrainingComponent.css";
 
@@ -64,6 +65,13 @@ const LoginScreen = () => {
   const handleOnRemoveFile = (e) => {
     setTableState(null);
   };
+
+  useEffect(() => {
+    fetchPrograms().then(result => {
+      console.log(result);
+    });
+    console.log("estamos en el useefect")
+  }, [])
 
   return (
     <div className="trainings__main-container">
