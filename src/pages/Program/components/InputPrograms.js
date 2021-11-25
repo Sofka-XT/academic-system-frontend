@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { updateCurrentProgram, updatePrograms } from "../../../state/Program/programAction";
+import React, { useState } from "react";
+import { updateCurrentProgram } from "../../../state/Program/programAction";
 
 export const InputPrograms = ({ category,categoryId,courseId,programId,dispatch }) => {
 
   const [duration, setDuration] = useState(category.days);
-  const [name, setName] = useState()
 
 
 
@@ -22,7 +21,7 @@ export const InputPrograms = ({ category,categoryId,courseId,programId,dispatch 
 
   return (
     <div>
-      <li>{category.categoryName}</li>
+      <li className="categoriesList">{category.categoryName}</li>
       <input
         value={duration}
         onChange={(e) => {
