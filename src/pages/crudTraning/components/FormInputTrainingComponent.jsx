@@ -4,7 +4,6 @@ import useForm from "./../../../hooks/useForm";
 import CSVTableComponent from "./CSVTableComponent";
 import { CSVReader } from "react-papaparse";
 import { fetchPrograms } from "../../../state/crudTraining/crudTrainingActions";
-
 import "./FormInputTrainingComponent.css";
 import ProgramsListComponent from "./ProgramsListComponent";
 import { useSelector } from "react-redux";
@@ -36,6 +35,16 @@ const FormInputTrainingComponent = () => {
       id: "3",
       name: "Oscar",
     },
+    ,
+    {
+      id: "4",
+      name: "Luis",
+    },
+    ,
+    {
+      id: "5",
+      name: "Mario",
+    },
   ]);
 
   const [programs, setPrograms] = useState([]);
@@ -47,7 +56,7 @@ const FormInputTrainingComponent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(startLoginEmailAndPassword(email, password));
+    //Validacion de los campos de entradas
   };
 
   const handleListSelectedCoaches = (e) => {
