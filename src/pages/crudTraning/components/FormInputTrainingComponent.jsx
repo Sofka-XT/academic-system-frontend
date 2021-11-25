@@ -12,7 +12,7 @@ import * as actions from "../../../state/crudTraining/crudTrainingActions";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
-  const trainingState = useSelector((state) => state.crudTrainingReducer);
+  const { training } = useSelector((state) => state.crudTrainingReducer);
 
   const [formValues, handleInputChange, resetFormValues] = useForm({
     name: "",
@@ -70,6 +70,7 @@ const FormInputTrainingComponent = () => {
     dispatch({ type: actions.ADD_COACHES_LIST, payload: coaches });
     dispatch({ type: actions.ADD_TRAINING_NAME, payload: name });
     dispatch({ type: actions.SET_STARTING_DATE, payload: startingDate });
+    dispatch(actions.postTraining(training));
     //ejecucion de validacion
     console.log("Global state updated from submiting the form");
   };
