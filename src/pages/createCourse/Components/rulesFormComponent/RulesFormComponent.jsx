@@ -33,7 +33,11 @@ export const RulesFormComponent = ({
               }
             )}
           >
-            <option defaultValue={rule.value} value={rule.value}>
+            <option
+              defaultValue={rule.value}
+              option="select"
+              value={rule.value}
+            >
               {rule.color}
             </option>
           </select>
