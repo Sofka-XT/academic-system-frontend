@@ -1,13 +1,16 @@
-import React from 'react';
 import { SignOutButtonComponent } from '../../common/logOut/SignOutButtonComponent';
+import React from 'react';
+import './SingOut.css';
 
 export const HomePageComponent = () => {
   return (
-    <div>
-      <h1>Sign Out Page</h1>
-      <div>
-        <SignOutButtonComponent />
+    <>
+      <div className="sing-out-container">
+        <h1>CERRAR SESIÓN</h1>
+        <div>
+          <SignOutButtonComponent />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
