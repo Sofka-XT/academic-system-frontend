@@ -20,7 +20,7 @@ export const coachLinks = [
         name: 'Histórico de Programas'
     },
     {
-        path: 'activetraining',
+        path: 'activetrainingcoach',
         name: 'TRAINING ACTIVO'
     },
     {

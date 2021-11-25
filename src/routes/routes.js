@@ -1,6 +1,7 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
 import Welcome from '../pages/dashboard/components/welcome/Welcome.jsx'
 import { DashBoardPageComponent, DashBoardApprenticeComponent } from './../pages/dashboard/DashBoardPageComponent';
+import TrainingListPageComponent from '../pages/trainingListPage/TrainingListPageComponent.jsx';
 
 export const routesApp = [
 
@@ -40,9 +41,9 @@ export const routesApp = [
 				component: <h1>Program Story</h1>,
 			},
 			{
-				path: 'activetraining',
+				path: 'activetrainingcoach', 
 				name: 'Active Training',
-				component: <h1>Active Training</h1>,
+				component: <TrainingListPageComponent/>,
 			},
 			{
 				path: 'training',
