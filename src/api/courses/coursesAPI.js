@@ -17,8 +17,9 @@ export function postCourse(course) {
   });
 }
 
-<<<<<<< HEAD
 export function deleteCourseById(id) {
+  console.log(id);
+
   return fetch(`${URL_BASE}/course/delete/${id}`, {
     method: 'DELETE',
     mode: 'cors',
@@ -26,24 +27,10 @@ export function deleteCourseById(id) {
       'Content-Type': 'application/json',
     },
   });
-=======
-export function deleteCourseById(id){
-    console.log(id)
-
-     return fetch(`${URL_BASE}/course/delete/${id}`,
-                {
-                    method: 'DELETE',
-                    mode: 'cors',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }
-            )
->>>>>>> be45b5b4ccf0f27bc6b33678b54317062319c7e2
 }
 
 export function updateCourse(course) {
-  return fetch(`${URL_BASE}/course/updatecourse`, {
+  return fetch(`${URL_BASE}/course/update`, {
     method: 'PUT',
     mode: 'cors',
     headers: {

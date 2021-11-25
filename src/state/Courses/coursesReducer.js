@@ -18,6 +18,7 @@ export const coursesReducer = createSlice({
   extraReducers: (builder) => {
     builder.addCase(setAllCourses.fulfilled, (state, action) => {
       state.loading = false;
+      state.error = null;
       state.courses = action.payload;
     });
     builder.addCase(setAllCourses.pending, (state) => {

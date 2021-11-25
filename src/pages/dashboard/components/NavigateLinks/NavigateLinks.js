@@ -28,6 +28,10 @@ export const coachLinks = [
     name: 'Crear Training',
   },
   {
+    path: 'courseslist',
+    name: 'Ver Cursos',
+  },
+  {
     path: 'create/course',
     name: 'Crear Curso',
   },

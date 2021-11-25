@@ -27,7 +27,7 @@ const EditCoursePageComponent = ({ loading, error, courses }) => {
       .then((courseData) => {
         console.log(courseData);
         if (!course.error) {
-          navigate(`/dashboard/course/${course.id}`);
+          navigate(`/dashboard/coursedetail/${course.id}`);
         }
       });
   };

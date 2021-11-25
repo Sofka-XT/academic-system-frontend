@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-import CourseDetail from '../pages/coursedetail/CourseDetailComponent';
-import CoursesListComponent from '../pages/courseslist/CoursesListComponent';
->>>>>>> be45b5b4ccf0f27bc6b33678b54317062319c7e2
 import { HomePageComponent } from '../pages/home/HomePageComponent';
 import Welcome from '../pages/dashboard/components/welcome/Welcome.jsx';
 import {
@@ -12,6 +7,8 @@ import {
 
 import { CreateCoursePageComponent } from './../pages/createCourse/CreateCoursePageComponent';
 import EditCoursePageComponent from './../pages/createCourse/Components/EditCoursePageComponent';
+import CoursesListComponent from './../pages/courseslist/CoursesListComponent';
+import CourseDetail from './../pages/coursedetail/CourseDetailComponent';
 export const routesApp = [
   {
     path: '/dashboard',
@@ -67,6 +64,16 @@ export const routesApp = [
         path: 'edit/course/:courseId',
         name: 'Create curso',
         component: <EditCoursePageComponent />,
+      },
+      {
+        path: 'courseslist',
+        name: 'courseslist',
+        component: <CoursesListComponent />,
+      },
+      {
+        path: 'coursedetail/:courseid',
+        name: 'coursedetail',
+        component: <CourseDetail />,
       },
     ],
   },

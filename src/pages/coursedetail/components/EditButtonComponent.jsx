@@ -1,15 +1,20 @@
+import { useNavigate } from 'react-router-dom';
 
+export default function EditButtonComponent({ id }) {
+  const navigate = useNavigate();
 
-export default function EditButtonComponent (id){
+  const handleEdit = () => {
+    navigate(`/dashboard/edit/course/${id}`);
+  };
 
-
-    const handleEdit=()=>{
-        console.log(id)
-    }
-
-    return (
-        <button className="button" onClick={()=>{handleEdit()}}>
-            Editar
-        </button>
-    )
+  return (
+    <button
+      className="button"
+      onClick={() => {
+        handleEdit();
+      }}
+    >
+      Editar
+    </button>
+  );
 }
