@@ -9,6 +9,8 @@ export const ADD_LIST_APPRENTICES = "ADD_LIST_APPRENTICES";
 export const ADD_PROGRAM_SELECTED = "ADD_PROGRAM_SELECTED";
 export const ADD_COACHES_LIST = "ADD_COACHES_LIST";
 export const ADD_TRAINING_NAME = "ADD_TRAINING_NAME";
+export const SET_STARTING_DATE = "SET_STARTING_DATE";
+
 
 export const loading = () => ({ type: LOADING });
 
