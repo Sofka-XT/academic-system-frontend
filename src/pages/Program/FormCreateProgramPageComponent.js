@@ -12,7 +12,10 @@ import { DeleteButtonCourses } from './components/DeleteButtonCourses';
 
 const FormCreateProgramPageComponent = ({dispatch,courses,loading, program}) => {
 
-    const [selectedCourse, setSelectedCourse] = useState({})
+    const [selectedCourse, setSelectedCourse] = useState("")
+
+    console.log(selectedCourse)
+
 
     useEffect(() => {
         //1. UseEffec, traer los cursos para el select
@@ -23,13 +26,13 @@ const FormCreateProgramPageComponent = ({dispatch,courses,loading, program}) => 
                 courses: []
             }
           }
-          dispatch(updateCurrentProgram(data))
-    }, [])
 
-    useEffect(() => {
-        if(courses[0] !== undefined){
+          dispatch(updateCurrentProgram(data))
+          if(courses[0] !== undefined){
             setSelectedCourse(courses[0])
-        }
+            console.log(courses[0])
+            }
+            
     }, [])
 
     const handleInput = (e) => {
@@ -107,7 +110,9 @@ const FormCreateProgramPageComponent = ({dispatch,courses,loading, program}) => 
                                         category={category} courseId={course.courseId} 
                                         programId={program.id} 
                                         dispatch={dispatch}
-                                        name={category.categoryName}/>
+                                        name={category.categoryName}
+                                        currentDays={1}></InputPrograms>
+                                        
                                     ))
                                 }
                                 </ul>
