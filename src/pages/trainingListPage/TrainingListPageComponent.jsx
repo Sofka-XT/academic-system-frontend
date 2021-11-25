@@ -10,7 +10,7 @@ const TrainingListPageComponent = ({dispatch, activeTrainings ,loading,hasErrors
     useEffect(() => {
         dispatch(getActiveTrainingThunk());
       }, [dispatch]);
-
+      console.log(activeTrainings)
     return (
         <div className = "trainings">
             <h1>Training Activos</h1>
