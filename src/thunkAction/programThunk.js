@@ -49,7 +49,7 @@ export const updateProgramThunk = (program) => {
     dispatch(loading());
     try {
       await updateProgramApi(program);
-      dispatch(success({ redirect: "/programs" }));
+      dispatch(success({}));
     } catch (error) {
       dispatch(failure());
     }

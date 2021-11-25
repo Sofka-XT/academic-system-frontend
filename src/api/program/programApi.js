@@ -1,9 +1,9 @@
 export const fetchProgramsApi = () => {
-    return fetch('http://localhost:3001/programs')
+    return fetch('http://localhost:8080/program/getAll')
 }
 
 export const deleteProgramByIdApi = (id) => {
-    return fetch(`http://localhost:3001/programs/${id}`,
+    return fetch(`http://localhost:8080/program/delete/${id}`,
     {
         method: 'DELETE',
         mode: 'cors',
@@ -32,7 +32,7 @@ export const postProgram = (data) => {
     })
 }
 export const getProgramByIdApi = (id) => {
-  return fetch(`http://localhost:3001/programs/${id}`,
+  return fetch(`http://localhost:8080/program/get/${id}`,
   {
       method: 'GET',
       mode: 'cors',
@@ -42,14 +42,14 @@ export const getProgramByIdApi = (id) => {
   })
 }
 
-export const updateProgramApi = (program) => {
-  return fetch(`http://localhost:3001/programs/updatePrograms`,
+export const updateProgramApi = (data) => {
+  return fetch(`http://localhost:8080/program/update`,
   {
       method: 'PUT',
       mode: 'cors',
       headers: {
           'Content-Type': 'application/json'
       },
-      body: JSON.stringify(program)
+      body: JSON.stringify(data)
   })
 }

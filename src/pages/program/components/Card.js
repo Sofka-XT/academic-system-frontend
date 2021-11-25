@@ -6,7 +6,7 @@ export const Card = ({id,name,dispatch, handleDelete,handleEdit}) => {
     return (
         <div className="card">
             <div className="card-header">
-                <img src='https://blog.comparasoftware.com/wp-content/uploads/2020/08/program_manager.png' width='100' />
+                <img alt={name} src='https://blog.comparasoftware.com/wp-content/uploads/2020/08/program_manager.png' width='100' />
             </div>
             <div className="card-body">
                 <h4>{name}</h4>  
