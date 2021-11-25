@@ -80,13 +80,8 @@ const FormInputTrainingComponent = () => {
 
   useEffect(() => {
     fetchPrograms().then((result) => {
-      const programs = result.map((program) => ({
-        ...program,
-        selected: false,
-      }));
-      //dispatch({ type: actions.ADD_LIST_PROGRAMS, payload: programs });
+      dispatch({ type: actions.ADD_LIST_PROGRAMS, payload: result });
     });
-    //console.log("estamos en el useefect");
   }, []);
 
   return (
@@ -208,7 +203,7 @@ const FormInputTrainingComponent = () => {
           </div>
         </div>
       </form>
-      <ProgramsListComponent programs={programs} />
+      <ProgramsListComponent />
       <CSVTableComponent data={tableState} />
     </div>
   );

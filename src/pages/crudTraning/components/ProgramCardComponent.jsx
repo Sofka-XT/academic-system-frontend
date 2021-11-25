@@ -1,8 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import * as actions from "../../../state/crudTraining/crudTrainingActions";
 
 const ProgramCardComponent = ({ program }) => {
+  const dispatch = useDispatch();
+  const { training } = useSelector((state) => state.crudTrainingReducer);
+
+  const handleSelectProgram = () => {
+    dispatch({ type: actions.ADD_PROGRAM_SELECTED, payload: program.id });
+  };
+
   return (
-    <div className="portfolio__item">
+    <div className="portfolio__item" onClick={handleSelectProgram}>
       <picture>
         <source
           type="image/jpg"
@@ -19,7 +28,9 @@ const ProgramCardComponent = ({ program }) => {
       </div>
       <div
         className="training__program-selected"
-        style={{ display: `${program.selected ? "unset" : "none"}` }}
+        style={{
+          display: `${training.programId === program.id ? "unset" : "none"}`,
+        }}
       >
         <i class="fas fa-check-circle"></i>
       </div>

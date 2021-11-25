@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import ProgramCardComponent from "./ProgramCardComponent";
 
-const ProgramsListComponent = ({ programs }) => {
+const ProgramsListComponent = () => {
+  const { programs } = useSelector((state) => state.crudTrainingReducer);
+
   return (
     <div id="portfolio">
       <div className="container">
@@ -10,7 +13,7 @@ const ProgramsListComponent = ({ programs }) => {
         </h2>
         <div className="portfolio__grid">
           {programs.map((program) => (
-            <ProgramCardComponent program={program} />
+            <ProgramCardComponent key={program.id} program={program} />
           ))}
         </div>
       </div>
