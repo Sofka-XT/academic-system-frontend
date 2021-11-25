@@ -25,12 +25,12 @@ const CourseDetail = ({courses}) => {
             <EditButtonComponent id={course.id} />
             </div>
 		
-			<p>{course.categories?.map((categorie)=>{
-				return <div className="">
+			<div>{course.categories?.map((categorie, index)=>{
+				return <div className="" key={course.id+"categorie#"+index}>
                     <h3>Categoria: {categorie.name}</h3>
                     <h4>Rules:</h4>
-                    {categorie.rules?.map((rule)=>{
-                        return <div className="sidebar">
+                    {categorie.rules?.map((rule, index)=>{
+                        return <div className="sidebar" key={course.id+"rule#"+index}>
                             <p>Tipo: {rule.type}</p>
                             <p>Condicion: {rule.condition}{rule.average}</p>
                             <p>Feedback: {rule.feedback.name}</p>
@@ -41,7 +41,7 @@ const CourseDetail = ({courses}) => {
 
             })}
 				<br></br>
-</p>
+</div>
 		
 		
 		
