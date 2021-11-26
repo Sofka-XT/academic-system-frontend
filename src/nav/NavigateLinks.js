@@ -1,47 +1,46 @@
 export const coachLinks = [
   {
-    path: 'home',
-    name: 'INICIO',
+    path: "home",
+    name: "INICIO",
   },
   {
-    path: 'activetrainingcoach',
-    name: 'TRAINING ACTIVO',
+    path: "activetrainingcoach",
+    name: "TRAINING ACTIVO",
   },
   {
-    path: 'create/course',
-    name: 'Crear Curso',
+    path: "create/course",
+    name: "Crear Curso",
   },
   {
-    path: 'courseslist',
-    name: 'Ver Curso',
-  },
-
-  {
-    path: 'training',
-    name: 'Crear Training',
+    path: "courseslist",
+    name: "Ver Curso",
   },
   {
-    path: 'programs',
-    name: 'Programs activos',
+    path: "programs",
+    name: "Programs activos",
   },
   {
-    path: 'crearprograma',
-    name: 'Crear Programa',
+    path: "crearprograma",
+    name: "Crear Programa",
+  },
+  {
+    path: "createTraining",
+    name: "Crear Trainin",
   },
 ];
 
 export const apprenticeLinks = [
   {
-    path: 'activetraining',
-    name: 'TRAINING ACTIVO',
+    path: "activetraining",
+    name: "TRAINING ACTIVO",
   },
   {
-    path: 'courseslist',
-    name: 'Lista de Cursos',
+    path: "courseslist",
+    name: "Lista de Cursos",
   },
 ];
 
 export const logOut = {
-  path: 'logout',
-  name: 'CERRAR SESION',
+  path: "logout",
+  name: "CERRAR SESION",
 };
