@@ -30,7 +30,7 @@ const EditCoursePageComponent = ({ loading, error, courses }) => {
       .then(unwrapResult)
       .then((courseData) => {
         if (!course.error) {
-          navigate(`/dashboard/coursedetail/${course.id}`);
+          navigate(`/dashboard/courseslist/coursedetail/${course.id}`);
         }
       });
   };

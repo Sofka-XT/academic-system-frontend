@@ -12,16 +12,21 @@ export const coachLinks = [
     name: 'Crear Curso',
   },
   {
+    path: 'courseslist',
+    name: 'Ver Curso',
+  },
+
+  {
     path: 'training',
     name: 'Crear Training',
   },
   {
     path: 'programs',
-    name:'Programs activos'
+    name: 'Programs activos',
   },
   {
     path: 'crearprograma',
-    name:'Crear Programa'
+    name: 'Crear Programa',
   },
 ];
 
@@ -33,10 +38,10 @@ export const apprenticeLinks = [
   {
     path: 'courseslist',
     name: 'Lista de Cursos',
-  }
+  },
 ];
 
-export const logOut ={
+export const logOut = {
   path: 'logout',
-  name: 'CERRAR SESION'
-}
+  name: 'CERRAR SESION',
+};

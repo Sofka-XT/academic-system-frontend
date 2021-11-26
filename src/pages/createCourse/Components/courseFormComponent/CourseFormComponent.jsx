@@ -31,7 +31,7 @@ const CourseFormComponent = ({ loading, error }) => {
             },
           }).then(() => {
             MySwal.fire(<p>Creado</p>);
-            navigate(`/dashboard/coursedetail/${course.id}`);
+            navigate(`/dashboard/courseslist/coursedetail/${course.id}`);
           });
         }
       });
