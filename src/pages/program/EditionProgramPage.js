@@ -170,7 +170,6 @@ const EditionProgramPage = ({
 
   const renderEditPage = () => {
     if (Object.keys(program).length !== 0) {
-
       return (
         <div>
           <h3>Cursos:</h3>
@@ -206,8 +205,8 @@ const EditionProgramPage = ({
               )}
             </div>
           </div>
-          {courses &&
-            courses.map((course) => (
+          {program.courses &&
+            program.courses.map((course) => (
               <div key={course.courseId}>
                 <div className="bd-callout bd-callout-warning">
                   <div className="course-container">
