@@ -63,11 +63,7 @@ const EditionProgramPage = ({
     dispatch(updateCurrentProgram(data));
   }, [dispatch]);
 
-  useEffect(() => {
-    if (courses[0] !== undefined) {
-      setSelectedCourse(courses[0]);
-    }
-  }, [dispatch, courses]);
+
 
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Show Program.</p>;
