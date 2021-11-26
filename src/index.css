@@ -5,19 +5,19 @@
   --white-color: #fff;
   --black-color: #000;
   --navbar-height: 60px;
+  --sofka-orange: rgb(233, 109, 33);
+
 }
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
