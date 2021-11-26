@@ -25,7 +25,6 @@ export const CourseGeneralFormComponent = ({
             {/* <label htmlFor="">Nombre Curso</label> */}
             <input
               className="form-control"
-              defaultValue=""
               placeholder="Nombre de curso"
               {...register('name', { required: true })}
             />

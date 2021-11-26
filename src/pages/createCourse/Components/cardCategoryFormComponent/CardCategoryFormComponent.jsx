@@ -17,7 +17,7 @@ export const CardCategoryFormComponent = ({
         <div className=" w-25">
           <input
             placeholder="Nombre categoria"
-            className="form-control was-validated"
+            className="form-control "
             {...register(`categories[${index}].name`, {
               required: true,
             })}

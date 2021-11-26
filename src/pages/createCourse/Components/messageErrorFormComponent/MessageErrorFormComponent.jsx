@@ -2,8 +2,7 @@ import React from 'react';
 import './MessageErrorFormComponent.css';
 export const MessageErrorFormComponent = ({ message }) => {
   return (
-    <div className="my-2  invalid-feedback">
-      hola
+    <div className="mt-3 message">
       <span className="message_span">{message}</span>
     </div>
   );

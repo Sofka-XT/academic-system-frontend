@@ -12,10 +12,10 @@ export const RulesFormComponent = ({
 }) => {
   const assingColorName = () => {
     return rule.type === 'DANGER'
-      ? 'ROJO'
+      ? 'Roja'
       : rule.type === 'WARNING'
-      ? 'AMARILLO'
-      : 'VERDE';
+      ? 'Amarilla'
+      : 'Verde';
   };
 
   const assingColorBg = () => {
@@ -45,7 +45,7 @@ export const RulesFormComponent = ({
               }
             )}
           >
-            <option defaultValue={rule.type} value={rule.type} selected>
+            <option defaultValue={rule.type} value={rule.type}>
               {rule.color}
             </option>
           </select>

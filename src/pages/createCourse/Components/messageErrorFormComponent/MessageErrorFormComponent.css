@@ -1,12 +1,17 @@
 .message_span{
-  
- 
+  font-size: 10px;
+  /* border: 1px solid rgb(255, 0, 0) ; */
+  border-radius: 5px;
+  /* padding: 10px; */
+  color: red
 }
 .message{
   text-align: center;
-  padding: 3px;
-  border: 1px solid rgb(255, 0, 0) ;
+  /* width: 100%; */
+  /* padding: 3px; */
+  
+  
   /* background-color: rgb(255, 68, 68); */
-  border-radius: 5px;
-  color: red
+  /* border-radius: 5px; */
+  /* color: red */
 }
