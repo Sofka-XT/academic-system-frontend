@@ -13,6 +13,7 @@ export const initialState = {
   programs: [],
   redirect: null,
   hasErrors: false,
+  traningSent: {},
 };
 
 export default function crudTrainingReducer(state = initialState, action) {
@@ -26,6 +27,7 @@ export default function crudTrainingReducer(state = initialState, action) {
         loading: false,
         redirect: null,
         hasErrors: false,
+        traningSent: action.payload,
       };
     case actions.ADD_LIST_PROGRAMS:
       return {
