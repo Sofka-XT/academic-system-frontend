@@ -30,9 +30,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
     };
 
     dispatch(updateCurrentProgram(data));
-    if (courses[0] !== undefined) {
-      setSelectedCourse(courses[0]);
-    }
+
     // eslint-disable-next-line
   }, [dispatch]);
 
