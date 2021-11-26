@@ -1,3 +1,4 @@
+import React from 'react'
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { COACH } from '../constants/constant';

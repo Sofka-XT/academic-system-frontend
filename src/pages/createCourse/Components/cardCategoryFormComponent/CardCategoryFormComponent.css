@@ -1,0 +1,4 @@
+.btn-success{
+  background-color: var(--third-color) !important;
+  border-color:var(--third-color) !important; ;
+}

@@ -7,6 +7,9 @@ import { CreateCoursePageComponent } from "./../pages/createCourse/CreateCourseP
 import EditCoursePageComponent from "./../pages/createCourse/Components/EditCoursePageComponent";
 import CoursesListComponent from "./../pages/courseslist/CoursesListComponent";
 import CourseDetail from "./../pages/coursedetail/CourseDetailComponent";
+import EditionProgramPage from "../pages/program/EditionProgramPage";
+import ListOfProgramsPageComponent from "../pages/program/ListOfProgramsPageComponent";
+import FormCreateProgramPageComponent from "../pages/program/FormCreateProgramPageComponent";
 import FormInputTrainingComponent from "./../pages/crudTraning/components/FormInputTrainingComponent";
 
 export const routesApp = [
@@ -54,6 +57,22 @@ export const routesApp = [
         path: "courseslist/coursedetail/:courseid",
         name: "Course Detail",
         component: <CourseDetail />,
+      },
+      {
+        path: "programs/editProgram",
+        name: "editProgram",
+        component: <EditionProgramPage />,
+      },
+      {
+        path: "programs",
+        name: "programs",
+        component: <ListOfProgramsPageComponent />,
+      },
+
+      {
+        path: "crearprograma",
+        name: "crearprograma",
+        component: <FormCreateProgramPageComponent />,
       },
       {
         path: "createTraining",

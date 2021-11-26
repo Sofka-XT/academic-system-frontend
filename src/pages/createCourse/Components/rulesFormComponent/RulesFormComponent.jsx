@@ -10,7 +10,14 @@ export const RulesFormComponent = ({
   setValue,
   rule,
 }) => {
-  console.log(rule);
+  const assingColorName = () => {
+    return rule.type === 'DANGER'
+      ? 'Roja'
+      : rule.type === 'WARNING'
+      ? 'Amarilla'
+      : 'Verde';
+  };
+
   const assingColorBg = () => {
     return rule.type === 'DANGER'
       ? 'rule_red'
@@ -19,14 +26,16 @@ export const RulesFormComponent = ({
       : 'rule_green';
   };
   return (
-    <div className={'my-2 rule_container ' + assingColorBg()}>
-      <h5>Alerta {rule.color}</h5>
+    <div className={'mt-2 p-3  rule_container  col-4'}>
+      <h5 className={assingColorBg() + ' fs-5'}>
+        Alerta {rule.color || assingColorName()}
+      </h5>
       <div className="row">
-        <div className="form-group col-6">
+        <div className="form-group  d-none">
           <label htmlFor="">Tipo</label>
 
           <select
-            className="form-control"
+            className="form-control "
             name="type"
             id=""
             {...register(
@@ -36,12 +45,12 @@ export const RulesFormComponent = ({
               }
             )}
           >
-            <option defaultValue={rule.type} value={rule.type} selected>
+            <option defaultValue={rule.type} value={rule.type}>
               {rule.color}
             </option>
           </select>
         </div>
-        <div className="form-group col-6">
+        <div className="form-group col-3">
           <label htmlFor="">Condicion</label>
 
           <select
@@ -59,12 +68,10 @@ export const RulesFormComponent = ({
             <option value=">">{'>'}</option>
             <option value="=">=</option>
           </select>
-          <p>{rule.type}</p>
         </div>
-      </div>
-      <div className="row">
-        <div className="form-group col-6">
-          <label htmlFor="">Calificacion</label>
+
+        <div className="form-group col-3">
+          <label htmlFor="">Nota</label>
 
           <input
             className="form-control"
@@ -79,6 +86,8 @@ export const RulesFormComponent = ({
             )}
           />
           {errors.categories &&
+            errors.categories[indexCategory]?.rules &&
+            errors.categories[indexCategory]?.rules[indexRule] &&
             errors.categories[indexCategory]?.rules[indexRule]?.average && (
               <MessageErrorFormComponent
                 message={'debe agregar un calificacion'}
@@ -92,22 +101,12 @@ export const RulesFormComponent = ({
             type="text"
             className="form-control"
             {...register(
-              `categories[${indexCategory}].rules[${indexRule}].feedback.name`,
-              {
-                required: true,
-              }
+              `categories[${indexCategory}].rules[${indexRule}].feedback.name`
             )}
           />
-          {errors.categories &&
-            errors.categories[indexCategory]?.rules[indexRule]?.feedback
-              ?.name && (
-              <MessageErrorFormComponent
-                message={'debe agregar un nombre al feedback'}
-              />
-            )}
         </div>
 
-        <div>
+        <div className="form-group col-12 mt-2 ">
           <FileUploadComponent
             register={register}
             indexCategory={indexCategory}

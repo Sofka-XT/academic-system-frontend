@@ -10,18 +10,29 @@ import { connect } from 'react-redux';
 import { CourseGeneralFormComponent } from '../courseGeneralFormComponent/CourseGeneralFormComponent';
 import { LoaderLoadingComponent } from './../../../../common/Loader/LoaderLoadingComponent';
 import { MessageErrorFormComponent } from './../messageErrorFormComponent/MessageErrorFormComponent';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const CourseFormComponent = ({ loading, error }) => {
+  const MySwal = withReactContent(Swal);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleCreateCourse = (data) => {
-    console.log(data);
     dispatch(addCourse(data))
       .then(unwrapResult)
       .then((course) => {
         if (!course.error) {
-          navigate(`/dashboard/coursedetail/${course.id}`);
+          MySwal.fire({
+            title: <p>Hello World</p>,
+            footer: 'Copyright 2018',
+            didOpen: () => {
+              MySwal.clickConfirm();
+            },
+          }).then(() => {
+            MySwal.fire(<p>Creado</p>);
+            navigate(`/dashboard/courseslist/coursedetail/${course.id}`);
+          });
         }
       });
   };
