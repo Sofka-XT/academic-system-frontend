@@ -19,20 +19,20 @@ const ProgramCardComponent = ({ program, handleInputChange }) => {
 
   return (
     <div className="training__program-main-container">
-      <div className="portfolio__item" onClick={handleSelectProgram}>
+      <div className="training__item" onClick={handleSelectProgram}>
         <picture>
           <source
             type="image/jpg"
             srcset={process.env.PUBLIC_URL + "assets/img/program-card-bg.jpg"}
           />
-          <img className="portfolio__img" alt="portfolio item" />
+          <img className="training__img" alt="training item" />
         </picture>
-        <div className="portfolio__description container">
-          <h2 className="portfolio__description--title">
+        <div className="training__description container">
+          <h2 className="training__description--title">
             {program.name}
             <hr />
           </h2>
-          <h5 className="portfolio__description--subtitle">
+          <h5 className="training__description--subtitle">
             Duranción: 3 semanas
           </h5>
         </div>

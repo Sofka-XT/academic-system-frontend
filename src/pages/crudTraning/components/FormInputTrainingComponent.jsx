@@ -212,6 +212,7 @@ const FormInputTrainingComponent = () => {
             />
             <button
               type="submit"
+              id="submit_training"
               onClick={handleSubmit}
               className="trainings__btn-submit"
             >
@@ -231,6 +232,7 @@ const FormInputTrainingComponent = () => {
               <input
                 type="date"
                 name="startingDate"
+                id="training_input_date"
                 className="trainings__select-input trainings__date-input"
                 value={startingDate}
                 onChange={handleInputChange}
@@ -250,7 +252,7 @@ const FormInputTrainingComponent = () => {
               <select
                 name="coaches"
                 value={coachesList[0].id}
-                id="training__couches"
+                id="training__coaches_select"
                 className="trainings__select-input"
                 onChange={handleSelectCoach}
               >
@@ -263,6 +265,7 @@ const FormInputTrainingComponent = () => {
                   <li key={coach.id} className="training__coach-selected">
                     <span> - {coach.name}</span>
                     <button
+                      id={`${coach.id}_button_delete_coach`}
                       className="btn btn-danger"
                       onClick={() => handleUnselectCoach(coach.id)}
                     >
@@ -276,6 +279,7 @@ const FormInputTrainingComponent = () => {
             <div className="training__input-container">
               <div className="training__file-input">
                 <CSVReader
+                  id="csv_reader_training"
                   onDrop={handleOnDrop}
                   onError={handleOnError}
                   noDrag
