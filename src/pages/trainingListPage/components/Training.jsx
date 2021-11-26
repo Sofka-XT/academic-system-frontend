@@ -10,6 +10,10 @@ function Training({training}) {
                 <br />
                 <br />
                 <Link className="link-type" to=""><h6>{training.name}</h6></Link>
+                <h6>Coaches:</h6>
+                {training.coaches.map((coach, index)=>
+                    <h6 key={index}>{coach.name}</h6>
+                )}
             </div>
         </div>
         

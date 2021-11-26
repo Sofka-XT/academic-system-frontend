@@ -48,7 +48,7 @@ export const routesApp = [
         component: <h1>Program Story</h1>,
       },
       {
-        path: 'activetrainingcoach',
+        path: 'activetraining',
         name: 'Active Training',
         component: <TrainingListPageComponent />,
       },
