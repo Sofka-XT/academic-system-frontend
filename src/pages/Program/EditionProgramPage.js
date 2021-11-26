@@ -46,7 +46,7 @@ const EditionProgramPage = ({
 
       dispatch(updateTotalDays(data));
     }
-  }, [program]);
+  }, [program,dispatch]);
 
   useEffect(() => {
     //1. UseEffec, traer los cursos para el select
@@ -58,13 +58,13 @@ const EditionProgramPage = ({
         }
       }
       dispatch(updateCurrentProgram(data))
-}, [])
+}, [dispatch])
   
   useEffect(() => {
     if(courses[0] !== undefined){
         setSelectedCourse(courses[0])
     }
-  }, [])
+  }, [dispatch,courses])
 
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Show Program.</p>;
@@ -94,10 +94,6 @@ const EditionProgramPage = ({
         Swal.fire('Cancelado', 'No se efectuaron cambios en el programa', 'error')
       }
     });
-  };
-
-  const handleDeleteCourse = (programId, courseId) => {
-    console.log("deleting..." + programId + " " + courseId);
   };
 
   const handleInputChange = (e) => {

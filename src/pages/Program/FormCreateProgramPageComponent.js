@@ -36,7 +36,9 @@ const FormCreateProgramPageComponent = ({
     if (courses[0] !== undefined) {
       setSelectedCourse(courses[0]);
     }
-  }, []);
+    // eslint-disable-next-line
+  }, [dispatch]);
+
 
   const handleInput = (e) => {
     e.preventDefault();

@@ -20,7 +20,7 @@ const ListOfProgramsPageComponent = ({
 }) => {
   useEffect(() => {
     dispatch(getProgramsThunk());
-  }, [redirect]);
+  }, [redirect,dispatch]);
 
   const handleDelete = (id) => {
     dispatch(deleteProgramByIdThunk(id));
