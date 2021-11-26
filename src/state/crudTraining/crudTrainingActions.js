@@ -11,8 +11,9 @@ export const ADD_COACHES_LIST = "ADD_COACHES_LIST";
 export const ADD_TRAINING_NAME = "ADD_TRAINING_NAME";
 export const SET_STARTING_DATE = "SET_STARTING_DATE";
 
-
 export const loading = () => ({ type: LOADING });
+
+export const endLoading = () => ({ type: LOADED_SUCCESS });
 
 export const postTrainingSuccess = (payload) => ({
   type: POST_TRAINING_SUCCESS,
@@ -55,6 +56,7 @@ export function postTraining(training) {
           coaches: data.coaches,
         })
       );
+      dispatch(endLoading());
     } catch (error) {
       dispatch(failure());
     }

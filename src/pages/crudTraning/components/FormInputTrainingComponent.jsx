@@ -9,7 +9,6 @@ import ProgramsListComponent from "./ProgramsListComponent";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import * as actions from "../../../state/crudTraining/crudTrainingActions";
-import { validateInputTraining } from "../../../state/crudTraining/traningValidations/validations";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
@@ -71,18 +70,11 @@ const FormInputTrainingComponent = () => {
     dispatch({ type: actions.ADD_COACHES_LIST, payload: coaches });
     dispatch({ type: actions.ADD_TRAINING_NAME, payload: name });
     dispatch({ type: actions.SET_STARTING_DATE, payload: startingDate });
-  
-    
-  
-    // dispatch(actions.postTraining(formValues));
+
+    dispatch(actions.postTraining(training));
+    resetFormValues();
     //ejecucion de validacion
-    const infoValidated = validateInputTraining(formValues)
-    if(infoValidated){
-      dispatch(actions.postTraining(formValues));
-      resetFormValues();
-    }
-    alert("campos invalidos")
-    //Poner switalert que diga que los campos no son correctos
+    console.log("Global state updated from submiting the form");
   };
 
   const handleListSelectedCoaches = (e) => {
@@ -94,8 +86,8 @@ const FormInputTrainingComponent = () => {
       .map((item) => item.data)
       .map((infoArray) => ({
         name: infoArray[0],
-        emailAddress: infoArray[1],
-        phoneNumber: infoArray[2],
+        email: infoArray[1],
+        tel: infoArray[2],
       }));
     setTableState(data);
     const e = {
@@ -115,8 +107,6 @@ const FormInputTrainingComponent = () => {
   };
 
   const handleSelectCoach = (e) => {
-    // console.log("este es el coach")
-    // console.log(coaches)
     if (e.target.value === "0") return;
     const coachSelected = coachesList.filter(
       (coach) => coach.id === e.target.value
@@ -206,7 +196,6 @@ const FormInputTrainingComponent = () => {
               id="training__couches"
               className="trainings__select-input"
               onChange={handleSelectCoach}
-              value={coachesList[0].id}
             >
               {coachesList.map((coach) => (
                 <option value={coach.id}>{coach.name}</option>
@@ -245,7 +234,7 @@ const FormInputTrainingComponent = () => {
           </div>
         </div>
       </form>
-      <ProgramsListComponent handleInputChange={handleInputChange}/>
+      <ProgramsListComponent />
       <CSVTableComponent data={tableState} />
     </div>
   );
