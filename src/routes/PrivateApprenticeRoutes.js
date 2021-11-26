@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import { APPRENTICE } from '../constants/constant';
 
 const PrivateApprenticeRoutes = ({ user, children }) => {
 
 	try {
-		if( user.role!=="APPRENTICE"){
+		if( user.role!==APPRENTICE){
 			return <Navigate to="/dashboard" replace={true} />;
 		}
 		return children;
