@@ -10,10 +10,13 @@
     "bootstrap": "^5.1.3",
     "chart.js": "^3.6.0",
     "firebase": "^9.5.0",
+    "moment": "^2.29.1",
+    "papaparse": "^5.3.1",
     "react": "^17.0.2",
     "react-chartjs-2": "^4.0.0",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.20.2",
+    "react-papaparse": "^3.18.1",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
@@ -21,6 +24,7 @@
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.2.0",
     "sweetalert2-react-content": "^4.2.0",
+    "validator": "^13.7.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -46,5 +50,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
