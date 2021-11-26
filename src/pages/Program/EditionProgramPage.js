@@ -49,25 +49,25 @@ const EditionProgramPage = ({
 
       dispatch(updateTotalDays(data));
     }
-  }, [program,dispatch]);
+  }, [program, dispatch]);
 
   useEffect(() => {
     //1. UseEffec, traer los cursos para el select
     dispatch(getCoursesThunk());
     let data = {
-        program: {
-            name: "",
-            courses: []
-        }
-      }
-      dispatch(updateCurrentProgram(data))
-}, [dispatch])
-  
+      program: {
+        name: "",
+        courses: [],
+      },
+    };
+    dispatch(updateCurrentProgram(data));
+  }, [dispatch]);
+
   useEffect(() => {
     if (courses[0] !== undefined) {
       setSelectedCourse(courses[0]);
     }
-  }, [dispatch,courses])
+  }, [dispatch, courses]);
 
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Show Program.</p>;
@@ -120,25 +120,28 @@ const EditionProgramPage = ({
       courseId: selectedCourse.id,
       courseName: selectedCourse.name,
       categories: selectedCourse.categories.map((category) => {
-        return { categoryId: category.id, categoryName: category.name, days: 1};
+        return {
+          categoryId: category.id,
+          categoryName: category.name,
+          days: 1,
+        };
       }),
     };
 
     let isEqualValue = false;
 
-    program.courses.forEach(course => {
-        if (course.courseId === selectedCourse.id) {
-            isEqualValue = true;
-        }
+    program.courses.forEach((course) => {
+      if (course.courseId === selectedCourse.id) {
+        isEqualValue = true;
+      }
     });
 
-    if(!isEqualValue){
-        dispatch(AddCourseToCurrentProgram(data));
-        return
+    if (!isEqualValue) {
+      dispatch(AddCourseToCurrentProgram(data));
+      return;
     }
 
-    Swal.fire({title: "Ya existe este curso", icon:"error"})
-    
+    Swal.fire({ title: "Ya existe este curso", icon: "error" });
   };
 
   const renderEditPage = () => {
@@ -148,10 +151,10 @@ const EditionProgramPage = ({
         <div>
           <h3>Cursos:</h3>
           <div className="select-container">
-            <h3>Agregar curso: </h3>
+            <h6>Agregar curso: </h6>
             <div>
               <select
-              className="select-input"
+                className="form-select"
                 defaultValue={"DEFAULT"}
                 onChange={(e) => handleSelect(e)}
               >
@@ -168,6 +171,7 @@ const EditionProgramPage = ({
               </select>
               {Object.keys(selectedCourse).length !== 0 && (
                 <button
+                className="button-edit"
                   type="button"
                   onClick={() => {
                     handleAddCourse();

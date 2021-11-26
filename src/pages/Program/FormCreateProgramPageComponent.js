@@ -15,11 +15,7 @@ import { InputPrograms } from "./components/InputPrograms";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { useNavigate } from "react-router-dom";
 
-const FormCreateProgramPageComponent = ({
-  dispatch,
-  courses,
-  program,
-}) => {
+const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
   const [selectedCourse, setSelectedCourse] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
@@ -38,7 +34,6 @@ const FormCreateProgramPageComponent = ({
     }
     // eslint-disable-next-line
   }, [dispatch]);
-
 
   const handleInput = (e) => {
     e.preventDefault();
@@ -63,19 +58,18 @@ const FormCreateProgramPageComponent = ({
 
     let isEqualValue = false;
 
-    program.courses.forEach(course => {
-        if (course.courseId === selectedCourse.id) {
-            isEqualValue = true;
-        }
+    program.courses.forEach((course) => {
+      if (course.courseId === selectedCourse.id) {
+        isEqualValue = true;
+      }
     });
 
-    if(!isEqualValue){
-        dispatch(AddCourseToCurrentProgram(data));
-        return
+    if (!isEqualValue) {
+      dispatch(AddCourseToCurrentProgram(data));
+      return;
     }
 
-    Swal.fire({title: "Ya existe este curso", icon:"error"})
-    
+    Swal.fire({ title: "Ya existe este curso", icon: "error" });
   };
 
   const handleSubmit = async (e) => {
@@ -120,77 +114,79 @@ const FormCreateProgramPageComponent = ({
 
   return (
     <div>
-      <form>
-        <label>Nombre del programa</label>
-        <input
-          onChange={(e) => {
-            handleInput(e);
-          }}
-          className="form-control"
-          name="name"
-          required
-        />
-        <label>Selecciones un curso</label>
-
-        <select defaultValue={"DEFAULT"} onChange={(e) => handleSelect(e)}>
-          <option value="DEFAULT" disabled>
-            Seleccione un curso
-          </option>
-          {courses.map((course, index) => {
-            return (
-              <option key={index} value={index}>
-                {course.name}
-              </option>
-            );
-          })}
-        </select>
-
-        {Object.keys(selectedCourse).length !== 0 && (
-          <button
-            type="button"
-            onClick={() => {
-              handleAddCourse();
+      <form className="form-container">
+        <h1>Crear Programa</h1>
+        <div>
+          <h2 className="program-name">Nombre del programa</h2>
+          <input
+            onChange={(e) => {
+              handleInput(e);
             }}
-          >
-            Añadir curso
-          </button>
-        )}
-        <br />
+            className="form-control"
+            name="name"
+            required
+          />
+          <label>Selecciones un curso</label>
 
-        {program.courses &&
-          program.courses.map((course) => (
-            <div key={course.courseId}>
-              <h3>{course.courseName}</h3>
+          <select defaultValue={"DEFAULT"} onChange={(e) => handleSelect(e)}>
+            <option value="DEFAULT" disabled>
+              Seleccione un curso
+            </option>
+            {courses.map((course, index) => {
+              return (
+                <option key={index} value={index}>
+                  {course.name}
+                </option>
+              );
+            })}
+          </select>
 
-              <div>
-                <label>Temas</label>
+          {Object.keys(selectedCourse).length !== 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                handleAddCourse();
+              }}
+            >
+              Añadir curso
+            </button>
+          )}
+          <br />
 
-                <ul>
-                  {course.categories &&
-                    course.categories.map((category) => (
-                      <InputPrograms
-                        key={category.categoryId}
-                        categoryId={category.categoryId}
-                        category={category}
-                        courseId={course.courseId}
-                        programId={program.id}
-                        dispatch={dispatch}
-                        name={category.categoryName}
-                        currentDays={1}
-                      ></InputPrograms>
-                    ))}
-                </ul>
+          {program.courses &&
+            program.courses.map((course) => (
+              <div key={course.courseId}>
+                <h3>{course.courseName}</h3>
+
+                <div>
+                  <label>Temas</label>
+
+                  <ul>
+                    {course.categories &&
+                      course.categories.map((category) => (
+                        <InputPrograms
+                          key={category.categoryId}
+                          categoryId={category.categoryId}
+                          category={category}
+                          courseId={course.courseId}
+                          programId={program.id}
+                          dispatch={dispatch}
+                          name={category.categoryName}
+                          currentDays={1}
+                        ></InputPrograms>
+                      ))}
+                  </ul>
+                </div>
+                {courses.length !== 1 && (
+                  <DeleteButtonCourses
+                    dispatch={dispatch}
+                    programId={program.id}
+                    courseId={course.courseId}
+                  />
+                )}
               </div>
-              {courses.length !== 1 && (
-                <DeleteButtonCourses
-                  dispatch={dispatch}
-                  programId={program.id}
-                  courseId={course.courseId}
-                />
-              )}
-            </div>
-          ))}
-
+            ))}
+        </div>
         <button
           onClick={(e) => {
             handleSubmit(e);
