@@ -33,9 +33,8 @@ export const fetchPrograms = async () => {
   }
 };
 
-export function postTraining(training, resetFormValues) {
+export function postTraining(training) {
   return async (dispatch) => {
-    dispatch(loading());
     try {
       const response = await fetch(`${URL_BASE}/CreateTraining`, {
         method: "POST",
@@ -56,8 +55,6 @@ export function postTraining(training, resetFormValues) {
           coaches: data.coaches,
         })
       );
-      resetFormValues();
-      dispatch(endLoading());
     } catch (error) {
       dispatch(failure());
     }

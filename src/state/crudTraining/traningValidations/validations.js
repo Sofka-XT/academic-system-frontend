@@ -78,7 +78,7 @@ export const validateProgram = (program) => {
 
 //Validación del campo fecha
 export const validateDate = (startingDate) => {
-  if (validator.isDate(startingDate)) {
+  if (!validator.isDate(startingDate)) {
     return false;
   }
   return true;
@@ -91,16 +91,13 @@ export const validateCoachesList = (coaches) => {
 
 //Validacion del campo aprendices
 export const validateApprenticesList = (apprentices) => {
-  if (apprentices.length === 0) return false;
-
   apprentices.map((apprentice) => {
     if (
       apprentice.name === null ||
       apprentice.name.length < 3 ||
       apprentice.name.length > 50 ||
       apprentice.phoneNumber.length < 7 ||
-      apprentice.emailAddress.length < 8 ||
-      apprentice.phoneNumber.length < 7
+      apprentice.emailAddress.length < 8
     ) {
       return false;
     }

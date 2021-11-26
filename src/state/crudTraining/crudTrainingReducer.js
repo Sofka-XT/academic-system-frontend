@@ -22,7 +22,7 @@ export default function crudTrainingReducer(state = initialState, action) {
     case actions.POST_TRAINING_SUCCESS:
       return {
         ...state,
-        training: action.payload,
+        training: initialState.training,
         loading: false,
         redirect: null,
         hasErrors: false,

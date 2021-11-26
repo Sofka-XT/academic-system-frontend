@@ -79,7 +79,7 @@ const FormInputTrainingComponent = () => {
     console.log("Global state updated from submiting the form");
     const { valid, message } = validateInputTraining(formValues);
     if (valid) {
-      dispatch(actions.postTraining(formValues, resetFormValues));
+      dispatch(actions.postTraining(formValues));
       Swal.fire({
         icon: "success",
         title: "Bien hecho!",
@@ -87,6 +87,47 @@ const FormInputTrainingComponent = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      // dispatch({ type: actions.ADD_LIST_APPRENTICES, payload: [] });
+      // dispatch({ type: actions.ADD_PROGRAM_SELECTED, payload: "" });
+      setTableState(null);
+
+      setCoachesList([
+        {
+          id: "0",
+          name: "Seleccione al menos un coach",
+        },
+        {
+          id: "1",
+          name: "Raul",
+        },
+        {
+          id: "2",
+          name: "Pablo",
+        },
+        {
+          id: "3",
+          name: "Oscar",
+        },
+        ,
+        {
+          id: "4",
+          name: "Luis",
+        },
+        ,
+        {
+          id: "5",
+          name: "Mario",
+        },
+      ]);
+
+      const e = {
+        target: {
+          name: "apprentices",
+          value: [],
+        },
+      };
+      handleInputChange(e);
+
       resetFormValues();
     } else {
       Swal.fire({
@@ -110,8 +151,8 @@ const FormInputTrainingComponent = () => {
       .map((item) => item.data)
       .map((infoArray) => ({
         name: infoArray[0],
-        email: infoArray[1],
-        tel: infoArray[2],
+        emailAddress: infoArray[1],
+        phoneNumber: infoArray[2],
       }));
     setTableState(data);
     const e = {
@@ -120,6 +161,7 @@ const FormInputTrainingComponent = () => {
         value: data,
       },
     };
+
     dispatch({ type: actions.ADD_LIST_APPRENTICES, payload: data });
     handleInputChange(e);
   };
@@ -217,6 +259,7 @@ const FormInputTrainingComponent = () => {
 
             <select
               name="coaches"
+              value={coachesList[0].id}
               id="training__couches"
               className="trainings__select-input"
               onChange={handleSelectCoach}
