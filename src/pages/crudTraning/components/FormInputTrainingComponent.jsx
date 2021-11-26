@@ -81,7 +81,7 @@ const FormInputTrainingComponent = () => {
       dispatch(actions.postTraining(formValues));
       resetFormValues();
     }
-    alert("campos invalidos")
+    
     //Poner switalert que diga que los campos no son correctos
   };
 

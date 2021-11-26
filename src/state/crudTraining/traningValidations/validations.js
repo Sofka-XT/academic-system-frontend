@@ -57,7 +57,7 @@ export const validateProgram = (program) => {
 
 //Validación del campo fecha
 export const validateDate = (startingDate) => {
-  if (startingDate.length < 8) {
+  if (validator.isDate(startingDate)) {
     return false;
   }
   return true;
