@@ -5,12 +5,15 @@
   --white-color: #fff;
   --black-color: #000;
   --navbar-height: 60px;
+  --sofka-orange: rgb(233, 109, 33);
+
 }
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
 }
 
 body {
@@ -19,5 +22,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
