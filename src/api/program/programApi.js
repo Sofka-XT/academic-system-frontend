@@ -1,13 +1,13 @@
 import { enviroment } from '../../environments/enviroment';
 
-const URL_BASE = "http://localhost:8080";
+const URL_BASE = enviroment.host;
 
 export const fetchProgramsApi = () => {
-    return fetch(`${URL_BASE}/program/getAll`)
+    return fetch(`${URL_BASE}program/getAll`)
 }
 
 export const deleteProgramByIdApi = (id) => {
-    return fetch(`${URL_BASE}/program/delete/${id}`,
+    return fetch(`${URL_BASE}program/delete/${id}`,
     {
         method: 'DELETE',
         mode: 'cors',
@@ -19,13 +19,13 @@ export const deleteProgramByIdApi = (id) => {
 
 
 export const getAllcoursesApi = () => {
-    return fetch(`${URL_BASE}/course/getAll`)
+    return fetch(`${URL_BASE}course/getAll`)
 }
 
 export const postProgramApi = (data) => {
 
     console.log(data);
-    return fetch(`${URL_BASE}/program/create`,
+    return fetch(`${URL_BASE}program/create`,
     {
         method: 'POST',
         mode: 'cors',
@@ -36,7 +36,7 @@ export const postProgramApi = (data) => {
     })
 }
 export const getProgramByIdApi = (id) => {
-  return fetch(`${URL_BASE}/program/get/${id}`,
+  return fetch(`${URL_BASE}program/get/${id}`,
   {
       method: 'GET',
       mode: 'cors',
@@ -47,7 +47,7 @@ export const getProgramByIdApi = (id) => {
 }
 
 export const updateProgramApi = (data) => {
-  return fetch(`${URL_BASE}/program/update`,
+  return fetch(`${URL_BASE}program/update`,
   {
       method: 'PUT',
       mode: 'cors',
