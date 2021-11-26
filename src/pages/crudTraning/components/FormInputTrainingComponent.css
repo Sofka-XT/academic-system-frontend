@@ -93,6 +93,11 @@ main {
   margin: 20px;
 }
 
+.w-6 {
+  width: 60%;
+  margin: auto 20%;
+}
+
 .pointer {
   cursor: pointer;
 }
@@ -133,9 +138,12 @@ main {
 }
 
 .training__input-form {
-  margin-top: 60px;
+  margin-top: 30px;
+  background-color: red;
+  border: 3px solid blue;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-around;
 }
 
@@ -160,11 +168,12 @@ main {
 
 .trainings__btn-submit {
   width: 120px;
-  height: 30px;
-  background-color: #40bad5;
-  border: 2px solid darkgray;
+  height: 38px;
+  background-color: #0d6efd;
+  color: white;
+  border: 2px solid transparent;
   border-radius: 3px;
-  margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 .trainings__btn-submit:focus {

@@ -218,7 +218,7 @@ const FormInputTrainingComponent = () => {
                 >
                   <span className="training__csv-div text-center small">
                     <p>Sube aquí el archivo .CSV de los aprendices</p>
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary w-6">
                       Subir Archivo <i class="fas fa-upload"></i>
                     </button>
                     <small className="mt-1">
