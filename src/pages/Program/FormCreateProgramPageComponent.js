@@ -122,7 +122,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
 
   return (
     <div>
-      <form className="form-container">
+      <form >
         <h1>Crear Programa</h1>
         <div>
           <h2 className="program-name">Nombre del programa</h2>

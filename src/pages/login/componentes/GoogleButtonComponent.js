@@ -2,9 +2,10 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router';
 import { useAppDispatch } from '../../../state/store.hook';
 import { loginWhitGoogle } from '../../../thunkAction/authThunk';
+import { connect } from 'react-redux';
 import '../LoginPageComponent.css';
 
-export const GoogleButtonComponent = ({ history }) => {
+export const GoogleButtonComponent = ({ history, user }) => {
 	
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
@@ -13,7 +14,9 @@ export const GoogleButtonComponent = ({ history }) => {
 		dispatch(loginWhitGoogle())
 			.then(unwrapResult)
 			.then(() => {
-				navigate('/dashboard/home');
+				if(user){
+					navigate('/dashboard/home');
+				}
 			});
 	};
 
@@ -26,3 +29,8 @@ export const GoogleButtonComponent = ({ history }) => {
     </>
   );
 };
+
+const mapState = (state) => ({
+	user: state.authReducer.user,
+});
+export default connect(mapState)(GoogleButtonComponent);
