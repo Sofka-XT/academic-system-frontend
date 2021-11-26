@@ -137,7 +137,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
           />
           <label>Selecciones un curso</label>
 
-          <select class="form-select" defaultValue={"DEFAULT"} onChange={(e) => handleSelect(e)}>
+          <select className="form-select" defaultValue={"DEFAULT"} onChange={(e) => handleSelect(e)}>
             <option value="DEFAULT" disabled>
               Seleccione un curso
             </option>
