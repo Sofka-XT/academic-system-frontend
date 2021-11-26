@@ -1,35 +1,57 @@
+.form-container {
+  width: 100%;
+  /* border: 1px solid cyan; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.program-name-container{
+.program-name-container {
   width: 100%;
   /* border: 1px solid green; */
   display: flex;
-  flex-direction: column;
-  align-items: space-around;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   margin-top: 40px;
   margin-bottom: 40px;
   text-transform: capitalize;
   text-align: center;
- }
-.categoriesList{
+  padding: 2px;
+  border-bottom: 2px solid #232323;
+}
+.select-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 2px solid #9aa0ca;
+  padding: 4px;
+  width: 90%;
+  margin: 0 auto;
+}
+.categoriesList {
   list-style: none;
   font-size: 16px;
-  font-weight:500;
+  font-weight: 500;
   text-transform: capitalize;
 }
-.topics-label{
+.topics-label {
   text-transform: capitalize;
 }
-.program-inputs{
+.program-inputs {
   border-radius: 10px;
   padding-left: 10px;
 }
-.program-inputs-days{
+.program-inputs-days {
   border-radius: 10px;
   padding-left: 10px;
   width: 20%;
 }
-.program-inputs-name{
+.program-inputs-name {
   border-radius: 10px;
   padding: 0;
   padding-left: 10px;
@@ -40,16 +62,24 @@
   border: none;
   text-align: center;
 }
-.course-container{
+.course-card {
+  border: 2px solid #9aa0ca;
+  padding: 4px;
+  border-radius: 8px;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 3px;
+}
+.course-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   /* border: 1px solid blue; */
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   margin-top: 20px;
 }
-.topics-list{
+.topics-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -60,21 +90,22 @@
 }
 
 .button-edit {
-  background-color: #e1ecf4;
+  background-color: #21117e;
   border-radius: 3px;
-  border: 1px solid #7aa7c7;
-  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+  border: 1px solid #21117e;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
   box-sizing: border-box;
-  color: #232323;
+  color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
   font-size: 13px;
   font-weight: 400;
   line-height: 1.15385;
   margin: 0;
   outline: none;
-  padding: 8px .8em;
+  padding: 8px 0.8em;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -89,11 +120,11 @@
 .button-edit:hover,
 .button-edit:focus {
   background-color: #b3d3ea;
-  color: #2c5777;
+  color: #21117e;
 }
 
 .button-edit:focus {
-  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
 }
 
 .button-edit:active {
@@ -101,8 +132,8 @@
   box-shadow: none;
   color: #2c5777;
 }
-.totaldays-container{
-  border: 3px solid #2c5777;
+.totaldays-container {
+  border: 3px solid #21117e;
   padding: 3px;
   display: flex;
   flex-direction: column;
@@ -114,4 +145,3 @@
   font-size: 20px;
   font-weight: bold;
 }
-
