@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { DeleteButton } from "./DeleteButton";
 import React from 'react'
-export const Card = ({id,name,dispatch, handleDelete,handleEdit}) => {
+export const Card = ({id,name,dispatch,handleEdit}) => {
 
     return (
         <div className="card">

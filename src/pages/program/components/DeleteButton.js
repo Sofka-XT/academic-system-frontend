@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { deleteProgramByIdThunk } from '../../../thunkAction/programThunk'
 
-export const DeleteButton = ({  dispatch,idData }) => {
+export const DeleteButton = ({ dispatch,idData }) => {
   const MySwal = withReactContent(Swal)
 
 

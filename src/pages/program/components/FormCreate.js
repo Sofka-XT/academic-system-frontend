@@ -3,10 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createProgram } from '../../../state/Program/programAction';
 
 
-const FormCreate = ({ id, course }) => {
+const FormCreate = ({ course }) => {
 
     const dispatch = useDispatch();
-    //Todos los cursos que estan en el estado
     const courses = useSelector(state => state.programReducer.programCreate);
 
 
