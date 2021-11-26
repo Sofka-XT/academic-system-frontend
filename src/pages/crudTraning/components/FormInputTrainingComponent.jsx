@@ -1,80 +1,33 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import useForm from "./../../../hooks/useForm";
-import CSVTableComponent from "./CSVTableComponent";
+import React, { useEffect, useState } from "react";
 import { CSVReader } from "react-papaparse";
-import { fetchPrograms } from "../../../state/crudTraining/crudTrainingActions";
-import "./FormInputTrainingComponent.css";
-import ProgramsListComponent from "./ProgramsListComponent";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
 import * as actions from "../../../state/crudTraining/crudTrainingActions";
 import { validateInputTraining } from "../../../state/crudTraining/traningValidations/validations";
-import Swal from "sweetalert2";
+
+import useForm from "./../../../hooks/useForm";
+
+import CSVTableComponent from "./CSVTableComponent";
+import ProgramsListComponent from "./ProgramsListComponent";
 import TraningConfirmationCreationView from "./TraningConfirmationCreationView";
+
+import Swal from "sweetalert2";
+import "./FormInputTrainingComponent.css";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
   const [formSent, setFormSent] = useState(false);
-  const { training } = useSelector((state) => state.crudTrainingReducer);
+  const [coachesList, setCoachesList] = useState(actions.fetchCoaches());
+  const [tableState, setTableState] = useState(null);
 
   const [formValues, handleInputChange, resetFormValues] = useForm({
     name: "",
     program: "",
-    startingDate:
-      new Date().getFullYear() +
-      "-" +
-      `${parseInt(new Date().getMonth()) + 1}` +
-      "-" +
-      new Date().getDate(),
+    startingDate: new Date().toISOString().split("T")[0],
     apprentices: [],
     coaches: [],
   });
-
-  const [coachesList, setCoachesList] = useState([
-    {
-      id: "0",
-      name: "Seleccione al menos un coach",
-    },
-    {
-      id: "1",
-      name: "Raul Andres Alzate",
-      emailAddress: "raul@gmail.com",
-      phoneNumber: "32325465456",
-    },
-    {
-      id: "2",
-      name: "Pablo Armando Valencia",
-      emailAddress: "pablo@gmail.com",
-      phoneNumber: "3324345356",
-    },
-    {
-      id: "3",
-      name: "Oscar Mejia Restrepo",
-      emailAddress: "oscar@gmail.com",
-      phoneNumber: "31243544656",
-    },
-    ,
-    {
-      id: "4",
-      name: "Luis Villada Monsalve",
-      emailAddress: "luis@gmail.com",
-      phoneNumber: "3453454353",
-    },
-    ,
-    {
-      id: "5",
-      name: "Mario Castrillón Mejia",
-      emailAddress: "mario@gmail.com",
-      phoneNumber: "3322543565466",
-    },
-  ]);
-
-  const [programs, setPrograms] = useState([]);
-
-  const [tableState, setTableState] = useState(null);
-
-  const { name, program, startingDate, apprentices, coaches } = formValues;
+  const { name, startingDate, coaches } = formValues;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -197,7 +150,7 @@ const FormInputTrainingComponent = () => {
   };
 
   useEffect(() => {
-    fetchPrograms().then((result) => {
+    actions.fetchPrograms().then((result) => {
       dispatch({ type: actions.ADD_LIST_PROGRAMS, payload: result });
     });
   }, []);

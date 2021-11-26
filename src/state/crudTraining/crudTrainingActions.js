@@ -61,29 +61,43 @@ export function postTraining(training) {
   };
 }
 
-//   {
-//     "name": "Training Qa",
-//     "startingDate": "2021-12-21",
-//     "apprentices": [{
-//         "id": "123kisdha8",
-//         "name": "Pedro",
-//         "phoneNumber": "21232454",
-//         "emailAddress": "santiago@gmail.com"
-
-//     },
-//     {
-//         "id": "qwedfws44ef",
-//         "name": "Camilo",
-//         "phoneNumber": "234dfsdt",
-//         "emailAddress": "camilo@gmail.com"
-
-//     }
-//     ],
-//     "coaches": [{
-//         "id": "wagary55",
-//         "name": "Raul",
-//         "phoneNumber": "12355656",
-//         "emailAddress": "raul@gmail.com"
-//     }],
-//     "program": "123iasdias909"
-// }
+export const fetchCoaches = () => {
+  return [
+    {
+      id: "0",
+      name: "Seleccione al menos un coach",
+    },
+    {
+      id: "1",
+      name: "Raul Andres Alzate",
+      emailAddress: "raul@gmail.com",
+      phoneNumber: "32325465456",
+    },
+    {
+      id: "2",
+      name: "Pablo Armando Valencia",
+      emailAddress: "pablo@gmail.com",
+      phoneNumber: "3324345356",
+    },
+    {
+      id: "3",
+      name: "Oscar Mejia Restrepo",
+      emailAddress: "oscar@gmail.com",
+      phoneNumber: "31243544656",
+    },
+    ,
+    {
+      id: "4",
+      name: "Luis Villada Monsalve",
+      emailAddress: "luis@gmail.com",
+      phoneNumber: "3453454353",
+    },
+    ,
+    {
+      id: "5",
+      name: "Mario Castrillón Mejia",
+      emailAddress: "mario@gmail.com",
+      phoneNumber: "3322543565466",
+    },
+  ];
+};
