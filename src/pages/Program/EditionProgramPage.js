@@ -209,7 +209,7 @@ const EditionProgramPage = ({
           {courses &&
             courses.map((course) => (
               <div key={course.courseId}>
-                <div className="course-card">
+                <div className="bd-callout bd-callout-warning">
                   <div className="course-container">
                     <h4>{course.courseName}</h4>
                     {courses.length !== 1 && (

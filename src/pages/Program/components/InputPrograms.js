@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { updateDaysCurrentProgram } from "../../../state/Program/programAction";
 
+
 export const InputPrograms = ({
   category,
   categoryId,
@@ -37,8 +38,9 @@ export const InputPrograms = ({
   return (
     <div>
       <li className="categoriesList">{category.categoryName}</li>
-      <label>Duración del programa:</label>
-      <input
+      <div className="duration-category">
+        <label>Duración del programa:</label>
+        <input
         type="number"
         className="program-inputs-days"
         value={duration}
@@ -46,6 +48,9 @@ export const InputPrograms = ({
           handleDurationChange(e, category);
         }}
       ></input>
+      </div>
+      
+
     </div>
   );
 };

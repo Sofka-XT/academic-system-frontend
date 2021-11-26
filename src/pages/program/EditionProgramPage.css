@@ -28,7 +28,7 @@
   margin-top: 10px;
   border-radius: 8px;
   border: 2px solid #9aa0ca;
-  padding: 4px;
+  padding: 25px;
   width: 90%;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -151,3 +151,8 @@
 }
 
 
+.duration-category{
+  display: flex; justify-content: space-around;
+  padding-left: 4px;
+
+}
