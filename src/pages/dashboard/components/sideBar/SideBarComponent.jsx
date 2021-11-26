@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { apprenticeLinks, coachLinks } from '../NavigateLinks/NavigateLinks';
+import { apprenticeLinks, coachLinks } from '../../../../nav/NavigateLinks';
 import './SideBarComponent.css';
 
 export const SideBarCoachComponent = () => {
