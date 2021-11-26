@@ -1,5 +1,7 @@
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../config/firebase/firebase.config";
+import { SweetAlert2 } from "sweetalert2-react-content";
+import Swal from "sweetalert2";
 
 const fetchRole = async (response) => {
   
@@ -19,7 +21,11 @@ const fetchRole = async (response) => {
       
       return data;
     }
-    alert("Error de autenticación: Usuario no encontrado")
+    Swal.fire(
+      'Error de autenticación',
+      'Usuario no encontrado',
+      'error'
+    )
     return null
   }
 
