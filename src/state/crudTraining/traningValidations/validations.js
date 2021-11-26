@@ -17,22 +17,43 @@ export const validateInputTraining = ({
   startingDate,
 }) => {
   if (!validateName(name)) {
-    return false;
+    return {
+      valid: false,
+      message: "El nombre del training es incorrecto, intente nuevamente.",
+    };
   }
   if (!validateProgram(program)) {
-    return false;
+    return {
+      valid: false,
+      message: "El programa del training no fue definido, intente nuevamente.",
+    };
   }
   if (!validateDate(startingDate)) {
-    return false;
+    return {
+      valid: false,
+      message:
+        "La fecha de inicio del training es incorrecta, intente nuevamente.",
+    };
   }
   if (!validateCoachesList(coaches)) {
-    return false;
+    return {
+      valid: false,
+      message:
+        "El training debe tener asignado al menos un coach, intente nuevamente.",
+    };
   }
   if (!validateApprenticesList(apprentices)) {
-    return false;
+    return {
+      valid: false,
+      message:
+        "El training debe tener su lista de aprendices, intente nuevamente.",
+    };
   }
 
-  return true;
+  return {
+    valid: true,
+    message: "El training se ha creado exitosamente.",
+  };
 };
 
 //Validación del campo nombre del training
@@ -65,16 +86,13 @@ export const validateDate = (startingDate) => {
 
 //Validación del campo coaches
 export const validateCoachesList = (coaches) => {
-  coaches.map((coach) => {
-    if (coach.name.length < 3) {
-      return false;
-    }
-  });
-  return true;
+  return coaches.length > 0 ? true : false;
 };
 
 //Validacion del campo aprendices
 export const validateApprenticesList = (apprentices) => {
+  if (apprentices.length === 0) return false;
+
   apprentices.map((apprentice) => {
     if (
       apprentice.name === null ||

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ProgramCardComponent from "./ProgramCardComponent";
 
-const ProgramsListComponent = ({handleInputChange}) => {
+const ProgramsListComponent = ({ handleInputChange }) => {
   const { programs } = useSelector((state) => state.crudTrainingReducer);
 
   return (
@@ -13,7 +13,11 @@ const ProgramsListComponent = ({handleInputChange}) => {
         </h2>
         <div className="portfolio__grid">
           {programs.map((program) => (
-            <ProgramCardComponent handleInputChange={handleInputChange} key={program.id} program={program} />
+            <ProgramCardComponent
+              handleInputChange={handleInputChange}
+              key={program.id}
+              program={program}
+            />
           ))}
         </div>
       </div>

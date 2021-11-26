@@ -9,6 +9,8 @@ import ProgramsListComponent from "./ProgramsListComponent";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import * as actions from "../../../state/crudTraining/crudTrainingActions";
+import { validateInputTraining } from "../../../state/crudTraining/traningValidations/validations";
+import Swal from "sweetalert2";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
@@ -71,14 +73,29 @@ const FormInputTrainingComponent = () => {
     dispatch({ type: actions.ADD_TRAINING_NAME, payload: name });
     dispatch({ type: actions.SET_STARTING_DATE, payload: startingDate });
 
-    dispatch(actions.postTraining(training));
-    resetFormValues();
+    // dispatch(actions.postTraining(training));
+    // resetFormValues();
     //ejecucion de validacion
     console.log("Global state updated from submiting the form");
-    const infoValidated = validateInputTraining(formValues);
-    if (infoValidated) {
-      dispatch(actions.postTraining(formValues));
+    const { valid, message } = validateInputTraining(formValues);
+    if (valid) {
+      dispatch(actions.postTraining(formValues, resetFormValues));
+      Swal.fire({
+        icon: "success",
+        title: "Bien hecho!",
+        text: message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
       resetFormValues();
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
 
     //Poner switalert que diga que los campos no son correctos
@@ -241,7 +258,7 @@ const FormInputTrainingComponent = () => {
           </div>
         </div>
       </form>
-      <ProgramsListComponent />
+      <ProgramsListComponent handleInputChange={handleInputChange} />
       <CSVTableComponent data={tableState} />
     </div>
   );

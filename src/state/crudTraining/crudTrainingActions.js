@@ -33,7 +33,7 @@ export const fetchPrograms = async () => {
   }
 };
 
-export function postTraining(training) {
+export function postTraining(training, resetFormValues) {
   return async (dispatch) => {
     dispatch(loading());
     try {
@@ -56,6 +56,7 @@ export function postTraining(training) {
           coaches: data.coaches,
         })
       );
+      resetFormValues();
       dispatch(endLoading());
     } catch (error) {
       dispatch(failure());
