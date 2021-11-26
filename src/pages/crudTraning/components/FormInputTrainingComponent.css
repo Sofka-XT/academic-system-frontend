@@ -332,3 +332,10 @@ main {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
+.screen-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
