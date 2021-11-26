@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { apprenticeLinks, coachLinks, logOut} from './NavigateLinks/NavigateLinks';
 import { Link, NavLink } from 'react-router-dom';
-
+import turnOff from './media/power-on.png';
 
 
 function Navbar({ user }) {
@@ -20,7 +20,7 @@ function Navbar({ user }) {
                 <Link 
                 className="link" 
                 end to={logOutObj.path}> 
-                    <span></span>
+                    <img src={turnOff} alt="turn-off" className = "turn-off"/>
                 </Link>
             </div>
         </div>
