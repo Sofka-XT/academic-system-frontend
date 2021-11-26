@@ -1,12 +1,11 @@
-import React from "react";
-import validator from "validator";
+import validator from 'validator';
 
 export const emailRegExp = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
 
 export const telRegExp = RegExp(
-  "^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$"
+  '^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$'
 );
 
 export const validateInputTraining = ({
@@ -19,40 +18,40 @@ export const validateInputTraining = ({
   if (!validateName(name)) {
     return {
       valid: false,
-      message: "El nombre del training es incorrecto, intente nuevamente.",
+      message: 'El nombre del training es incorrecto, intente nuevamente.',
     };
   }
   if (!validateProgram(program)) {
     return {
       valid: false,
-      message: "El programa del training no fue definido, intente nuevamente.",
+      message: 'El programa del training no fue definido, intente nuevamente.',
     };
   }
   if (!validateDate(startingDate)) {
     return {
       valid: false,
       message:
-        "La fecha de inicio del training es incorrecta, intente nuevamente.",
+        'La fecha de inicio del training es incorrecta, intente nuevamente.',
     };
   }
   if (!validateCoachesList(coaches)) {
     return {
       valid: false,
       message:
-        "El training debe tener asignado al menos un coach, intente nuevamente.",
+        'El training debe tener asignado al menos un coach, intente nuevamente.',
     };
   }
   if (!validateApprenticesList(apprentices)) {
     return {
       valid: false,
       message:
-        "El training debe tener su lista de aprendices, intente nuevamente.",
+        'El training debe tener su lista de aprendices, intente nuevamente.',
     };
   }
 
   return {
     valid: true,
-    message: "El training se ha creado exitosamente.",
+    message: 'El training se ha creado exitosamente.',
   };
 };
 
@@ -91,6 +90,7 @@ export const validateCoachesList = (coaches) => {
 
 //Validacion del campo aprendices
 export const validateApprenticesList = (apprentices) => {
+  // eslint-disable-next-line array-callback-return
   apprentices.map((apprentice) => {
     if (
       apprentice.name === null ||
