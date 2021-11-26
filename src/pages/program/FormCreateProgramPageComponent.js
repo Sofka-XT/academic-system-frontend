@@ -141,7 +141,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
             </option>
             {courses.map((course, index) => {
               return (
-                <option key={index} value={index}>
+                <option key={course.id} value={index}>
                   {course.name}
                 </option>
               );
