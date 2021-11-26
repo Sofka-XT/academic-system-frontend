@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { apprenticeLinks, coachLinks, logOut} from './NavigateLinks/NavigateLinks';
-import { Link, NavLink } from 'react-router-dom';
+import { logOut} from './NavigateLinks/NavigateLinks';
+import { Link } from 'react-router-dom';
 import turnOff from './media/power-on.png';
 
 
 function Navbar({ user }) {
     const logOutObj = logOut;
-    console.log(logOut)
     return (
         <div className="Navbar" id = "Navbar">
             <img src="https://i.imgur.com/kmc2s6p.png" className="sofka-logo" alt="Sofka logo"></img>
