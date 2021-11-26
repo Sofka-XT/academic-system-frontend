@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { coachLinks } from '../NavigateLinks/NavigateLinks';
+import { NavLink } from 'react-router-dom';
+import { coachLinks, apprenticeLinks } from '../../../../nav/NavigateLinks';
 import './SideBarComponent.css';
 
 export const SideBarCoachComponent = () => {
@@ -36,14 +36,22 @@ export const SideBarApprenticeComponent = () => {
   return (
     <aside className="sideBar">
       <nav className="sideBar_menu flex_column_center">
-        <ul>
-          <Link to="casa">Dashboard</Link>
-        </ul>
-        <ul>
-          <Link to="create/course">Crear Curso</Link>
-        </ul>
-        <ul>
-          <Link to="courseslist">Courses List</Link>
+
+      <ul className="links">
+          {apprenticeLinks &&
+            apprenticeLinks.map((data, index) => {
+              return (
+                <NavLink
+                  key={index}
+                  className="link"
+                  activeclassname="active"
+                  end
+                  to={data.path}
+                >
+                  {data.name.toUpperCase()}
+                </NavLink>
+              );
+            })}
         </ul>
       </nav>
     </aside>

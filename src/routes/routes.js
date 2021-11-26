@@ -1,16 +1,14 @@
 import { HomePageComponent } from '../pages/home/HomePageComponent';
 import Welcome from '../pages/dashboard/components/welcome/Welcome.jsx';
 
-import {
-  DashBoardPageComponent,
-  DashBoardApprenticeComponent,
-} from './../pages/dashboard/DashBoardPageComponent';
+import DashBoardPageComponent from './../pages/dashboard/DashBoardPageComponent';
 import TrainingListPageComponent from '../pages/trainingListPage/TrainingListPageComponent.jsx';
-
 import { CreateCoursePageComponent } from './../pages/createCourse/CreateCoursePageComponent';
 import EditCoursePageComponent from './../pages/createCourse/Components/EditCoursePageComponent';
 import CoursesListComponent from './../pages/courseslist/CoursesListComponent';
 import CourseDetail from './../pages/coursedetail/CourseDetailComponent';
+
+
 export const routesApp = [
   {
     path: '/dashboard',
@@ -69,12 +67,12 @@ export const routesApp = [
       },
       {
         path: 'courseslist',
-        name: 'courseslist',
+        name: 'Courses List',
         component: <CoursesListComponent />,
       },
       {
-        path: 'coursedetail/:courseid',
-        name: 'coursedetail',
+        path: 'courseslist/coursedetail/:courseid',
+        name: 'Course Detail',
         component: <CourseDetail />,
       },
     ],
@@ -85,8 +83,13 @@ export const apprenticeRoutesApp = [
   {
     path: '/dashboard/apprentice',
     name: 'DashBoard',
-    component: <DashBoardApprenticeComponent />,
+    component: <DashBoardPageComponent />,
     child: [
+      {
+        path: 'home',
+        name: 'Home',
+        component: <TrainingListPageComponent />,
+      },
       {
         path: 'logout',
         name: 'Log Out',
@@ -97,26 +100,18 @@ export const apprenticeRoutesApp = [
         name: 'Active Training',
         component: <TrainingListPageComponent />,
       },
+      {
+        path: 'courseslist',
+        name: 'List Course',
+        component: <CoursesListComponent />,
+      },
+      {
+        path: 'courseslist/coursedetail/:courseid',
+        name: 'Course Detail',
+        component: <CourseDetail />,
+      },
     ],
+    
   },
 ];
 
-export const studentRoutesApp = [
-  {
-    path: '/dashboard/student',
-    name: 'DashBoard',
-    component: <DashBoardApprenticeComponent></DashBoardApprenticeComponent>,
-    child: [
-      {
-        path: 'logout',
-        name: 'Log Out',
-        component: <HomePageComponent />,
-      },
-      {
-        path: 'exemple',
-        name: 'Otra Ruta',
-        component: <h1>Otra Ruta de Estudiante</h1>,
-      },
-    ],
-  },
-];

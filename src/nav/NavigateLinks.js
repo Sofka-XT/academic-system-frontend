@@ -20,7 +20,7 @@ export const coachLinks = [
     name: 'Histórico de Programas',
   },
   {
-    path: 'activetraining',
+    path: 'activetrainingcoach',
     name: 'TRAINING ACTIVO',
   },
   {
@@ -46,6 +46,10 @@ export const apprenticeLinks = [
   {
     path: 'activetraining',
     name: 'TRAINING ACTIVO',
+  },
+  {
+    path: 'courseslist',
+    name: 'Lista de Cursos',
   },
   {
     path: 'logout',
