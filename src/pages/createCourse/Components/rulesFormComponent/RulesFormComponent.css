@@ -1,0 +1,15 @@
+.rule_container{
+  
+  border-radius: 5px;
+  padding: 20px;
+  
+}
+.rule_red{
+  background-color: #fb9d9d;
+}
+.rule_yellow{
+  background-color: #fbf89d;
+}
+.rule_green{
+  background-color: #a2fb9d;
+}
