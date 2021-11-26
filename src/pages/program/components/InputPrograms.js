@@ -13,8 +13,6 @@ export const InputPrograms = ({
 }) => {
   const [duration, setDuration] = useState(currentDays);
 
-  console.log(currentDays)
-
   useEffect(() => {
     let data = {
       programId: programId,
