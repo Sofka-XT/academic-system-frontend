@@ -33,6 +33,10 @@ main {
   margin-top: 5px;
 }
 
+.ml-3 {
+  margin-left: 10px;
+}
+
 .mb-1 {
   margin-bottom: 5px;
 }
@@ -144,6 +148,16 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
+}
+
+.training__select-form {
+  margin-top: 60px;
+  /* background-color: red;
+  border: 3px solid blue; */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: space-around;
 }
 

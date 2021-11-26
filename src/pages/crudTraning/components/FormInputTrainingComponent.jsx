@@ -148,11 +148,11 @@ const FormInputTrainingComponent = () => {
               onClick={handleSubmit}
               className="trainings__btn-submit"
             >
-              Crear
+              Crear <i class="fas fa-plus ml-3"></i>
             </button>
           </div>
 
-          <div className="training__input-form">
+          <div className="training__select-form">
             <div className="training__input-container">
               <label
                 htmlFor="training__starting-date"
@@ -209,7 +209,7 @@ const FormInputTrainingComponent = () => {
               ))
             ) : (
               <div className="alert alert-primary text-center training__alert-primary mt-5 b-5">
-                No hay coaches asignados para el trainingss
+                No hay coaches asignados para el training
               </div>
             )}
           </div>
@@ -226,7 +226,7 @@ const FormInputTrainingComponent = () => {
                   <span className="training__csv-div text-center small">
                     <p>Sube aquí el archivo .CSV de los aprendices</p>
                     <button className="btn btn-primary w-6">
-                      Subir Archivo <i class="fas fa-upload"></i>
+                      Subir Archivo <i class="fas fa-upload ml-3"></i>
                     </button>
                     <small className="mt-1">
                       (ó arrastra y suelta aquí el archivo)

@@ -37,7 +37,7 @@ const CSVTableComponent = ({ data }) => {
   } else {
     return (
       <div className="alert alert-primary text-center training__alert-primary mt-5 b-5">
-        No hay estudiantes registrados para el trainingss
+        No hay estudiantes registrados para el training
       </div>
     );
   }
