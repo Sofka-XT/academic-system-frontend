@@ -3,6 +3,7 @@ import React from 'react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { deleteCourseById } from '../../../state/Program/programAction'
+import "../ListOfProgramsPageComponent.css"
 
 export const DeleteButtonCourses = ({  dispatch,programId,courseId }) => {
   const MySwal = withReactContent(Swal)

@@ -52,14 +52,14 @@ const FormCreate = ({ course }) => {
 
     return (
         <div>
-            <h3>Nombre del curso: {course.name}</h3>
-            <h4>Categorias</h4>
+            <h4>Nombre del curso: {course.name}</h4>
+            <h5>Categorias</h5>
             {course.categories.map(category => {
 
                 return (
                     <>
                         <p>Nombre de la categoria : {category.name}</p>
-                        duracion: <input type="number" onChange={(e) => {
+                        duracion: <input type="number" className="form-control" onChange={(e) => {
                             handleDurationChange(e, category);
                         }}></input>
                     </>

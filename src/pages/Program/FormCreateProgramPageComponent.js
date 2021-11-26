@@ -14,6 +14,7 @@ import { connect } from "react-redux";
 import { InputPrograms } from "./components/InputPrograms";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { useNavigate } from "react-router-dom";
+import "./FormCreatePrograPageComponent.css"
 
 const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
   const [selectedCourse, setSelectedCourse] = useState("");
@@ -121,11 +122,11 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
   };
 
   return (
-    <div>
-      <form >
-        <h1>Crear Programa</h1>
-        <div>
-          <h2 className="program-name">Nombre del programa</h2>
+    <div clas="create-pogram">
+      <form className="form-container">
+        <h2>Crear Programa</h2>
+        <div className="col-6">
+          <label >Nombre del programa</label>
           <input
             onChange={(e) => {
               handleInput(e);
@@ -136,7 +137,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
           />
           <label>Selecciones un curso</label>
 
-          <select defaultValue={"DEFAULT"} onChange={(e) => handleSelect(e)}>
+          <select class="form-select" defaultValue={"DEFAULT"} onChange={(e) => handleSelect(e)}>
             <option value="DEFAULT" disabled>
               Seleccione un curso
             </option>
@@ -150,7 +151,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
           </select>
 
           {Object.keys(selectedCourse).length !== 0 && (
-            <button
+            <button className="button-edit"
               type="button"
               onClick={() => {
                 handleAddCourse();
@@ -163,8 +164,8 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
 
           {program.courses &&
             program.courses.map((course) => (
-              <div key={course.courseId}>
-                <h3>{course.courseName}</h3>
+              <div className="bd-callout bd-callout-warning" key={course.courseId}>
+                <h6>{course.courseName}</h6>
 
                 <div>
                   <label>Temas</label>
@@ -195,8 +196,8 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
               </div>
             ))}
         </div>
-        <button
-          onClick={(e) => {
+        <button className="button-edit"
+          onClick={(e) => { 
             handleSubmit(e);
           }}
           type="submit"

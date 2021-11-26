@@ -2,7 +2,7 @@
 * {
   box-sizing: border-box;
 }
-
+/*
 body {
     display: flex;
     justify-content: center;
@@ -11,7 +11,7 @@ body {
     background-color: #f7f8fc;
     font-family: "Roboto", sans-serif;
     color: #10182f;
-  }
+  }*/
 
 .containerCards {
     display: flex;
@@ -87,9 +87,9 @@ body {
 }
 
 .button-delete {
-  background-color: #21117e;
+  background-color: rgb(247, 112, 112);
   border-radius: 3px;
-  border: 1px solid #21117e;
+  border: 1px solid rgb(247, 112, 112);
   box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
   box-sizing: border-box;
   color: white;
