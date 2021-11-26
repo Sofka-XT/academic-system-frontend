@@ -29,8 +29,8 @@ const CSVTableComponent = ({ data }) => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{apprentice.name}</td>
-                <td>{apprentice.email}</td>
-                <td>{apprentice.tel}</td>
+                <td>{apprentice.emailAddress}</td>
+                <td>{apprentice.phoneNumber}</td>
               </tr>
             ))}
           </tbody>
