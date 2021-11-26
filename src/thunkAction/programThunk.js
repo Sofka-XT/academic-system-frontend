@@ -76,7 +76,7 @@ export const postProgramThunk = (program) => {
     dispatch(loading());
     try {
       await postProgramApi(program);
-      dispatch(success({}));
+      dispatch(success({redirect: "/programs"}));
     } catch (error) {
       dispatch(failure());
     }
