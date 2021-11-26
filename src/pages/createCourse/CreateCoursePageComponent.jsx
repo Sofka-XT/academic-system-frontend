@@ -3,7 +3,7 @@ import CourseFormComponent from './Components/courseFormComponent/CourseFormComp
 import './CreateCoursePageComponent.css';
 export const CreateCoursePageComponent = () => {
   return (
-    <div className="container-page mt-2 text-center">
+    <div className="container-page mt-2 ">
       <div className=" container_create">
         <h1>Crear Curso</h1>
         <CourseFormComponent />

@@ -17,19 +17,37 @@ export const CourseGeneralFormComponent = ({
     formState: { errors },
   } = useForm({ defaultValues: formDefaultValue });
   return (
-    <form className="container_form my-4" onSubmit={handleSubmit(onSubmit)}>
-      <div className="form-group">
-        <label htmlFor="">Nombre Curso</label>
-        <input
-          className="form-control"
-          defaultValue=""
-          {...register('name', { required: true })}
-        />
-        {errors.name && (
-          <MessageErrorFormComponent message={'debe agregar un curso'} />
-        )}
-      </div>
+    <form className=" my-4" onSubmit={handleSubmit(onSubmit)}>
+      <div className="row">
+        <div className="form-group col-6">
+          <label htmlFor="">Nombre Curso</label>
+          <input
+            className="form-control"
+            defaultValue=""
+            {...register('name', { required: true })}
+          />
+          {errors.name && (
+            <MessageErrorFormComponent message={'debe agregar un curso'} />
+          )}
+        </div>
 
+        <div className="form-group p-2 my-3 col-6 text-center">
+          <button
+            className="btn btn-success mx-3"
+            type="button"
+            onClick={() => handleAppendCategory.current()}
+          >
+            AGREGAR CATEGORIA
+          </button>
+          <button
+            className="btn btn-primary mx-3 "
+            disabled={Object.keys(errors).length > 0}
+            type="submit"
+          >
+            {actionMsjButton}
+          </button>
+        </div>
+      </div>
       <CategoryFormComponet
         errors={errors}
         control={control}
@@ -38,23 +56,6 @@ export const CourseGeneralFormComponent = ({
         setValue={setValue}
         getValues={getValues}
       />
-
-      <div className="p-2 my-3">
-        <button
-          className="btn btn-success mx-3"
-          type="button"
-          onClick={() => handleAppendCategory.current()}
-        >
-          AGREGAR CATEGORIA
-        </button>
-        <button
-          className="btn btn-primary mx-3"
-          disabled={Object.keys(errors).length > 0}
-          type="submit"
-        >
-          {actionMsjButton}
-        </button>
-      </div>
     </form>
   );
 };

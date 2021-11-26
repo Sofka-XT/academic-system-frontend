@@ -23,12 +23,16 @@ export const FileUploadComponent = ({
   };
 
   return (
-    <div>
-      <input type="file" onChange={fileHandler} />
+    <>
+      <input
+        className="form-control form-control-sm"
+        type="file"
+        onChange={fileHandler}
+      />
       {errors.categories &&
         errors.categories[indexCategory]?.rules[indexRule]?.feedback?.url && (
           <MessageErrorFormComponent message={'debe subir un archivo '} />
         )}
-    </div>
+    </>
   );
 };

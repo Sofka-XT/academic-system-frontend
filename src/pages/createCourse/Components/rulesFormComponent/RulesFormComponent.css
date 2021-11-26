@@ -13,3 +13,9 @@
 .rule_green{
   background-color: #a2fb9d;
 }
+
+
+.wrapper{
+  display: flex;
+}
+

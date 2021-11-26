@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFieldArray } from 'react-hook-form';
 import './categoryFormComponent.css';
 import { MessageErrorFormComponent } from './../messageErrorFormComponent/MessageErrorFormComponent';
 import { RulesFormComponent } from '../rulesFormComponent/RulesFormComponent';
+import { CardCategoryFormComponent } from '../cardCategoryFormComponent/CardCategoryFormComponent';
+
 export const CategoryFormComponet = ({
   errors,
   register,
@@ -50,43 +52,14 @@ export const CategoryFormComponet = ({
         handleCreateRules(index);
         return (
           <div key={field.id} className="container_category my-3">
-            <button
-              type="button"
-              className="btn btn-danger float-end"
-              onClick={() => remove(index)}
-            >
-              X
-            </button>
-            <div className="">
-              <h5>Categoria</h5>
-            </div>
-
-            <div className="form-group col">
-              <label htmlFor="">Nombre Categoria</label>
-              <input
-                className="form-control"
-                {...register(`categories[${index}].name`, { required: true })}
-              />
-              {errors.categories && errors.categories[index]?.name && (
-                <MessageErrorFormComponent
-                  message={'debe agregar nombre de categoria'}
-                />
-              )}
-            </div>
-
-            {rules.map((rule, indexRule) => {
-              return (
-                <RulesFormComponent
-                  key={indexRule}
-                  register={register}
-                  errors={errors}
-                  indexCategory={index}
-                  indexRule={indexRule}
-                  rule={rule}
-                  setValue={setValue}
-                />
-              );
-            })}
+            <CardCategoryFormComponent
+              errors={errors}
+              register={register}
+              setValue={setValue}
+              index={index}
+              rules={rules}
+              remove={remove}
+            />
           </div>
         );
       })}

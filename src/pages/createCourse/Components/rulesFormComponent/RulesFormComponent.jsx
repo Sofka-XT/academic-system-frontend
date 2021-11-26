@@ -10,7 +10,6 @@ export const RulesFormComponent = ({
   setValue,
   rule,
 }) => {
-  console.log(rule);
   const assingColorBg = () => {
     return rule.type === 'DANGER'
       ? 'rule_red'
@@ -19,14 +18,14 @@ export const RulesFormComponent = ({
       : 'rule_green';
   };
   return (
-    <div className={'my-2 rule_container ' + assingColorBg()}>
+    <div className={'my-2 rule_container ' + assingColorBg() + ' col-4'}>
       <h5>Alerta {rule.color}</h5>
       <div className="row">
-        <div className="form-group col-6">
+        <div className="form-group col-4 d-none">
           <label htmlFor="">Tipo</label>
 
           <select
-            className="form-control"
+            className="form-control "
             name="type"
             id=""
             {...register(
@@ -41,7 +40,7 @@ export const RulesFormComponent = ({
             </option>
           </select>
         </div>
-        <div className="form-group col-6">
+        <div className="form-group col-3">
           <label htmlFor="">Condicion</label>
 
           <select
@@ -59,11 +58,9 @@ export const RulesFormComponent = ({
             <option value=">">{'>'}</option>
             <option value="=">=</option>
           </select>
-          <p>{rule.type}</p>
         </div>
-      </div>
-      <div className="row">
-        <div className="form-group col-6">
+
+        <div className="form-group col-3">
           <label htmlFor="">Calificacion</label>
 
           <input
@@ -92,22 +89,12 @@ export const RulesFormComponent = ({
             type="text"
             className="form-control"
             {...register(
-              `categories[${indexCategory}].rules[${indexRule}].feedback.name`,
-              {
-                required: true,
-              }
+              `categories[${indexCategory}].rules[${indexRule}].feedback.name`
             )}
           />
-          {errors.categories &&
-            errors.categories[indexCategory]?.rules[indexRule]?.feedback
-              ?.name && (
-              <MessageErrorFormComponent
-                message={'debe agregar un nombre al feedback'}
-              />
-            )}
         </div>
 
-        <div>
+        <div className="form-group col-12 mt-2">
           <FileUploadComponent
             register={register}
             indexCategory={indexCategory}
