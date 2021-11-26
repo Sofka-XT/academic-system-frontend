@@ -21,7 +21,7 @@ export const InputPrograms = ({
       days: currentDays,
     };
     dispatch(updateDaysCurrentProgram(data));
-  }, [dispatch])
+  }, [dispatch,categoryId,courseId,currentDays,programId])
 
   const handleDurationChange = (e) => {
     e.preventDefault();
