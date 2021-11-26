@@ -136,6 +136,37 @@ const EditionProgramPage = ({
       return (
         <div>
           <h3>Cursos:</h3>
+          <div className="select-container">
+            <h3>Agregar curso: </h3>
+            <div>
+              <select
+              className="select-input"
+                defaultValue={"DEFAULT"}
+                onChange={(e) => handleSelect(e)}
+              >
+                <option disabled value={"DEFAULT"}>
+                  Seleccione un curso
+                </option>
+                {courses.map((course, index) => {
+                  return (
+                    <option key={index} value={index}>
+                      {course.name}
+                    </option>
+                  );
+                })}
+              </select>
+              {Object.keys(selectedCourse).length !== 0 && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleAddCourse();
+                  }}
+                >
+                  Añadir curso
+                </button>
+              )}
+            </div>
+          </div>
           {courses &&
             courses.map((course) => (
               <div key={course.courseId}>
@@ -199,37 +230,6 @@ const EditionProgramPage = ({
 
           <div>
             <div>{renderEditPage()}</div>
-          </div>
-          <div className="select-container">
-            <h3>Agregar curso: </h3>
-            <div>
-              <select
-                defaultValue={"DEFAULT"}
-                onChange={(e) => handleSelect(e)}
-              >
-                <option disabled value={"DEFAULT"}>
-                  Seleccione un curso
-                </option>
-                {courses.map((course, index) => {
-                  return (
-                    <option key={index} value={index}>
-                      {course.name}
-                    </option>
-                  );
-                })}
-              </select>
-
-              {Object.keys(selectedCourse).length !== 0 && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    handleAddCourse();
-                  }}
-                >
-                  Añadir curso
-                </button>
-              )}
-            </div>
           </div>
         </div>
         <button
