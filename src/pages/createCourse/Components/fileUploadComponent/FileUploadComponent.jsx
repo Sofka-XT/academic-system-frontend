@@ -1,8 +1,6 @@
 import React from 'react';
 import { appSdk8 } from '../../../../config/firebase/firebase.config';
 
-import { MessageErrorFormComponent } from './../messageErrorFormComponent/MessageErrorFormComponent';
-
 export const FileUploadComponent = ({
   register,
   indexCategory,
@@ -23,12 +21,12 @@ export const FileUploadComponent = ({
   };
 
   return (
-    <div>
-      <input type="file" onChange={fileHandler} />
-      {errors.categories &&
-        errors.categories[indexCategory]?.rules[indexRule]?.feedback?.url && (
-          <MessageErrorFormComponent message={'debe subir un archivo '} />
-        )}
-    </div>
+    <>
+      <input
+        className="form-control form-control-sm "
+        type="file"
+        onChange={fileHandler}
+      />
+    </>
   );
 };
