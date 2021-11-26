@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
-import { getAllcourses, postProgram } from "../../api/program/programApi";
 import {
   AddCourseToCurrentProgram,
-  createProgram,
   updateCurrentProgram,
   updateNameCurrentProgram,
 } from "../../state/Program/programAction";
-import FormCreate from "./components/FormCreate";
-import { useDispatch, useSelector } from "react-redux";
 import {
   getCoursesThunk,
   postProgramThunk,
@@ -22,7 +18,6 @@ import { useNavigate } from "react-router-dom";
 const FormCreateProgramPageComponent = ({
   dispatch,
   courses,
-  loading,
   program,
 }) => {
   const [selectedCourse, setSelectedCourse] = useState("");
@@ -64,11 +59,39 @@ const FormCreateProgramPageComponent = ({
       }),
     };
 
-    dispatch(AddCourseToCurrentProgram(data));
+    let isEqualValue = false;
+
+    program.courses.forEach(course => {
+        if (course.courseId === selectedCourse.id) {
+            isEqualValue = true;
+        }
+    });
+
+    if(!isEqualValue){
+        dispatch(AddCourseToCurrentProgram(data));
+        return
+    }
+
+    Swal.fire({title: "Ya existe este curso", icon:"error"})
+    
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (program.name === "") {
+      Swal.fire({
+        title: "Debe poner el nombre del programa",
+        icon: "error",
+      });
+      return;
+    }
+
+    if (program.courses.length === 0) {
+      Swal.fire({ title: "Debe escoger al menos un curso", icon: "error" });
+      return;
+    }
+
     const MySwal = withReactContent(Swal);
     MySwal.fire({
       title: "¿Quiere crear este programa?",
