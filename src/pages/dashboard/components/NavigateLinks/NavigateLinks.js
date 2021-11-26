@@ -3,13 +3,12 @@ export const coachLinks = [
         path: 'home',
         name: 'INICIO'
     },
-    
     {
         path: 'activetraining',
         name: 'TRAINING ACTIVO'
     },
     {
-        path: 'course',
+        path: 'create-course',
         name: 'Crear curso'
     },
     {

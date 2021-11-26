@@ -1,8 +1,8 @@
 .grid-container{
     display: grid;
-    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-columns: 100%;
     grid-template-rows: auto;
-    height: 100vh;
+    height: 100%;
     cursor: pointer;
 }
 /* ----------------------------------------------- */
