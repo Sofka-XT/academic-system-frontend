@@ -336,6 +336,15 @@ main {
 .screen-container {
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+}
+
+.btn-new-traning {
+  width: 30%;
+  margin: auto 35%;
+}
+
+.title-container {
+  width: 80%;
+  margin: 10px 10%;
 }
