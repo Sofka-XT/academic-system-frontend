@@ -131,7 +131,7 @@ const FormInputTrainingComponent = () => {
         style={{ paddingBottom: "50px" }}
       >
         <form onSubmit={handleSubmit} className="trainings__form">
-          <div className="training__input-form">
+          <div className="training__input-form training__input-form-name">
             <input
               type="text"
               id="form-name"
@@ -155,27 +155,7 @@ const FormInputTrainingComponent = () => {
           <div className="training__input-form">
             <div className="training__input-container">
               <label
-                htmlFor="training__categoria"
-                className="trainings__input-label"
-              >
-                Fecha de Inicio
-              </label>
-
-              <input
-                type="date"
-                name="startingDate"
-                id="training_input_date"
-                className="trainings__select-input trainings__date-input"
-                value={startingDate}
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-
-          <div className="training__input-form">
-            <div className="training__input-container">
-              <label
-                htmlFor="training__categoria"
+                htmlFor="training__starting-date"
                 className="trainings__input-label"
               >
                 Seleccionar coaches para el training
@@ -185,7 +165,7 @@ const FormInputTrainingComponent = () => {
                 name="coaches"
                 value={coachesList[0].id}
                 id="training__coaches_select"
-                className="trainings__select-input"
+                className="trainings__select-input trainings__input-coaches"
                 onChange={handleSelectCoach}
               >
                 {coachesList.map((coach) => (
@@ -208,6 +188,26 @@ const FormInputTrainingComponent = () => {
               </ul>
             </div>
 
+            <div className="training__input-container">
+              <label
+                htmlFor="training__starting-date"
+                className="trainings__input-label"
+              >
+                Fecha de Inicio
+              </label>
+
+              <input
+                type="date"
+                name="startingDate"
+                id="training__starting-date"
+                className="trainings__select-input"
+                value={startingDate}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
+
+          <div className="training__input-form">
             <div className="training__input-container">
               <div className="training__file-input">
                 <CSVReader
@@ -232,9 +232,10 @@ const FormInputTrainingComponent = () => {
         </form>
         <ProgramsListComponent handleInputChange={handleInputChange} />
         {tableState && (
-          <h2 className="section__title text-center m-5">
-            Lista de estudiantes para el training
-          </h2>
+          <div className="section__title text-center m-5">
+            <h2>Lista de estudiantes para el training</h2>
+            <div className="section__decoration"></div>
+          </div>
         )}
         <CSVTableComponent data={tableState} />
       </div>
