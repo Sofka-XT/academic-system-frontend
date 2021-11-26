@@ -39,13 +39,19 @@ const EditCoursePageComponent = ({ loading, error, courses }) => {
   return (
     <>
       <h1>{error && <MessageErrorFormComponent message={error + ''} />}</h1>
-      {!loading && (
-        <CourseGeneralFormComponent
-          onSubmit={onSubmit}
-          formDefaultValue={course}
-          actionMsjButton={'EDITAR'}
-        />
-      )}
+      <div className="container-fluid w-75 h-100">
+        <div className="row">
+          <h1 className="text-center">Editando curso</h1>
+          <div className="col-12"></div>
+          {!loading && (
+            <CourseGeneralFormComponent
+              onSubmit={onSubmit}
+              formDefaultValue={course}
+              actionMsjButton={'EDITAR'}
+            />
+          )}
+        </div>
+      </div>
 
       {loading && <LoaderLoadingComponent />}
     </>

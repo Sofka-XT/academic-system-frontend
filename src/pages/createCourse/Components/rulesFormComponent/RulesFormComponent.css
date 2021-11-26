@@ -1,17 +1,20 @@
 .rule_container{
-  
+  /* border: 1px solid black; */
   border-radius: 5px;
   padding: 20px;
   
 }
 .rule_red{
-  background-color: #fb9d9d;
+  /* background-color: #fb9d9d; */
+  color: #f96e6e !important;
 }
 .rule_yellow{
-  background-color: #fbf89d;
+  /* background-color: #fbf89d; */
+  color: #ffed21 !important;
 }
 .rule_green{
-  background-color: #a2fb9d;
+  /* background-color: #a2fb9d; */
+  color:  #15d000 !important;
 }
 
 

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useFieldArray } from 'react-hook-form';
 import './categoryFormComponent.css';
-import { MessageErrorFormComponent } from './../messageErrorFormComponent/MessageErrorFormComponent';
-import { RulesFormComponent } from '../rulesFormComponent/RulesFormComponent';
+
 import { CardCategoryFormComponent } from '../cardCategoryFormComponent/CardCategoryFormComponent';
 
 export const CategoryFormComponet = ({
