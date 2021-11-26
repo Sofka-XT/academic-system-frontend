@@ -1,0 +1,4 @@
+.container_category{
+  border: 1px solid var(--secondary-color);
+  padding: 30px;
+}

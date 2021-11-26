@@ -63,24 +63,3 @@ export const apprenticeRoutesApp = [
 		],
 	}
 ];
-
-export const studentRoutesApp = [
-	
-	{
-		path: '/dashboard/student',
-		name: 'DashBoard',
-		component: <DashBoardApprenticeComponent></DashBoardApprenticeComponent>,
-		child: [
-			{
-				path: 'logout',
-				name: 'Log Out',
-				component: <HomePageComponent />,
-			},
-			{
-				path: 'exemple',
-				name: 'Otra Ruta',
-				component: <h1>Otra Ruta de Estudiante</h1>,
-			}
-		],
-	}
-];

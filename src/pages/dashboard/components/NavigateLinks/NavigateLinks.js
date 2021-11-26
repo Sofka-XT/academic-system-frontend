@@ -37,3 +37,4 @@ export const logOut ={
         path: 'logout',
         name: 'CERRAR SESION'
 }
+

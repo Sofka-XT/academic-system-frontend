@@ -1,0 +1,103 @@
+.button {
+	box-shadow:inset 0px 1px 0px 0px #54a3f7;
+	background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+	background-color:#007dc1;
+	border-radius:3px;
+	border:1px solid #124d77;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #154682;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+.button:hover {
+	background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+	background-color:#0061a7;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+.button:active {
+	position:relative;
+	top:1px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.categorie{
+	margin : 2px;
+	background: #e4e8f1;
+	padding: 20px;
+	margin:4px;
+	border-radius: 20px;
+}
+
+body {
+	background: #E9ECF4;
+	color: #000;
+	font-family: 'Roboto', sans-serif;
+}
+
+.contenedor {
+	width: 90%;
+	max-width: 1000px;
+	margin: 20px auto;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, auto);
+	grid-template-rows: repeat(3, auto);
+
+	grid-template-areas: "header header header"
+						 "contenido sidebar sidebar"
+						 "contenido sidebar sidebar";
+}
+
+.contenedor > div,
+.contenedor .header,
+.contenedor .contenido {
+	background: #fff;
+	padding: 20px;
+	border-radius: 4px;
+}
+
+.contenedor .header {
+	background: #12203E;
+	color: #fff;
+	grid-area: header;
+}
+
+.contenedor .contenido {
+	grid-area: contenido;
+}
+
+.contenedor .sidebar {
+	background: #fAA43D;
+	justify-content: center;
+	min-height: 100px;
+    padding: 3%;
+	border: 4px outset #1C6EA4;
+border-radius: 26px;
+	grid-area: sidebar;
+	margin: 4px;
+}
+
+@media screen and (max-width: 768px){
+	.contenedor {
+		grid-template-areas: "header header header"
+						 "contenido contenido contenido"
+						 "sidebar sidebar sidebar"
+						;
+	}
+}
+
+
+
