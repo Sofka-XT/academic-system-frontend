@@ -172,20 +172,6 @@ const FormInputTrainingComponent = () => {
                   <option value={coach.id}>{coach.name}</option>
                 ))}
               </select>
-              <ul className="training__coach-list">
-                {coaches.map((coach) => (
-                  <li key={coach.id} className="training__coach-selected">
-                    <span> - {coach.name}</span>
-                    <button
-                      id={`${coach.id}_button_delete_coach`}
-                      className="btn btn-danger"
-                      onClick={() => handleUnselectCoach(coach.id)}
-                    >
-                      <i className="fas fa-trash-alt"></i>
-                    </button>
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div className="training__input-container">
@@ -205,6 +191,27 @@ const FormInputTrainingComponent = () => {
                 onChange={handleInputChange}
               />
             </div>
+          </div>
+
+          <div className="training__output-form">
+            {coaches.length > 0 ? (
+              coaches.map((coach) => (
+                <div key={coach.id} className="training__coach-selected">
+                  <span className="text-center">{coach.name}</span>
+                  <button
+                    id={`${coach.id}_button_delete_coach`}
+                    className="btn btn-danger btn-delete-coach"
+                    onClick={() => handleUnselectCoach(coach.id)}
+                  >
+                    <i className="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              ))
+            ) : (
+              <div className="alert alert-primary text-center training__alert-primary mt-5 b-5">
+                No hay coaches asignados para el trainingss
+              </div>
+            )}
           </div>
 
           <div className="training__input-form">
