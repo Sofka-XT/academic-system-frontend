@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { updateDaysCurrentProgram } from "../../../state/Program/programAction";
 
 export const InputPrograms = ({
@@ -11,6 +11,16 @@ export const InputPrograms = ({
   currentDays,
 }) => {
   const [duration, setDuration] = useState(currentDays);
+
+  useEffect(() => {
+    let data = {
+      programId: programId,
+      categoryId: categoryId,
+      courseId: courseId,
+      days: currentDays,
+    };
+    dispatch(updateDaysCurrentProgram(data));
+  }, [dispatch])
 
   const handleDurationChange = (e) => {
     e.preventDefault();
