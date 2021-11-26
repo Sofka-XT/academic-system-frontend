@@ -9,7 +9,7 @@ import ProgramsListComponent from "./ProgramsListComponent";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import * as actions from "../../../state/crudTraining/crudTrainingActions";
-//import validations from "../../../state/crudTraining/traningValidations/validations";
+import { validateInputTraining } from "../../../state/crudTraining/traningValidations/validations";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
@@ -71,11 +71,18 @@ const FormInputTrainingComponent = () => {
     dispatch({ type: actions.ADD_COACHES_LIST, payload: coaches });
     dispatch({ type: actions.ADD_TRAINING_NAME, payload: name });
     dispatch({ type: actions.SET_STARTING_DATE, payload: startingDate });
-    console.log('formValues: ')
-    console.log(formValues)
-    dispatch(actions.postTraining(formValues));
+  
+    
+  
+    // dispatch(actions.postTraining(formValues));
     //ejecucion de validacion
-    console.log("Global state updated from submiting the form");
+    const infoValidated = validateInputTraining(formValues)
+    if(infoValidated){
+      dispatch(actions.postTraining(formValues));
+      resetFormValues();
+    }
+    alert("campos invalidos")
+    //Poner switalert que diga que los campos no son correctos
   };
 
   const handleListSelectedCoaches = (e) => {
@@ -108,6 +115,8 @@ const FormInputTrainingComponent = () => {
   };
 
   const handleSelectCoach = (e) => {
+    // console.log("este es el coach")
+    // console.log(coaches)
     if (e.target.value === "0") return;
     const coachSelected = coachesList.filter(
       (coach) => coach.id === e.target.value
