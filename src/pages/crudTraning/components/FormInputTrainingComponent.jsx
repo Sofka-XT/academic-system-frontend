@@ -29,62 +29,28 @@ const FormInputTrainingComponent = () => {
   });
   const { name, startingDate, coaches } = formValues;
 
+  const showSwalResponse = (valid, message) => {
+    Swal.fire({
+      icon: `${valid ? "success" : "error"}`,
+      title: `${valid ? "Bien hecho!" : "Error"}`,
+      text: message,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: actions.ADD_COACHES_LIST, payload: coaches });
     dispatch({ type: actions.ADD_TRAINING_NAME, payload: name });
     dispatch({ type: actions.SET_STARTING_DATE, payload: startingDate });
-    console.log("Global state updated from submiting the form");
     const { valid, message } = validateInputTraining(formValues);
     if (valid) {
       dispatch(actions.postTraining(formValues));
-      Swal.fire({
-        icon: "success",
-        title: "Bien hecho!",
-        text: message,
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      setTableState(null);
+      showSwalResponse(valid, message);
 
-      setCoachesList([
-        {
-          id: "0",
-          name: "Seleccione al menos un coach",
-        },
-        {
-          id: "1",
-          name: "Raul Andres Alzate",
-          emailAddress: "raul@gmail.com",
-          phoneNumber: "32325465456",
-        },
-        {
-          id: "2",
-          name: "Pablo Armando Valencia",
-          emailAddress: "pablo@gmail.com",
-          phoneNumber: "3324345356",
-        },
-        {
-          id: "3",
-          name: "Oscar Mejia Restrepo",
-          emailAddress: "oscar@gmail.com",
-          phoneNumber: "31243544656",
-        },
-        ,
-        {
-          id: "4",
-          name: "Luis Villada Monsalve",
-          emailAddress: "luis@gmail.com",
-          phoneNumber: "3453454353",
-        },
-        ,
-        {
-          id: "5",
-          name: "Mario Castrillón Mejia",
-          emailAddress: "mario@gmail.com",
-          phoneNumber: "3322543565466",
-        },
-      ]);
+      setTableState(null);
+      setCoachesList(actions.fetchCoaches());
 
       const e = {
         target: {
@@ -93,20 +59,13 @@ const FormInputTrainingComponent = () => {
         },
       };
       handleInputChange(e);
+
       resetFormValues();
       setFormSent(true);
     } else {
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: message,
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      showSwalResponse(valid, message);
     }
   };
-
-  const handleListSelectedCoaches = (e) => {};
 
   const handleOnDrop = (csvInfo) => {
     const data = csvInfo
@@ -128,23 +87,23 @@ const FormInputTrainingComponent = () => {
     handleInputChange(e);
   };
 
-  const handleOnError = (e) => {};
-
   const handleOnRemoveFile = (e) => {
     setTableState(null);
   };
 
-  const handleSelectCoach = (e) => {
-    if (e.target.value === "0") return;
+  const handleSelectCoach = ({ target }) => {
+    if (target.value === "0") return;
+
     const coachSelected = coachesList.filter(
-      (coach) => coach.id === e.target.value
+      (coach) => coach.id === target.value
     )[0];
     const event = {
       target: { name: "coaches", value: [...coaches, coachSelected] },
     };
     const newCoachesList = coachesList.filter(
-      (coach) => coach.id !== e.target.value
+      (coach) => coach.id !== target.value
     );
+
     setCoachesList(newCoachesList);
     handleInputChange(event);
   };
@@ -254,14 +213,17 @@ const FormInputTrainingComponent = () => {
                 <CSVReader
                   id="csv_reader_training"
                   onDrop={handleOnDrop}
-                  onError={handleOnError}
-                  noDrag
                   addRemoveButton
                   onRemoveFile={handleOnRemoveFile}
                 >
-                  <span className="text-center small">
-                    Subir el archivo .CSV de los aprendices para el nuevo
-                    trainings
+                  <span className="training__csv-div text-center small">
+                    <p>Sube aquí el archivo .CSV de los aprendices</p>
+                    <button className="btn btn-primary">
+                      Subir Archivo <i class="fas fa-upload"></i>
+                    </button>
+                    <small className="mt-1">
+                      (ó arrastra y suelta aquí el archivo)
+                    </small>
                   </span>
                 </CSVReader>
               </div>

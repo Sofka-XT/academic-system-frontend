@@ -148,8 +148,8 @@ main {
 }
 
 .training__file-input {
-  width: 70%;
-  height: 90px;
+  width: 100%;
+  height: 120px;
   margin-top: 0%;
   padding: 0px;
 }
@@ -347,4 +347,9 @@ main {
 .title-container {
   width: 80%;
   margin: 10px 10%;
+}
+
+.training__csv-div {
+  display: flex;
+  flex-direction: column;
 }
