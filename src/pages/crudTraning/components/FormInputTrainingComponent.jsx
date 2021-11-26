@@ -75,6 +75,13 @@ const FormInputTrainingComponent = () => {
     resetFormValues();
     //ejecucion de validacion
     console.log("Global state updated from submiting the form");
+    const infoValidated = validateInputTraining(formValues);
+    if (infoValidated) {
+      dispatch(actions.postTraining(formValues));
+      resetFormValues();
+    }
+
+    //Poner switalert que diga que los campos no son correctos
   };
 
   const handleListSelectedCoaches = (e) => {
