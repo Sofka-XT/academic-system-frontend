@@ -170,7 +170,7 @@ const EditionProgramPage = ({
 
   const renderEditPage = () => {
     if (Object.keys(program).length !== 0) {
-
+      const courses = program.courses;
       return (
         <div>
           <h3>Cursos:</h3>
@@ -185,10 +185,10 @@ const EditionProgramPage = ({
                 <option disabled value={"DEFAULT"}>
                   Seleccione un curso
                 </option>
-                {courses.map((course, index) => {
+                {program.courses.map((course, index) => {
                   return (
                     <option key={index} value={index}>
-                      {course.name}
+                      {course.courseName}
                     </option>
                   );
                 })}
