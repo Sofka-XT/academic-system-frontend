@@ -17,8 +17,9 @@ function Navbar({ user }) {
                 <span>{user.name}</span>
                 <img className="profile-picture" id="profile-picture" src={user.photoUrl} alt="user profile"></img>
                 <Link 
-                className="link" 
-                end to={logOutObj.path}> 
+                className="link"
+                id="logout-link"
+                to={logOutObj.path}> 
                     <img src={turnOff} alt="turn-off" className = "turn-off"/>
                 </Link>
             </div>
