@@ -91,6 +91,7 @@ const EditionProgramPage = ({
           timer: 1000,
         });
         dispatch(updateProgramThunk(program));
+        
         navigate(`/dashboard/programs`);
       } else if (itemToEdit.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
