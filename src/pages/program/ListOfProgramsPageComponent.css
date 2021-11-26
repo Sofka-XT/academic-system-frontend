@@ -87,12 +87,12 @@ body {
 }
 
 .button-delete {
-  background-color: #e1ecf4;
+  background-color: #21117e;
   border-radius: 3px;
-  border: 1px solid #7aa7c7;
+  border: 1px solid #21117e;
   box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
   box-sizing: border-box;
-  color: #39739d;
+  color: white;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
@@ -114,8 +114,8 @@ body {
 
 .button-delete:hover,
 .button-delete:focus {
-  background-color: #b3d3ea;
-  color: #2c5777;
+  background-color: #9aa0ca;
+  color: #fff;
 }
 
 .button-delete:focus {
@@ -129,12 +129,12 @@ body {
 }
 
 .button-edit {
-    background-color: #e1ecf4;
+    background-color: #21117e;
     border-radius: 3px;
-    border: 1px solid #7aa7c7;
+    border: 1px solid #21117e;
     box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
     box-sizing: border-box;
-    color: #39739d;
+    color: white;
     cursor: pointer;
     display: inline-block;
     font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
@@ -157,8 +157,8 @@ body {
   
   .button-edit:hover,
   .button-edit:focus {
-    background-color: #b3d3ea;
-    color: #2c5777;
+    background-color: #9aa0ca;
+    color: white;
   }
   
   .button-edit:focus {
