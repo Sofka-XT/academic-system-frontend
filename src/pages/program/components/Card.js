@@ -4,7 +4,7 @@ import React from 'react'
 export const Card = ({id,name,dispatch,handleEdit}) => {
 
     return (
-        <div className="card">
+        <div className="card col-4">
             <div className="card-header">
                 <img alt={name} src='https://blog.comparasoftware.com/wp-content/uploads/2020/08/program_manager.png' width='100' />
             </div>
