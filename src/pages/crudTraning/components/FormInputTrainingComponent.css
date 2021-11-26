@@ -416,3 +416,11 @@ main {
   margin-top: 0%;
   padding: 0px;
 }
+
+.btn-new-traning {
+  margin: 20px auto;
+  position: absolute;
+  top: -30px;
+  right: 20px;
+  width: 20%;
+}

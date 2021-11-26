@@ -9,7 +9,10 @@ const TraningConfirmationCreationView = ({ setFormSent }) => {
   };
 
   return (
-    <div className="screen-container text-center">
+    <div
+      className="screen-container container text-center"
+      style={{ marginBottom: "50px" }}
+    >
       <div className="">
         <div className="title-container lecontainer">
           <h2 className="my-3">Traning Creado Exitosamente</h2>
@@ -33,11 +36,12 @@ const TraningConfirmationCreationView = ({ setFormSent }) => {
       </div>
       <button
         id="traning__new-traning-btn"
-        className="btn btn-primary btn-new-traning"
+        className="btn btn-primary btn-new-traning mt-5"
         onClick={handleNewTraning}
       >
         Crear un nuevo training
       </button>
+      <div>&nbsp;</div>
     </div>
   );
 };
