@@ -4,33 +4,21 @@ export const coachLinks = [
         name: 'INICIO'
     },
     {
-        path: 'trainingstory',
-        name: 'Histórico de Training'
-    },
-    {
-        path: 'activeprogram',
-        name: 'PROGRAMAS ACTIVOS'
-    },
-    {
-        path: 'program',
-        name: 'Crear Programa'
-    },
-    {
-        path: 'programstory',
-        name: 'Histórico de Programas'
-    },
-    {
         path: 'activetraining',
         name: 'TRAINING ACTIVO'
+    },
+    {
+        path: 'create-course',
+        name: 'Crear curso'
     },
     {
         path: 'training',
         name: 'Crear Training'
     },
     {
-        path: 'logout',
-        name: 'CERRAR SESION'
-    }
+        path: 'program',
+        name: 'Crear Programa'
+    },
 ]
 
 export const apprenticeLinks = [
@@ -44,3 +32,8 @@ export const apprenticeLinks = [
         name: 'CERRAR SESION'
     }
 ]
+
+export const logOut ={
+        path: 'logout',
+        name: 'CERRAR SESION'
+}

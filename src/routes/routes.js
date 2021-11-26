@@ -12,7 +12,7 @@ export const routesApp = [
 			{
 				path: 'home',
 				name: 'Home',
-				component: <Welcome />,
+				component: <Welcome/>,
 			},
 			{
 				path: 'logout',
@@ -20,24 +20,14 @@ export const routesApp = [
 				component: <HomePageComponent />,
 			},
 			{
-				path: 'trainingstory',
-				name: 'Training Story',
-				component: <h1>TRAINING STORY</h1>,
-			},
-			{
-				path: 'activeprogram',
-				name: 'Active Program',
-				component: <h1>Active Program</h1>,
+				path: 'create-course',
+				name: 'Create course',
+				component: <h1>Create course</h1>,
 			},
 			{
 				path: 'program',
 				name: 'Create Program',
 				component: <h1>Create Program</h1>,
-			},
-			{
-				path: 'programstory',
-				name: 'Program Story',
-				component: <h1>Program Story</h1>,
 			},
 			{
 				path: 'activetraining',

@@ -51,3 +51,7 @@
     border: none;
     padding: 14px 100px;
 }
+
+.button-singout:hover{
+    background-color: #83ddf1;
+}
