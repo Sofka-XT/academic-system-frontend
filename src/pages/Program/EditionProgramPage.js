@@ -75,6 +75,28 @@ const EditionProgramPage = ({
   const handleOnClick = (event) => {
     event.preventDefault();
     const MySwal = withReactContent(Swal);
+
+    if (program.name === "") {
+      Swal.fire({
+        title: "Debe poner el nombre del programa",
+        icon: "error",
+      });
+      return;
+    }
+
+    if(program.name.length < 4){
+      Swal.fire({
+        title: "El nombre del programa debe ser mayor que 4 caracteres",
+        icon: "error",
+      });
+      return;
+    }
+
+    if (program.courses.length === 0) {
+      Swal.fire({ title: "Debe añadir al menos un curso", icon: "error" });
+      return;
+    }
+
     MySwal.fire({
       title: "¿Quiere editar este programa?",
       icon: "warning",
@@ -90,6 +112,7 @@ const EditionProgramPage = ({
           showConfirmButton: false,
           timer: 1000,
         });
+
         dispatch(updateProgramThunk(program));
         
         navigate(`/dashboard/programs`);

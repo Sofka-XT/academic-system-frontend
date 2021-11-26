@@ -83,8 +83,16 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
       return;
     }
 
+    if(program.name.length < 4){
+      Swal.fire({
+        title: "El nombre del programa debe ser mayor que 4 caracteres",
+        icon: "error",
+      });
+      return;
+    }
+
     if (program.courses.length === 0) {
-      Swal.fire({ title: "Debe escoger al menos un curso", icon: "error" });
+      Swal.fire({ title: "Debe añadir al menos un curso", icon: "error" });
       return;
     }
 
