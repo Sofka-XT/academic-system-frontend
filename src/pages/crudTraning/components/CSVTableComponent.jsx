@@ -5,9 +5,6 @@ const CSVTableComponent = ({ data }) => {
   if (data) {
     return (
       <div className="container training__table-container">
-        <h2 className="section__title text-center m-5">
-          Lista de estudiantes para el training
-        </h2>
         <table
           className="table training__table-apprentices"
           style={{

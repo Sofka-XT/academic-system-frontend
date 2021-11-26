@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import * as actions from "../../../state/crudTraining/crudTrainingActions";
 import { validateInputTraining } from "../../../state/crudTraining/traningValidations/validations";
 import Swal from "sweetalert2";
-import NoTrainingCreated from "./NoTrainingCreated";
+import TraningConfirmationCreationView from "./TraningConfirmationCreationView";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
@@ -38,25 +38,35 @@ const FormInputTrainingComponent = () => {
     },
     {
       id: "1",
-      name: "Raul",
+      name: "Raul Andres Alzate",
+      emailAddress: "raul@gmail.com",
+      phoneNumber: "32325465456",
     },
     {
       id: "2",
-      name: "Pablo",
+      name: "Pablo Armando Valencia",
+      emailAddress: "pablo@gmail.com",
+      phoneNumber: "3324345356",
     },
     {
       id: "3",
-      name: "Oscar",
+      name: "Oscar Mejia Restrepo",
+      emailAddress: "oscar@gmail.com",
+      phoneNumber: "31243544656",
     },
     ,
     {
       id: "4",
-      name: "Luis",
+      name: "Luis Villada Monsalve",
+      emailAddress: "luis@gmail.com",
+      phoneNumber: "3453454353",
     },
     ,
     {
       id: "5",
-      name: "Mario",
+      name: "Mario Castrillón Mejia",
+      emailAddress: "mario@gmail.com",
+      phoneNumber: "3322543565466",
     },
   ]);
 
@@ -296,11 +306,16 @@ const FormInputTrainingComponent = () => {
           </div>
         </form>
         <ProgramsListComponent handleInputChange={handleInputChange} />
+        {tableState && (
+          <h2 className="section__title text-center m-5">
+            Lista de estudiantes para el training
+          </h2>
+        )}
         <CSVTableComponent data={tableState} />
       </div>
     );
   } else {
-    return <NoTrainingCreated setFormSent={setFormSent} />;
+    return <TraningConfirmationCreationView setFormSent={setFormSent} />;
   }
 };
 
