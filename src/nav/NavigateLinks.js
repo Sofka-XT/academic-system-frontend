@@ -1,0 +1,42 @@
+export const coachLinks = [
+  {
+    path: 'home',
+    name: 'INICIO',
+  },
+  {
+    path: 'activetrainingcoach',
+    name: 'TRAINING ACTIVO',
+  },
+  {
+    path: 'create/course',
+    name: 'Crear Curso',
+  },
+  {
+    path: 'training',
+    name: 'Crear Training',
+  },
+  {
+    path: 'programs',
+    name:'Programs activos'
+  },
+  {
+    path: 'crearprograma',
+    name:'Crear Programa'
+  },
+];
+
+export const apprenticeLinks = [
+  {
+    path: 'activetraining',
+    name: 'TRAINING ACTIVO',
+  },
+  {
+    path: 'courseslist',
+    name: 'Lista de Cursos',
+  }
+];
+
+export const logOut ={
+  path: 'logout',
+  name: 'CERRAR SESION'
+}
