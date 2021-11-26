@@ -101,25 +101,35 @@ const FormInputTrainingComponent = () => {
         },
         {
           id: "1",
-          name: "Raul",
+          name: "Raul Andres Alzate",
+          emailAddress: "raul@gmail.com",
+          phoneNumber: "32325465456",
         },
         {
           id: "2",
-          name: "Pablo",
+          name: "Pablo Armando Valencia",
+          emailAddress: "pablo@gmail.com",
+          phoneNumber: "3324345356",
         },
         {
           id: "3",
-          name: "Oscar",
+          name: "Oscar Mejia Restrepo",
+          emailAddress: "oscar@gmail.com",
+          phoneNumber: "31243544656",
         },
         ,
         {
           id: "4",
-          name: "Luis",
+          name: "Luis Villada Monsalve",
+          emailAddress: "luis@gmail.com",
+          phoneNumber: "3453454353",
         },
         ,
         {
           id: "5",
-          name: "Mario",
+          name: "Mario Castrillón Mejia",
+          emailAddress: "mario@gmail.com",
+          phoneNumber: "3322543565466",
         },
       ]);
 
