@@ -274,7 +274,6 @@ main {
 
 .training__table-container {
   max-width: 1000px;
-  margin-top: 0px;
 }
 
 .training__table-apprentices {
@@ -388,7 +387,6 @@ main {
 }
 
 .screen-container {
-  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -420,7 +418,7 @@ main {
 .btn-new-traning {
   margin: 20px auto;
   position: absolute;
-  top: -30px;
+  top: 30px;
   right: 20px;
   width: 20%;
 }

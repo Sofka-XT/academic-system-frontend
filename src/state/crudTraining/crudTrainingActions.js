@@ -1,4 +1,7 @@
-const URL_BASE = "http://localhost:8080";
+import { enviroment } from "../../environments/enviroment";
+
+const URL_BASE = enviroment.host;
+// const URL_BASE = "http://localhost:8080";
 
 export const LOADING = "LOADING";
 export const LOADED_SUCCESS = "LOADED_SUCCESS";
@@ -24,7 +27,7 @@ export const failure = () => ({ type: LOADED_FAILURE });
 
 export const fetchPrograms = async () => {
   try {
-    const response = await fetch(`${URL_BASE}/program/getAll`);
+    const response = await fetch(`${URL_BASE}program/getAll`);
     return await response.json();
   } catch (e) {
     return await Error(
@@ -36,7 +39,7 @@ export const fetchPrograms = async () => {
 export function postTraining(training) {
   return async (dispatch) => {
     try {
-      const response = await fetch(`${URL_BASE}/CreateTraining`, {
+      const response = await fetch(`${URL_BASE}CreateTraining`, {
         method: "POST",
         mode: "cors",
         headers: {
@@ -45,6 +48,7 @@ export function postTraining(training) {
         body: JSON.stringify(training),
       });
       const data = await response.json();
+      console.log(data);
       dispatch(
         postTrainingSuccess({
           trainingId: data.trainingId,

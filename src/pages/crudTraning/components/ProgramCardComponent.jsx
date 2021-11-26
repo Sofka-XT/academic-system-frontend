@@ -33,7 +33,10 @@ const ProgramCardComponent = ({ program, handleInputChange }) => {
             <hr />
           </h2>
           <h5 className="training__description--subtitle">
-            Duranción: 3 semanas
+            Duración:{" "}
+            {/* {program.courses.reduce((prevValue, currValue) => {
+              return prevValue + currValue;
+            }, 0)} */}
           </h5>
         </div>
         <div

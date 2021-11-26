@@ -13,10 +13,10 @@ const ProgramsListComponent = ({ handleInputChange }) => {
           <div className="section__decoration"></div>
         </div>
         <div className="training__grid">
-          {programs.map((program) => (
+          {programs?.map((program) => (
             <ProgramCardComponent
-              handleInputChange={handleInputChange}
               key={program.id}
+              handleInputChange={handleInputChange}
               program={program}
             />
           ))}

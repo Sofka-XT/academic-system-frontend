@@ -32,7 +32,6 @@ const TraningConfirmationCreationView = ({ setFormSent }) => {
           Lista de aprendices asignados para el training
         </h4>
         <CSVTableComponent data={traningSent.apprentices} />
-        {/* <h3 className="text-center">Program: PENDIENTE</h3> */}
       </div>
       <button
         id="traning__new-traning-btn"
