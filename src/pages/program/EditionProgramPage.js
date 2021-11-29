@@ -21,6 +21,7 @@ import "./EditionProgramPage.css";
 const EditionProgramPage = ({
   dispatch,
   program,
+  programs,
   loading,
   hasErrors,
   totalDays,
@@ -90,6 +91,34 @@ const EditionProgramPage = ({
 
     if (program.courses.length === 0) {
       Swal.fire({ title: "Debe añadir al menos un curso", icon: "error" });
+      return;
+    }
+
+    let isEqualProgram = false;
+
+    programs.forEach((p) => {
+      if(p.name === program.name && p.id !== program.id){
+        isEqualProgram = true;
+      }
+    })
+  
+    if (isEqualProgram) {
+      Swal.fire({ title: `Ya existe un programa llamado ${program.name}`, icon: "warning" });
+      return;
+    }
+
+    let isZeroADuration = false;
+
+    program.courses.forEach((c) => {
+      c.categories.forEach((ct => {
+        if(ct.days === "0"){
+          isZeroADuration = true;
+        }
+      }))
+    })
+
+    if (isZeroADuration) {
+      Swal.fire({ title: `No se pudo crear el curso, la duracion no puede ser cero`, icon: "warning" });
       return;
     }
 

@@ -8,6 +8,7 @@ import {
 } from "../../state/Program/programAction";
 import {
   getCoursesThunk,
+  getProgramsThunk,
   postProgramThunk,
 } from "../../thunkAction/programThunk";
 import { connect } from "react-redux";
@@ -16,7 +17,7 @@ import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { useNavigate } from "react-router-dom";
 import "./FormCreatePrograPageComponent.css"
 
-const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
+const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }) => {
   const [selectedCourse, setSelectedCourse] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
@@ -30,7 +31,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
     };
 
     dispatch(updateCurrentProgram(data));
-
+    dispatch(getProgramsThunk());
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -92,6 +93,34 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
 
     if (program.courses.length === 0) {
       Swal.fire({ title: "Debe añadir al menos un curso", icon: "error" });
+      return;
+    }
+
+    let isEqualProgram = false;
+
+    programs.forEach((p) => {
+      if(p.name === program.name){
+        isEqualProgram = true;
+      }
+    })
+  
+    if (isEqualProgram) {
+      Swal.fire({ title: `Ya existe un programa llamado ${program.name}`, icon: "warning" });
+      return;
+    }
+
+    let isZeroADuration = false;
+
+    program.courses.forEach((c) => {
+      c.categories.forEach((ct => {
+        if(ct.days === "0"){
+          isZeroADuration = true;
+        }
+      }))
+    })
+
+    if (isZeroADuration) {
+      Swal.fire({ title: `No se pudo crear el curso, la duracion no puede ser cero`, icon: "warning" });
       return;
     }
 
@@ -210,6 +239,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program }) => {
 const mapStateToProps = (state) => ({
   courses: state.programReducer.courses,
   program: state.programReducer.program,
+  programs: state.programReducer.programs,
   loading: state.programReducer.loading,
   hasErrors: state.programReducer.hasErrors,
   redirect: state.programReducer.redirect,
