@@ -41,31 +41,28 @@ const FormInputTrainingComponent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch({ type: actions.ADD_COACHES_LIST, payload: coaches });
-    // dispatch({ type: actions.ADD_TRAINING_NAME, payload: name });
-    // dispatch({ type: actions.SET_STARTING_DATE, payload: startingDate });
     dispatch({ type: actions.UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING, payload: {coaches, name, startingDate}});
     const { valid, message } = validateInputTraining(formValues);
-    // if (valid) {
-    //   dispatch(actions.postTraining(formValues));
-    //   showSwalResponse(valid, message);
+    if (valid) {
+      dispatch(actions.postTraining(formValues));
+      showSwalResponse(valid, message);
 
-    //   setTableState(null);
-    //   setCoachesList(actions.fetchCoaches());
+      setTableState(null);
+      setCoachesList(actions.fetchCoaches());
 
-    //   const e = {
-    //     target: {
-    //       name: 'apprentices',
-    //       value: [],
-    //     },
-    //   };
-    //   handleInputChange(e);
+      const e = {
+        target: {
+          name: 'apprentices',
+          value: [],
+        },
+      };
+      handleInputChange(e);
 
-    //   resetFormValues();
-    //   setFormSent(true);
-    // } else {
-    //   showSwalResponse(valid, message);
-    // }
+      resetFormValues();
+      setFormSent(true);
+    } else {
+      showSwalResponse(valid, message);
+    }
   };
 
   const handleOnDrop = (csvInfo) => {
