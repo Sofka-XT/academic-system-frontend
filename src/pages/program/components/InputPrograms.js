@@ -8,7 +8,6 @@ export const InputPrograms = ({
   courseId,
   programId,
   dispatch,
-  name,
   currentDays,
 }) => {
   const [duration, setDuration] = useState(currentDays);
@@ -42,6 +41,7 @@ export const InputPrograms = ({
         <label>Duración del programa:</label>
         <input
         type="number"
+        min="0"
         className="program-inputs-days"
         value={duration}
         onChange={(e) => {

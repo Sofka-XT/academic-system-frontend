@@ -113,14 +113,14 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
 
     program.courses.forEach((c) => {
       c.categories.forEach((ct => {
-        if(ct.days === "0"){
+        if(parseInt(ct.days) <= 0){
           isZeroADuration = true;
         }
       }))
     })
 
     if (isZeroADuration) {
-      Swal.fire({ title: `No se pudo crear el curso, la duracion no puede ser cero`, icon: "warning" });
+      Swal.fire({ title: `No se pudo crear el curso, Duracion incorrecta`, icon: "warning" });
       return;
     }
 

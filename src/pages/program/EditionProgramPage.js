@@ -8,7 +8,7 @@ import {
   AddCourseToCurrentProgram,
   updateCurrentProgram,
   updateNameProgram,
-  updateTotalDays,
+  
 } from "../../state/Program/programAction";
 import {
   getCoursesThunk,
@@ -17,6 +17,7 @@ import {
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
+import { useProgramTotalDays } from "../../hooks/useProgram";
 
 const EditionProgramPage = ({
   dispatch,
@@ -31,26 +32,7 @@ const EditionProgramPage = ({
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (program.courses) {
-      let sumDays = 0;
-      program.courses.map((course) => {
-        if (course.categories) {
-          course.categories.map((category) => {
-            sumDays += parseInt(category.days);
-            return null;
-          });
-        }
-        return null;
-      });
-
-      let data = {
-        totalDays: sumDays,
-      };
-
-      dispatch(updateTotalDays(data));
-    }
-  }, [program, dispatch]);
+  useProgramTotalDays(program,dispatch);
 
   useEffect(() => {
     //1. UseEffec, traer los cursos para el select
@@ -111,14 +93,14 @@ const EditionProgramPage = ({
 
     program.courses.forEach((c) => {
       c.categories.forEach((ct => {
-        if(ct.days === "0"){
+        if(parseInt(ct.days) <= 0){
           isZeroADuration = true;
         }
       }))
     })
 
     if (isZeroADuration) {
-      Swal.fire({ title: `No se pudo crear el curso, la duracion no puede ser cero`, icon: "warning" });
+      Swal.fire({ title: `No se pudo crear el curso, Duracion incorrecta`, icon: "warning" });
       return;
     }
 
