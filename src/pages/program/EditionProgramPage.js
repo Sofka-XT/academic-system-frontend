@@ -17,7 +17,7 @@ import {
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
-import { useProgramTotalDays } from "../../hooks/useProgram";
+import { useProgramEffectForActions, useProgramTotalDays, useProgramUpddateCurrentProgram, useUpddateCurrentProgram } from "../../hooks/useProgram";
 
 const EditionProgramPage = ({
   dispatch,
@@ -33,20 +33,9 @@ const EditionProgramPage = ({
   const navigate = useNavigate();
 
   useProgramTotalDays(program,dispatch);
-
-  useEffect(() => {
-    //1. UseEffec, traer los cursos para el select
-    dispatch(getCoursesThunk());
-    let data = {
-      program: {
-        name: "",
-        courses: [],
-      },
-    };
-    dispatch(updateCurrentProgram(data));
-  }, [dispatch]);
-
-
+  
+  useProgramUpddateCurrentProgram(dispatch);
+  useProgramEffectForActions(getCoursesThunk(),dispatch);
 
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Show Program.</p>;

@@ -16,25 +16,16 @@ import { InputPrograms } from "./components/InputPrograms";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { useNavigate } from "react-router-dom";
 import "./FormCreatePrograPageComponent.css"
+import { useProgramEffectForActions, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
 
 const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }) => {
   const [selectedCourse, setSelectedCourse] = useState("");
   const navigate = useNavigate();
-  useEffect(() => {
-    //1. UseEffec, traer los cursos para el select
-    dispatch(getCoursesThunk());
-    let data = {
-      program: {
-        name: "",
-        courses: [],
-      },
-    };
 
-    dispatch(updateCurrentProgram(data));
-    dispatch(getProgramsThunk());
-    // eslint-disable-next-line
-  }, [dispatch]);
-
+  useProgramUpddateCurrentProgram(dispatch);
+  useProgramEffectForActions(getCoursesThunk(),dispatch);
+  useProgramEffectForActions(getProgramsThunk(),dispatch);
+  
   const handleInput = (e) => {
     e.preventDefault();
     let data = {
