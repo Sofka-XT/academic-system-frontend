@@ -2,11 +2,10 @@ import { connect } from "react-redux";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   AddCourseToCurrentProgram,
-  updateCurrentProgram,
   updateNameProgram,
   
 } from "../../state/Program/programAction";
@@ -17,7 +16,7 @@ import {
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
-import { useProgramEffectForActions, useProgramTotalDays, useProgramUpddateCurrentProgram, useUpddateCurrentProgram } from "../../hooks/useProgram";
+import { useProgramEffectForActions, useProgramTotalDays, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
 
 const EditionProgramPage = ({
   dispatch,

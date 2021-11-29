@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import {
   AddCourseToCurrentProgram,
-  updateCurrentProgram,
   updateNameCurrentProgram,
 } from "../../state/Program/programAction";
 import {
@@ -17,6 +16,7 @@ import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { useNavigate } from "react-router-dom";
 import "./FormCreatePrograPageComponent.css"
 import { useProgramEffectForActions, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
+import { checkIfProgramNameIsEmpty } from "./alerts/alerts";
 
 const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }) => {
   const [selectedCourse, setSelectedCourse] = useState("");
@@ -66,13 +66,15 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (program.name === "") {
-      Swal.fire({
-        title: "Debe poner el nombre del programa",
-        icon: "error",
-      });
-      return;
-    }
+    // if (program.name === "") {
+    //   Swal.fire({
+    //     title: "Debe poner el nombre del programa",
+    //     icon: "error",
+    //   });
+    //   return;
+    // }
+    
+    checkIfProgramNameIsEmpty(Swal,program);
 
     if(program.name.length < 4){
       Swal.fire({
