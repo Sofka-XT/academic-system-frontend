@@ -53,7 +53,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
             required
             minLength= "3"
             className="form-control"
-            {...register("programName",{minLength : 3, required : true})}
+            {...register("programName")}
 
           />
 

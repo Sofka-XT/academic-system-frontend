@@ -69,7 +69,7 @@ const EditionProgramPage = ({
                 minLength= "3"
                 className="program-inputs-name"
                 defaultValue = {program.name}
-                {...register("programName",{minLength : 3, required : true})}
+                {...register("programName")}
               />
             </div>
             <div className="totaldays-container">
