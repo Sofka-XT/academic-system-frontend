@@ -5,6 +5,7 @@ export const initialState = {
     hasErrors: false,
     loading: false,
     redirect: null,
+    actualTraining: null
 };
 
 export default function activeTrainingReducer(state = initialState, action) {
