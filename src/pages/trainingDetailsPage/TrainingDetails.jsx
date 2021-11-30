@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 
 
 function TrainingDetails({trainings}) {
-    
-
     const params = useParams();
-    //let training = courses.filter((item) => item.id === params.courseid)[0];
-
+    const { apprentices, name } = trainings.filter((item) => item.trainingId === params.trainingid)[0];
+    console.log("Apprentices: ",  apprentices)
+    console.log("name: ",  name)
     return (
         <div>
             Hola mundo
@@ -18,8 +17,6 @@ function TrainingDetails({trainings}) {
 
 
 const mapStateToProps = (state) => ({
-    loading: state.coursesReducer.loading,
-    hasError: state.coursesReducer.error,
-    courses: state.coursesReducer.courses,
+    trainings: state.activeTrainingReducer.activeTrainings
   });
   export default connect(mapStateToProps)(TrainingDetails);
