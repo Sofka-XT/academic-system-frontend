@@ -1,17 +1,12 @@
 import React, { useEffect } from 'react';
-import { useFieldArray } from 'react-hook-form';
+import { useFieldArray, useFormContext } from 'react-hook-form';
 import './categoryFormComponent.css';
 
 import { CardCategoryFormComponent } from '../cardCategoryFormComponent/CardCategoryFormComponent';
 
-export const CategoryFormComponet = ({
-  errors,
-  register,
-  control,
-  setValue,
-  getValues,
-  handleAppendCategory,
-}) => {
+export const CategoryFormComponet = ({ getValues, handleAppendCategory }) => {
+  const { control } = useFormContext();
+
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'categories',
@@ -52,9 +47,6 @@ export const CategoryFormComponet = ({
         return (
           <div key={field.id} className="container_category my-3">
             <CardCategoryFormComponent
-              errors={errors}
-              register={register}
-              setValue={setValue}
               index={index}
               rules={rules}
               remove={remove}

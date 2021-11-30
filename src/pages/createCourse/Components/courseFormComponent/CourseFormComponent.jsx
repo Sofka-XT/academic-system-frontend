@@ -19,22 +19,16 @@ const CourseFormComponent = ({ loading, error }) => {
   const navigate = useNavigate();
 
   const handleCreateCourse = (data) => {
-    dispatch(addCourse(data))
-      .then(unwrapResult)
-      .then((course) => {
-        if (!course.error) {
-          MySwal.fire({
-            title: <p>Hello World</p>,
-            footer: 'Copyright 2018',
-            didOpen: () => {
-              MySwal.clickConfirm();
-            },
-          }).then(() => {
-            MySwal.fire(<p>Creado</p>);
-            navigate(`/dashboard/courseslist/coursedetail/${course.id}`);
-          });
-        }
-      });
+    console.log(data);
+    // dispatch(addCourse(data))
+    //   .then(unwrapResult)
+    //   .then((course) => {
+    //     if (!course.error) {
+    //       MySwal.fire(<p>Creado</p>);
+    //       console.log('s');
+    //       navigate(`/dashboard/courseslist/coursedetail/${course.id}`);
+    //     }
+    //   });
   };
   const onSubmit = (data) => handleCreateCourse(data);
 
