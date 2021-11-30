@@ -37,7 +37,7 @@ function TrainingDetails({trainings}) {
             <hr className="hr mb-5"/>
             <h5 className="mb-3"><b>Coaches encargados</b></h5>
             
-            <div className="mb-5">
+            <div className="mb-5 content-coach">
                 {renderCoaches()}
             </div>
 
