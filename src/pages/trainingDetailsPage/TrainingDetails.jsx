@@ -1,29 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../trainingDetailsPage/TrainingDetails.css'
+import { getTrainingByIdThunk } from '../../thunkAction/trainingThunk';
 
-function TrainingDetails({trainings}) {
+function TrainingDetails({training, dispatch}) {
     const params = useParams();
-    const { apprentices, name, coaches } = trainings.filter((item) => item.trainingId === params.trainingid)[0];
-    console.log("Apprentices: ",  apprentices)
-    console.log("name: ",  name)
-    console.log("coaches: ",  coaches)
-
+    
+    useEffect(() => {
+        dispatch(getTrainingByIdThunk(params.trainingid));
+    },[dispatch])
+    
     const renderCoaches = () => {
-
-        return coaches.map(coach => {
-            return<div className="card-coach">
-                <div className="card-coach-left" align="center">{coach.name}</div>
-                <div className="card-coach-right" align="center">{coach.emailAddress}</div>
-            </div>
             
+        return training && training.coaches.map(coach => {
+                return<div className="card-coach">
+                    <div className="card-coach-left" align="center">{coach.name}</div>
+                    <div className="card-coach-right" align="center">{coach.emailAddress}</div>
+                </div>
+                
         })
+
     }
 
     const renderApprentices = () => {
 
-        return apprentices.map(apprentice => {
+        return training && training.apprentices.map(apprentice => {
             return<tr onClick={() => {console.log('click')}}>
                 <td>{apprentice.name}</td>
                 <td>{apprentice.emailAddress}</td>
@@ -33,7 +35,7 @@ function TrainingDetails({trainings}) {
     }
     return (
         <div className="p-5">
-            <h1>{name}</h1>
+            {training && <h1>{training.name}</h1>}
             <hr className="hr mb-5"/>
             <h5 className="mb-3"><b>Coaches encargados</b></h5>
             
@@ -59,6 +61,6 @@ function TrainingDetails({trainings}) {
 
 
 const mapStateToProps = (state) => ({
-    trainings: state.activeTrainingReducer.activeTrainings
+    training: state.activeTrainingReducer.training, //Este es el training que se trae con el fetch
   });
   export default connect(mapStateToProps)(TrainingDetails);
