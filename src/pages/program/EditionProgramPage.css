@@ -65,6 +65,7 @@
   height: 10%;
   border: none;
   text-align: center;
+  text-transform: capitalize;
 }
 .course-card {
   border: 2px solid #9aa0ca;
