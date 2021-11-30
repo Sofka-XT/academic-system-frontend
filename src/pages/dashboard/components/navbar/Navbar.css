@@ -47,3 +47,8 @@
     height: 32px;
     width: 32px;
   }
+  
+  .sofka-logo{
+    top: -5px;
+    position: relative;
+  }
