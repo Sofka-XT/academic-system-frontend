@@ -1,21 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { CSVReader } from 'react-papaparse';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { CSVReader } from "react-papaparse";
+import { useDispatch } from "react-redux";
 
-import * as actions from '../../../state/crudTraining/crudTrainingActions';
-import { validateInputTraining } from '../../../state/crudTraining/traningValidations/validations';
-import {handleOnDrop, handleOnRemoveFile} from './../../../common/csvHelpers/csvHelpers';
-import {handleSelectCoach, handleUnselectCoach} from './../../../common/formTrainingHelpers/formTrainingHelpers';
+import * as actions from "../../../state/crudTraining/crudTrainingActions";
+import { validateInputTraining } from "../../../state/crudTraining/traningValidations/validations";
+import {
+  handleOnDrop,
+  handleOnRemoveFile,
+} from "./../../../common/csvHelpers/csvHelpers";
+import {
+  handleSelectCoach,
+  handleUnselectCoach,
+} from "./../../../common/formTrainingHelpers/formTrainingHelpers";
 
-import useForm from './../../../hooks/useForm';
+import useForm from "./../../../hooks/useForm";
 
-import CSVTableComponent from './csvTable/CSVTableComponent';
-import ProgramsListComponent from './programs/ProgramsListComponent';
-import TraningConfirmationCreationView from './TraningConfirmationCreationView';
+import CSVTableComponent from "./csvTable/CSVTableComponent";
+import ProgramsListComponent from "./programs/ProgramsListComponent";
+import TraningConfirmationCreationView from "./../components/confirmationPage/TraningConfirmationCreationView";
 
-import Swal from 'sweetalert2';
-import './FormInputTrainingComponent.css';
-
+import Swal from "sweetalert2";
+import "./FormInputTrainingComponent.css";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
@@ -24,9 +29,9 @@ const FormInputTrainingComponent = () => {
   const [tableState, setTableState] = useState(null);
 
   const [formValues, handleInputChange, resetFormValues] = useForm({
-    name: '',
-    program: '',
-    startingDate: new Date().toISOString().split('T')[0],
+    name: "",
+    program: "",
+    startingDate: new Date().toISOString().split("T")[0],
     apprentices: [],
     coaches: [],
   });
@@ -34,8 +39,8 @@ const FormInputTrainingComponent = () => {
 
   const showSwalResponse = (valid, message) => {
     Swal.fire({
-      icon: `${valid ? 'success' : 'error'}`,
-      title: `${valid ? 'Bien hecho!' : 'Error'}`,
+      icon: `${valid ? "success" : "error"}`,
+      title: `${valid ? "Bien hecho!" : "Error"}`,
       text: message,
       showConfirmButton: false,
       timer: 1500,
@@ -44,7 +49,10 @@ const FormInputTrainingComponent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: actions.UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING, payload: {coaches, name, startingDate}});
+    dispatch({
+      type: actions.UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING,
+      payload: { coaches, name, startingDate },
+    });
     const { valid, message } = validateInputTraining(formValues);
     if (valid) {
       dispatch(actions.postTraining(formValues));
@@ -55,7 +63,7 @@ const FormInputTrainingComponent = () => {
 
       const e = {
         target: {
-          name: 'apprentices',
+          name: "apprentices",
           value: [],
         },
       };
@@ -79,7 +87,7 @@ const FormInputTrainingComponent = () => {
     return (
       <div
         className="trainings__main-container"
-        style={{ paddingBottom: '50px' }}
+        style={{ paddingBottom: "50px" }}
       >
         <form onSubmit={handleSubmit} className="trainings__form">
           <div className="training__input-form training__input-form-name">
@@ -91,7 +99,7 @@ const FormInputTrainingComponent = () => {
               className="trainings__input"
               autoComplete="off"
               value={name}
-              onChange={(e) =>handleInputChange(e)}
+              onChange={(e) => handleInputChange(e)}
             />
             <button
               type="submit"
@@ -117,8 +125,15 @@ const FormInputTrainingComponent = () => {
                 value={coachesList[0].id}
                 id="training__coaches_select"
                 className="trainings__select-input trainings__input-coaches"
-                onChange={(e)=>handleSelectCoach(e, setCoachesList, handleInputChange, coachesList,
-                  coaches)}
+                onChange={(e) =>
+                  handleSelectCoach(
+                    e,
+                    setCoachesList,
+                    handleInputChange,
+                    coachesList,
+                    coaches
+                  )
+                }
               >
                 {coachesList.map((coach) => (
                   <option value={coach.id}>{coach.name}</option>
@@ -153,7 +168,15 @@ const FormInputTrainingComponent = () => {
                   <button
                     id={`${coach.id}_button_delete_coach`}
                     className="btn btn-danger btn-delete-coach"
-                    onClick={() => handleUnselectCoach(coach.id, setCoachesList, handleInputChange, coachesList, coaches)}
+                    onClick={() =>
+                      handleUnselectCoach(
+                        coach.id,
+                        setCoachesList,
+                        handleInputChange,
+                        coachesList,
+                        coaches
+                      )
+                    }
                   >
                     <i className="fas fa-trash-alt"></i>
                   </button>
@@ -171,12 +194,16 @@ const FormInputTrainingComponent = () => {
               <div className="training__file-input">
                 <CSVReader
                   id="csv_reader_training"
-                  onDrop={(csvInfo)=>handleOnDrop(csvInfo,
-                    setTableState,
-                    dispatch,
-                    handleInputChange)}
+                  onDrop={(csvInfo) =>
+                    handleOnDrop(
+                      csvInfo,
+                      setTableState,
+                      dispatch,
+                      handleInputChange
+                    )
+                  }
                   addRemoveButton
-                  onRemoveFile={(e)=>handleOnRemoveFile(e, setTableState)}
+                  onRemoveFile={(e) => handleOnRemoveFile(e, setTableState)}
                 >
                   <span className="training__csv-div text-center small">
                     <p>Sube aquí el archivo .CSV de los aprendices</p>
