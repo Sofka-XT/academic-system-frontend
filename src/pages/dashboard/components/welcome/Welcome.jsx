@@ -11,7 +11,7 @@ export default function Welcome() {
 
             <WelcomeCard styles="cards-three cards" title="CREAR TRAINING" link="/dashboard/training" id="cards-three"/>
             
-            <WelcomeCard styles="cards-four cards" title="CREAR PROGRAMA" link="/dashboard/program" id="cards-four"/>
+            <WelcomeCard styles="cards-four cards" title="CREAR PROGRAMA" link="/dashboard/crearprograma" id="cards-four"/>
         </div>
     )
 }
