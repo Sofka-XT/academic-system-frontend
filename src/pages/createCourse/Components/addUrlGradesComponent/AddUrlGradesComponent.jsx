@@ -4,12 +4,12 @@ import { useFormContext } from 'react-hook-form';
 export const AddUrlGradesComponent = ({ indexCategory }) => {
   const [inputValue, setInputValue] = useState();
   const [urlGrades, setUrlGrades] = useState([]);
+  const { setValue } = useFormContext();
   useEffect(() => {
     if (urlGrades.length > 0) {
       setValue(`categories[${indexCategory}].urlRefGrades`, urlGrades);
     }
-  }, [urlGrades]);
-  const { setValue } = useFormContext();
+  }, [indexCategory, setValue, urlGrades]);
   const handleAddGradeToForm = () => {
     setUrlGrades([...urlGrades, inputValue]);
   };
