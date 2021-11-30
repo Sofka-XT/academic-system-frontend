@@ -15,6 +15,7 @@ import "./EditionProgramPage.css";
 import { useProgramEffectForActions, useProgramTotalDays, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
 import { useForm } from "react-hook-form";
 import { swalEditConfirmAlert, swalErrorAlert, swalWarningAlert } from "./alerts/alerts";
+import { triggerALertRepitedCourse, triggerALertRepitedProgram } from "./alerts/triggerAlerts";
 
 const EditionProgramPage = ({
   dispatch,
@@ -55,20 +56,7 @@ const EditionProgramPage = ({
       }),
     };
 
-    let isEqualValue = false;
-
-    program.courses.forEach((course) => {
-      if (course.courseId === selectedCourse.id) {
-        isEqualValue = true;
-      }
-    });
-
-    if (!isEqualValue) {
-      dispatch(AddCourseToCurrentProgram(data));
-      return;
-    }
-
-    swalErrorAlert("Ya existe este curso")
+    triggerALertRepitedCourse(program, dispatch,selectedCourse,data)
   };
 
   const onSubmit = (data) => {
@@ -80,20 +68,7 @@ const EditionProgramPage = ({
       return;
     }
 
-    let isEqualProgram = false;
-
-    programs.forEach((p) => {
-      if(p.name.toLowerCase() === program2.name.toLowerCase() && p.id !== program2.id){
-        isEqualProgram = true;
-      }
-    })
-  
-    if (isEqualProgram) {
-      swalWarningAlert(`Ya existe un programa llamado ${program2.name}`)
-      return;
-    }
-
-    swalEditConfirmAlert("¿Quiere editar este programa?",program2,dispatch,navigate)
+    triggerALertRepitedProgram(programs,program2,dispatch,navigate)
   }
 
   const renderEditPage = () => {

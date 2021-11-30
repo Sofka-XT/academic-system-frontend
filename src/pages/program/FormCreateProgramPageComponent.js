@@ -46,12 +46,12 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
       }
     });
 
-    if (!isEqualValue) {
-      dispatch(AddCourseToCurrentProgram(data));
+    if (isEqualValue) {
+      swalErrorAlert("Ya existe este curso")
       return;
     }
 
-    swalErrorAlert("Ya existe este curso")
+    dispatch(AddCourseToCurrentProgram(data));
   };
 
   const onSubmit = (data) => {
