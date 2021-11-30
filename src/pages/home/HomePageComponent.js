@@ -11,7 +11,7 @@ export const HomePageComponent = () => {
         <div className="modal-form-container">
             <div>
               <h1>CERRAR SESIÓN</h1>
-              <p>¿Estas seguro que deseas cerrar sesión?</p>
+              <p>¿Estás seguro que deseas cerrar sesión?</p>
             </div>
             <div>
               <SignOutButtonComponent />
