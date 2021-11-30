@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import Swal from "sweetalert2";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,14 +8,13 @@ import {
 } from "../../state/Program/programAction";
 import {
   getCoursesThunk,
-  updateProgramThunk,
 } from "../../thunkAction/programThunk";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
 import { useProgramEffectForActions, useProgramTotalDays, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
 import { useForm } from "react-hook-form";
-import { swalErrorAlert, swalWarningAlert } from "./alerts/alerts";
+import { swalEditConfirmAlert, swalErrorAlert, swalWarningAlert } from "./alerts/alerts";
 
 const EditionProgramPage = ({
   dispatch,
@@ -85,7 +83,7 @@ const EditionProgramPage = ({
     let isEqualProgram = false;
 
     programs.forEach((p) => {
-      if(p.name === program2.name && p.id !== program2.id){
+      if(p.name.toLowerCase() === program2.name.toLowerCase() && p.id !== program2.id){
         isEqualProgram = true;
       }
     })
@@ -95,33 +93,7 @@ const EditionProgramPage = ({
       return;
     }
 
-    Swal.fire({
-      title: "¿Quiere editar este programa?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Si, Editalo!",
-    }).then((itemToEdit) => {
-      if (itemToEdit.isConfirmed) {
-        Swal.fire({
-          text: "El programa ha sido editado",
-          icon: "success",
-          showConfirmButton: false,
-          timer: 1000,
-        });
-
-        dispatch(updateProgramThunk(program2));
-        
-        navigate(`/dashboard/programs`);
-      } else if (itemToEdit.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          "Cancelado",
-          "No se efectuaron cambios en el programa",
-          "error"
-        );
-      }
-    });
+    swalEditConfirmAlert("¿Quiere editar este programa?",program2,dispatch,navigate)
   }
 
   const renderEditPage = () => {

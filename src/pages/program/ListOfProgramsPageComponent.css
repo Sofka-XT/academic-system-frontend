@@ -164,3 +164,7 @@ body {
     box-shadow: none;
     color: #2c5777;
   }
+
+  .card-title-programs{
+    text-transform: capitalize;
+  }

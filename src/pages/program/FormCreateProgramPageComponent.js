@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import {
   AddCourseToCurrentProgram,
 } from "../../state/Program/programAction";
 import {
   getCoursesThunk,
   getProgramsThunk,
-  postProgramThunk,
 } from "../../thunkAction/programThunk";
 import { connect } from "react-redux";
 import { InputPrograms } from "./components/InputPrograms";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import "./FormCreatePrograPageComponent.css"
 import { useProgramEffectForActions, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
-import { swalErrorAlert } from "./alerts/alerts";
+import { swalCreateConfirmAlert, swalErrorAlert, swalWarningAlert } from "./alerts/alerts";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 
@@ -53,7 +51,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
       return;
     }
 
-    Swal.fire({ title: "Ya existe este curso", icon: "error" });
+    swalErrorAlert("Ya existe este curso")
   };
 
   const onSubmit = (data) => {
@@ -68,37 +66,17 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
     let isEqualProgram = false;
 
     programs.forEach((p) => {
-      if(p.name === program2.name){
+      if(p.name.toLowerCase() === program2.name.toLowerCase()){
         isEqualProgram = true;
       }
     })
   
     if (isEqualProgram) {
-      Swal.fire({ title: `Ya existe un programa llamado ${program2.name}`, icon: "warning" });
+      swalWarningAlert(`Ya existe un programa llamado ${program2.name}`)
       return;
     }
 
-    Swal.fire({
-    title: "¿Quiere crear este programa?",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Si, Crealo!",
-  }).then((itemToEdit) => {
-    if (itemToEdit.isConfirmed) {
-      Swal.fire({
-        text: "El programa ha sido creado",
-        icon: "success",
-        showConfirmButton: false,
-        timer: 1000,
-      });
-      dispatch(postProgramThunk(program2));
-      navigate(`/dashboard/programs`);
-    } else if (itemToEdit.dismiss === Swal.DismissReason.cancel) {
-      Swal.fire("Cancelado", "No se creó el programa", "error");
-    }
-  });
+    swalCreateConfirmAlert("¿Quiere crear este programa?", program2, dispatch,navigate)
   }
 
   return (
