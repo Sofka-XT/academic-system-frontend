@@ -9,7 +9,7 @@ function TrainingDetails({training, dispatch}) {
     
     useEffect(() => {
         dispatch(getTrainingByIdThunk(params.trainingid));
-    },[dispatch])
+    },[dispatch, params.trainingid])
     
     const renderCoaches = () => {
             
