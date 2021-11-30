@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import {
   AddCourseToCurrentProgram,
-  updateNameCurrentProgram,
 } from "../../state/Program/programAction";
 import {
   getCoursesThunk,
@@ -13,26 +11,21 @@ import {
 import { connect } from "react-redux";
 import { InputPrograms } from "./components/InputPrograms";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
-import { useNavigate } from "react-router-dom";
 import "./FormCreatePrograPageComponent.css"
 import { useProgramEffectForActions, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
-import { checkIfProgramNameIsEmpty } from "./alerts/alerts";
+import { swalErrorAlert } from "./alerts/alerts";
+import { useNavigate } from "react-router";
+import { useForm } from "react-hook-form";
 
 const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }) => {
   const [selectedCourse, setSelectedCourse] = useState("");
   const navigate = useNavigate();
+  const {register,handleSubmit, formState: {errors}} = useForm()
 
   useProgramUpddateCurrentProgram(dispatch);
   useProgramEffectForActions(getCoursesThunk(),dispatch);
   useProgramEffectForActions(getProgramsThunk(),dispatch);
   
-  const handleInput = (e) => {
-    e.preventDefault();
-    let data = {
-      name: e.target.value,
-    };
-    dispatch(updateNameCurrentProgram(data));
-  };
 
   const handleSelect = (e) => {
     setSelectedCourse(courses[e.target.value]);
@@ -63,48 +56,31 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
     Swal.fire({ title: "Ya existe este curso", icon: "error" });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // if (program.name === "") {
-    //   Swal.fire({
-    //     title: "Debe poner el nombre del programa",
-    //     icon: "error",
-    //   });
-    //   return;
-    // }
+  const onSubmit = (data) => {
+    let program2 = JSON.parse(JSON.stringify(program))
+    program2.name = data.programName
     
-    checkIfProgramNameIsEmpty(Swal,program);
-
-    if(program.name.length < 4){
-      Swal.fire({
-        title: "El nombre del programa debe ser mayor que 4 caracteres",
-        icon: "error",
-      });
-      return;
-    }
-
-    if (program.courses.length === 0) {
-      Swal.fire({ title: "Debe añadir al menos un curso", icon: "error" });
+    if(program2.courses.length === 0){
+      swalErrorAlert("Debe añadir al menos un curso");
       return;
     }
 
     let isEqualProgram = false;
 
     programs.forEach((p) => {
-      if(p.name === program.name){
+      if(p.name === program2.name){
         isEqualProgram = true;
       }
     })
   
     if (isEqualProgram) {
-      Swal.fire({ title: `Ya existe un programa llamado ${program.name}`, icon: "warning" });
+      Swal.fire({ title: `Ya existe un programa llamado ${program2.name}`, icon: "warning" });
       return;
     }
 
     let isZeroADuration = false;
 
-    program.courses.forEach((c) => {
+    program2.courses.forEach((c) => {
       c.categories.forEach((ct => {
         if(parseInt(ct.days) <= 0){
           isZeroADuration = true;
@@ -117,47 +93,46 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
       return;
     }
 
-    const MySwal = withReactContent(Swal);
-    MySwal.fire({
-      title: "¿Quiere crear este programa?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Si, Crealo!",
-    }).then((itemToEdit) => {
-      if (itemToEdit.isConfirmed) {
-        MySwal.fire({
-          text: "El programa ha sido creado",
-          icon: "success",
-          showConfirmButton: false,
-          timer: 1000,
-        });
-        dispatch(postProgramThunk(program));
-        navigate(`/dashboard/programs`);
-      } else if (itemToEdit.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire("Cancelado", "No se creó el programa", "error");
-      }
-    });
-  };
+    Swal.fire({
+    title: "¿Quiere crear este programa?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, Crealo!",
+  }).then((itemToEdit) => {
+    if (itemToEdit.isConfirmed) {
+      Swal.fire({
+        text: "El programa ha sido creado",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      dispatch(postProgramThunk(program2));
+      navigate(`/dashboard/programs`);
+    } else if (itemToEdit.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire("Cancelado", "No se creó el programa", "error");
+    }
+  });
+  }
 
   return (
     <div clas="create-pogram">
-      <form className="form-container">
+      <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
         <h2>Crear Programa</h2>
         <div className="col-6">
           <label >Nombre del programa</label>
           <input
-            onChange={(e) => {
-              handleInput(e);
-            }}
             className="form-control"
-            name="name"
-            required
+            {...register("programName",{minLength : 3, required : true})}
+
           />
+          {errors.programName && <span>This field is required</span>}
+
+          <br/>
           <label>Selecciones un curso</label>
 
-          <select className="form-select" defaultValue={"DEFAULT"} onChange={(e) => handleSelect(e)}>
+          <select className="form-select" defaultValue={"DEFAULT"} {...register("course")} onChange={handleSelect}>
             <option value="DEFAULT" disabled>
               Seleccione un curso
             </option>
@@ -217,9 +192,6 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
             ))}
         </div>
         <button className="button-edit"
-          onClick={(e) => { 
-            handleSubmit(e);
-          }}
           type="submit"
         >
           Crear programa

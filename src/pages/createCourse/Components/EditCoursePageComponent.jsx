@@ -1,35 +1,25 @@
-import React, { useEffect, useState } from 'react';
-
 import { useAppDispatch } from '../../../state/store.hook';
-
 import { useNavigate, useParams } from 'react-router-dom';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { connect } from 'react-redux';
 import { putCourse } from '../../../thunkAction/coursesThunk';
-
 import { CourseGeneralFormComponent } from './courseGeneralFormComponent/CourseGeneralFormComponent';
 import { LoaderLoadingComponent } from './../../../common/Loader/LoaderLoadingComponent';
 import { MessageErrorFormComponent } from './messageErrorFormComponent/MessageErrorFormComponent';
+import { useCourseState } from './../hooks/useCourseState/useCourseState';
 
 const EditCoursePageComponent = ({ loading, error, courses }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const params = useParams();
-  const [course, setCourse] = useState(
-    courses.filter((course) => course.id === params.courseId)[0]
-  );
-
-  useEffect(() => {
-    setCourse(courses.filter((course) => course.id === params.courseId)[0]);
-  }, [courses, params.courseId]);
+  const { course } = useCourseState(courses, params);
 
   const handleCreateCourse = (data) => {
     data.id = params.courseId;
-
     dispatch(putCourse(data))
       .then(unwrapResult)
       .then((courseData) => {
-        if (!course.error) {
+        if (!courseData.error) {
           navigate(`/dashboard/courseslist/coursedetail/${course.id}`);
         }
       });
@@ -57,10 +47,10 @@ const EditCoursePageComponent = ({ loading, error, courses }) => {
     </>
   );
 };
-const mapState = (state) => ({
-  loading: state.coursesReducer.loading,
-  error: state.coursesReducer.error,
-  courses: state.coursesReducer.courses,
+const mapState = ({ coursesReducer }) => ({
+  loading: coursesReducer.loading,
+  error: coursesReducer.error,
+  courses: coursesReducer.courses,
 });
 
 export default connect(mapState)(EditCoursePageComponent);
