@@ -1,6 +1,6 @@
-import WelcomeCard from './WelcomeCard';
+import WelcomeCard from './components/WelcomeCard';
 import React from 'react';
-import './Welcome.css';
+import './components/WelcomeCard';
 
 export default function Welcome() {
     return (
