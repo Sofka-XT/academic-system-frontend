@@ -1,6 +1,5 @@
 import { HomePageComponent } from "../pages/home/HomePageComponent";
-import Welcome from "../pages/dashboard/components/welcome/Welcome.jsx";
-
+import Welcome from "../pages/welcome/Welcome";
 import DashBoardPageComponent from "./../pages/dashboard/DashBoardPageComponent";
 import TrainingListPageComponent from "../pages/trainingListPage/TrainingListPageComponent.jsx";
 import { CreateCoursePageComponent } from "./../pages/createCourse/CreateCoursePageComponent";
