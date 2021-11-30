@@ -4,13 +4,13 @@ import { useDispatch } from 'react-redux';
 
 import * as actions from '../../../state/crudTraining/crudTrainingActions';
 import { validateInputTraining } from '../../../state/crudTraining/traningValidations/validations';
-import {handleOnDrop} from './../../../common/csvHelpers/csvHelpers';
-import {handleSelectCoach} from './../../../common/formTrainingHelpers/formTrainingHelpers';
+import {handleOnDrop, handleOnRemoveFile} from './../../../common/csvHelpers/csvHelpers';
+import {handleSelectCoach, handleUnselectCoach} from './../../../common/formTrainingHelpers/formTrainingHelpers';
 
 import useForm from './../../../hooks/useForm';
 
-import CSVTableComponent from './CSVTableComponent';
-import ProgramsListComponent from './ProgramsListComponent';
+import CSVTableComponent from './csvTable/CSVTableComponent';
+import ProgramsListComponent from './programs/ProgramsListComponent';
 import TraningConfirmationCreationView from './TraningConfirmationCreationView';
 
 import Swal from 'sweetalert2';
@@ -68,28 +68,12 @@ const FormInputTrainingComponent = () => {
     }
   };
 
-  const handleOnRemoveFile = (e) => {
-    setTableState(null);
-  };
-
-  
-
   useEffect(() => {
     actions.fetchPrograms().then((result) => {
       dispatch({ type: actions.ADD_LIST_PROGRAMS, payload: result });
     });
     // eslint-disable-next-line
   }, []);
-
-  const handleUnselectCoach = (id) => {
-    const coachToDelete = coaches.filter((coach) => coach.id === id)[0];
-    const newCoachesSelected = coaches.filter((coach) => coach.id !== id);
-    const event = {
-      target: { name: 'coaches', value: newCoachesSelected },
-    };
-    handleInputChange(event);
-    setCoachesList([...coachesList, coachToDelete]);
-  };
 
   if (!formSent) {
     return (
@@ -169,7 +153,7 @@ const FormInputTrainingComponent = () => {
                   <button
                     id={`${coach.id}_button_delete_coach`}
                     className="btn btn-danger btn-delete-coach"
-                    onClick={() => handleUnselectCoach(coach.id)}
+                    onClick={() => handleUnselectCoach(coach.id, setCoachesList, handleInputChange, coachesList, coaches)}
                   >
                     <i className="fas fa-trash-alt"></i>
                   </button>
@@ -192,7 +176,7 @@ const FormInputTrainingComponent = () => {
                     dispatch,
                     handleInputChange)}
                   addRemoveButton
-                  onRemoveFile={handleOnRemoveFile}
+                  onRemoveFile={(e)=>handleOnRemoveFile(e, setTableState)}
                 >
                   <span className="training__csv-div text-center small">
                     <p>Sube aquí el archivo .CSV de los aprendices</p>

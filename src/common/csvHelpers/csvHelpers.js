@@ -24,3 +24,7 @@ export const handleOnDrop = (
   dispatch({ type: actions.ADD_LIST_APPRENTICES, payload: data });
   handleInputChange(e);
 };
+
+export const handleOnRemoveFile = (e, setTableState) => {
+  setTableState(null);
+};

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import CSVTableComponent from "./CSVTableComponent";
+import CSVTableComponent from "./csvTable/CSVTableComponent";
 
 const TraningConfirmationCreationView = ({ setFormSent }) => {
   const { traningSent } = useSelector((state) => state.crudTrainingReducer);

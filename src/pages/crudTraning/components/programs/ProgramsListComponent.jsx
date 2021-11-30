@@ -1,6 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ProgramCardComponent from "./ProgramCardComponent";
+
+import ProgramCardComponent from './ProgramCardComponent';
+
+import './../FormInputTrainingComponent.css';
+import './ProgramListComponent.css';
+
 
 const ProgramsListComponent = ({ handleInputChange }) => {
   const { programs } = useSelector((state) => state.crudTrainingReducer);

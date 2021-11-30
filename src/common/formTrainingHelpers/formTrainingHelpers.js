@@ -20,3 +20,19 @@ export const handleSelectCoach = (
   setCoachesList(newCoachesList);
   handleInputChange(event);
 };
+
+export const handleUnselectCoach = (
+  id,
+  setCoachesList,
+  handleInputChange,
+  coachesList,
+  coaches
+) => {
+  const coachToDelete = coaches.filter((coach) => coach.id === id)[0];
+  const newCoachesSelected = coaches.filter((coach) => coach.id !== id);
+  const event = {
+    target: { name: "coaches", value: newCoachesSelected },
+  };
+  handleInputChange(event);
+  setCoachesList([...coachesList, coachToDelete]);
+};
