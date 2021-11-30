@@ -2,38 +2,37 @@ import React from 'react';
 import { FileUploadComponent } from '../fileUploadComponent/FileUploadComponent';
 import { MessageErrorFormComponent } from './../messageErrorFormComponent/MessageErrorFormComponent';
 import './RulesFormComponent.css';
+import { useFormContext } from 'react-hook-form';
+import { useColorForType } from './../../hooks/useColorForType/useColorForType';
+import { useColorBg } from './../../hooks/useColorBg/useColorBg';
+
 export const RulesFormComponent = ({
-  errors,
-  register,
   indexCategory,
   indexRule,
-  setValue,
+
   rule,
 }) => {
-  const assingColorName = () => {
-    return rule.type === 'DANGER'
-      ? 'Roja'
-      : rule.type === 'WARNING'
-      ? 'Amarilla'
-      : 'Verde';
-  };
+  const {
+    formState: { errors },
+    register,
+  } = useFormContext();
+  const { color } = useColorForType(rule.type);
+  const { colorBg } = useColorBg(rule.type);
 
-  const assingColorBg = () => {
-    return rule.type === 'DANGER'
-      ? 'rule_red'
-      : rule.type === 'WARNING'
-      ? 'rule_yellow'
-      : 'rule_green';
+  const isAverange = () => {
+    return (
+      errors.categories &&
+      errors.categories[indexCategory]?.rules &&
+      errors.categories[indexCategory]?.rules[indexRule] &&
+      errors.categories[indexCategory]?.rules[indexRule]?.average
+    );
   };
   return (
     <div className={'mt-2 p-3  rule_container  col-4'}>
-      <h5 className={assingColorBg() + ' fs-5'}>
-        Alerta {rule.color || assingColorName()}
-      </h5>
+      <h5 className={`fs-5 ${colorBg}`}>Alerta {rule.color || color}</h5>
       <div className="row">
         <div className="form-group  d-none">
           <label htmlFor="">Tipo</label>
-
           <select
             className="form-control "
             name="type"
@@ -85,14 +84,11 @@ export const RulesFormComponent = ({
               }
             )}
           />
-          {errors.categories &&
-            errors.categories[indexCategory]?.rules &&
-            errors.categories[indexCategory]?.rules[indexRule] &&
-            errors.categories[indexCategory]?.rules[indexRule]?.average && (
-              <MessageErrorFormComponent
-                message={'debe agregar un calificacion'}
-              />
-            )}
+          {isAverange() && (
+            <MessageErrorFormComponent
+              message={'debe agregar un calificacion'}
+            />
+          )}
         </div>
         <div className="form-group col-6">
           <label htmlFor="">FeedBack name</label>
@@ -108,11 +104,8 @@ export const RulesFormComponent = ({
 
         <div className="form-group col-12 mt-2 ">
           <FileUploadComponent
-            register={register}
             indexCategory={indexCategory}
             indexRule={indexRule}
-            errors={errors}
-            setValue={setValue}
           />
         </div>
       </div>
