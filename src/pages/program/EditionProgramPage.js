@@ -3,10 +3,6 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  AddCourseToCurrentProgram,
-
-} from "../../state/Program/programAction";
-import {
   getCoursesThunk,
 } from "../../thunkAction/programThunk";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
@@ -14,7 +10,7 @@ import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
 import { useProgramEffectForActions, useProgramTotalDays, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
 import { useForm } from "react-hook-form";
-import { swalEditConfirmAlert, swalErrorAlert, swalWarningAlert } from "./alerts/alerts";
+import { swalErrorAlert } from "./alerts/alerts";
 import { triggerALertRepitedCourse, triggerALertRepitedProgram } from "./alerts/triggerAlerts";
 
 const EditionProgramPage = ({
@@ -44,19 +40,7 @@ const EditionProgramPage = ({
   };
 
   const handleAddCourse = () => {
-    let data = {
-      courseId: selectedCourse.id,
-      courseName: selectedCourse.name,
-      categories: selectedCourse.categories.map((category) => {
-        return {
-          categoryId: category.id,
-          categoryName: category.name,
-          days: 1,
-        };
-      }),
-    };
-
-    triggerALertRepitedCourse(program, dispatch,selectedCourse,data)
+    triggerALertRepitedCourse(program, dispatch,selectedCourse)
   };
 
   const onSubmit = (data) => {
@@ -68,7 +52,7 @@ const EditionProgramPage = ({
       return;
     }
 
-    triggerALertRepitedProgram(programs,program2,dispatch,navigate)
+    triggerALertRepitedProgram(programs,program2,dispatch,navigate,true)
   }
 
   const renderEditPage = () => {

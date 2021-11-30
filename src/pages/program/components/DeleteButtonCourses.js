@@ -18,7 +18,7 @@ export const DeleteButtonCourses = ({  dispatch,programId,courseId }) => {
       showCancelButton: true,
       confirmButtonText: 'Sí, borrar!',
       cancelButtonText: 'No, cancelar!',
-      reverseButtons: true,
+
     }).then((result) => {
       if (result.isConfirmed) {
           let data = {

@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import {
-  AddCourseToCurrentProgram,
-} from "../../state/Program/programAction";
-import {
   getCoursesThunk,
   getProgramsThunk,
 } from "../../thunkAction/programThunk";
@@ -14,6 +11,7 @@ import { useProgramEffectForActions, useProgramUpddateCurrentProgram } from "../
 import { swalCreateConfirmAlert, swalErrorAlert, swalWarningAlert } from "./alerts/alerts";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
+import { triggerALertRepitedCourse, triggerALertRepitedProgram } from "./alerts/triggerAlerts";
 
 const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }) => {
   const [selectedCourse, setSelectedCourse] = useState("");
@@ -30,28 +28,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
   };
 
   const handleAddCourse = () => {
-    let data = {
-      courseId: selectedCourse.id,
-      courseName: selectedCourse.name,
-      categories: selectedCourse.categories.map((category) => {
-        return { categoryId: category.id, categoryName: category.name };
-      }),
-    };
-
-    let isEqualValue = false;
-
-    program.courses.forEach((course) => {
-      if (course.courseId === selectedCourse.id) {
-        isEqualValue = true;
-      }
-    });
-
-    if (isEqualValue) {
-      swalErrorAlert("Ya existe este curso")
-      return;
-    }
-
-    dispatch(AddCourseToCurrentProgram(data));
+    triggerALertRepitedCourse(program,dispatch,selectedCourse)
   };
 
   const onSubmit = (data) => {
@@ -63,20 +40,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
       return;
     }
 
-    let isEqualProgram = false;
-
-    programs.forEach((p) => {
-      if(p.name.toLowerCase() === program2.name.toLowerCase()){
-        isEqualProgram = true;
-      }
-    })
-  
-    if (isEqualProgram) {
-      swalWarningAlert(`Ya existe un programa llamado ${program2.name}`)
-      return;
-    }
-
-    swalCreateConfirmAlert("¿Quiere crear este programa?", program2, dispatch,navigate)
+    triggerALertRepitedProgram(programs,program2,dispatch,navigate,false)
   }
 
   return (
@@ -140,7 +104,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
                           programId={program.id}
                           dispatch={dispatch}
                           name={category.categoryName}
-                          currentDays={1}
+                          currentDays={category.days}
                         ></InputPrograms>
                       ))}
                   </ul>
