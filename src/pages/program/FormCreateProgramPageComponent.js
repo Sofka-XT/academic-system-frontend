@@ -20,7 +20,7 @@ import { useForm } from "react-hook-form";
 const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }) => {
   const [selectedCourse, setSelectedCourse] = useState("");
   const navigate = useNavigate();
-  const {register,handleSubmit, formState: {errors}} = useForm()
+  const {register,handleSubmit} = useForm()
 
   useProgramUpddateCurrentProgram(dispatch);
   useProgramEffectForActions(getCoursesThunk(),dispatch);
@@ -78,21 +78,6 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
       return;
     }
 
-    let isZeroADuration = false;
-
-    program2.courses.forEach((c) => {
-      c.categories.forEach((ct => {
-        if(parseInt(ct.days) <= 0){
-          isZeroADuration = true;
-        }
-      }))
-    })
-
-    if (isZeroADuration) {
-      Swal.fire({ title: `No se pudo crear el curso, Duracion incorrecta`, icon: "warning" });
-      return;
-    }
-
     Swal.fire({
     title: "¿Quiere crear este programa?",
     icon: "warning",
@@ -123,11 +108,12 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
         <div className="col-6">
           <label >Nombre del programa</label>
           <input
+            required
+            minLength= "3"
             className="form-control"
             {...register("programName",{minLength : 3, required : true})}
 
           />
-          {errors.programName && <span>This field is required</span>}
 
           <br/>
           <label>Selecciones un curso</label>

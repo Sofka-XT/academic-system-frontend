@@ -41,7 +41,7 @@ export const InputPrograms = ({
         <label>Duración del programa:</label>
         <input
         type="number"
-        min="0"
+        min="1"
         className="program-inputs-days"
         value={duration}
         onChange={(e) => {
