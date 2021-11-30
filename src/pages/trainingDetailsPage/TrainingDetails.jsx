@@ -5,9 +5,11 @@ import { connect } from 'react-redux';
 
 function TrainingDetails({trainings}) {
     const params = useParams();
-    const { apprentices, name } = trainings.filter((item) => item.trainingId === params.trainingid)[0];
+    const { apprentices, name, coaches } = trainings.filter((item) => item.trainingId === params.trainingid)[0];
     console.log("Apprentices: ",  apprentices)
     console.log("name: ",  name)
+    console.log("coaches: ",  coaches);
+
     return (
         <div>
             Hola mundo
