@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import {
   deleteProgramByIdThunk,
   getProgramsThunk,
   getProgramByIdThunk,
-
 } from "../../thunkAction/programThunk";
 import { Card } from "./components/Card";
 
@@ -19,14 +18,13 @@ const ListOfProgramsPageComponent = ({
 }) => {
   useEffect(() => {
     dispatch(getProgramsThunk());
-  }, [redirect,dispatch]);
+  }, [redirect, dispatch]);
 
   const handleDelete = (id) => {
     dispatch(deleteProgramByIdThunk(id));
   };
 
   const handleEdit = (id) => {
-    // console.log("editing... " + id);
     dispatch(getProgramByIdThunk(id));
   };
 

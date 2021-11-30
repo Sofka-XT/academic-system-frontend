@@ -12,7 +12,13 @@ export const InputPrograms = ({
 }) => {
   const [duration, setDuration] = useState(currentDays);
 
-  useProgramUpdateDaysCurrentProgram(programId,categoryId,courseId,currentDays,dispatch)
+  useProgramUpdateDaysCurrentProgram(
+    programId,
+    categoryId,
+    courseId,
+    currentDays,
+    dispatch
+  );
 
   const handleDurationChange = (e) => {
     e.preventDefault();
