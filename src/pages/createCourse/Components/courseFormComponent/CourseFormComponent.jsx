@@ -20,15 +20,15 @@ const CourseFormComponent = ({ loading, error }) => {
 
   const handleCreateCourse = (data) => {
     console.log(data);
-    // dispatch(addCourse(data))
-    //   .then(unwrapResult)
-    //   .then((course) => {
-    //     if (!course.error) {
-    //       MySwal.fire(<p>Creado</p>);
-    //       console.log('s');
-    //       navigate(`/dashboard/courseslist/coursedetail/${course.id}`);
-    //     }
-    //   });
+    dispatch(addCourse(data))
+      .then(unwrapResult)
+      .then((course) => {
+        if (!course.error) {
+          MySwal.fire(<p>Creado</p>);
+          console.log('s');
+          navigate(`/dashboard/courseslist/coursedetail/${course.id}`);
+        }
+      });
   };
   const onSubmit = (data) => handleCreateCourse(data);
 
