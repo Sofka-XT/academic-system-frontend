@@ -3,56 +3,6 @@
   height: 100vh;
 }
 
-
-.Navbar{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  height: var(--navbar-height);
-  background-color: rgb(155, 160, 202);
-  position: fixed;
-  z-index: 1;
-  padding: 0 15px;
-}
-
-.Navbar span{
-  color: var(--white-color);
-}
-
-.right-side{
-  
-  display: flex;
-  justify-content: space-evenly;
-  gap: 15px;
-  align-items: center;
-  width: 30%;
-}
-
-.turn-off{
-  background-color: var(--third-color);
-  border-radius: 20px;
-  height: 32px;
-  width: 32px;
-  margin-right: 2%;
-  margin-left: -50%;
-
-}
-
-.turn-off:hover{
-  background-color: var(--sofka-orange);
-  border-radius: 20px;
-  height: 32px;
-  width: 32px;
-  margin-right: 2%;
-}
-
-.profile-picture{
-  border-radius: 100%;
-  height: 32px;
-  width: 32px;
-}
-
 .dashboard{
   display: flex;
   flex-direction: row;
