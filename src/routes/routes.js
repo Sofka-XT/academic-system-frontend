@@ -11,6 +11,7 @@ import EditionProgramPage from "../pages/program/EditionProgramPage";
 import ListOfProgramsPageComponent from "../pages/program/ListOfProgramsPageComponent";
 import FormCreateProgramPageComponent from "../pages/program/FormCreateProgramPageComponent";
 import FormInputTrainingComponent from "./../pages/crudTraning/components/FormInputTrainingComponent";
+import ProfilePageComponent from "../pages/profile/ProfilePageComponent";
 
 export const routesApp = [
   {
@@ -79,6 +80,11 @@ export const routesApp = [
         name: "formInputTraining",
         component: <FormInputTrainingComponent />,
       },
+      {
+        path: "profile/*",
+        name: "profile",
+        component: <ProfilePageComponent />
+      },
     ],
   },
 ];
@@ -113,6 +119,11 @@ export const apprenticeRoutesApp = [
         path: "courseslist/coursedetail/:courseid",
         name: "Course Detail",
         component: <CourseDetail />,
+      },
+      {
+        path: "profile/*",
+        name: "profile",
+        component: <ProfilePageComponent />
       },
     ],
   },
