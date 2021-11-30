@@ -3,7 +3,7 @@ import Navbar from '../dashboard/components/Navbar'
 import { connect } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import './DashBoardPageComponent.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { APPRENTICE, COACH } from '../../constants/constant';
 
 

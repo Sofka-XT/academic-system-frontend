@@ -4,7 +4,7 @@ import '../login/LoginPageComponent.css';
 import { useAppDispatch } from '../../state/store.hook';
 import { signInwWithLocalStorage } from '../../thunkAction/authThunk';
 import { connect } from 'react-redux';
-import { useNavigate, useLocation, useHistory} from 'react-router';
+import { useNavigate} from 'react-router';
 
 
 const LoginPageComponent = ( { user }) => {

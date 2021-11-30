@@ -1,4 +1,4 @@
-import React, {useEffect, useLayoutEffect} from 'react'
+import React, {useEffect} from 'react'
 import { connect } from "react-redux";
 import ListTraining from './components/ListTraining'
 import { getActiveTrainingThunk } from "../../thunkAction/activeTrainingThunk";
