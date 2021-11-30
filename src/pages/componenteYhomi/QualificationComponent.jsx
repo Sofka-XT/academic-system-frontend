@@ -2,6 +2,7 @@ import { setAllCourses } from "../../thunkAction/coursesThunk";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import AccordionCourse from "./AccordionCourse";
+import "./QualificacionComponent.css"
 
 const QualificationComponent = ({ dispatch, courses, loading, hasError }) => {
   useEffect(() => {
@@ -10,9 +11,11 @@ const QualificationComponent = ({ dispatch, courses, loading, hasError }) => {
 
   return (
     <div>
-      <h1 className="header">Estados de calificaciones</h1>
+      <h1 className='TitleQualification'>Estados de calificaciones</h1>
       {console.log(courses)}
+      <div>
       <AccordionCourse courses={courses} />
+      </div>
     </div>
   );
 };

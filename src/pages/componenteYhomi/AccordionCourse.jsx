@@ -1,20 +1,7 @@
 import { useState } from "react";
+import AccordionCategories from "./AccordionCategories";
 import "./AccordionCourse.css";
 
-const data=[
-    {
-        question:"pregunta 1",
-        answer:"esta es la respuesta"
-    },
-    {
-        question:"pregunta 2",
-        answer:"esta es la respuesta"
-    },
-    {
-        question:"pregunta 3",
-        answer:"esta es la respuesta"
-    },
-]
 const AccordionCourse = ({courses}) => {
     const [selected,setSelected]=useState(null)
     const toggle=(i)=>{
@@ -34,7 +21,10 @@ const AccordionCourse = ({courses}) => {
                         <h2>{item.name}</h2>
                         <span>{selected===i?'-':'+'}</span>
                     </div>
-                    <div className= {selected===i?'content show':'content'}>{item.categories[0].name}</div>
+                    <div className= {selected===i?'content show':'content'}>
+                    {/*item.categories[0].name*/}
+                    <AccordionCategories categories={item.categories}></AccordionCategories>
+                    </div>
                 </div>
             )
 

@@ -1,0 +1,7 @@
+.itemCategory{
+    display: flex;
+    color: #85662b;
+    justify-content: space-between;
+    align-items: center;
+    cursor:pointer;
+}
