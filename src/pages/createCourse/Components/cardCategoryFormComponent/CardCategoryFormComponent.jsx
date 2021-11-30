@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { RulesFormComponent } from './../rulesFormComponent/RulesFormComponent';
 import { MessageErrorFormComponent } from './../messageErrorFormComponent/MessageErrorFormComponent';
+import { useFormContext } from 'react-hook-form';
+import { AddUrlGradesComponent } from '../addUrlGradesComponent/AddUrlGradesComponent';
 
-export const CardCategoryFormComponent = ({
-  errors,
-  register,
-  setValue,
-  index,
-  rules,
-  remove,
-}) => {
+export const CardCategoryFormComponent = ({ index, rules, remove }) => {
+  const {
+    formState: { errors },
+    register,
+  } = useFormContext();
+
   const [toggle, setToggle] = useState(true);
   return (
     <>
@@ -52,24 +52,21 @@ export const CardCategoryFormComponent = ({
       </div>
 
       <div className={toggle === true ? 'd-none' : ''}>
-        <div className="form-group d-flex justify-content-between mt-1">
-          <div className="w-25"></div>
-          <div></div>
-        </div>
         <div className="row w-100">
           {rules.map((rule, indexRule) => {
             return (
               <RulesFormComponent
                 key={indexRule}
-                register={register}
-                errors={errors}
                 indexCategory={index}
                 indexRule={indexRule}
                 rule={rule}
-                setValue={setValue}
               />
             );
           })}
+        </div>
+
+        <div>
+          <AddUrlGradesComponent indexCategory={index} />
         </div>
       </div>
     </>
