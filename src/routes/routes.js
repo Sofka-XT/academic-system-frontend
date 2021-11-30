@@ -30,11 +30,6 @@ export const routesApp = [
         component: <HomePageComponent />,
       },
       {
-        path: "program",
-        name: "Create Program",
-        component: <h1>Create Program</h1>,
-      },
-      {
         path: "activetrainingcoach",
         name: "Active Training",
         component: <TrainingListPageComponent />,
