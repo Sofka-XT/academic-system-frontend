@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import * as actions from '../../../state/crudTraining/crudTrainingActions';
 import { validateInputTraining } from '../../../state/crudTraining/traningValidations/validations';
+import {handleOnDrop} from './../../../common/csvHelpers/csvHelpers';
+import {handleSelectCoach} from './../../../common/formTrainingHelpers/formTrainingHelpers';
 
 import useForm from './../../../hooks/useForm';
 
@@ -13,6 +15,7 @@ import TraningConfirmationCreationView from './TraningConfirmationCreationView';
 
 import Swal from 'sweetalert2';
 import './FormInputTrainingComponent.css';
+
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
@@ -65,46 +68,11 @@ const FormInputTrainingComponent = () => {
     }
   };
 
-  const handleOnDrop = (csvInfo) => {
-    const data = csvInfo
-      .map((item) => item.data)
-      .map((infoArray) => ({
-        name: infoArray[0],
-        emailAddress: infoArray[1],
-        phoneNumber: infoArray[2],
-      }));
-    setTableState(data);
-    const e = {
-      target: {
-        name: 'apprentices',
-        value: data,
-      },
-    };
-
-    dispatch({ type: actions.ADD_LIST_APPRENTICES, payload: data });
-    handleInputChange(e);
-  };
-
   const handleOnRemoveFile = (e) => {
     setTableState(null);
   };
 
-  const handleSelectCoach = ({ target }) => {
-    if (target.value === '0') return;
-
-    const coachSelected = coachesList.filter(
-      (coach) => coach.id === target.value
-    )[0];
-    const event = {
-      target: { name: 'coaches', value: [...coaches, coachSelected] },
-    };
-    const newCoachesList = coachesList.filter(
-      (coach) => coach.id !== target.value
-    );
-
-    setCoachesList(newCoachesList);
-    handleInputChange(event);
-  };
+  
 
   useEffect(() => {
     actions.fetchPrograms().then((result) => {
@@ -165,7 +133,8 @@ const FormInputTrainingComponent = () => {
                 value={coachesList[0].id}
                 id="training__coaches_select"
                 className="trainings__select-input trainings__input-coaches"
-                onChange={handleSelectCoach}
+                onChange={(e)=>handleSelectCoach(e, setCoachesList, handleInputChange, coachesList,
+                  coaches)}
               >
                 {coachesList.map((coach) => (
                   <option value={coach.id}>{coach.name}</option>
@@ -218,7 +187,10 @@ const FormInputTrainingComponent = () => {
               <div className="training__file-input">
                 <CSVReader
                   id="csv_reader_training"
-                  onDrop={handleOnDrop}
+                  onDrop={(csvInfo)=>handleOnDrop(csvInfo,
+                    setTableState,
+                    dispatch,
+                    handleInputChange)}
                   addRemoveButton
                   onRemoveFile={handleOnRemoveFile}
                 >
