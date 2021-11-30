@@ -20,6 +20,7 @@ import ProgramsListComponent from "./programs/ProgramsListComponent";
 import TraningConfirmationCreationView from "./../components/confirmationPage/TraningConfirmationCreationView";
 
 import Swal from "sweetalert2";
+
 import "./FormInputTrainingComponent.css";
 
 const FormInputTrainingComponent = () => {
