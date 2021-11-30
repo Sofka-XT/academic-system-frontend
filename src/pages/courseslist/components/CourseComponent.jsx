@@ -1,10 +1,9 @@
 import './CourseComponent.css'
-import { useNavigate, useLocation } from 'react-router';
+import { useNavigate } from 'react-router';
 
 export const CourseComponent = ({name, id}) =>{
 
     const navigate = useNavigate();
-    console.log("USE LOCATION: " , useLocation())
 
     return(
     <button className="course"
