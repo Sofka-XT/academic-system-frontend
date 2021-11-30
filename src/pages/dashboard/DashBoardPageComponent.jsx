@@ -1,5 +1,5 @@
 import { SideBarCoachComponent, SideBarApprenticeComponent } from './components/sideBar/SideBarComponent';
-import Navbar from '../dashboard/components/Navbar'
+import Navbar from '../dashboard/components/navbar/Navbar'
 import { connect } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import './DashBoardPageComponent.css';
