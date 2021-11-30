@@ -52,7 +52,7 @@ html, body, #app, #app>div {
  }
 
 
-.button {
+.button-login {
   background-color: #4CAF50;
   /* Green */
   border: none;
@@ -67,7 +67,7 @@ html, body, #app, #app>div {
 
 }
 
-.button2 {
+.button2-login {
   background-color: #008CBA;
   cursor: pointer;
   border-radius: 5px;
@@ -75,4 +75,4 @@ html, body, #app, #app>div {
 
 /* Blue */
 
-.button2:hover {background-color: #35a4c9;}
+.button2-login:hover {background-color: #35a4c9;}
