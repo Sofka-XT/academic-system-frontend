@@ -3,8 +3,12 @@ import LoginPageComponent  from './pages/login/LoginPageComponent';
 import PrivateApprenticeRoutes from './routes/PrivateApprenticeRoutes';
 import PrivateRoutes from './routes/PrivateRoutes';
 import { apprenticeRoutesApp, routesApp} from './routes/routes';
+import { saveLastPathWhenReload } from './common/saveLastPath/saveLastPath';
 
 export const AppRouter = () => {
+
+	saveLastPathWhenReload();
+
 	return (
 		<HashRouter>
 			<Routes>

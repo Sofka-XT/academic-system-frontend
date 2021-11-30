@@ -3,13 +3,11 @@ import Navbar from '../dashboard/components/Navbar'
 import { connect } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import './DashBoardPageComponent.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { APPRENTICE, COACH } from '../../constants/constant';
 
 
 const DashBoardPageComponent = ( {user} ) => {
-
-
 	return (
 		<div className="dashboard" id = "dashboard">
 			<Navbar />
