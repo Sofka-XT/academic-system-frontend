@@ -12,6 +12,7 @@ import { useProgramEffectForActions, useProgramTotalDays, useProgramUpddateCurre
 import { useForm } from "react-hook-form";
 import { swalErrorAlert } from "./alerts/alerts";
 import { triggerALertRepitedCourse, triggerALertRepitedProgram } from "./alerts/triggerAlerts";
+import { renderEditPage } from "./components/renderEditPage";
 
 const EditionProgramPage = ({
   dispatch,
@@ -55,82 +56,6 @@ const EditionProgramPage = ({
     triggerALertRepitedProgram(programs,program2,dispatch,navigate,true)
   }
 
-  const renderEditPage = () => {
-    if (Object.keys(program).length !== 0) {
-      return (
-        <div>
-          <h3>Cursos:</h3>
-          <div className="select-container">
-            <h6>Agregar curso: </h6>
-            <div>
-              <select
-                className="form-select"
-                defaultValue={"DEFAULT"}
-                onChange={(e) => handleSelect(e)}
-              >
-                <option disabled value={"DEFAULT"}>
-                  Seleccione un curso
-                </option>
-                {courses.map((course, index) => {
-                  return (
-                    <option key={index} value={index}>
-                      {course.name}
-                    </option>
-                  );
-                })}
-              </select>
-              {Object.keys(selectedCourse).length !== 0 && (
-                <button
-                className="button-edit"
-                  type="button"
-                  onClick={() => {
-                    handleAddCourse();
-                  }}
-                >
-                  Añadir curso
-                </button>
-              )}
-            </div>
-          </div>
-          {program.courses &&
-            program.courses.map((course) => (
-              <div key={course.courseId}>
-                <div className="bd-callout bd-callout-warning">
-                  <div className="course-container">
-                    <h4>{course.courseName}</h4>
-                    {courses.length !== 1 && (
-                      <DeleteButtonCourses
-                        dispatch={dispatch}
-                        programId={program.id}
-                        courseId={course.courseId}
-                      />
-                    )}
-                  </div>
-                  <div className="topics-list">
-                    <h5 className="topics-label">Temas:</h5>
-                    <ul>
-                      {course.categories &&
-                        course.categories.map((category) => (
-                          <InputPrograms
-                            key={category.categoryId}
-                            categoryId={category.categoryId}
-                            category={category}
-                            courseId={course.courseId}
-                            programId={program.id}
-                            dispatch={dispatch}
-                            currentDays={category.days}
-                          />
-                        ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-        </div>
-      );
-    }
-  };
-
   return (
     <div>
       <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
@@ -154,7 +79,7 @@ const EditionProgramPage = ({
           </div>
 
           <div>
-            <div>{renderEditPage()}</div>
+            <div>{renderEditPage(program,handleSelect,courses,selectedCourse,handleAddCourse,DeleteButtonCourses,dispatch,InputPrograms)}</div>
           </div>
         </div>
         <button

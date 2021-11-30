@@ -8,7 +8,7 @@ import { InputPrograms } from "./components/InputPrograms";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import "./FormCreatePrograPageComponent.css"
 import { useProgramEffectForActions, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
-import { swalCreateConfirmAlert, swalErrorAlert, swalWarningAlert } from "./alerts/alerts";
+import { swalErrorAlert } from "./alerts/alerts";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { triggerALertRepitedCourse, triggerALertRepitedProgram } from "./alerts/triggerAlerts";
@@ -85,14 +85,15 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
           )}
           <br />
 
+          
           {program.courses &&
             program.courses.map((course) => (
               <div className="bd-callout bd-callout-warning" key={course.courseId}>
+                <div className="course-container">
                 <h6>{course.courseName}</h6>
 
-                <div>
-                  <label>Temas</label>
-
+                <div className="topics-list">
+                  <h5 className="topics-label">Categorias:</h5>
                   <ul>
                     {course.categories &&
                       course.categories.map((category) => (
@@ -108,6 +109,8 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
                         ></InputPrograms>
                       ))}
                   </ul>
+                </div>
+
                 </div>
                 {courses.length !== 1 && (
                   <DeleteButtonCourses

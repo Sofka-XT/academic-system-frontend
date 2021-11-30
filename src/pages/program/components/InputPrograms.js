@@ -38,7 +38,7 @@ export const InputPrograms = ({
     <div>
       <li className="categoriesList">{category.categoryName}</li>
       <div className="duration-category">
-        <label>Duración del programa:</label>
+        <label>Duracion de la categoria:</label>
         <input
         type="number"
         min="1"
