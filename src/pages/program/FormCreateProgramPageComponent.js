@@ -6,61 +6,75 @@ import {
 import { connect } from "react-redux";
 import { InputPrograms } from "./components/InputPrograms";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
-import "./FormCreatePrograPageComponent.css"
-import { useProgramEffectForActions, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
+import "./FormCreatePrograPageComponent.css";
+import {
+  useProgramEffectForActions,
+  useProgramUpddateCurrentProgram,
+} from "../../hooks/useProgram";
 import { swalErrorAlert } from "./alerts/alerts";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
-import { triggerALertRepitedCourse, triggerALertRepitedProgram } from "./alerts/triggerAlerts";
+import {
+  triggerALertRepitedCourse,
+  triggerALertRepitedProgram,
+} from "./alerts/triggerAlerts";
 
-const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }) => {
+const FormCreateProgramPageComponent = ({
+  dispatch,
+  courses,
+  program,
+  programs,
+}) => {
   const [selectedCourse, setSelectedCourse] = useState("");
   const navigate = useNavigate();
-  const {register,handleSubmit} = useForm()
+  const { register, handleSubmit } = useForm();
 
   useProgramUpddateCurrentProgram(dispatch);
-  useProgramEffectForActions(getCoursesThunk(),dispatch);
-  useProgramEffectForActions(getProgramsThunk(),dispatch);
-  
+  useProgramEffectForActions(getCoursesThunk(), dispatch);
+  useProgramEffectForActions(getProgramsThunk(), dispatch);
 
   const handleSelect = (e) => {
     setSelectedCourse(courses[e.target.value]);
   };
 
   const handleAddCourse = () => {
-    triggerALertRepitedCourse(program,dispatch,selectedCourse)
+    triggerALertRepitedCourse(program, dispatch, selectedCourse);
   };
 
   const onSubmit = (data) => {
-    let program2 = JSON.parse(JSON.stringify(program))
-    program2.name = data.programName
-    
-    if(program2.courses.length === 0){
+    let program2 = JSON.parse(JSON.stringify(program));
+    program2.name = data.programName;
+
+    if (program2.courses.length === 0) {
       swalErrorAlert("Debe añadir al menos un curso");
       return;
     }
 
-    triggerALertRepitedProgram(programs,program2,dispatch,navigate,false)
-  }
+    triggerALertRepitedProgram(programs, program2, dispatch, navigate, false);
+  };
 
   return (
     <div clas="create-pogram">
       <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
         <h2>Crear Programa</h2>
         <div className="col-6">
-          <label >Nombre del programa</label>
+          <label>Nombre del programa</label>
           <input
             required
-            minLength= "3"
+            minLength="4"
             className="form-control"
             {...register("programName")}
-
           />
 
-          <br/>
+          <br />
           <label>Selecciones un curso</label>
 
-          <select className="form-select" defaultValue={"DEFAULT"} {...register("course")} onChange={handleSelect}>
+          <select
+            className="form-select"
+            defaultValue={"DEFAULT"}
+            {...register("course")}
+            onChange={handleSelect}
+          >
             <option value="DEFAULT" disabled>
               Seleccione un curso
             </option>
@@ -74,7 +88,8 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
           </select>
 
           {Object.keys(selectedCourse).length !== 0 && (
-            <button className="button-edit"
+            <button
+              className="button-edit"
               type="button"
               onClick={() => {
                 handleAddCourse();
@@ -85,32 +100,33 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
           )}
           <br />
 
-          
           {program.courses &&
             program.courses.map((course) => (
-              <div className="bd-callout bd-callout-warning" key={course.courseId}>
+              <div
+                className="bd-callout bd-callout-warning"
+                key={course.courseId}
+              >
                 <div className="course-container">
-                <h6>{course.courseName}</h6>
+                  <h6>{course.courseName}</h6>
 
-                <div className="topics-list">
-                  <h5 className="topics-label">Categorias:</h5>
-                  <ul>
-                    {course.categories &&
-                      course.categories.map((category) => (
-                        <InputPrograms
-                          key={category.categoryId}
-                          categoryId={category.categoryId}
-                          category={category}
-                          courseId={course.courseId}
-                          programId={program.id}
-                          dispatch={dispatch}
-                          name={category.categoryName}
-                          currentDays={category.days}
-                        ></InputPrograms>
-                      ))}
-                  </ul>
-                </div>
-
+                  <div className="topics-list">
+                    <h5 className="topics-label">Categorias:</h5>
+                    <ul>
+                      {course.categories &&
+                        course.categories.map((category) => (
+                          <InputPrograms
+                            key={category.categoryId}
+                            categoryId={category.categoryId}
+                            category={category}
+                            courseId={course.courseId}
+                            programId={program.id}
+                            dispatch={dispatch}
+                            name={category.categoryName}
+                            currentDays={category.days}
+                          ></InputPrograms>
+                        ))}
+                    </ul>
+                  </div>
                 </div>
                 {courses.length !== 1 && (
                   <DeleteButtonCourses
@@ -122,9 +138,7 @@ const FormCreateProgramPageComponent = ({ dispatch, courses, program, programs }
               </div>
             ))}
         </div>
-        <button className="button-edit"
-          type="submit"
-        >
+        <button className="button-edit" type="submit">
           Crear programa
         </button>
       </form>

@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
-import { postProgramThunk, updateProgramThunk } from "../../../thunkAction/programThunk";
+import { deleteCourseById } from "../../../state/Program/programAction";
+import { deleteProgramByIdThunk, postProgramThunk, updateProgramThunk } from "../../../thunkAction/programThunk";
 
 
 
@@ -51,6 +52,47 @@ import { postProgramThunk, updateProgramThunk } from "../../../thunkAction/progr
         dispatch(postProgramThunk(program));
         
         navigate(`/dashboard/programs`);
+      } else if (itemToEdit.dismiss === Swal.DismissReason.cancel) {
+        swalCanceledAlert()
+      }
+    });
+  }
+
+  export const swalDeleteProgramConfirmAlert = (title, id, dispatch) => {
+    Swal.fire({
+      title: title,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, Borrar!",
+    }).then((itemToEdit) => {
+      if (itemToEdit.isConfirmed) {
+        swalSuccessAlert("El programa ha sido eliminado")
+        dispatch(deleteProgramByIdThunk(id));
+      } else if (itemToEdit.dismiss === Swal.DismissReason.cancel) {
+        swalCanceledAlert()
+      }
+    });
+  }
+
+  export const swalDeleteCourseConfirmAlert = (programId,courseId,title, dispatch) => {
+    let data = {
+      programId: programId,
+      courseId: courseId,
+    };
+    
+    Swal.fire({
+      title: title,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, Borrar!",
+    }).then((itemToEdit) => {
+      if (itemToEdit.isConfirmed) {
+        swalSuccessAlert("El programa ha sido eliminado")
+        dispatch(deleteCourseById(data));
       } else if (itemToEdit.dismiss === Swal.DismissReason.cancel) {
         swalCanceledAlert()
       }

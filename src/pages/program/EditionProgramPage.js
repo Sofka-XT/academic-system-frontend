@@ -2,16 +2,21 @@ import { connect } from "react-redux";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  getCoursesThunk,
-} from "../../thunkAction/programThunk";
+import { getCoursesThunk } from "../../thunkAction/programThunk";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
-import { useProgramEffectForActions, useProgramTotalDays, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
+import {
+  useProgramEffectForActions,
+  useProgramTotalDays,
+  useProgramUpddateCurrentProgram,
+} from "../../hooks/useProgram";
 import { useForm } from "react-hook-form";
 import { swalErrorAlert } from "./alerts/alerts";
-import { triggerALertRepitedCourse, triggerALertRepitedProgram } from "./alerts/triggerAlerts";
+import {
+  triggerALertRepitedCourse,
+  triggerALertRepitedProgram,
+} from "./alerts/triggerAlerts";
 import { renderEditPage } from "./components/renderEditPage";
 
 const EditionProgramPage = ({
@@ -24,14 +29,14 @@ const EditionProgramPage = ({
   courses,
 }) => {
   const [selectedCourse, setSelectedCourse] = useState({});
-  const {register,handleSubmit} = useForm()
+  const { register, handleSubmit } = useForm();
 
   const navigate = useNavigate();
 
-  useProgramTotalDays(program,dispatch);
-  
+  useProgramTotalDays(program, dispatch);
+
   useProgramUpddateCurrentProgram(dispatch);
-  useProgramEffectForActions(getCoursesThunk(),dispatch);
+  useProgramEffectForActions(getCoursesThunk(), dispatch);
 
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Show Program.</p>;
@@ -41,20 +46,20 @@ const EditionProgramPage = ({
   };
 
   const handleAddCourse = () => {
-    triggerALertRepitedCourse(program, dispatch,selectedCourse)
+    triggerALertRepitedCourse(program, dispatch, selectedCourse);
   };
 
   const onSubmit = (data) => {
-    let program2 = JSON.parse(JSON.stringify(program))
-    program2.name = data.programName
+    let program2 = JSON.parse(JSON.stringify(program));
+    program2.name = data.programName;
 
-    if(program2.courses.length === 0){
+    if (program2.courses.length === 0) {
       swalErrorAlert("Debe añadir al menos un curso");
       return;
     }
 
-    triggerALertRepitedProgram(programs,program2,dispatch,navigate,true)
-  }
+    triggerALertRepitedProgram(programs, program2, dispatch, navigate, true);
+  };
 
   return (
     <div>
@@ -66,9 +71,9 @@ const EditionProgramPage = ({
               <h2 className="program-name"> Nombre del programa: </h2>
               <input
                 required
-                minLength= "3"
+                minLength="4"
                 className="program-inputs-name"
-                defaultValue = {program.name}
+                defaultValue={program.name}
                 {...register("programName")}
               />
             </div>
@@ -79,13 +84,21 @@ const EditionProgramPage = ({
           </div>
 
           <div>
-            <div>{renderEditPage(program,handleSelect,courses,selectedCourse,handleAddCourse,DeleteButtonCourses,dispatch,InputPrograms)}</div>
+            <div>
+              {renderEditPage(
+                program,
+                handleSelect,
+                courses,
+                selectedCourse,
+                handleAddCourse,
+                DeleteButtonCourses,
+                dispatch,
+                InputPrograms
+              )}
+            </div>
           </div>
         </div>
-        <button
-          className="button-edit"
-          type="submit"
-        >
+        <button className="button-edit" type="submit">
           Enviar
         </button>
       </form>
