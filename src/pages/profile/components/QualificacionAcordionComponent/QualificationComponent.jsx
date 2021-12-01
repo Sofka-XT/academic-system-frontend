@@ -1,5 +1,4 @@
-import { setAllCourses } from "../../thunkAction/coursesThunk";
-import { getApprenticeInfo } from "../../thunkAction/profileThunk";
+import { getApprenticeInfo } from "../../../../thunkAction/profileThunk";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import AccordionCourse from "./AccordionCourse";
@@ -15,9 +14,9 @@ const QualificationComponent = ({ dispatch, apprentice, loading, hasError }) => 
   return (
     <div>
       <h1 className='TitleQualification'>Estados de calificaciones</h1>
-      {console.log(apprentice.courses)}
+      {console.log(apprentice?.courses)}
       <div>
-      <AccordionCourse courses={apprentice.courses} />
+      <AccordionCourse courses={apprentice?.courses} />
       </div>
     </div>
   );

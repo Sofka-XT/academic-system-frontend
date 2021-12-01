@@ -10,7 +10,6 @@ import EditionProgramPage from "../pages/program/EditionProgramPage";
 import ListOfProgramsPageComponent from "../pages/program/ListOfProgramsPageComponent";
 import FormCreateProgramPageComponent from "../pages/program/FormCreateProgramPageComponent";
 import FormInputTrainingComponent from "./../pages/crudTraning/components/FormInputTrainingComponent";
-import QualificationComponent from "../pages/QualificacionAcordionComponent/QualificationComponent";
 import TrainingDetails from "../pages/trainingDetailsPage/TrainingDetails";
 import ProfilePageComponent from "../pages/profile/ProfilePageComponent";
 
@@ -75,11 +74,6 @@ export const routesApp = [
         path: "createTraining",
         name: "formInputTraining",
         component: <FormInputTrainingComponent />,
-      },
-      {
-        path: "acordion",
-        name: "Acordion",
-        component: <QualificationComponent />,
       },
       {
         path: "traininglist/trainingdetail/:trainingid",

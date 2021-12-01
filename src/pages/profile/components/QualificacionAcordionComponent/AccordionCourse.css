@@ -45,3 +45,14 @@
 .titleAccordionName{
     font-size: 1.5rem ;
 }
+
+.average
+{
+    display: flex;
+
+    justify-content: right;
+    align-items: center;
+    
+    padding: 2px 20px;
+    color: white;
+}

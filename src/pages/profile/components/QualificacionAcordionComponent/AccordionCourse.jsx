@@ -15,12 +15,14 @@ const AccordionCourse = ({courses}) => {
     return(
         <div className='wrapper'>
             <div className='accordion'> 
-            {courses.map((item,i)=>(
+            {courses?.map((item,i)=>(
                 <div className="item">
                     <div className ='title' on onClick={()=>toggle(i)}>
                         <h2 className='titleAccordionName'>{item.courseName}</h2>
                         <i className={selected===i?"fas fa-minus-circle":"fas fa-plus-circle"}></i>
                     </div>
+                    <h5 className='average'>{item.average}</h5>
+
                     <div className= {selected===i?'content show':'content'}>
                     {/*item.categories[0].name*/}
                     {console.log(item)}
