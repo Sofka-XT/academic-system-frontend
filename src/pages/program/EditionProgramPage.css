@@ -20,18 +20,10 @@
   border-bottom: 2px solid #232323;
 }
 .select-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 10px;
-  border-radius: 8px;
-  /* border: 2px solid #9aa0ca; */
-  padding: 25px;
-  width: 90%;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  color: black;
+  width: 100%;
+}
+.select-container2{
+  width: 80%;
 }
 .select-input {
   color: black;
@@ -92,7 +84,6 @@
   width: 65%;
   margin: 0 auto;
   margin-top: 10px;
-  /* border: 1px solid yellowgreen; */
 }
 
 .button-edit {

@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 60px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 .create-program-container{
   display: flex;
@@ -31,7 +31,6 @@
   justify-content: space-between;
   /* border: 1px solid red; */
   width: 80%;
-  /* height: 300px; */
 }
 .create-progra-select-container{
   display: flex;

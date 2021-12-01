@@ -10,7 +10,7 @@ export const renderEditPage = (
 ) => {
   if (Object.keys(program).length !== 0) {
     return (
-      <div>
+      <div className="select-container2">
         <h3>Cursos:</h3>
         <div className="select-container">
           <h6>Agregar curso: </h6>
@@ -49,7 +49,7 @@ export const renderEditPage = (
             <div key={course.courseId}>
               <div className="bd-callout bd-callout-warning">
                 <div className="course-container">
-                  <h4>{course.courseName}</h4>
+                  <h4 className="create-program-course-title">{course.courseName}</h4>
                   {courses.length !== 1 && (
                     <DeleteButtonCourses
                       dispatch={dispatch}

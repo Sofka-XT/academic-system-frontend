@@ -6,6 +6,7 @@ import { getCoursesThunk } from "../../thunkAction/programThunk";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
+import "./FormCreatePrograPageComponent.css";
 import {
   useProgramEffectForActions,
   useProgramTotalDays,
@@ -64,38 +65,31 @@ const EditionProgramPage = ({
   return (
     <div>
       <form className="program-form" onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <div className="create-program-container">
-            <div >
-              <input
-                required
-                minLength="4"
-                className="programs__input"
-                defaultValue={program.name}
-                {...register("programName")}
-              />
-            </div>
-            <div className="totaldays-container">
-              <label className="totaldays-name">Total del días:</label>{" "}
-              <p className="totaldays-name-num"> {totalDays} </p>
-            </div>
-          </div>
-
-          <div>
-            <div>
-              {renderEditPage(
-                program,
-                handleSelect,
-                courses,
-                selectedCourse,
-                handleAddCourse,
-                DeleteButtonCourses,
-                dispatch,
-                InputPrograms
-              )}
-            </div>
+        <div className="create-program-container">
+          <input
+            required
+            minLength="4"
+            className="programs__input"
+            defaultValue={program.name}
+            {...register("programName")}
+          />
+          <div className="totaldays-container">
+            <label className="totaldays-name">Total del días:</label>{" "}
+            <p className="totaldays-name-num"> {totalDays} </p>
           </div>
         </div>
+
+        {renderEditPage(
+          program,
+          handleSelect,
+          courses,
+          selectedCourse,
+          handleAddCourse,
+          DeleteButtonCourses,
+          dispatch,
+          InputPrograms
+        )}
+
         <button className="trainings__btn-submit" type="submit">
           Enviar
         </button>
