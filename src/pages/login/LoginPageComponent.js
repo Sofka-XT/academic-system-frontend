@@ -6,12 +6,10 @@ import { signInwWithLocalStorage } from '../../thunkAction/authThunk';
 import { connect } from 'react-redux';
 import { useNavigate} from 'react-router';
 
-
 const LoginPageComponent = ( { user }) => {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  
   
   useEffect(() => {
     const lastPath = sessionStorage.getItem('reloaded')
@@ -39,7 +37,6 @@ const LoginPageComponent = ( { user }) => {
     </div>
   );
 };
-
 
 const mapState = (state) => ({
 	user: state.authReducer.user,
