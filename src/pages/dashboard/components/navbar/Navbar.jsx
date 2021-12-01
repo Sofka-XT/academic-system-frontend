@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import turnOff from './media/power-on.png';
-import { logOut } from '../../../nav/NavigateLinks';
-
+import { logOut } from '../../../../nav/NavigateLinks';
+import "./Navbar.css";
 
 function Navbar({ user }) {
     const logOutObj = logOut;
