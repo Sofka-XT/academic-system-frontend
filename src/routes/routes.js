@@ -11,7 +11,7 @@ import EditionProgramPage from "../pages/program/EditionProgramPage";
 import ListOfProgramsPageComponent from "../pages/program/ListOfProgramsPageComponent";
 import FormCreateProgramPageComponent from "../pages/program/FormCreateProgramPageComponent";
 import FormInputTrainingComponent from "./../pages/crudTraning/components/FormInputTrainingComponent";
-import QualificationComponent from "../pages/componenteYhomi/QualificationComponent";
+import QualificationComponent from "../pages/QualificacionAcordionComponent/QualificationComponent";
 
 export const routesApp = [
   {
