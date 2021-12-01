@@ -12,7 +12,7 @@ import ProgramsListComponent from "./ProgramsListComponent";
 import TraningConfirmationCreationView from "./TraningConfirmationCreationView";
 
 import Swal from "sweetalert2";
-import "./FormInputTrainingComponent.css";
+import "../../../common/styles/styles.css"
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();

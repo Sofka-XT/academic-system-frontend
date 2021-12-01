@@ -26,7 +26,7 @@
   align-items: center;
   margin-top: 10px;
   border-radius: 8px;
-  border: 2px solid #9aa0ca;
+  /* border: 2px solid #9aa0ca; */
   padding: 25px;
   width: 90%;
   margin: 0 auto;
@@ -76,18 +76,23 @@
 .course-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
   margin: 0 auto;
   margin-top: 20px;
+  /* border: 1px solid rebeccapurple; */
+}
+.create-program-course-title{
+  width: 30%;
 }
 .topics-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 80%;
+  width: 65%;
   margin: 0 auto;
   margin-top: 10px;
+  /* border: 1px solid yellowgreen; */
 }
 
 .button-edit {

@@ -9,8 +9,50 @@
   border: 1px solid #e9ecef;
   border-left-width: 0.25rem;
   border-radius: 0.25rem;
+  /* border: 1px solid salmon; */
+  width: 80%;
 }
 
 .swal-footer {
   text-align: center;
+}
+.program-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 60px;
+  border: 1px solid blue;
+}
+.create-program-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid red;
+  width: 100%;
+  /* height: 300px; */
+}
+.create-progra-select-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* border: 1px solid red; */
+  width: 80%;
+}
+.programs__input{
+  border: none;
+  border-bottom: 2px solid black;
+  font-size: 1.5em;
+  padding: 10px;
+  width: 100%;
+  /* border: 1px solid indianred; */
+}
+.create-program-select{
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid black;
+  font-size: 1em;
+  margin: none;
+  padding: 15px;
 }

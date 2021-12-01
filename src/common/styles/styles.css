@@ -341,8 +341,9 @@ main {
 
 .training__description--title {
   text-align: center;
-  color: #40bad5;
+  color: #fff;
   font-size: 1.3em;
+  font-weight: bold;
   margin-top: -50px;
 }
 
@@ -380,10 +381,11 @@ main {
 .training__program-main-container {
   border-top-left-radius: 20px;
   border-top-right-radius: 10px;
-  border-bottom: 10px solid blue;
+  /* border-bottom: 10px solid blue; */
   background-color: lightgray;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  box-shadow: rgba(33, 17, 126, 0.8) 0px 10px 0 0;
 }
 
 .screen-container {

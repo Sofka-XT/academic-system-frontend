@@ -63,16 +63,14 @@ const EditionProgramPage = ({
 
   return (
     <div>
-      <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
-        <h1> Editar Programa </h1>
+      <form className="program-form" onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <div>
-            <div className="program-name-container">
-              <h2 className="program-name"> Nombre del programa: </h2>
+          <div className="create-program-container">
+            <div >
               <input
                 required
                 minLength="4"
-                className="program-inputs-name"
+                className="programs__input"
                 defaultValue={program.name}
                 {...register("programName")}
               />
@@ -98,7 +96,7 @@ const EditionProgramPage = ({
             </div>
           </div>
         </div>
-        <button className="button-edit" type="submit">
+        <button className="trainings__btn-submit" type="submit">
           Enviar
         </button>
       </form>
