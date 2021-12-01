@@ -1,28 +1,29 @@
 import { setAllCourses } from "../../thunkAction/coursesThunk";
+import { getApprenticeInfo } from "../../thunkAction/profileThunk";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import AccordionCourse from "./AccordionCourse";
 import "./QualificacionComponent.css"
 
-const QualificationComponent = ({ dispatch, courses, loading, hasError }) => {
-  useEffect(() => {
-    dispatch(setAllCourses());
-  }, [dispatch]);
+const QualificationComponent = ({ dispatch, apprentice, loading, hasError }) => {
+
+  useEffect(()=>
+    {
+        dispatch(getApprenticeInfo());
+    }, [dispatch]);
 
   return (
     <div>
       <h1 className='TitleQualification'>Estados de calificaciones</h1>
-      {console.log(courses)}
+      {console.log(apprentice.courses)}
       <div>
-      <AccordionCourse courses={courses} />
+      <AccordionCourse courses={apprentice.courses} />
       </div>
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  loading: state.coursesReducer.loading,
-  courses: state.coursesReducer.courses,
-  hasError: state.coursesReducer.error,
+  apprentice: state.profileReducer.apprentice
 });
 export default connect(mapStateToProps)(QualificationComponent);

@@ -10,12 +10,9 @@ import EditionProgramPage from "../pages/program/EditionProgramPage";
 import ListOfProgramsPageComponent from "../pages/program/ListOfProgramsPageComponent";
 import FormCreateProgramPageComponent from "../pages/program/FormCreateProgramPageComponent";
 import FormInputTrainingComponent from "./../pages/crudTraning/components/FormInputTrainingComponent";
-<<<<<<< HEAD
 import QualificationComponent from "../pages/QualificacionAcordionComponent/QualificationComponent";
-=======
 import TrainingDetails from "../pages/trainingDetailsPage/TrainingDetails";
 import ProfilePageComponent from "../pages/profile/ProfilePageComponent";
->>>>>>> b37e37cffe28edb04dae15e870e525c15e8c1fbe
 
 export const routesApp = [
   {
@@ -83,7 +80,8 @@ export const routesApp = [
         path: "acordion",
         name: "Acordion",
         component: <QualificationComponent />,
-
+      },
+      {
         path: "traininglist/trainingdetail/:trainingid",
         name: "Training Detail",
         component: <TrainingDetails/>,
