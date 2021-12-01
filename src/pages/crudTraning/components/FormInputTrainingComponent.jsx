@@ -93,14 +93,7 @@ const FormInputTrainingComponent = () => {
               value={name}
               onChange={(e) =>handleInputChange(e)}
             />
-            <button
-              type="submit"
-              id="submit_training"
-              onClick={handleSubmit}
-              className="trainings__btn-submit"
-            >
-              Crear <i class="fas fa-plus ml-3"></i>
-            </button>
+            
           </div>
 
           <div className="training__select-form">
@@ -166,6 +159,9 @@ const FormInputTrainingComponent = () => {
             )}
           </div>
 
+        </form>
+          <ProgramsListComponent handleInputChange={handleInputChange} />
+
           <div className="training__input-form">
             <div className="training__input-container">
               <div className="training__file-input">
@@ -191,8 +187,17 @@ const FormInputTrainingComponent = () => {
               </div>
             </div>
           </div>
-        </form>
-        <ProgramsListComponent handleInputChange={handleInputChange} />
+          <div className="training__input-form">
+            <button
+                  type="submit"
+                  id="submit_training"
+                  onClick={handleSubmit}
+                  className="trainings__btn-submit"
+            >
+                  Crear <i class="fas fa-plus ml-3"></i>
+            </button>
+
+          </div>
         {tableState && (
           <div className="section__title text-center m-5">
             <h2>Lista de estudiantes para el training</h2>

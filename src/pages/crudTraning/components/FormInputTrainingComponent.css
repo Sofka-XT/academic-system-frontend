@@ -1,146 +1,19 @@
-* {
-  font-family: Helvetica, sans-serif;
-  margin: 0px;
-}
-
-html,
-body {
-  height: 100vh;
-  width: 100vw !important;
-}
-
-main {
-  width: 100%;
-}
-
-.mt-5 {
-  margin-top: 20px;
-}
-
-.mb-5 {
-  margin-bottom: 20px;
-}
-
-.mt-3 {
-  margin-top: 10px;
-}
-
-.mb-3 {
-  margin-bottom: 10px;
-}
-
-.mt-1 {
-  margin-top: 5px;
-}
-
-.ml-3 {
-  margin-left: 10px;
-}
-
-.mb-1 {
-  margin-bottom: 5px;
-}
-
-.pt-5 {
-  padding-top: 20px;
-}
-
-.pb-5 {
-  padding-bottom: 20px;
-}
-
-.pt-3 {
-  padding-top: 10px;
-}
-
-.pb-3 {
-  padding-bottom: 10px;
-}
-
-.pt-1 {
-  padding-top: 5px;
-}
-
-.pb-1 {
-  padding-bottom: 5px;
-}
-
-.m-1 {
-  margin: 3px;
-}
-
-.p-1 {
-  padding: 3px;
-}
-
-.m-2 {
-  margin: 5px;
-}
-
-.p-2 {
-  padding: 5px;
-}
-
-.m-3 {
-  margin: 10px;
-}
-
-.p-3 {
-  padding: 10px;
-}
-
-.m-5 {
-  margin: 20px;
-}
-
-.p-5 {
-  margin: 20px;
-}
-
-.w-6 {
-  width: 60%;
-  margin: auto 20%;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.d-block {
-  display: block;
-}
-
-.small {
-  font-size: 0.8rem;
-}
-
-.bold {
-  font-weight: 600;
-}
-
-.text {
-  width: 100%;
-  text-align: center;
-}
-
 .trainings__input {
   width: 80%;
 }
 
 .trainings__main-container {
   width: 100%;
+  height: unset;
 }
 
 .trainings__form {
   padding: 10px;
+  display: block;
 }
 
 .training__input-form {
-  margin-top: 60px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -201,6 +74,7 @@ main {
 
 .trainings__btn-submit {
   width: 120px;
+  margin: 0px auto;
   height: 38px;
   background-color: #0d6efd;
   color: white;
@@ -293,18 +167,8 @@ main {
 }
 
 .training__file-input {
-  padding-top: 100px;
   width: 100%;
   margin: auto auto;
   height: 120px;
-  margin-top: 0%;
   padding: 0px;
-}
-
-.btn-new-traning {
-  margin: 20px auto;
-  position: absolute;
-  top: 30px;
-  right: 20px;
-  width: 20%;
 }

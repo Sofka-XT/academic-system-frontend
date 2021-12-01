@@ -12,7 +12,7 @@ const ProgramsListComponent = ({ handleInputChange }) => {
 
   return (
     <div id="training">
-      <div className="container">
+      <div className="">
         <div className="section__title text-center m-5">
           <h2>Lista completa de programas disponibles</h2>
           <div className="section__decoration"></div>

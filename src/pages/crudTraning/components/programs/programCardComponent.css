@@ -5,6 +5,7 @@
   background-color: lightgray;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  height: 100%;
 }
 
 .training__item {
