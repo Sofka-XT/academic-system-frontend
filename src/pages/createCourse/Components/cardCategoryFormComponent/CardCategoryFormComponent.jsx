@@ -16,7 +16,7 @@ export const CardCategoryFormComponent = ({ index, rules, remove }) => {
       <div className="d-flex justify-content-between">
         <div className=" w-25">
           <input
-            placeholder="Nombre categoria"
+            placeholder="Nombre categoría"
             className="form-control "
             {...register(`categories[${index}].name`, {
               required: true,
@@ -24,13 +24,13 @@ export const CardCategoryFormComponent = ({ index, rules, remove }) => {
           />
           {errors.categories && errors.categories[index]?.name && (
             <MessageErrorFormComponent
-              message={'debe agregar nombre de categoria'}
+              message={'debe agregar nombre de categoría'}
             />
           )}
         </div>
         {errors.categories && errors.categories[index] && (
           <MessageErrorFormComponent
-            message={'tiene errores en la categoria'}
+            message={'tiene errores en la categoría'}
           />
         )}
         <div>
