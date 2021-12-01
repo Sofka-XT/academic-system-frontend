@@ -14,18 +14,16 @@ export const CourseGeneralFormComponent = ({
     <FormProvider {...methods}>
       <form className=" my-4 fs-1 " onSubmit={methods.handleSubmit(onSubmit)}>
         <div className="row">
-          <div className="form-group col-6">
-            <div className="d-flex justify-content-center">
-              {/* <label htmlFor="">Nombre Curso</label> */}
-              <input
-                className="form-control"
-                placeholder="Nombre de curso"
-                {...methods.register('name', { required: true })}
-              />
-              {methods.formState.errors.name && (
-                <MessageErrorFormComponent message={'debe agregar un curso'} />
-              )}
-            </div>
+          <div className="form-group col-6  d-flex  justify-content-center align-items-center">
+            {/* <label htmlFor="">Nombre Curso</label> */}
+            <input
+              className="form-control "
+              placeholder="Nombre de curso"
+              {...methods.register('name', { required: true })}
+            />
+            {methods.formState.errors.name && (
+              <MessageErrorFormComponent message={'debe agregar un curso'} />
+            )}
           </div>
 
           <div className="form-group p-2 my-3 col-6 text-center">

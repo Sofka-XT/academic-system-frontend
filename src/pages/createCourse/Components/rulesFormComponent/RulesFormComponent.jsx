@@ -50,7 +50,7 @@ export const RulesFormComponent = ({
           </select>
         </div>
         <div className="form-group col-3">
-          <label htmlFor="">Condicion</label>
+          <label htmlFor="">condición</label>
 
           <select
             className="form-control"

@@ -23,7 +23,7 @@ export const GoogleButtonComponent = ({ history, user }) => {
 
   return (
     <>
-      <button id="button-login-google" className="button button2" onClick={handleLogin} aria-hidden="true">
+      <button id="button-login-google" className="button-login button2-login" onClick={handleLogin} aria-hidden="true">
       Iniciar sesión con Google
       </button>
     </>

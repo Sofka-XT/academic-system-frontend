@@ -12,20 +12,20 @@ export const coachLinks = [
     name: "Crear Curso",
   },
   {
-    path: "courseslist",
-    name: "Ver Curso",
-  },
-  {
-    path: "programs",
-    name: "Programas activos",
+    path: "createTraining",
+    name: "Crear Training",
   },
   {
     path: "crearprograma",
     name: "Crear Programa",
   },
   {
-    path: "createTraining",
-    name: "Crear Trainin",
+    path: "courseslist",
+    name: "Ver Curso",
+  },
+  {
+    path: "programs",
+    name: "Programas activos",
   },
 ];
 
