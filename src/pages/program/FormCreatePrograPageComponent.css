@@ -1,21 +1,16 @@
-.bd-callout{
-    border-left-color:#9aa0ca !important;
-
-
+.bd-callout {
+  border-left-color: #9aa0ca !important;
 }
 
-.bd-callout-warning{
-
-    padding: 1.25rem;
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
-    border: 1px solid #e9ecef;
-    border-left-width: 0.25rem;
-    border-radius: 0.25rem;
-
+.bd-callout-warning {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #e9ecef;
+  border-left-width: 0.25rem;
+  border-radius: 0.25rem;
 }
 
-.swal-footer{
-    text-align: center;
+.swal-footer {
+  text-align: center;
 }
-

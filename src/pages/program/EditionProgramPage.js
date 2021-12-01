@@ -1,22 +1,23 @@
 import { connect } from "react-redux";
-import Swal from "sweetalert2";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  AddCourseToCurrentProgram,
-
-} from "../../state/Program/programAction";
-import {
-  getCoursesThunk,
-  updateProgramThunk,
-} from "../../thunkAction/programThunk";
+import { getCoursesThunk } from "../../thunkAction/programThunk";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
-import { useProgramEffectForActions, useProgramTotalDays, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
+import {
+  useProgramEffectForActions,
+  useProgramTotalDays,
+  useProgramUpddateCurrentProgram,
+} from "../../hooks/useProgram";
 import { useForm } from "react-hook-form";
-import { swalErrorAlert, swalWarningAlert } from "./alerts/alerts";
+import { swalErrorAlert } from "./alerts/alerts";
+import {
+  triggerALertRepitedCourse,
+  triggerALertRepitedProgram,
+} from "./alerts/triggerAlerts";
+import { renderEditPage } from "./components/renderEditPage";
 
 const EditionProgramPage = ({
   dispatch,
@@ -28,14 +29,14 @@ const EditionProgramPage = ({
   courses,
 }) => {
   const [selectedCourse, setSelectedCourse] = useState({});
-  const {register,handleSubmit} = useForm()
+  const { register, handleSubmit } = useForm();
 
   const navigate = useNavigate();
 
-  useProgramTotalDays(program,dispatch);
-  
+  useProgramTotalDays(program, dispatch);
+
   useProgramUpddateCurrentProgram(dispatch);
-  useProgramEffectForActions(getCoursesThunk(),dispatch);
+  useProgramEffectForActions(getCoursesThunk(), dispatch);
 
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Show Program.</p>;
@@ -45,159 +46,19 @@ const EditionProgramPage = ({
   };
 
   const handleAddCourse = () => {
-    let data = {
-      courseId: selectedCourse.id,
-      courseName: selectedCourse.name,
-      categories: selectedCourse.categories.map((category) => {
-        return {
-          categoryId: category.id,
-          categoryName: category.name,
-          days: 1,
-        };
-      }),
-    };
-
-    let isEqualValue = false;
-
-    program.courses.forEach((course) => {
-      if (course.courseId === selectedCourse.id) {
-        isEqualValue = true;
-      }
-    });
-
-    if (!isEqualValue) {
-      dispatch(AddCourseToCurrentProgram(data));
-      return;
-    }
-
-    swalErrorAlert("Ya existe este curso")
+    triggerALertRepitedCourse(program, dispatch, selectedCourse);
   };
 
   const onSubmit = (data) => {
-    let program2 = JSON.parse(JSON.stringify(program))
-    program2.name = data.programName
+    let program2 = JSON.parse(JSON.stringify(program));
+    program2.name = data.programName;
 
-    if(program2.courses.length === 0){
+    if (program2.courses.length === 0) {
       swalErrorAlert("Debe añadir al menos un curso");
       return;
     }
 
-    let isEqualProgram = false;
-
-    programs.forEach((p) => {
-      if(p.name === program2.name && p.id !== program2.id){
-        isEqualProgram = true;
-      }
-    })
-  
-    if (isEqualProgram) {
-      swalWarningAlert(`Ya existe un programa llamado ${program2.name}`)
-      return;
-    }
-
-    Swal.fire({
-      title: "¿Quiere editar este programa?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Si, Editalo!",
-    }).then((itemToEdit) => {
-      if (itemToEdit.isConfirmed) {
-        Swal.fire({
-          text: "El programa ha sido editado",
-          icon: "success",
-          showConfirmButton: false,
-          timer: 1000,
-        });
-
-        dispatch(updateProgramThunk(program2));
-        
-        navigate(`/dashboard/programs`);
-      } else if (itemToEdit.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          "Cancelado",
-          "No se efectuaron cambios en el programa",
-          "error"
-        );
-      }
-    });
-  }
-
-  const renderEditPage = () => {
-    if (Object.keys(program).length !== 0) {
-      return (
-        <div>
-          <h3>Cursos:</h3>
-          <div className="select-container">
-            <h6>Agregar curso: </h6>
-            <div>
-              <select
-                className="form-select"
-                defaultValue={"DEFAULT"}
-                onChange={(e) => handleSelect(e)}
-              >
-                <option disabled value={"DEFAULT"}>
-                  Seleccione un curso
-                </option>
-                {courses.map((course, index) => {
-                  return (
-                    <option key={index} value={index}>
-                      {course.name}
-                    </option>
-                  );
-                })}
-              </select>
-              {Object.keys(selectedCourse).length !== 0 && (
-                <button
-                className="button-edit"
-                  type="button"
-                  onClick={() => {
-                    handleAddCourse();
-                  }}
-                >
-                  Añadir curso
-                </button>
-              )}
-            </div>
-          </div>
-          {program.courses &&
-            program.courses.map((course) => (
-              <div key={course.courseId}>
-                <div className="bd-callout bd-callout-warning">
-                  <div className="course-container">
-                    <h4>{course.courseName}</h4>
-                    {courses.length !== 1 && (
-                      <DeleteButtonCourses
-                        dispatch={dispatch}
-                        programId={program.id}
-                        courseId={course.courseId}
-                      />
-                    )}
-                  </div>
-                  <div className="topics-list">
-                    <h5 className="topics-label">Temas:</h5>
-                    <ul>
-                      {course.categories &&
-                        course.categories.map((category) => (
-                          <InputPrograms
-                            key={category.categoryId}
-                            categoryId={category.categoryId}
-                            category={category}
-                            courseId={course.courseId}
-                            programId={program.id}
-                            dispatch={dispatch}
-                            currentDays={category.days}
-                          />
-                        ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-        </div>
-      );
-    }
+    triggerALertRepitedProgram(programs, program2, dispatch, navigate, true);
   };
 
   return (
@@ -210,10 +71,10 @@ const EditionProgramPage = ({
               <h2 className="program-name"> Nombre del programa: </h2>
               <input
                 required
-                minLength= "3"
+                minLength="4"
                 className="program-inputs-name"
-                defaultValue = {program.name}
-                {...register("programName",{minLength : 3, required : true})}
+                defaultValue={program.name}
+                {...register("programName")}
               />
             </div>
             <div className="totaldays-container">
@@ -223,13 +84,21 @@ const EditionProgramPage = ({
           </div>
 
           <div>
-            <div>{renderEditPage()}</div>
+            <div>
+              {renderEditPage(
+                program,
+                handleSelect,
+                courses,
+                selectedCourse,
+                handleAddCourse,
+                DeleteButtonCourses,
+                dispatch,
+                InputPrograms
+              )}
+            </div>
           </div>
         </div>
-        <button
-          className="button-edit"
-          type="submit"
-        >
+        <button className="button-edit" type="submit">
           Enviar
         </button>
       </form>

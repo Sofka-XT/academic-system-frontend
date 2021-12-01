@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import {
   updateCurrentProgram,
+  updateDaysCurrentProgram,
   updateTotalDays,
 } from "../state/Program/programAction";
 
@@ -47,4 +48,16 @@ export const useProgramEffectForActions = (action, dispatch) => {
     // eslint-disable-next-line
   }, [dispatch]);
 
+}
+
+export const useProgramUpdateDaysCurrentProgram = (programId,categoryId,courseId,currentDays,dispatch) => {
+  useEffect(() => {
+    let data = {
+      programId: programId,
+      categoryId: categoryId,
+      courseId: courseId,
+      days: currentDays,
+    };
+    dispatch(updateDaysCurrentProgram(data));
+  }, [dispatch, categoryId, courseId, currentDays, programId]);
 }
