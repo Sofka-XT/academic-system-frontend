@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useProgramUpdateDaysCurrentProgram } from "../../../hooks/useProgram";
 import { updateDaysCurrentProgram } from "../../../state/Program/programAction";
-
 
 export const InputPrograms = ({
   category,
@@ -12,15 +12,13 @@ export const InputPrograms = ({
 }) => {
   const [duration, setDuration] = useState(currentDays);
 
-  useEffect(() => {
-    let data = {
-      programId: programId,
-      categoryId: categoryId,
-      courseId: courseId,
-      days: currentDays,
-    };
-    dispatch(updateDaysCurrentProgram(data));
-  }, [dispatch,categoryId,courseId,currentDays,programId])
+  useProgramUpdateDaysCurrentProgram(
+    programId,
+    categoryId,
+    courseId,
+    currentDays,
+    dispatch
+  );
 
   const handleDurationChange = (e) => {
     e.preventDefault();
@@ -38,20 +36,18 @@ export const InputPrograms = ({
     <div>
       <li className="categoriesList">{category.categoryName}</li>
       <div className="duration-category">
-        <label>Duración del programa:</label>
+        <label>Duracion de la categoria:</label>
         <input
-        type="number"
-        min="1"
-        required
-        className="program-inputs-days"
-        value={duration}
-        onChange={(e) => {
-          handleDurationChange(e, category);
-        }}
-      ></input>
+          type="number"
+          min="1"
+          required
+          className="program-inputs-days"
+          value={duration}
+          onChange={(e) => {
+            handleDurationChange(e, category);
+          }}
+        ></input>
       </div>
-      
-
     </div>
   );
 };

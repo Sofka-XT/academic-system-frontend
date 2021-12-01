@@ -1,11 +1,9 @@
-import React from 'react'
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import {
   deleteProgramByIdThunk,
   getProgramsThunk,
   getProgramByIdThunk,
-
 } from "../../thunkAction/programThunk";
 import { Card } from "./components/Card";
 
@@ -20,14 +18,13 @@ const ListOfProgramsPageComponent = ({
 }) => {
   useEffect(() => {
     dispatch(getProgramsThunk());
-  }, [redirect,dispatch]);
+  }, [redirect, dispatch]);
 
   const handleDelete = (id) => {
     dispatch(deleteProgramByIdThunk(id));
   };
 
   const handleEdit = (id) => {
-    // console.log("editing... " + id);
     dispatch(getProgramByIdThunk(id));
   };
 
@@ -35,6 +32,8 @@ const ListOfProgramsPageComponent = ({
     if (loading) return <p>Loading Programs...</p>;
     if (hasErrors) return <p>Unable to display Programs.</p>;
     return (
+
+      
       programs &&
       programs.map((program) => (
         <Card
@@ -49,7 +48,7 @@ const ListOfProgramsPageComponent = ({
     );
   };
 
-  return <div className="containerCards">{renderPrograms()}</div>;
+  return <div className="training__grid">{renderPrograms()}</div>;
 };
 
 const mapStateToProps = (state) => ({

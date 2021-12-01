@@ -1,6 +1,5 @@
 .form-container {
   width: 100%;
-  /* border: 1px solid cyan; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +33,7 @@
   margin-bottom: 10px;
   color: black;
 }
-.select-input{
+.select-input {
   color: black;
 }
 .categoriesList {
@@ -65,7 +64,6 @@
   height: 10%;
   border: none;
   text-align: center;
-  text-transform: capitalize;
 }
 .course-card {
   border: 2px solid #9aa0ca;
@@ -79,7 +77,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* border: 1px solid blue; */
   width: 100%;
   margin: 0 auto;
   margin-top: 20px;
@@ -88,7 +85,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* border: 1px solid red; */
   width: 80%;
   margin: 0 auto;
   margin-top: 10px;
@@ -151,9 +147,8 @@
   font-weight: bold;
 }
 
-
-.duration-category{
-  display: flex; justify-content: space-around;
+.duration-category {
+  display: flex;
+  justify-content: space-around;
   padding-left: 4px;
-
 }
