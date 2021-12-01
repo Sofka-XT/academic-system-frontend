@@ -18,8 +18,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  position: relative;
-  z-index: -1000000000;
 }
 
 .training__select-form {
@@ -173,4 +171,9 @@
   margin: auto auto;
   height: 120px;
   padding: 0px;
+}
+
+.training__input-form .training__input-container {
+  position: relative;
+  z-index: 0;
 }
