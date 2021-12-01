@@ -55,14 +55,14 @@ const FormCreateProgramPageComponent = ({
 
   return (
     <div clas="create-pogram">
-      <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
+      <form className="trainings__form"  onSubmit={handleSubmit(onSubmit)}>
         <h2>Crear Programa</h2>
         <div className="col-6">
-          <label>Nombre del programa</label>
           <input
             required
             minLength="4"
-            className="form-control"
+            className="trainings__input"
+            placeholder="Nombre del programa ..."
             {...register("programName")}
           />
 
