@@ -29,8 +29,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid red;
-  width: 100%;
+  /* border: 1px solid red; */
+  width: 80%;
   /* height: 300px; */
 }
 .create-progra-select-container{
