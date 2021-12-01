@@ -6,6 +6,7 @@ import { getCoursesThunk } from "../../thunkAction/programThunk";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
+import "./FormCreatePrograPageComponent.css";
 import {
   useProgramEffectForActions,
   useProgramTotalDays,
@@ -120,6 +121,7 @@ const EditionProgramPage = ({
 
 
     </>
+
   );
 };
 

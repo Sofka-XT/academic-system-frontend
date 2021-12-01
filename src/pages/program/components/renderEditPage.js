@@ -53,7 +53,7 @@ export const renderEditPage = (
             <div className="card-list" key={course.courseId}>
               <div className="bd-callout bd-callout-warning">
                 <div className="course-container">
-                  <h4>{course.courseName}</h4>
+                  <h4 className="create-program-course-title">{course.courseName}</h4>
                   {courses.length !== 1 && (
                     <DeleteButtonCourses
                       dispatch={dispatch}
