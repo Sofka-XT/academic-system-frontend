@@ -6,14 +6,15 @@ export const DeleteButton = ({ dispatch, idData }) => {
     swalDeleteProgramConfirmAlert("Está seguro?", idData, dispatch);
   };
   return (
-    <button
-      type="button"
-      className="button-delete"
-      onClick={() => {
-        handleOpenModal();
-      }}
-    >
-      Delete
-    </button>
+
+    <>
+
+
+      <i
+        className="fas fa-trash-alt icon-delete"
+        onClick={() => {
+          handleOpenModal();
+        }}></i>
+    </>
   );
 };

@@ -32,6 +32,8 @@ const ListOfProgramsPageComponent = ({
     if (loading) return <p>Loading Programs...</p>;
     if (hasErrors) return <p>Unable to display Programs.</p>;
     return (
+
+      
       programs &&
       programs.map((program) => (
         <Card
@@ -46,7 +48,7 @@ const ListOfProgramsPageComponent = ({
     );
   };
 
-  return <div className="containerCards">{renderPrograms()}</div>;
+  return <div className="training__grid">{renderPrograms()}</div>;
 };
 
 const mapStateToProps = (state) => ({
