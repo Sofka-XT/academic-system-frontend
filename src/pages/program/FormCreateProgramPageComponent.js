@@ -50,7 +50,7 @@ const FormCreateProgramPageComponent = ({
       return;
     }
 
-    triggerALertRepitedProgram(programs, program2, dispatch, navigate, false);
+    console.log(program2)
   };
 
   return (
