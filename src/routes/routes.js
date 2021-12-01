@@ -29,7 +29,7 @@ export const routesApp = [
         component: <LogOutPage/>,
       },
       {
-        path: "activetrainingcoach",
+        path: "activetraining",
         name: "Active Training",
         component: <TrainingListPageComponent />,
       },
@@ -75,7 +75,7 @@ export const routesApp = [
         component: <FormInputTrainingComponent />,
       },
       {
-        path: "traininglist/trainingdetail/:trainingid",
+        path: "activetraining/trainingdetail/:trainingid",
         name: "Training Detail",
         component: <TrainingDetails/>,
       },
@@ -115,7 +115,7 @@ export const apprenticeRoutesApp = [
         component: <CourseDetail />,
       },
       {
-        path: "traininglist/trainingdetail/:trainingid",
+        path: "activetraining/trainingdetail/:trainingid",
         name: "Training Detail",
         component: <TrainingDetails/>,
       }

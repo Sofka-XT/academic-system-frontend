@@ -5,7 +5,7 @@ import './components/WelcomeCard';
 export default function Welcome() {
     return (
         <div className="grid-container" id="grid-container">
-            <WelcomeCard styles="cards-one cards" title="TRAINING ACTIVO" link="/dashboard/activetrainingcoach" id="cards-one"/>
+            <WelcomeCard styles="cards-one cards" title="TRAINING ACTIVO" link="/dashboard/activetraining" id="cards-one"/>
             
             <WelcomeCard styles="cards-two cards" title="CREAR CURSO" link="/dashboard/create/course" id="cards-two"/>
 
