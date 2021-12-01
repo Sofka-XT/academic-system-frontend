@@ -4,18 +4,22 @@
 
 .trainings__main-container {
   width: 100%;
+  height: unset;
 }
 
 .trainings__form {
   padding: 10px;
+  display: block;
 }
 
 .training__input-form {
-  margin-top: 60px;
+  margin: 50px 0px 70px 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  position: relative;
+  z-index: -1000000000;
 }
 
 .training__select-form {
@@ -72,6 +76,7 @@
 
 .trainings__btn-submit {
   width: 120px;
+  margin: 0px auto;
   height: 38px;
   background-color: #0d6efd;
   color: white;
@@ -164,18 +169,8 @@
 }
 
 .training__file-input {
-  padding-top: 100px;
   width: 100%;
   margin: auto auto;
   height: 120px;
-  margin-top: 0%;
   padding: 0px;
-}
-
-.btn-new-traning {
-  margin: 20px auto;
-  position: absolute;
-  top: 30px;
-  right: 20px;
-  width: 20%;
 }
