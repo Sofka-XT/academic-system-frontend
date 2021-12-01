@@ -16,7 +16,7 @@ export const renderEditPage = (
           <h6>Agregar curso: </h6>
           <div>
             <select
-              className="form-select"
+              className="create-program-select"
               defaultValue={"DEFAULT"}
               onChange={(e) => handleSelect(e)}
             >
@@ -33,7 +33,7 @@ export const renderEditPage = (
             </select>
             {Object.keys(selectedCourse).length !== 0 && (
               <button
-                className="button-edit"
+                className=".trainings__btn-submit"
                 type="button"
                 onClick={() => {
                   handleAddCourse();
