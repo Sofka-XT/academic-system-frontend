@@ -1,35 +1,47 @@
 .wrapper{
-    margin-top: 150px;
     display: flex;
-    height: 100vh;
-    width: 100vw;
     justify-content: center;
     align-items: center;
 }
 .accordion{
-    width: 500px;
+    width: 850px;
 }
 .item{
-    background: #f0ebe1;
+    background: #9aa0ca;
     margin-bottom: 5px;
-    padding: 10px 20px;
+    
+    border-radius: 20px;
 }
 .title{
+    padding: 10px 20px;
     display: flex;
-    color: #85662b;
+    color: #21117e;
     justify-content: space-between;
     align-items: center;
     cursor:pointer;
 }
 .content{
-    color: #8b7f75;
     max-height: 0;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0,1,0,1);
+    color: #21117e;
+    background-color: #fff;
+    border-radius: 0px 0px 20px 20px;
+    border: 1px none #9aa0ca;
+    
+
 
 }
 .content.show{
     height: auto;
     max-height: 9999px;
     transition: all 0.5s cubic-bezier(1,0,1,0);
+    color: #21117e;
+    background-color: #fff;
+    border-radius: 0px 0px 20px 20px;
+    border: 1px solid #9aa0ca;
+    
+}
+.titleAccordionName{
+    font-size: 1.5rem ;
 }
