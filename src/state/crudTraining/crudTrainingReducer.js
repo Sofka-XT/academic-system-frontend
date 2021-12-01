@@ -11,6 +11,7 @@ export const initialState = {
     coaches: [],
   },
   programs: [],
+  programSelected: {},
   redirect: null,
   hasErrors: false,
   traningSent: {},
@@ -39,10 +40,10 @@ export default function crudTrainingReducer(state = initialState, action) {
       };
     case actions.ADD_PROGRAM_SELECTED:
       const trainingWithProgram = { ...state.training };
-      trainingWithProgram.program = action.payload;
-
+      trainingWithProgram.program = action.payload.programId;
       return {
         ...state,
+        programSelected: action.payload.programSelected,
         training: trainingWithProgram,
         loading: false,
         redirect: null,

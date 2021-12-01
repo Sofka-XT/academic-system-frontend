@@ -17,7 +17,7 @@ const ProgramCardComponent = ({ program, handleInputChange }) => {
       },
     };
     handleInputChange(e);
-    dispatch({ type: actions.ADD_PROGRAM_SELECTED, payload: program.id });
+    dispatch({ type: actions.ADD_PROGRAM_SELECTED, payload: {programId : program.id, programSelected : program }});
   };
 
   return (

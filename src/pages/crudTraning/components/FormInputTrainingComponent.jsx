@@ -12,6 +12,7 @@ import {
   handleSelectCoach,
   handleUnselectCoach,
 } from "./../../../common/formTrainingHelpers/formTrainingHelpers";
+import createCalendar from "../functions/createCalendar";
 
 import useForm from "./../../../hooks/useForm";
 
@@ -47,9 +48,12 @@ const FormInputTrainingComponent = () => {
       timer: 1500,
     });
   };
+ 
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();  
+    const trainingToCreate = createCalendar(formValues);
+
     dispatch({
       type: actions.UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING,
       payload: { coaches, name, startingDate },
@@ -58,10 +62,8 @@ const FormInputTrainingComponent = () => {
     if (valid) {
       dispatch(actions.postTraining(formValues));
       showSwalResponse(valid, message);
-
       setTableState(null);
       setCoachesList(actions.fetchCoaches());
-
       const e = {
         target: {
           name: "apprentices",
