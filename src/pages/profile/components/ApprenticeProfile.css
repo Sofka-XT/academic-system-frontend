@@ -1,5 +1,4 @@
 
-
 .ApprenticeProfileContainer {
   display: flex;
   width: 50rem;
@@ -23,16 +22,13 @@
   border-radius: 50%;
 }
 .profile-datos{
-  margin: 10px 0 0 0px;
+  margin: 20px 0 0 0px;
 }
-.profile-data,
-.profile-user-name {
-  font-weight: 300;
-}
+
 
 .profile-data li {
   margin-left: -2rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 1.5;
   list-style: none
 }

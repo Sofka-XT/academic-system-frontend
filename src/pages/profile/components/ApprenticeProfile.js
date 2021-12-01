@@ -14,32 +14,24 @@ const ApprenticeProfile = ({ profile }) => {
               />
             </div>
 
+            <div class="profile-datos">
+              <div>
+                <h1>{profile.apprenticeName}</h1>
+              </div>
 
-
-          <div class="profile-datos">
-
-
-            <div>
-              <h1>{profile.apprenticeName}</h1>
+              <div class="profile-data">
+                <ul>
+                  <li>
+                    <span class="profile-stat-count">Celular: </span>{" "}
+                    {profile.phoneNumber}
+                  </li>
+                  <li>
+                    <span class="profile-stat-count">Correo: </span>
+                    {profile.email}
+                  </li>
+                </ul>
+              </div>
             </div>
-
-            <div class="profile-data">
-              <ul>
-                <li>
-                  <span class="profile-stat-count">Celular: </span>{" "}
-                  {profile.phoneNumber}
-                </li>
-                <li>
-                  <span class="profile-stat-count">Correo: </span>
-                  {profile.email}
-                </li>
-              </ul>
-            </div>
-
-
-            </div>
-
-
           </div>
         </div>
       )}
