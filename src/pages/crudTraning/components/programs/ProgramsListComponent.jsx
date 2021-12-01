@@ -1,13 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ProgramCardComponent from "./ProgramCardComponent";
+
+import ProgramCardComponent from './ProgramCardComponent';
+
+import './../FormInputTrainingComponent.css';
+import './ProgramListComponent.css';
+
 
 const ProgramsListComponent = ({ handleInputChange }) => {
   const { programs } = useSelector((state) => state.crudTrainingReducer);
 
   return (
     <div id="training">
-      <div className="container">
+      <div className="">
         <div className="section__title text-center m-5">
           <h2>Lista completa de programas disponibles</h2>
           <div className="section__decoration"></div>

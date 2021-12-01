@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as actions from "../../../state/crudTraining/crudTrainingActions";
+import * as actions from "../../../../state/crudTraining/crudTrainingActions";
+
+import './../FormInputTrainingComponent.css';
+import './programCardComponent.css';
 
 const ProgramCardComponent = ({ program, handleInputChange }) => {
   const dispatch = useDispatch();
@@ -14,7 +17,7 @@ const ProgramCardComponent = ({ program, handleInputChange }) => {
       },
     };
     handleInputChange(e);
-    dispatch({ type: actions.ADD_PROGRAM_SELECTED, payload: program.id });
+    dispatch({ type: actions.ADD_PROGRAM_SELECTED, payload: {programId : program.id, programSelected : program }});
   };
 
   return (
