@@ -64,7 +64,7 @@ const EditionProgramPage = ({
   return (
     <div>
       <form className="program-form" onSubmit={handleSubmit(onSubmit)}>
-        <div>
+  
           <div className="create-program-container">
             <div >
               <input
@@ -95,7 +95,7 @@ const EditionProgramPage = ({
               )}
             </div>
           </div>
-        </div>
+   
         <button className="trainings__btn-submit" type="submit">
           Enviar
         </button>

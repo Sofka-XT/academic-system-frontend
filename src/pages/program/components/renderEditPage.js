@@ -33,7 +33,7 @@ export const renderEditPage = (
             </select>
             {Object.keys(selectedCourse).length !== 0 && (
               <button
-                className=".trainings__btn-submit"
+                className="trainings__btn-submit"
                 type="button"
                 onClick={() => {
                   handleAddCourse();
