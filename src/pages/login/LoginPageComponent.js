@@ -4,16 +4,19 @@ import '../login/LoginPageComponent.css';
 import { useAppDispatch } from '../../state/store.hook';
 import { signInwWithLocalStorage } from '../../thunkAction/authThunk';
 import { connect } from 'react-redux';
-import { useNavigate } from 'react-router';
+import { useNavigate} from 'react-router';
+
 
 const LoginPageComponent = ( { user }) => {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
+  
+  
   useEffect(() => {
+    const lastPath = sessionStorage.getItem('reloaded')
     if (user) {
-      navigate('/dashboard/home')
+       lastPath.length > 5 ? navigate(lastPath.slice(1)) : navigate('/dashboard/home')
     }
 	}, [user, navigate])
 

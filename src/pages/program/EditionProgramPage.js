@@ -1,14 +1,11 @@
 import { connect } from "react-redux";
-import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   AddCourseToCurrentProgram,
-  updateCurrentProgram,
-  updateNameProgram,
-  updateTotalDays,
+
 } from "../../state/Program/programAction";
 import {
   getCoursesThunk,
@@ -17,119 +14,31 @@ import {
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
+import { useProgramEffectForActions, useProgramTotalDays, useProgramUpddateCurrentProgram } from "../../hooks/useProgram";
+import { useForm } from "react-hook-form";
+import { swalErrorAlert, swalWarningAlert } from "./alerts/alerts";
 
 const EditionProgramPage = ({
   dispatch,
   program,
+  programs,
   loading,
   hasErrors,
   totalDays,
   courses,
 }) => {
   const [selectedCourse, setSelectedCourse] = useState({});
+  const {register,handleSubmit} = useForm()
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (program.courses) {
-      let sumDays = 0;
-      program.courses.map((course) => {
-        if (course.categories) {
-          course.categories.map((category) => {
-            sumDays += parseInt(category.days);
-            return null;
-          });
-        }
-        return null;
-      });
-
-      let data = {
-        totalDays: sumDays,
-      };
-
-      dispatch(updateTotalDays(data));
-    }
-  }, [program, dispatch]);
-
-  useEffect(() => {
-    //1. UseEffec, traer los cursos para el select
-    dispatch(getCoursesThunk());
-    let data = {
-      program: {
-        name: "",
-        courses: [],
-      },
-    };
-    dispatch(updateCurrentProgram(data));
-  }, [dispatch]);
-
-
+  useProgramTotalDays(program,dispatch);
+  
+  useProgramUpddateCurrentProgram(dispatch);
+  useProgramEffectForActions(getCoursesThunk(),dispatch);
 
   if (loading) return <p>Loading Program to Edit...</p>;
   if (hasErrors) return <p>Unable to Show Program.</p>;
-
-  const handleOnClick = (event) => {
-    event.preventDefault();
-    const MySwal = withReactContent(Swal);
-
-    if (program.name === "") {
-      Swal.fire({
-        title: "Debe poner el nombre del programa",
-        icon: "error",
-      });
-      return;
-    }
-
-    if(program.name.length < 4){
-      Swal.fire({
-        title: "El nombre del programa debe ser mayor que 4 caracteres",
-        icon: "error",
-      });
-      return;
-    }
-
-    if (program.courses.length === 0) {
-      Swal.fire({ title: "Debe añadir al menos un curso", icon: "error" });
-      return;
-    }
-
-    MySwal.fire({
-      title: "¿Quiere editar este programa?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Si, Editalo!",
-    }).then((itemToEdit) => {
-      if (itemToEdit.isConfirmed) {
-        MySwal.fire({
-          text: "El programa ha sido editado",
-          icon: "success",
-          showConfirmButton: false,
-          timer: 1000,
-        });
-
-        dispatch(updateProgramThunk(program));
-        
-        navigate(`/dashboard/programs`);
-      } else if (itemToEdit.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          "Cancelado",
-          "No se efectuaron cambios en el programa",
-          "error"
-        );
-      }
-    });
-  };
-
-  const handleInputChange = (e) => {
-    e.preventDefault();
-    let data = {
-      programId: program.programId,
-      name: e.target.value,
-    };
-    dispatch(updateNameProgram(data));
-  };
 
   const handleSelect = (e) => {
     setSelectedCourse(courses[e.target.value]);
@@ -161,8 +70,59 @@ const EditionProgramPage = ({
       return;
     }
 
-    Swal.fire({ title: "Ya existe este curso", icon: "error" });
+    swalErrorAlert("Ya existe este curso")
   };
+
+  const onSubmit = (data) => {
+    let program2 = JSON.parse(JSON.stringify(program))
+    program2.name = data.programName
+
+    if(program2.courses.length === 0){
+      swalErrorAlert("Debe añadir al menos un curso");
+      return;
+    }
+
+    let isEqualProgram = false;
+
+    programs.forEach((p) => {
+      if(p.name === program2.name && p.id !== program2.id){
+        isEqualProgram = true;
+      }
+    })
+  
+    if (isEqualProgram) {
+      swalWarningAlert(`Ya existe un programa llamado ${program2.name}`)
+      return;
+    }
+
+    Swal.fire({
+      title: "¿Quiere editar este programa?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, Editalo!",
+    }).then((itemToEdit) => {
+      if (itemToEdit.isConfirmed) {
+        Swal.fire({
+          text: "El programa ha sido editado",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+
+        dispatch(updateProgramThunk(program2));
+        
+        navigate(`/dashboard/programs`);
+      } else if (itemToEdit.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          "Cancelado",
+          "No se efectuaron cambios en el programa",
+          "error"
+        );
+      }
+    });
+  }
 
   const renderEditPage = () => {
     if (Object.keys(program).length !== 0) {
@@ -242,18 +202,18 @@ const EditionProgramPage = ({
 
   return (
     <div>
-      <form className="form-container">
+      <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
         <h1> Editar Programa </h1>
         <div>
           <div>
             <div className="program-name-container">
               <h2 className="program-name"> Nombre del programa: </h2>
               <input
+                required
+                minLength= "3"
                 className="program-inputs-name"
-                value={program.name}
-                onChange={(e) => {
-                  handleInputChange(e);
-                }}
+                defaultValue = {program.name}
+                {...register("programName",{minLength : 3, required : true})}
               />
             </div>
             <div className="totaldays-container">
@@ -268,7 +228,7 @@ const EditionProgramPage = ({
         </div>
         <button
           className="button-edit"
-          onClick={(event) => handleOnClick(event)}
+          type="submit"
         >
           Enviar
         </button>
