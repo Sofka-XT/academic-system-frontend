@@ -92,6 +92,19 @@ export default function crudTrainingReducer(state = initialState, action) {
         redirect: null,
         hasErrors: false,
       };
+    case actions.UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING:
+      const trainingUpdated = { ...state.training };
+      trainingUpdated.startingDate = action.payload.startingDate;
+      trainingUpdated.name = action.payload.name;
+      trainingUpdated.coaches = action.payload.coaches;
+
+      return {
+        ...state,
+        training: trainingUpdated,
+        loading: false,
+        redirect: null,
+        hasErrors: false,
+      };
     case actions.LOADED_FAILURE:
       return { ...state, loading: false, hasErrors: true };
     default:

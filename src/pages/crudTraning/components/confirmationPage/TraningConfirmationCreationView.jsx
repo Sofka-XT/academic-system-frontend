@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import CSVTableComponent from "./CSVTableComponent";
+import CSVTableComponent from "../csvTable/CSVTableComponent";
+
+import "./TrainingConfirmationCreationView.css";
 
 const TraningConfirmationCreationView = ({ setFormSent }) => {
   const { traningSent } = useSelector((state) => state.crudTrainingReducer);
@@ -14,8 +16,8 @@ const TraningConfirmationCreationView = ({ setFormSent }) => {
       style={{ marginBottom: "50px" }}
     >
       <div className="">
-        <div className="title-container lecontainer">
-          <h2 className="my-3">Traning Creado Exitosamente</h2>
+        <div className="title-container container">
+          <h2 className="my-3">Traning Creadooo Exitosamente</h2>
           <hr />
         </div>
         <h5 className="text-center mt-3">nombre: {traningSent.name}</h5>
@@ -40,7 +42,6 @@ const TraningConfirmationCreationView = ({ setFormSent }) => {
       >
         Crear un nuevo training
       </button>
-      <div>&nbsp;</div>
     </div>
   );
 };

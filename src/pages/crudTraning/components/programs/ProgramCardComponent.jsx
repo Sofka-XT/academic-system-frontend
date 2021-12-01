@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as actions from "../../../state/crudTraining/crudTrainingActions";
+import * as actions from "../../../../state/crudTraining/crudTrainingActions";
+
+import './../FormInputTrainingComponent.css';
+import './programCardComponent.css';
 
 const ProgramCardComponent = ({ program, handleInputChange }) => {
   const dispatch = useDispatch();

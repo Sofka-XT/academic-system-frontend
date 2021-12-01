@@ -25,7 +25,7 @@ export const coachLinks = [
   },
   {
     path: "createTraining",
-    name: "Crear Trainin",
+    name: "Crear Training",
   },
 ];
 
