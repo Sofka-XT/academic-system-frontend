@@ -16,7 +16,9 @@ function Training({training, user}) {
                     alt="imagen training" />
                 <br />
                 <br />
-                <Link className="course" to={roleVerifier(user.role, training.trainingId)}> {training.name} </Link>
+                <Link className="btn btn-primary mx-3" to={roleVerifier(user.role, training.trainingId)}> {training.name} </Link>
+                <br />
+                <br />
                 <h6>Coaches:</h6>
                 {training.coaches.map((coach, index)=>
                     <h6 key={index}>{coach.name}</h6>
