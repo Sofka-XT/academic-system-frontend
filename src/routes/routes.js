@@ -11,6 +11,7 @@ import ListOfProgramsPageComponent from "../pages/program/ListOfProgramsPageComp
 import FormCreateProgramPageComponent from "../pages/program/FormCreateProgramPageComponent";
 import FormInputTrainingComponent from "./../pages/crudTraning/components/FormInputTrainingComponent";
 import TrainingDetails from "../pages/trainingDetailsPage/TrainingDetails";
+import ProfilePageComponent from "../pages/profile/ProfilePageComponent";
 
 export const routesApp = [
   {
@@ -79,6 +80,12 @@ export const routesApp = [
         name: "Training Detail",
         component: <TrainingDetails/>,
       },
+      {
+        path: "profile/*",
+        name: "Apprentice Profile",
+        component: <ProfilePageComponent />,
+
+      },
     ],
   },
 ];
@@ -118,7 +125,12 @@ export const apprenticeRoutesApp = [
         path: "traininglist/trainingdetail/:trainingid",
         name: "Training Detail",
         component: <TrainingDetails/>,
-      }
+      },
+      {
+        path: "profile/*",
+        name: "Apprentice Profile",
+        component: <ProfilePageComponent />,
+      },
     ],
   },
 ];
