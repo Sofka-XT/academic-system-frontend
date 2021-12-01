@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { useAppDispatch } from "../../state/store.hook";
 import { getApprenticeInfo } from "../../thunkAction/profileThunk";
+import LineChartComponent from "./components/LineChartComponent";
 
 const  ProfilePageComponent = ({apprentice}) =>
 {
@@ -13,7 +14,7 @@ const  ProfilePageComponent = ({apprentice}) =>
     }, [dispatch]);
 
     console.log(apprentice);
-    return <div></div>;
+    return <div><LineChartComponent /></div>;
 }
 
 const mapState = (state) => 
