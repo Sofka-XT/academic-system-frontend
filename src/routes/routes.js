@@ -1,6 +1,5 @@
-import { HomePageComponent } from "../pages/home/HomePageComponent";
-import Welcome from "../pages/dashboard/components/welcome/Welcome.jsx";
-
+import { LogOutPage } from "../pages/logout/LogOutPage";
+import Welcome from "../pages/welcome/Welcome";
 import DashBoardPageComponent from "./../pages/dashboard/DashBoardPageComponent";
 import TrainingListPageComponent from "../pages/trainingListPage/TrainingListPageComponent.jsx";
 import { CreateCoursePageComponent } from "./../pages/createCourse/CreateCoursePageComponent";
@@ -27,7 +26,7 @@ export const routesApp = [
       {
         path: "logout",
         name: "Log Out",
-        component: <HomePageComponent />,
+        component: <LogOutPage/>,
       },
       {
         path: "activetrainingcoach",
@@ -98,7 +97,7 @@ export const apprenticeRoutesApp = [
       {
         path: "logout",
         name: "Log Out",
-        component: <HomePageComponent />,
+        component: <LogOutPage />,
       },
       {
         path: "activetraining",
