@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CSVReader } from "react-papaparse";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import * as actions from "./../../../state/crudTraining/crudTrainingActions";
 import { validateInputTraining } from "../../../state/crudTraining/traningValidations/validations";
@@ -11,8 +11,8 @@ import {
 import {
   handleSelectCoach,
   handleUnselectCoach,
+  createCalendar
 } from "./../../../common/formTrainingHelpers/formTrainingHelpers";
-import createCalendar from "../functions/createCalendar";
 
 import useForm from "./../../../hooks/useForm";
 
@@ -26,6 +26,8 @@ import "./FormInputTrainingComponent.css";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
+  const {crudTrainingReducer} = useSelector(state => state);
+  const {programSelected} = crudTrainingReducer;
   const [formSent, setFormSent] = useState(false);
   const [coachesList, setCoachesList] = useState(actions.fetchCoaches());
   const [tableState, setTableState] = useState(null);
@@ -48,11 +50,10 @@ const FormInputTrainingComponent = () => {
       timer: 1500,
     });
   };
- 
 
   const handleSubmit = (e) => {
     e.preventDefault();  
-    const trainingToCreate = createCalendar(formValues);
+    //const trainingToCreate = createCalendar(formValues, programSelected);
 
     dispatch({
       type: actions.UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING,
