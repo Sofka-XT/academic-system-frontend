@@ -5,10 +5,12 @@ import './components/CourseDetailComponent.css';
 import DeleteButtonComponent from './components/DeleteButtonComponent';
 import EditButtonComponent from './components/EditButtonComponent';
 
+
 const CourseDetail = ({ courses }) => {
   const params = useParams();
 
   let course = courses.filter((item) => item.id === params.courseid)[0];
+  
 
   return (
     <div className="contenedor">

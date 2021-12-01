@@ -3,9 +3,12 @@ import { connect } from "react-redux";
 import ListTraining from './components/ListTraining'
 import { getActiveTrainingThunk } from "../../thunkAction/activeTrainingThunk";
 import './TrainingListPageComponent.css'
+import { saveLastPathWhenReload } from '../../common/saveLastPath/saveLastPath';
 
 
 const TrainingListPageComponent = ({dispatch, activeTrainings ,loading,hasErrors}) => {
+
+  saveLastPathWhenReload()
 
     useEffect(() => {
         dispatch(getActiveTrainingThunk());

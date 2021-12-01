@@ -2,12 +2,16 @@ import { Routes, Route, HashRouter } from 'react-router-dom';
 import LoginPageComponent from './pages/login/LoginPageComponent';
 import PrivateApprenticeRoutes from './routes/PrivateApprenticeRoutes';
 import PrivateRoutes from './routes/PrivateRoutes';
-import { apprenticeRoutesApp, routesApp } from './routes/routes';
+import { apprenticeRoutesApp, routesApp} from './routes/routes';
+import { saveLastPathWhenReload } from './common/saveLastPath/saveLastPath';
 
 export const AppRouter = () => {
-  return (
-    <HashRouter>
-      <Routes>
+
+	saveLastPathWhenReload();
+
+	return (
+		<HashRouter>
+			<Routes>
         <Route path="/" element={<LoginPageComponent />}></Route>
 
         {routesApp.map((route, index) => {
