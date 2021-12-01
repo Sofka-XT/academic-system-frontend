@@ -62,23 +62,29 @@ const EditionProgramPage = ({
   };
 
   return (
-    <div>
-      <form className="program-form" onSubmit={handleSubmit(onSubmit)}>
-  
-          <div className="create-program-container">
-            <div >
-              <input
-                required
-                minLength="4"
-                className="programs__input"
-                defaultValue={program.name}
-                {...register("programName")}
-              />
-            </div>
-            <div className="totaldays-container">
-              <label className="totaldays-name">Total del días:</label>{" "}
-              <p className="totaldays-name-num"> {totalDays} </p>
-            </div>
+
+    <>
+      <div className="trainings__main-container"
+        style={{ paddingBottom: "50px" }}
+      >
+        <form className="trainings__form" onSubmit={handleSubmit(onSubmit)}>
+
+          <div className="training__input-form training__input-form-name">
+
+            <input
+              required
+              minLength="4"
+              className="trainings__input"
+              defaultValue={program.name}
+              {...register("programName")}
+            />
+
+
+          </div>
+
+          <div className="totaldays-container">
+            <label className="totaldays-name">Total del días:</label>{" "}
+            <p className="totaldays-name-num"> {totalDays} </p>
           </div>
 
           <div>
@@ -95,12 +101,25 @@ const EditionProgramPage = ({
               )}
             </div>
           </div>
-   
-        <button className="trainings__btn-submit" type="submit">
-          Enviar
-        </button>
-      </form>
-    </div>
+
+          <div className="card-list">
+            <button className="trainings__btn-submit " type="submit">
+              Enviar
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+
+
+
+
+
+
+
+
+    </>
   );
 };
 

@@ -11,7 +11,11 @@ export const renderEditPage = (
   if (Object.keys(program).length !== 0) {
     return (
       <div>
-        <h3>Cursos:</h3>
+
+        <div className="card-cursos">
+          <h3 >Cursos:</h3>
+        </div>
+        
         <div className="select-container">
           <h6>Agregar curso: </h6>
           <div>
@@ -33,7 +37,7 @@ export const renderEditPage = (
             </select>
             {Object.keys(selectedCourse).length !== 0 && (
               <button
-                className="trainings__btn-submit"
+                className="trainings__btn-submit add-course-program"
                 type="button"
                 onClick={() => {
                   handleAddCourse();
@@ -46,7 +50,7 @@ export const renderEditPage = (
         </div>
         {program.courses &&
           program.courses.map((course) => (
-            <div key={course.courseId}>
+            <div className="card-list" key={course.courseId}>
               <div className="bd-callout bd-callout-warning">
                 <div className="course-container">
                   <h4>{course.courseName}</h4>

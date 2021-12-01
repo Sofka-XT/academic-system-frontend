@@ -150,10 +150,28 @@
   border-radius: 8px;
   font-size: 20px;
   font-weight: bold;
+  margin-top: 40px;
 }
 
 .duration-category {
   display: flex;
   justify-content: space-around;
   padding-left: 4px;
+}
+
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-cursos {
+
+
+  padding: 30px;
+  margin: 0 auto;
+  width: 80%;
+
+
 }

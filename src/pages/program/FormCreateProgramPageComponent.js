@@ -54,7 +54,7 @@ const FormCreateProgramPageComponent = ({
   };
 
   return (
-    <div clas="create-program">
+    <div>
       <form className="program-form" onSubmit={handleSubmit(onSubmit)}>
         <div className="create-program-container">
           <input
