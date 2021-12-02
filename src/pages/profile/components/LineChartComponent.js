@@ -37,6 +37,12 @@ const LineChartComponent = ({apprentice}) =>
             text: `Grafica de rendimiento de ${apprentice?.apprenticeName}`,
           },
         },
+        scales: {
+          y: {
+              min: 0,
+              max: 100
+          }
+      },
       };
 
     const labels = apprentice?.categoriesName;

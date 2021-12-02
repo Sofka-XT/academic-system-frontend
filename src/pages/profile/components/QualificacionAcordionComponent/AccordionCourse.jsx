@@ -16,8 +16,8 @@ const AccordionCourse = ({courses}) => {
         <div className='wrapper'>
             <div className='accordion'> 
             {courses?.map((item,i)=>(
-                <div className="item">
-                    <div className ='title' on onClick={()=>toggle(i)}>
+                <div key={item.courseId} className="item">
+                    <div className ='title' onClick={()=>toggle(i)}>
                         <h2 className='titleAccordionName'>{item.courseName}</h2>
                         <i className={selected===i?"fas fa-minus-circle":"fas fa-plus-circle"}></i>
                     </div>
@@ -26,7 +26,7 @@ const AccordionCourse = ({courses}) => {
                     <div className= {selected===i?'content show':'content'}>
                     {/*item.categories[0].name*/}
                     {console.log(item)}
-                    <AccordionCategories categories={item.categories}></AccordionCategories>
+                    <AccordionCategories categories={item.categoryScoreList}></AccordionCategories>
                     </div>
                 </div>
             )
