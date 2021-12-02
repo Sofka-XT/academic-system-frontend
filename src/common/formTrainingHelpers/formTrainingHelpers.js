@@ -36,7 +36,3 @@ export const handleUnselectCoach = (
   handleInputChange(event);
   setCoachesList([...coachesList, coachToDelete]);
 };
-
-
-
-
