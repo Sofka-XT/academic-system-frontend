@@ -6,7 +6,7 @@ import DeleteButtonComponent from './components/DeleteButtonComponent';
 import EditButtonComponent from './components/EditButtonComponent';
 
 
-const CourseDetail = ({ courses }) => {
+const CourseDetail = ({ courses,user }) => {
   const params = useParams();
 
   let course = courses.filter((item) => item.id === params.courseid)[0];
@@ -20,8 +20,9 @@ const CourseDetail = ({ courses }) => {
 
       <div className="contenido">
         <p>{course.id}</p>
+        {user.role!=="APPRENTICE"&&<>
         <DeleteButtonComponent id={course.id} />
-        <EditButtonComponent id={course.id} />
+        <EditButtonComponent id={course.id} /></>}
       </div>
 
       <div>
@@ -62,5 +63,14 @@ const mapStateToProps = (state) => ({
   loading: state.coursesReducer.loading,
   hasError: state.coursesReducer.error,
   courses: state.coursesReducer.courses,
+  user: state.authReducer.user
 });
 export default connect(mapStateToProps)(CourseDetail);
+
+
+
+
+
+
+
+

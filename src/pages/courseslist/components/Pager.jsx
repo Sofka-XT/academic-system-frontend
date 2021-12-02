@@ -7,7 +7,7 @@ export const Pager= ({itemList,loading,hasErrors})=>{
 
     const [currentPage, setCurrentPage]=useState(1)
 
-    let paginatorProps=paginator(itemList,currentPage,30)
+    let paginatorProps=paginator(itemList,currentPage,8)
 
     function paginator(items, current_page, per_page_items) {
         let page = current_page || 1,
