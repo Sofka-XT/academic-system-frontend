@@ -37,6 +37,11 @@ export const handleUnselectCoach = (
   setCoachesList([...coachesList, coachToDelete]);
 };
 
-
-
-
+export const getProgramTotalDuration = (program) =>
+  program.courses
+    .map((course) =>
+      course.categories
+        .map((category) => category.days)
+        .reduce((previousValue, currentValue) => previousValue + currentValue)
+    )
+    .reduce((previousValue, currentValue) => previousValue + currentValue);
