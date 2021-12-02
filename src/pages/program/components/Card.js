@@ -3,7 +3,6 @@ import { DeleteButton } from "./DeleteButton";
 import React from "react";
 export const Card = ({ id, name, dispatch, handleEdit }) => {
   return (
-
     <>
       <div className="training__program-main-container">
         <div className="training__item">
@@ -19,27 +18,26 @@ export const Card = ({ id, name, dispatch, handleEdit }) => {
               {name}
               <hr />
             </h2>
-            <h5 className="training__description--subtitle">
-            </h5>
+
           </div>
+          
         </div>
 
         <div className="content-program">
           <div className="card-title">
             <h4 className="training__card-name m-3">{name} </h4>
-            <DeleteButton idData={id} dispatch={dispatch} />
-          </div>
-          <div className="training__coach-selected">
-            <Link to="editProgram">
-              {" "}
-              <button className="program__btn-edit" onClick={() => handleEdit(id)}>
-                Edit
-              </button>
-            </Link>
+            <div className="buttons-card-container">
+              <Link to="editProgram">
+                <i
+                  className="fas fa-edit icon-edit"
+                  onClick={() => handleEdit(id)}
+                ></i>
+              </Link>
+              <DeleteButton idData={id} dispatch={dispatch} />
+            </div>
           </div>
         </div>
       </div>
     </>
-
   );
 };

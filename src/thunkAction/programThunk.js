@@ -14,6 +14,7 @@ export const getProgramsThunk = () => {
     try {
       const response = await fetchProgramsApi();
       const data = await response.json();
+      console.log(data)
       dispatch(success({ programs: data, redirect: null }));
     } catch (error) {
       dispatch(failure());

@@ -4,7 +4,7 @@ export const coachLinks = [
     name: "INICIO",
   },
   {
-    path: "activetrainingcoach",
+    path: "activetraining",
     name: "TRAINING ACTIVO",
   },
   {

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -24,7 +24,8 @@
   align-items: center;
   padding: 20px;
   min-height: 80px;
-}
+} */
+
 
 .button-delete {
   background-color: #e1ecf4;
@@ -61,8 +62,18 @@
 }
 
 .icon-delete:hover {
-  color:rgb(201 19 19)
+  color:rgb(201 19 19);
+}
 
+.icon-edit{
+  color: #21117e;
+  margin: 20px 16px 0 0;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.icon-edit:hover{
+  color: #0d0055;
 }
 
 .button-delete:hover,
@@ -186,10 +197,13 @@
 
   display: flex; justify-content: space-between; 
 }
-
-
 .content-program {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 46%;
+}
+.buttons-card-container{
+  display: flex;
+  flex-direction: row;
 }

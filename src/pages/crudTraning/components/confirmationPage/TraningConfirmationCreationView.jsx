@@ -16,8 +16,8 @@ const TraningConfirmationCreationView = ({ setFormSent }) => {
       style={{ marginBottom: "50px" }}
     >
       <div className="">
-        <div className="title-container container">
-          <h2 className="my-3">Traning Creadooo Exitosamente</h2>
+        <div className="title-container">
+          <h2 className="my-3">Training Creado Exitosamente</h2>
           <hr />
         </div>
         <h5 className="text-center mt-3">nombre: {traningSent.name}</h5>
@@ -34,14 +34,10 @@ const TraningConfirmationCreationView = ({ setFormSent }) => {
           Lista de aprendices asignados para el training
         </h4>
         <CSVTableComponent data={traningSent.apprentices} />
+        <button className="btn btn-primary my-5" onClick={handleNewTraning}>
+          Crear un nuevo training
+        </button>
       </div>
-      <button
-        id="traning__new-traning-btn"
-        className="btn btn-primary btn-new-traning mt-5"
-        onClick={handleNewTraning}
-      >
-        Crear un nuevo training
-      </button>
     </div>
   );
 };

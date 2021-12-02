@@ -1,6 +1,7 @@
 import { enviroment } from "../../environments/enviroment";
 
-const URL_BASE = enviroment.host;
+// const URL_BASE = enviroment.host;
+const URL_BASE = "http://localhost:8080/";
 
 export const LOADING = "LOADING";
 export const LOADED_SUCCESS = "LOADED_SUCCESS";
