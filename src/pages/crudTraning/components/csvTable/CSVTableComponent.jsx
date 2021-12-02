@@ -1,5 +1,6 @@
 import React from "react";
-import "./CSVTableComponent.css";
+// import "./FormInputTrainingComponent.css";
+import "../../../common/styles/styles.css";
 
 const CSVTableComponent = ({ data }) => {
   if (data) {

@@ -18,6 +18,7 @@ export const triggerALertRepitedCourse = (
       return {
         categoryId: category.id,
         categoryName: category.name,
+        urlsRefGradles: category.urlsRefGradles,
         days: 1,
       };
     }),

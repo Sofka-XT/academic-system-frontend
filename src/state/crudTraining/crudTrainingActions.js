@@ -1,6 +1,7 @@
 import { enviroment } from "../../environments/enviroment";
 
-const URL_BASE = enviroment.host;
+// const URL_BASE = enviroment.host;
+const URL_BASE = "http://localhost:8080/";
 
 export const LOADING = "LOADING";
 export const LOADED_SUCCESS = "LOADED_SUCCESS";
@@ -14,7 +15,6 @@ export const ADD_TRAINING_NAME = "ADD_TRAINING_NAME";
 export const SET_STARTING_DATE = "SET_STARTING_DATE";
 export const UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING =
   "UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING";
-
 
 export const loading = () => ({ type: LOADING });
 

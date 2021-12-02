@@ -1,12 +1,8 @@
 import React from 'react'
 import { Link,  } from 'react-router-dom';
 import './Training.css';
-import { connect } from 'react-redux';
-import { roleVerifier } from '../../trainingDetailsPage/utils/routeVerifier';
 
-
-
-function Training({training, user}) {
+export default function Training({training}) {
 
     return (
         <div className = "list">
@@ -16,20 +12,14 @@ function Training({training, user}) {
                     alt="imagen training" />
                 <br />
                 <br />
-                <Link className="btn btn-primary mx-3" to={roleVerifier(user.role, training.trainingId)}> {training.name} </Link>
-                <br />
-                <br />
+                
+                <Link className="course" to={`trainingdetail/${training.trainingId}`}> {training.name} </Link>
+
                 <h6>Coaches:</h6>
                 {training.coaches.map((coach, index)=>
                     <h6 key={index}>{coach.name}</h6>
                 )}
             </div>
         </div>
-        
     )
 }
-
-const mapState = (state) => ({
-	user: state.authReducer.user,
-});
-export default connect(mapState)(Training);

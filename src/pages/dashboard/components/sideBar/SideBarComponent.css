@@ -18,7 +18,7 @@
 }
 
 .link{
-  color: var(--white-color);
+  color: #fff !important;
   text-decoration: none;
   font-weight: 700;
   font-size: 12px;
