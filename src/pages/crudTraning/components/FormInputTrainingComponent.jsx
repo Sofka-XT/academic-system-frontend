@@ -233,7 +233,7 @@ const FormInputTrainingComponent = () => {
                   type="submit"
                   id="submit_training"
                   onClick={handleSubmit}
-                  className="trainings__btn-submit"
+                  className="trainings__btn-submit btn btn-primary"
             >
                   Crear <i class="fas fa-plus ml-3"></i>
             </button>
