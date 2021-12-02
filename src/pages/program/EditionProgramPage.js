@@ -6,6 +6,7 @@ import { getCoursesThunk } from "../../thunkAction/programThunk";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import { InputPrograms } from "./components/InputPrograms";
 import "./EditionProgramPage.css";
+import "./FormCreatePrograPageComponent.css";
 import {
   useProgramEffectForActions,
   useProgramTotalDays,
@@ -62,25 +63,29 @@ const EditionProgramPage = ({
   };
 
   return (
-    <div>
-      <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
-        <h1> Editar Programa </h1>
-        <div>
-          <div>
-            <div className="program-name-container">
-              <h2 className="program-name"> Nombre del programa: </h2>
-              <input
-                required
-                minLength="4"
-                className="program-inputs-name"
-                defaultValue={program.name}
-                {...register("programName")}
-              />
-            </div>
-            <div className="totaldays-container">
-              <label className="totaldays-name">Total del días:</label>{" "}
-              <p className="totaldays-name-num"> {totalDays} </p>
-            </div>
+
+    <>
+      <div className="trainings__main-container"
+        style={{ paddingBottom: "50px" }}
+      >
+        <form className="trainings__form" onSubmit={handleSubmit(onSubmit)}>
+
+          <div className="training__input-form training__input-form-name">
+
+            <input
+              required
+              minLength="4"
+              className="trainings__input"
+              defaultValue={program.name}
+              {...register("programName")}
+            />
+
+
+          </div>
+
+          <div className="totaldays-container">
+            <label className="totaldays-name">Total del días:</label>{" "}
+            <p className="totaldays-name-num"> {totalDays} </p>
           </div>
 
           <div>
@@ -97,12 +102,26 @@ const EditionProgramPage = ({
               )}
             </div>
           </div>
-        </div>
-        <button className="button-edit" type="submit">
-          Enviar
-        </button>
-      </form>
-    </div>
+
+          <div className="card-list">
+            <button className="trainings__btn-submit " type="submit">
+              Enviar
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+
+
+
+
+
+
+
+
+    </>
+
   );
 };
 

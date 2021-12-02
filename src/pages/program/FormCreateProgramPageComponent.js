@@ -50,27 +50,22 @@ const FormCreateProgramPageComponent = ({
       return;
     }
 
-    triggerALertRepitedProgram(programs, program2, dispatch, navigate, false);
+    triggerALertRepitedProgram(programs,program2,dispatch,navigate,false)
   };
 
   return (
-    <div clas="create-pogram">
-      <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
-        <h2>Crear Programa</h2>
-        <div className="col-6">
-          <label>Nombre del programa</label>
+    <div>
+      <form className="program-form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="create-program-container">
           <input
             required
             minLength="4"
-            className="form-control"
+            className="programs__input"
+            placeholder="Nombre del programa ..."
             {...register("programName")}
           />
-
-          <br />
-          <label>Selecciones un curso</label>
-
           <select
-            className="form-select"
+            className="create-program-select"
             defaultValue={"DEFAULT"}
             {...register("course")}
             onChange={handleSelect}
@@ -107,7 +102,7 @@ const FormCreateProgramPageComponent = ({
                 key={course.courseId}
               >
                 <div className="course-container">
-                  <h6>{course.courseName}</h6>
+                  <h4 className="create-program-course-title">{course.courseName}</h4>
 
                   <div className="topics-list">
                     <h5 className="topics-label">Categorias:</h5>
@@ -126,6 +121,7 @@ const FormCreateProgramPageComponent = ({
                           ></InputPrograms>
                         ))}
                     </ul>
+                    
                   </div>
                 </div>
                 {courses.length !== 1 && (
@@ -138,7 +134,7 @@ const FormCreateProgramPageComponent = ({
               </div>
             ))}
         </div>
-        <button className="button-edit" type="submit">
+        <button className="trainings__btn-submit" type="submit">
           Crear programa
         </button>
       </form>

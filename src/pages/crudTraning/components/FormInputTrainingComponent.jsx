@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { CSVReader } from 'react-papaparse';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { CSVReader } from "react-papaparse";
+import { useDispatch } from "react-redux";
 
-import * as actions from '../../../state/crudTraining/crudTrainingActions';
-import { validateInputTraining } from '../../../state/crudTraining/traningValidations/validations';
+import * as actions from "../../../state/crudTraining/crudTrainingActions";
+import { validateInputTraining } from "../../../state/crudTraining/traningValidations/validations";
 
-import useForm from './../../../hooks/useForm';
+import useForm from "./../../../hooks/useForm";
 
-import CSVTableComponent from './CSVTableComponent';
-import ProgramsListComponent from './ProgramsListComponent';
-import TraningConfirmationCreationView from './TraningConfirmationCreationView';
+import CSVTableComponent from "./CSVTableComponent";
+import ProgramsListComponent from "./ProgramsListComponent";
+import TraningConfirmationCreationView from "./TraningConfirmationCreationView";
 
-import Swal from 'sweetalert2';
-import './FormInputTrainingComponent.css';
+import Swal from "sweetalert2";
+import "../../../common/styles/styles.css"
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
@@ -21,9 +21,9 @@ const FormInputTrainingComponent = () => {
   const [tableState, setTableState] = useState(null);
 
   const [formValues, handleInputChange, resetFormValues] = useForm({
-    name: '',
-    program: '',
-    startingDate: new Date().toISOString().split('T')[0],
+    name: "",
+    program: "",
+    startingDate: new Date().toISOString().split("T")[0],
     apprentices: [],
     coaches: [],
   });
@@ -31,8 +31,8 @@ const FormInputTrainingComponent = () => {
 
   const showSwalResponse = (valid, message) => {
     Swal.fire({
-      icon: `${valid ? 'success' : 'error'}`,
-      title: `${valid ? 'Bien hecho!' : 'Error'}`,
+      icon: `${valid ? "success" : "error"}`,
+      title: `${valid ? "Bien hecho!" : "Error"}`,
       text: message,
       showConfirmButton: false,
       timer: 1500,
@@ -54,7 +54,7 @@ const FormInputTrainingComponent = () => {
 
       const e = {
         target: {
-          name: 'apprentices',
+          name: "apprentices",
           value: [],
         },
       };
@@ -78,7 +78,7 @@ const FormInputTrainingComponent = () => {
     setTableState(data);
     const e = {
       target: {
-        name: 'apprentices',
+        name: "apprentices",
         value: data,
       },
     };
@@ -92,13 +92,13 @@ const FormInputTrainingComponent = () => {
   };
 
   const handleSelectCoach = ({ target }) => {
-    if (target.value === '0') return;
+    if (target.value === "0") return;
 
     const coachSelected = coachesList.filter(
       (coach) => coach.id === target.value
     )[0];
     const event = {
-      target: { name: 'coaches', value: [...coaches, coachSelected] },
+      target: { name: "coaches", value: [...coaches, coachSelected] },
     };
     const newCoachesList = coachesList.filter(
       (coach) => coach.id !== target.value
@@ -119,7 +119,7 @@ const FormInputTrainingComponent = () => {
     const coachToDelete = coaches.filter((coach) => coach.id === id)[0];
     const newCoachesSelected = coaches.filter((coach) => coach.id !== id);
     const event = {
-      target: { name: 'coaches', value: newCoachesSelected },
+      target: { name: "coaches", value: newCoachesSelected },
     };
     handleInputChange(event);
     setCoachesList([...coachesList, coachToDelete]);
@@ -129,7 +129,7 @@ const FormInputTrainingComponent = () => {
     return (
       <div
         className="trainings__main-container"
-        style={{ paddingBottom: '50px' }}
+        style={{ paddingBottom: "50px" }}
       >
         <form onSubmit={handleSubmit} className="trainings__form">
           <div className="training__input-form training__input-form-name">
