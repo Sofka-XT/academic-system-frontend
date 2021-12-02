@@ -380,7 +380,7 @@ main {
 
 .training__program-main-container {
   border-top-left-radius: 20px;
-  border-top-right-radius: 10px;
+  border-top-right-radius: 20px;
   /* border-bottom: 10px solid blue; */
   background-color: lightgray;
   border-bottom-left-radius: 5px;
@@ -423,4 +423,9 @@ main {
   top: 30px;
   right: 20px;
   width: 20%;
+}
+
+.top-image{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }

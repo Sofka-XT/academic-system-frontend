@@ -37,6 +37,12 @@ const LineChartComponent = ({apprentice}) =>
             text: `Grafica de rendimiento de ${apprentice?.apprenticeName}`,
           },
         },
+        scales: {
+          y: {
+              min: 0,
+              max: 100
+          }
+      },
       };
 
     const labels = apprentice?.categoriesName;
@@ -57,7 +63,7 @@ const LineChartComponent = ({apprentice}) =>
           },
           {
             label: 'Alerta roja',
-            data: labels?.map((label, i) => 50),
+            data: labels?.map((label, i) => 65),
             borderColor: 'rgb(205, 18, 18)',
             backgroundColor: 'rgba(205, 18, 18, 0.8)',
           }
