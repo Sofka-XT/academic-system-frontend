@@ -16,10 +16,11 @@ const initialState = {
       builder
         .addCase(getApprenticeInfo.fulfilled, (state, action) => {
           state.apprentice = {...action.payload, 
-            categoriesName: action.payload.courses
-            .flatMap(course => course.categories.map(category => category.categoryName)),
+            categoriesName: action.payload.courseScores?.
+            flatMap(course => course.categoryScoreList.map(category => category.categoryName)),
             
-            grades: action.payload.courses.flatMap(course => course.categories.map(category => category.score)),
+            grades: action.payload.courseScores?.
+            flatMap(course => course.categoryScoreList.map(category => category.score)),
         };
           state.loading = false;
         });

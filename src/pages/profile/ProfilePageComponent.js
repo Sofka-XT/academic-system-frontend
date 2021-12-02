@@ -6,15 +6,17 @@ import LineChartComponent from "./components/LineChartComponent";
 import ApprenticeProfile from "./components/ApprenticeProfile";
 import QualificationComponent from "./components/QualificacionAcordionComponent/QualificationComponent";
 import "./ProfilePageComponent.css"
+import { useParams } from "react-router";
 
 const ProfilePageComponent = ({ apprentice }) => {
   const dispatch = useAppDispatch();
+  const {email} = useParams();
 
   useEffect(() => {
-    dispatch(getApprenticeInfo());
-  }, [dispatch]);
+      console.log("a");
+    dispatch(getApprenticeInfo(email));
+  }, [email]);
 
-  console.log(apprentice);
   return (
     <div>
         <div className="profile-component">
