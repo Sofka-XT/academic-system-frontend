@@ -23,7 +23,6 @@ import TraningConfirmationCreationView from "./confirmationPage/TraningConfirmat
 
 import Swal from "sweetalert2";
 import "../../../common/styles/styles.css";
-import { handleUnselectCoach } from "../../../common/formTrainingHelpers/formTrainingHelpers";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
@@ -135,7 +134,9 @@ const FormInputTrainingComponent = () => {
                 }
               >
                 {coachesList.map((coach) => (
-                  <option value={coach.id}>{coach.name}</option>
+                  <option key={coach.id} value={coach.id}>
+                    {coach.name}
+                  </option>
                 ))}
               </select>
             </div>
