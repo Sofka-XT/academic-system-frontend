@@ -1,0 +1,9 @@
+.itemCategory{
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 2px 20px;
+    ;
+}
