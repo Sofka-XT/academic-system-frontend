@@ -13,7 +13,7 @@ import {
   handleUnselectCoach
 } from "./../../../common/formTrainingHelpers/formTrainingHelpers";
 
-import createCalendar from "./../../../common/formTrainingHelpers/createCalendar";
+import createCalendar from "../../../common/formTrainingHelpers/createCalendar";
 
 import useForm from "./../../../hooks/useForm";
 
@@ -55,6 +55,8 @@ const FormInputTrainingComponent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();  
     const trainingToCreate = createCalendar(formValues, programSelected);
+    console.log("training que se va a publicar")
+    console.log(trainingToCreate);
 
     dispatch({
       type: actions.UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING,
