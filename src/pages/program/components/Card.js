@@ -18,7 +18,7 @@ export const Card = ({ id, name, dispatch, handleEdit }) => {
               {name}
               <hr />
             </h2>
-            <h5 className="training__description--subtitle"></h5>
+
           </div>
           
         </div>
