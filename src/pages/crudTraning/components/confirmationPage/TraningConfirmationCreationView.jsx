@@ -17,7 +17,7 @@ const TraningConfirmationCreationView = ({ setFormSent }) => {
     >
       <div className="">
         <div className="title-container">
-          <h2 className="my-3">Training Creadooo Exitosamente</h2>
+          <h2 className="my-3">Training Creado Exitosamente</h2>
           <hr />
         </div>
         <h5 className="text-center mt-3">nombre: {traningSent.name}</h5>
