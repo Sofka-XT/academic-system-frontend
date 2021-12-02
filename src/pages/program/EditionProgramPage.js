@@ -63,15 +63,13 @@ const EditionProgramPage = ({
   };
 
   return (
-
     <>
-      <div className="trainings__main-container"
+      <div
+        className="trainings__main-container"
         style={{ paddingBottom: "50px" }}
       >
         <form className="trainings__form" onSubmit={handleSubmit(onSubmit)}>
-
           <div className="training__input-form training__input-form-name">
-
             <input
               required
               minLength="4"
@@ -79,8 +77,6 @@ const EditionProgramPage = ({
               defaultValue={program.name}
               {...register("programName")}
             />
-
-
           </div>
 
           <div className="totaldays-container">
@@ -108,20 +104,9 @@ const EditionProgramPage = ({
               Enviar
             </button>
           </div>
-
         </form>
       </div>
-
-
-
-
-
-
-
-
-
     </>
-
   );
 };
 

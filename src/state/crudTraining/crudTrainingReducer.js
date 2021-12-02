@@ -11,6 +11,7 @@ export const initialState = {
     coaches: [],
   },
   programs: [],
+  programSelected: {},
   redirect: null,
   hasErrors: false,
   traningSent: {},
@@ -39,10 +40,10 @@ export default function crudTrainingReducer(state = initialState, action) {
       };
     case actions.ADD_PROGRAM_SELECTED:
       const trainingWithProgram = { ...state.training };
-      trainingWithProgram.program = action.payload;
-
+      trainingWithProgram.program = action.payload.programId;
       return {
         ...state,
+        programSelected: action.payload.programSelected,
         training: trainingWithProgram,
         loading: false,
         redirect: null,
@@ -88,6 +89,19 @@ export default function crudTrainingReducer(state = initialState, action) {
       return {
         ...state,
         training: trainingWithStartingDate,
+        loading: false,
+        redirect: null,
+        hasErrors: false,
+      };
+    case actions.UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING:
+      const trainingUpdated = { ...state.training };
+      trainingUpdated.startingDate = action.payload.startingDate;
+      trainingUpdated.name = action.payload.name;
+      trainingUpdated.coaches = action.payload.coaches;
+
+      return {
+        ...state,
+        training: trainingUpdated,
         loading: false,
         redirect: null,
         hasErrors: false,

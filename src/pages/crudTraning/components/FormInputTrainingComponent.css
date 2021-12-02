@@ -1,0 +1,185 @@
+.trainings__input {
+  width: 80%;
+}
+
+.trainings__main-container {
+  width: 100%;
+  height: unset;
+}
+
+.trainings__form {
+  padding: 10px;
+  display: block;
+}
+
+.training__input-form {
+  margin: 50px 0px 70px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.training__select-form {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.training__output-form {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.training__input-form-name {
+  justify-content: space-evenly;
+}
+
+.section__title {
+  display: block;
+}
+
+.section__decoration {
+  content: "";
+  display: block;
+  width: 400px;
+  height: 5px;
+  background: #40bad5;
+  margin: 20px auto 30px;
+}
+
+.trainings__select-input {
+  border: none;
+  border-bottom: 2px solid black;
+  font-size: 1em;
+  padding: none;
+  margin: none;
+  padding: 15px;
+  width: 90%;
+  height: 100%;
+}
+
+.trainings__input-coaches {
+  margin-bottom: -36px;
+  height: 57px;
+}
+
+.trainings__date-input {
+  width: 70%;
+}
+
+.trainings__btn-submit {
+  width: 120px;
+  margin: 0px auto;
+  margin-top: -20px;
+  height: 38px;
+  background-color: #0d6efd;
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 3px;
+}
+
+.trainings__btn-submit:focus {
+  outline: none;
+  border: 1px solid white;
+}
+
+.training__categoria,
+.training__starting-date {
+  width: 300px;
+}
+
+.trainings__input {
+  border: none;
+  border-bottom: 2px solid black;
+  font-size: 1.5em;
+  padding: 10px;
+}
+
+.training__input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.trainings__input-label {
+  padding: 15px 0px;
+  font-size: 1.2em;
+}
+
+.training__btn-upload {
+  padding: 15px;
+}
+
+.training__coach-selected {
+  min-width: 300px;
+  overflow-wrap: wrap;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-delete-coach {
+  width: 20%;
+}
+
+.training__alert-primary {
+  width: 60%;
+  margin: auto 20%;
+}
+
+.porfolio__tech-images {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.training__tech-image {
+  width: 10%;
+  margin: 20px 5px;
+}
+
+.screen-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-new-traning {
+  width: 30%;
+  margin: auto 35%;
+}
+
+.title-container {
+  width: 80%;
+  margin: 10px 10%;
+}
+
+.training__csv-div {
+  display: flex;
+  flex-direction: column;
+  /* padding: 50px; */
+}
+
+.training__file-input {
+  width: 100%;
+  margin: auto auto;
+  height: 120px;
+  padding: 0px;
+}
+
+.training__input-form .training__input-container {
+  position: relative;
+  z-index: 0;
+}
+
+#csv_reader_training {
+  padding: 20p;
+}
