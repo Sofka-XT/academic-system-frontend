@@ -4,7 +4,7 @@ import "./CSVTableComponent.css";
 const CSVTableComponent = ({ data }) => {
   if (data) {
     return (
-      <div className="container training__table-container">
+      <div className="training__table-container">
         <table
           className="table training__table-apprentices"
           style={{

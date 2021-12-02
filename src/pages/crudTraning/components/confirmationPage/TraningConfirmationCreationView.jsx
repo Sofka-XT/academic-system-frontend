@@ -16,8 +16,8 @@ const TraningConfirmationCreationView = ({ setFormSent }) => {
       style={{ marginBottom: "50px" }}
     >
       <div className="">
-        <div className="title-container container">
-          <h2 className="my-3">Traning Creadooo Exitosamente</h2>
+        <div className="title-container">
+          <h2 className="my-3">Training Creadooo Exitosamente</h2>
           <hr />
         </div>
         <h5 className="text-center mt-3">nombre: {traningSent.name}</h5>

@@ -1,12 +1,9 @@
 .training__table-container {
-  max-width: 1000px;
+  margin: 50px 0px 70px 0px;
 }
 
 .training__table-apprentices {
   width: 300px;
-}
-
-.training__table-apprentices {
   outline: 1px solid darkgray;
-  margin: 50px 0px 70px 0px;
+  margin-bottom: 100px;
 }
