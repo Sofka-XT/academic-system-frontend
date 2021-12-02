@@ -59,6 +59,7 @@ export function postTraining(training) {
           startingDate: data.startingDate,
           apprentices: data.apprentices,
           coaches: data.coaches,
+          categoriesToScrapCalendar: data.categoriesToScrapCalendar
         })
       );
     } catch (error) {

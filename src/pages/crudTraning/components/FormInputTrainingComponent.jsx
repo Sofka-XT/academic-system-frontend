@@ -62,25 +62,25 @@ const FormInputTrainingComponent = () => {
       type: actions.UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING,
       payload: { coaches, name, startingDate },
     });
-    // const { valid, message } = validateInputTraining(formValues);
-    // if (valid) {
-    //   dispatch(actions.postTraining(formValues));
-    //   showSwalResponse(valid, message);
-    //   setTableState(null);
-    //   setCoachesList(actions.fetchCoaches());
-    //   const e = {
-    //     target: {
-    //       name: "apprentices",
-    //       value: [],
-    //     },
-    //   };
-    //   handleInputChange(e);
+    const { valid, message } = validateInputTraining(formValues);
+    if (valid) {
+      dispatch(actions.postTraining(trainingToCreate));
+      showSwalResponse(valid, message);
+      setTableState(null);
+      setCoachesList(actions.fetchCoaches());
+      const e = {
+        target: {
+          name: "apprentices",
+          value: [],
+        },
+      };
+      handleInputChange(e);
 
-    //   resetFormValues();
-    //   setFormSent(true);
-    // } else {
-    //   showSwalResponse(valid, message);
-    // }
+      resetFormValues();
+      setFormSent(true);
+    } else {
+      showSwalResponse(valid, message);
+    }
   };
 
   useEffect(() => {
