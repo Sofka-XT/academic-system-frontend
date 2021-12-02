@@ -1,22 +1,18 @@
 import React from 'react'
 import { Link,  } from 'react-router-dom';
 import './Training.css';
-import { connect } from 'react-redux';
-import { roleVerifier } from '../../trainingDetailsPage/utils/routeVerifier';
 
-
-
-function Training({training, user}) {
+export default function Training({training}) {
 
     return (
-        <div className = "list">
-            <div className = "training-card">
-                <img className="img-training" 
+        <div className = "training__grid">
+            <div className = "training__program-main-container mt-5">
+                <img className="img-training top-image" 
                     src="https://www.publicdomainpictures.net/pictures/290000/nahled/web-hosting.jpg" 
                     alt="imagen training" />
                 <br />
                 <br />
-                <Link className="btn btn-primary mx-3" to={roleVerifier(user.role, training.trainingId)}> {training.name} </Link>
+                <Link className="course" to={`trainingdetail/${training.trainingId}`}> {training.name} </Link>
                 <br />
                 <br />
                 <h6>Coaches:</h6>
@@ -25,11 +21,5 @@ function Training({training, user}) {
                 )}
             </div>
         </div>
-        
     )
 }
-
-const mapState = (state) => ({
-	user: state.authReducer.user,
-});
-export default connect(mapState)(Training);
