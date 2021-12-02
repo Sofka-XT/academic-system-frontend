@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { CSVReader } from "react-papaparse";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import * as actions from "../../../state/crudTraining/crudTrainingActions";
 import { validateInputTraining } from "../../../state/crudTraining/traningValidations/validations";
 
 import useForm from "./../../../hooks/useForm";
 
-import CSVTableComponent from "./CSVTableComponent";
-import ProgramsListComponent from "./ProgramsListComponent";
-import TraningConfirmationCreationView from "./TraningConfirmationCreationView";
+import CSVTableComponent from "./csvTable/CSVTableComponent";
+import ProgramsListComponent from "./programs/ProgramsListComponent";
+import TraningConfirmationCreationView from "./confirmationPage/TraningConfirmationCreationView";
 
 import Swal from "sweetalert2";
 import "../../../common/styles/styles.css";
+import { handleUnselectCoach } from "../../../common/formTrainingHelpers/formTrainingHelpers";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
@@ -121,7 +122,7 @@ const FormInputTrainingComponent = () => {
     return (
       <div
         className="trainings__main-container"
-        style={{ paddingBottom: "50px" }}
+        style={{ paddingBottom: "20px" }}
       >
         <form onSubmit={handleSubmit} className="trainings__form">
           <div className="training__input-form training__input-form-name">
@@ -190,7 +191,7 @@ const FormInputTrainingComponent = () => {
             {coaches.length > 0 ? (
               coaches.map((coach) => (
                 <div key={coach.id} className="training__coach-selected">
-                  <span className="text-center">{coach.name}</span>
+                  <span className="text-center mb-3">{coach.name}</span>
                   <button
                     id={`${coach.id}_button_delete_coach`}
                     className="btn btn-danger btn-delete-coach"
