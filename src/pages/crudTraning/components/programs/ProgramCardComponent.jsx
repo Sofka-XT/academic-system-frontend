@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector, useStore } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { getProgramTotalDuration } from "../../../../common/formTrainingHelpers/formTrainingHelpers";
 import * as actions from "../../../../state/crudTraining/crudTrainingActions";
 
@@ -7,7 +7,6 @@ import "./../FormInputTrainingComponent.css";
 import "./programCardComponent.css";
 
 const ProgramCardComponent = ({ program, handleInputChange }) => {
-  const { totalDays } = useSelector((state) => state.programReducer);
   const dispatch = useDispatch();
   const { training } = useSelector((state) => state.crudTrainingReducer);
 
