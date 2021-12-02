@@ -14,7 +14,7 @@ const ProfilePageComponent = ({ apprentice }) => {
 
   useEffect(() => {
     dispatch(getApprenticeInfo(email));
-  }, [email]);
+  }, [email, dispatch]);
 
   return (
     !apprentice?<h2 className="profile-error-message">No se ha encontrado un aprendiz asociado a este correo</h2>:
