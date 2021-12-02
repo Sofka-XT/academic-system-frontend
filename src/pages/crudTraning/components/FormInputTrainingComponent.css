@@ -75,6 +75,7 @@
 .trainings__btn-submit {
   width: 120px;
   margin: 0px auto;
+  margin-top: -20px;
   height: 38px;
   background-color: #0d6efd;
   color: white;
@@ -164,6 +165,7 @@
 .training__csv-div {
   display: flex;
   flex-direction: column;
+  /* padding: 50px; */
 }
 
 .training__file-input {
@@ -176,4 +178,8 @@
 .training__input-form .training__input-container {
   position: relative;
   z-index: 0;
+}
+
+#csv_reader_training {
+  padding: 20p;
 }
