@@ -13,11 +13,11 @@ const ProfilePageComponent = ({ apprentice }) => {
   const {email} = useParams();
 
   useEffect(() => {
-      console.log("a");
     dispatch(getApprenticeInfo(email));
   }, [email]);
 
   return (
+    !apprentice?<h2 className="profile-error-message">No se ha encontrado un aprendiz asociado a este correo</h2>:
     <div>
         <div className="profile-component">
             <ApprenticeProfile profile={apprentice} />

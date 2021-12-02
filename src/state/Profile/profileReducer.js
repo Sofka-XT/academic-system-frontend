@@ -14,6 +14,10 @@ const initialState = {
     reducers: {},
     extraReducers: (builder) => {
       builder
+        .addCase(getApprenticeInfo.rejected, (state) =>
+        {
+          state.apprentice = null;
+        })
         .addCase(getApprenticeInfo.fulfilled, (state, action) => {
           state.apprentice = {...action.payload, 
             categoriesName: action.payload.courseScores?.

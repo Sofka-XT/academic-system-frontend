@@ -9,7 +9,7 @@ const QualificationComponent = ({ dispatch, apprentice, loading, hasError }) => 
       <h1 className='TitleQualification'>Estados de calificaciones</h1>
       {console.log(apprentice?.courses)}
       <div>
-      <AccordionCourse courses={apprentice?.courseScores} />
+      <AccordionCourse apprentice={apprentice} courses={apprentice?.courseScores} />
       </div>
     </div>
   );

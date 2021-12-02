@@ -63,7 +63,7 @@ const LineChartComponent = ({apprentice}) =>
           },
           {
             label: 'Alerta roja',
-            data: labels?.map((label, i) => 50),
+            data: labels?.map((label, i) => 65),
             borderColor: 'rgb(205, 18, 18)',
             backgroundColor: 'rgba(205, 18, 18, 0.8)',
           }
