@@ -5,7 +5,6 @@ import {
 } from "../../thunkAction/programThunk";
 import { connect } from "react-redux";
 import { InputPrograms } from "./components/InputPrograms";
-import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import "./FormCreatePrograPageComponent.css";
 import {
   useProgramEffectForActions,

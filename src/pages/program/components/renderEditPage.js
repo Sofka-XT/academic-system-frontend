@@ -54,7 +54,7 @@ export const renderEditPage = (
           program.courses.map((course) => (
             <div className="card-list" key={course.courseId}>
               <div className="bd-callout bd-callout-warning">
-                  <HeaderCard />
+                  <HeaderCard DeleteButtonCourses={DeleteButtonCourses} course={course} courses={courses} dispatch={dispatch} program={program} />
                 <div className="topics-list">
                   <h5 className="topics-label">Categorias:</h5>
                   <ul>

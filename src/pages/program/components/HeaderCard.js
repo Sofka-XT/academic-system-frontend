@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-const HeaderCard= () => {
+const HeaderCard= ({DeleteButtonCourses, course, courses, dispatch, program}) => {
 
     return (
         <div className="course-container">
