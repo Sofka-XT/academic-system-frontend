@@ -30,9 +30,8 @@ export default function DeleteButtonComponent ({id}) {
     }
 
     return (
-        <button className="button" onClick={()=>{handleDelete()}}>
-            Eliminar
-        </button>
+        <div  className="fas fa-trash-alt icon-delete"
+         onClick={()=>{handleDelete()}}/>
     )
 }
 
