@@ -4,7 +4,7 @@ const AccordionCategories=({categories})=>{
         <div>
         {
             categories.map((item,i)=>(
-                <div className='itemCategory'>
+                <div key={item.categoryId} className='itemCategory'>
                     <div className='itemCategory-name'>{item.categoryName}</div>
                     <div className='itemCategory-score'>{item.score}</div>
                 </div>

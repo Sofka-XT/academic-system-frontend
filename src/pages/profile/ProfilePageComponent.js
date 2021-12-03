@@ -6,16 +6,18 @@ import LineChartComponent from "./components/LineChartComponent";
 import ApprenticeProfile from "./components/ApprenticeProfile";
 import QualificationComponent from "./components/QualificacionAcordionComponent/QualificationComponent";
 import "./ProfilePageComponent.css"
+import { useParams } from "react-router";
 
 const ProfilePageComponent = ({ apprentice }) => {
   const dispatch = useAppDispatch();
+  const {email} = useParams();
 
   useEffect(() => {
-    dispatch(getApprenticeInfo());
-  }, [dispatch]);
+    dispatch(getApprenticeInfo(email));
+  }, [email, dispatch]);
 
-  console.log(apprentice);
   return (
+    !apprentice?<h2 className="profile-error-message">No se ha encontrado un aprendiz asociado a este correo</h2>:
     <div>
         <div className="profile-component">
             <ApprenticeProfile profile={apprentice} />
