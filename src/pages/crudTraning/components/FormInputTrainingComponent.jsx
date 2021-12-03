@@ -69,7 +69,7 @@ const FormInputTrainingComponent = () => {
       dispatch(actions.postTraining(trainingToCreate));
       showSwalResponse(valid, message);
       setTableState(null);
-      setCoachesList(actions.fetchCoachesFromFirebase());
+      actions.fetchCoachesFromFirebase().then(result => setCoachesList(result))
       const e = {
         target: {
           name: "apprentices",
