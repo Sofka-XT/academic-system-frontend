@@ -53,7 +53,12 @@ const EditionProgramPage = ({
 
   const onSubmit = (data) => {
     let program2 = JSON.parse(JSON.stringify(program));
-    program2.name = data.programName;
+
+    if(data.programName === ""){
+      program2.name = program.name;
+    } else{
+      program2.name = data.programName;
+    }
 
     if (program2.courses.length === 0) {
       swalErrorAlert("Debe añadir al menos un curso");
