@@ -25,11 +25,7 @@ export const coachLinks = [
   },
   {
     path: "programs",
-    name: "Programas activos"
-  },
-  {
-    path: "createTraining",
-    name: "Crear Training",
+    name: "Programas activos",
   },
 ];
 
