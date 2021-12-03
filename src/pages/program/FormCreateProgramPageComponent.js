@@ -19,7 +19,7 @@ import {
 } from "./alerts/triggerAlerts";
 import ButtonSend from "./components/ButtonSend";
 import HeaderCard from "./components/HeaderCard";
-
+import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 const FormCreateProgramPageComponent = ({
   dispatch,
   courses,
@@ -100,7 +100,7 @@ const FormCreateProgramPageComponent = ({
             program.courses.map((course) => (
 
               <div className="bd-callout bd-callout-warning">
-                <HeaderCard/>
+                <HeaderCard DeleteButtonCourses={DeleteButtonCourses} course={course} courses={courses} dispatch={dispatch} program={program} />
                 <div className="topics-list">
                   <h5 className="topics-label">Categorias:</h5>
                   <ul>
