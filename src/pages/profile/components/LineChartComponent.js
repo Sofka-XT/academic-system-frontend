@@ -56,13 +56,13 @@ const LineChartComponent = ({apprentice}) =>
             backgroundColor: 'rgba(33, 17, 126, 0.8)',
           },
           {
-            label: 'Alerta amarilla',
+            label: '75%',
             data: labels?.map(() => 75),
             borderColor: 'rgb(230, 230, 61)',
             backgroundColor: 'rgba(230, 230, 61, 0.8)',
           },
           {
-            label: 'Alerta roja',
+            label: '65%',
             data: labels?.map((label, i) => 65),
             borderColor: 'rgb(205, 18, 18)',
             backgroundColor: 'rgba(205, 18, 18, 0.8)',
