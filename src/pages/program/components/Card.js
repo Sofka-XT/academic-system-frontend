@@ -6,13 +6,13 @@ export const Card = ({ id, name, dispatch, handleEdit }) => {
     <>
       <div className="training__program-main-container">
         <div className="training__item">
-          <picture>
+          {/* <picture>
             <source
               type="image/jpg"
               srcset={process.env.PUBLIC_URL + "assets/img/program-card-bg.jpg"}
             />
             <img className="training__img" alt={name} />
-          </picture>
+          </picture> */}
           <div className="training__description container">
             <h2 className="training__description--title">
               {name}
