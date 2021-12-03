@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCoursesThunk } from "../../thunkAction/programThunk";
 import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
@@ -19,6 +18,8 @@ import {
   triggerALertRepitedProgram,
 } from "./alerts/triggerAlerts";
 import { renderEditPage } from "./components/renderEditPage";
+import ButtonSend from "./components/ButtonSend";
+
 
 const EditionProgramPage = ({
   dispatch,
@@ -65,15 +66,15 @@ const EditionProgramPage = ({
   return (
     <>
       <div
-        className="trainings__main-container"
+        className="general__main-container"
         style={{ paddingBottom: "50px" }}
       >
-        <form className="trainings__form" onSubmit={handleSubmit(onSubmit)}>
-          <div className="training__input-form training__input-form-name">
+        <form className="general__form" onSubmit={handleSubmit(onSubmit)}>
+          <div className="general__input-form general__input-form-name">
             <input
               required
               minLength="4"
-              className="trainings__input"
+              className="general__input"
               defaultValue={program.name}
               {...register("programName")}
             />
@@ -99,11 +100,7 @@ const EditionProgramPage = ({
             </div>
           </div>
 
-          <div className="card-list">
-            <button className="trainings__btn-submit " type="submit">
-              Enviar
-            </button>
-          </div>
+          <ButtonSend />
         </form>
       </div>
     </>

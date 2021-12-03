@@ -5,7 +5,6 @@ import {
 } from "../../thunkAction/programThunk";
 import { connect } from "react-redux";
 import { InputPrograms } from "./components/InputPrograms";
-import { DeleteButtonCourses } from "./components/DeleteButtonCourses";
 import "./FormCreatePrograPageComponent.css";
 import {
   useProgramEffectForActions,
@@ -18,6 +17,8 @@ import {
   triggerALertRepitedCourse,
   triggerALertRepitedProgram,
 } from "./alerts/triggerAlerts";
+import ButtonSend from "./components/ButtonSend";
+import HeaderCard from "./components/HeaderCard";
 
 const FormCreateProgramPageComponent = ({
   dispatch,
@@ -50,7 +51,7 @@ const FormCreateProgramPageComponent = ({
       return;
     }
 
-    triggerALertRepitedProgram(programs,program2,dispatch,navigate,false)
+    triggerALertRepitedProgram(programs, program2, dispatch, navigate, false);
   };
 
   return (
@@ -97,46 +98,34 @@ const FormCreateProgramPageComponent = ({
 
           {program.courses &&
             program.courses.map((course) => (
-              <div
-                className="bd-callout bd-callout-warning"
-                key={course.courseId}
-              >
-                <div className="course-container">
-                  <h4 className="create-program-course-title">{course.courseName}</h4>
 
-                  <div className="topics-list">
-                    <h5 className="topics-label">Categorias:</h5>
-                    <ul>
-                      {course.categories &&
-                        course.categories.map((category) => (
-                          <InputPrograms
-                            key={category.categoryId}
-                            categoryId={category.categoryId}
-                            category={category}
-                            courseId={course.courseId}
-                            programId={program.id}
-                            dispatch={dispatch}
-                            name={category.categoryName}
-                            currentDays={category.days}
-                          ></InputPrograms>
-                        ))}
-                    </ul>
-                    
-                  </div>
+              <div className="bd-callout bd-callout-warning">
+                <HeaderCard/>
+                <div className="topics-list">
+                  <h5 className="topics-label">Categorias:</h5>
+                  <ul>
+                    {course.categories &&
+                      course.categories.map((category) => (
+                        <InputPrograms
+                          key={category.categoryId}
+                          categoryId={category.categoryId}
+                          category={category}
+                          courseId={course.courseId}
+                          programId={program.id}
+                          dispatch={dispatch}
+                          name={category.categoryName}
+                          currentDays={category.days}
+                        ></InputPrograms>
+                      ))}
+                  </ul>
                 </div>
-                {courses.length !== 1 && (
-                  <DeleteButtonCourses
-                    dispatch={dispatch}
-                    programId={program.id}
-                    courseId={course.courseId}
-                  />
-                )}
+
+
+
               </div>
             ))}
         </div>
-        <button className="trainings__btn-submit" type="submit">
-          Crear programa
-        </button>
+        <ButtonSend/>
       </form>
     </div>
   );
