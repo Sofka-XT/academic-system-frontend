@@ -5,15 +5,6 @@ export const CourseComponent = ({ name, id }) => {
   const navigate = useNavigate();
 
   return (
-  /*   <button
-      className = "training-card"
-      onClick={() => {
-        navigate(`coursedetail/${id}`);
-      }}
-    >
-    
-      {name}
-    </button> */
     <>
       <div className="training__program-main-container pointer"
       onClick={() =>navigate(`coursedetail/${id}`)}>

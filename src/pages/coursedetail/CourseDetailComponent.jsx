@@ -1,10 +1,9 @@
-import React from 'react';
+import React, useEffect from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './components/CourseDetailComponent.css';
 import DeleteButtonComponent from './components/DeleteButtonComponent';
 import EditButtonComponent from './components/EditButtonComponent';
-import { useEffect } from "react";
 import { setAllCourses } from "../../thunkAction/coursesThunk";
 
 
