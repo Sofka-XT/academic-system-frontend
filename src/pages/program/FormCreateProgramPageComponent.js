@@ -100,46 +100,50 @@ const FormCreateProgramPageComponent = ({
               // <div className="card-list" key={course.courseId}>
               <div
                 className="bd-callout bd-callout-warning"
-                
+
               >
                 <div className="course-container">
                   <h4 className="create-program-course-title">
                     {course.courseName}
                   </h4>
-
-                  <div className="topics-list">
-                    <h5 className="topics-label">Categorias:</h5>
-                    <ul>
-                      {course.categories &&
-                        course.categories.map((category) => (
-                          <InputPrograms
-                            key={category.categoryId}
-                            categoryId={category.categoryId}
-                            category={category}
-                            courseId={course.courseId}
-                            programId={program.id}
-                            dispatch={dispatch}
-                            name={category.categoryName}
-                            currentDays={category.days}
-                          ></InputPrograms>
-                        ))}
-                    </ul>
-                  </div>
-                </div>
-                {courses.length !== 1 && (
+                  {courses.length !== 1 && (
                   <DeleteButtonCourses
                     dispatch={dispatch}
                     programId={program.id}
                     courseId={course.courseId}
                   />
                 )}
+                </div>
+                <div className="topics-list">
+                  <h5 className="topics-label">Categorias:</h5>
+                  <ul>
+                    {course.categories &&
+                      course.categories.map((category) => (
+                        <InputPrograms
+                          key={category.categoryId}
+                          categoryId={category.categoryId}
+                          category={category}
+                          courseId={course.courseId}
+                          programId={program.id}
+                          dispatch={dispatch}
+                          name={category.categoryName}
+                          currentDays={category.days}
+                        ></InputPrograms>
+                      ))}
+                  </ul>
+                </div>
+
+
                 {/* </div> */}
               </div>
             ))}
         </div>
-        <button className="general__btn-submit" type="submit">
-          Crear programa
-        </button>
+        <div className="card-list">
+            <button className="general__btn-submit " type="submit">
+              Enviar
+            </button>
+          </div>
+
       </form>
     </div>
   );
