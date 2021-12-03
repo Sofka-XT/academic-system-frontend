@@ -7,6 +7,7 @@ import { validateInputTraining } from "../../../state/crudTraining/traningValida
 import {
   handleOnDrop,
   handleOnRemoveFile,
+  validateFileType
 } from "./../../../common/csvHelpers/csvHelpers";
 import {
   handleSelectCoach,
@@ -29,10 +30,12 @@ const FormInputTrainingComponent = () => {
   const { crudTrainingReducer } = useSelector((state) => state);
   const { programSelected } = crudTrainingReducer;
   const [formSent, setFormSent] = useState(false);
-  const [coachesList, setCoachesList] = useState([{
-    id: "0",
-    name: "Seleccione al menos un coach",
-  }]);
+  const [coachesList, setCoachesList] = useState([
+    {
+      id: "0",
+      name: "Seleccione al menos un coach",
+    },
+  ]);
   const [tableState, setTableState] = useState(null);
 
   const [formValues, handleInputChange, resetFormValues] = useForm({
@@ -43,7 +46,9 @@ const FormInputTrainingComponent = () => {
     coaches: [],
   });
   const { name, startingDate, coaches } = formValues;
-
+  const handleOnError = (event) => {
+    console.log(event);
+  };
   const showSwalResponse = (valid, message) => {
     Swal.fire({
       icon: `${valid ? "success" : "error"}`,
@@ -86,7 +91,7 @@ const FormInputTrainingComponent = () => {
   };
 
   useEffect(() => {
-    actions.fetchCoachesFromFirebase().then(result => setCoachesList(result))
+    actions.fetchCoachesFromFirebase().then((result) => setCoachesList(result));
 
     actions.fetchPrograms().then((result) => {
       dispatch({ type: actions.ADD_LIST_PROGRAMS, payload: result });
@@ -201,14 +206,22 @@ const FormInputTrainingComponent = () => {
             <div className="training__file-input">
               <CSVReader
                 id="csv_reader_training"
-                onDrop={(csvInfo) =>
-                  handleOnDrop(
-                    csvInfo,
-                    setTableState,
-                    dispatch,
-                    handleInputChange
-                  )
+                onDrop={(csvInfo, file) => {
+                  if (validateFileType(file.name)) {
+                    handleOnDrop(
+                      csvInfo,
+                      setTableState,
+                      dispatch,
+                      handleInputChange
+                    );
+                  }else {
+                    showSwalResponse(false, "Archivo no valido, la extensión del archivo debe ser csv")
+                  }
                 }
+              }
+                onError={handleOnError}
+                
+                accept=".csv"
                 addRemoveButton
                 onRemoveFile={(e) => handleOnRemoveFile(e, setTableState)}
               >
