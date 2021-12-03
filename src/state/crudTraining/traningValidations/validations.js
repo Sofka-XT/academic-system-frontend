@@ -91,7 +91,9 @@ export const validateCoachesList = (coaches) => {
 //Validacion del campo aprendices
 export const validateApprenticesList = (apprentices) => {
   // eslint-disable-next-line array-callback-return
-  apprentices.map((apprentice) => {
+  if(apprentices.length === 0 ) return false;
+  let validated = true;
+  apprentices.forEach((apprentice) => {
     if (
       apprentice.name === null ||
       apprentice.name.length < 3 ||
@@ -99,8 +101,8 @@ export const validateApprenticesList = (apprentices) => {
       apprentice.phoneNumber.length < 7 ||
       apprentice.emailAddress.length < 8
     ) {
-      return false;
+      validated = false;
     }
   });
-  return true;
+  return validated;
 };

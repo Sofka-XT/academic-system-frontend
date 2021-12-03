@@ -1,4 +1,6 @@
 import { enviroment } from "../../environments/enviroment";
+import { collection, query, where, getDocs} from "firebase/firestore";
+import { db } from "../../config/firebase/firebase.config";
 
 const URL_BASE = enviroment.host;
 
@@ -66,6 +68,25 @@ export function postTraining(training) {
     }
   };
 }
+export const fetchCoachesFromFirebase = async () => {
+  const q = query(collection(db, "user"), where("tipo", "==", "COACH"));
+  const queryFromFirebase = await getDocs(q);
+  const coaches = [{
+    id: "0",
+    name: "Seleccione al menos un coach",
+  }]
+  
+  queryFromFirebase.forEach(doc => (
+    coaches.push({ 
+      id: doc.id,
+      name: doc.data().name || doc.id,
+      emailAddress: doc.id,
+      phoneNumber: doc.data().phoneNumber || "Numero de telefono",
+    })))
+
+  return coaches;
+}
+
 
 export const fetchCoaches = () => {
   // eslint-disable-next-line no-sparse-arrays

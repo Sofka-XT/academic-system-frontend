@@ -24,6 +24,12 @@ export const handleOnDrop = (
   dispatch({ type: actions.ADD_LIST_APPRENTICES, payload: data });
   handleInputChange(e);
 };
+export const validateFileType = (type) => {
+  if (type.split(".")[1] === "csv" || type.split(".")[1] === "CSV") {
+    return true;
+  }
+  return false;
+};
 
 export const handleOnRemoveFile = (e, setTableState) => {
   setTableState(null);

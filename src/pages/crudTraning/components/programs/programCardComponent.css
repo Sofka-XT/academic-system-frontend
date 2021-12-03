@@ -16,6 +16,8 @@
   font-size: 14px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  border: 1px solid darkgray;
+  
 }
 
 .training__item:hover .training__description {
@@ -23,6 +25,7 @@
   opacity: 1;
   transition: all 0.5s;
   transform: translateY(-300px);
+  
 }
 
 .training__item:hover .training__img {
@@ -37,6 +40,7 @@
   display: block;
   transition: all 1s;
   filter: grayscale(0.5);
+  opacity:  0;
 }
 
 .training__description {

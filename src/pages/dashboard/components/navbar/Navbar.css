@@ -25,7 +25,7 @@
   }
   
   .turn-off{
-    background-color: var(--third-color);
+    background-color: #260ac9 !important;
     border-radius: 20px;
     height: 32px;
     width: 32px;
@@ -35,7 +35,7 @@
   }
   
   .turn-off:hover{
-    background-color: var(--sofka-orange);
+    background-color: #b77171 !important;
     border-radius: 20px;
     height: 32px;
     width: 32px;
