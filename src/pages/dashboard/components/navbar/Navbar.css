@@ -25,7 +25,7 @@
   }
   
   .turn-off{
-    background-color: #260ac9;
+    background-color: #260ac9 !important;
     border-radius: 20px;
     height: 32px;
     width: 32px;
@@ -35,7 +35,7 @@
   }
   
   .turn-off:hover{
-    background-color: #b77171;
+    background-color: #b77171 !important;
     border-radius: 20px;
     height: 32px;
     width: 32px;
