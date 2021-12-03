@@ -50,7 +50,7 @@ const FormCreateProgramPageComponent = ({
       return;
     }
 
-    triggerALertRepitedProgram(programs,program2,dispatch,navigate,false)
+    triggerALertRepitedProgram(programs, program2, dispatch, navigate, false);
   };
 
   return (
@@ -97,12 +97,15 @@ const FormCreateProgramPageComponent = ({
 
           {program.courses &&
             program.courses.map((course) => (
+              // <div className="card-list" key={course.courseId}>
               <div
                 className="bd-callout bd-callout-warning"
-                key={course.courseId}
+                
               >
                 <div className="course-container">
-                  <h4 className="create-program-course-title">{course.courseName}</h4>
+                  <h4 className="create-program-course-title">
+                    {course.courseName}
+                  </h4>
 
                   <div className="topics-list">
                     <h5 className="topics-label">Categorias:</h5>
@@ -121,7 +124,6 @@ const FormCreateProgramPageComponent = ({
                           ></InputPrograms>
                         ))}
                     </ul>
-                    
                   </div>
                 </div>
                 {courses.length !== 1 && (
@@ -131,10 +133,11 @@ const FormCreateProgramPageComponent = ({
                     courseId={course.courseId}
                   />
                 )}
+                {/* </div> */}
               </div>
             ))}
         </div>
-        <button className="trainings__btn-submit" type="submit">
+        <button className="general__btn-submit" type="submit">
           Crear programa
         </button>
       </form>

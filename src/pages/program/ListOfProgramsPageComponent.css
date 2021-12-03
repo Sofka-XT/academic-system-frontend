@@ -1,33 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-* {
-  box-sizing: border-box;
-}
-
-.containerCards {
-  display: flex;
-  width: 100%;
-  height: 60vh;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-
-.card-header img {
-  width: 100%;
-  height: 95%;
-  object-fit: cover;
-}
-
-.card-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  min-height: 80px;
-} */
-
-
-.button-delete {
+/* .button-delete {
   background-color: #e1ecf4;
   border-radius: 3px;
   border: 1px solid #7aa7c7;
@@ -52,7 +23,7 @@
   touch-action: manipulation;
   vertical-align: baseline;
   white-space: nowrap;
-}
+} */
 
 .icon-delete  {
   color:rgb(221, 51, 51);
@@ -76,7 +47,7 @@
   color: #0d0055;
 }
 
-.button-delete:hover,
+/* .button-delete:hover,
 .button-delete:focus {
   background-color: #b3d3ea;
   color: #2c5777;
@@ -90,7 +61,7 @@
   background-color: #a0c7e4;
   box-shadow: none;
   color: #2c5777;
-}
+} */
 
 .button-delete {
   background-color: rgb(247, 112, 112);

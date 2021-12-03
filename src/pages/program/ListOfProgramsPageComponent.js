@@ -48,7 +48,7 @@ const ListOfProgramsPageComponent = ({
     );
   };
 
-  return <div className="training__grid">{renderPrograms()}</div>;
+  return <div className="general__grid">{renderPrograms()}</div>;
 };
 
 const mapStateToProps = (state) => ({

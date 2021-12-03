@@ -4,17 +4,10 @@ import React from "react";
 export const Card = ({ id, name, dispatch, handleEdit }) => {
   return (
     <>
-      <div className="training__program-main-container">
-        <div className="training__item">
-          {/* <picture>
-            <source
-              type="image/jpg"
-              srcset={process.env.PUBLIC_URL + "assets/img/program-card-bg.jpg"}
-            />
-            <img className="training__img" alt={name} />
-          </picture> */}
-          <div className="training__description container">
-            <h2 className="training__description--title">
+      <div className="bd-callout bd-callout-warning">
+        <div className="general__item">
+          <div className="general__description container">
+            <h2 className="general__description--title">
               {name}
               <hr />
             </h2>
@@ -25,7 +18,7 @@ export const Card = ({ id, name, dispatch, handleEdit }) => {
 
         <div className="content-program">
           <div className="card-title">
-            <h4 className="training__card-name m-3">{name} </h4>
+            <h4 className="general__card-name m-3">{name} </h4>
             <div className="buttons-card-container">
               <Link to="editProgram">
                 <i
