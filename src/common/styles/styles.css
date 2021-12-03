@@ -389,7 +389,6 @@ main {
 .bd-callout-warning {
   border: 1px solid #e9ecef;
   border-left-width: 0.25rem;
-  border-radius: 0.25rem;
   width: 80%;
   box-shadow: rgba(205, 204, 208, 0.659) 1px 3px 10px 2px;
   border-radius: 8px;
