@@ -55,7 +55,7 @@ const FormInputTrainingComponent = () => {
       title: `${valid ? "Bien hecho!" : "Error"}`,
       text: message,
       showConfirmButton: false,
-      timer: 1500,
+      timer: 4000,
     });
   };
 

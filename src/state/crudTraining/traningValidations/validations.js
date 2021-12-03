@@ -92,7 +92,7 @@ export const validateCoachesList = (coaches) => {
 export const validateApprenticesList = (apprentices) => {
   // eslint-disable-next-line array-callback-return
   if(apprentices.length === 0 ) return false;
-  const validated = true;
+  let validated = true;
   apprentices.forEach((apprentice) => {
     if (
       apprentice.name === null ||
