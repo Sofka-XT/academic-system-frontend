@@ -1,4 +1,4 @@
-import React, useEffect from 'react';
+import React, {useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './components/CourseDetailComponent.css';
@@ -53,6 +53,7 @@ const renderCourseDetail=()=>{
           return (
             <div className="categorie" key={course.id + 'categorie#' + index}>
               <h4>Categoria: {categorie.name}</h4>
+              <a href={categorie.urlsRefGradles}>Enlace consulta: {categorie.urlsRefGradles}</a>
               <h5>Reglas</h5>
               {categorie.rules?.map((rule, index) => {
                 return (
