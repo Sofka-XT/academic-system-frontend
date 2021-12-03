@@ -18,6 +18,8 @@ import {
   triggerALertRepitedProgram,
 } from "./alerts/triggerAlerts";
 import { renderEditPage } from "./components/renderEditPage";
+import ButtonSend from "./components/ButtonSend";
+
 
 const EditionProgramPage = ({
   dispatch,
@@ -98,11 +100,7 @@ const EditionProgramPage = ({
             </div>
           </div>
 
-          <div className="card-list">
-            <button className="general__btn-submit " type="submit">
-              Enviar
-            </button>
-          </div>
+          <ButtonSend />
         </form>
       </div>
     </>
