@@ -29,7 +29,10 @@ const FormInputTrainingComponent = () => {
   const { crudTrainingReducer } = useSelector((state) => state);
   const { programSelected } = crudTrainingReducer;
   const [formSent, setFormSent] = useState(false);
-  const [coachesList, setCoachesList] = useState(actions.fetchCoaches());
+  const [coachesList, setCoachesList] = useState([{
+    id: "0",
+    name: "Seleccione al menos un coach",
+  }]);
   const [tableState, setTableState] = useState(null);
 
   const [formValues, handleInputChange, resetFormValues] = useForm({
@@ -66,7 +69,7 @@ const FormInputTrainingComponent = () => {
       dispatch(actions.postTraining(trainingToCreate));
       showSwalResponse(valid, message);
       setTableState(null);
-      setCoachesList(actions.fetchCoaches());
+      setCoachesList(actions.fetchCoachesFromFirebase());
       const e = {
         target: {
           name: "apprentices",
@@ -83,6 +86,8 @@ const FormInputTrainingComponent = () => {
   };
 
   useEffect(() => {
+    actions.fetchCoachesFromFirebase().then(result => setCoachesList(result))
+
     actions.fetchPrograms().then((result) => {
       dispatch({ type: actions.ADD_LIST_PROGRAMS, payload: result });
     });
