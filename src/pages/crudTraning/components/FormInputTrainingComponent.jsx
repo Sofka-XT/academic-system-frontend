@@ -219,8 +219,7 @@ const FormInputTrainingComponent = () => {
                   }
                 }
               }
-                onError={handleOnError}
-                
+                onError={handleOnError}                
                 accept=".csv"
                 addRemoveButton
                 onRemoveFile={(e) => handleOnRemoveFile(e, setTableState)}
