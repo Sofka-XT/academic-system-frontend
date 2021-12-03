@@ -8,13 +8,11 @@ export default function EditButtonComponent({ id }) {
   };
 
   return (
-    <button
-      className="button"
+    <div
+    className="fas fa-edit icon-edit mt-3 mb-3 ml-3 mr-3"
       onClick={() => {
         handleEdit();
       }}
-    >
-      Editar
-    </button>
+    />
   );
 }
