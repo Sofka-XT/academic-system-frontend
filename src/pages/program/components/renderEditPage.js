@@ -1,3 +1,5 @@
+import HeaderCard from "./HeaderCard";
+
 export const renderEditPage = (
   program,
   handleSelect,
@@ -52,16 +54,7 @@ export const renderEditPage = (
           program.courses.map((course) => (
             <div className="card-list" key={course.courseId}>
               <div className="bd-callout bd-callout-warning">
-                <div className="course-container">
-                  <h4 className="create-program-course-title">{course.courseName}</h4>
-                  {courses.length !== 1 && (
-                    <DeleteButtonCourses
-                      dispatch={dispatch}
-                      programId={program.id}
-                      courseId={course.courseId}
-                    />
-                  )}
-                </div>
+                  <HeaderCard />
                 <div className="topics-list">
                   <h5 className="topics-label">Categorias:</h5>
                   <ul>

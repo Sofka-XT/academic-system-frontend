@@ -19,6 +19,7 @@ import {
   triggerALertRepitedProgram,
 } from "./alerts/triggerAlerts";
 import ButtonSend from "./components/ButtonSend";
+import HeaderCard from "./components/HeaderCard";
 
 const FormCreateProgramPageComponent = ({
   dispatch,
@@ -100,18 +101,7 @@ const FormCreateProgramPageComponent = ({
             program.courses.map((course) => (
 
               <div className="bd-callout bd-callout-warning">
-                <div className="course-container">
-                  <h4 className="create-program-course-title">
-                    {course.courseName}
-                  </h4>
-                  {courses.length !== 1 && (
-                    <DeleteButtonCourses
-                      dispatch={dispatch}
-                      programId={program.id}
-                      courseId={course.courseId}
-                    />
-                  )}
-                </div>
+                <HeaderCard/>
                 <div className="topics-list">
                   <h5 className="topics-label">Categorias:</h5>
                   <ul>
