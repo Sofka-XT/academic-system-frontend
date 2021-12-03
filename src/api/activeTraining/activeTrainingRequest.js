@@ -8,3 +8,8 @@ export const getActiveTrainingApi = () => {
     return fetch(`${URL_BASE}training/list-actives`)
     //return fetch(URL_BASE);
 };
+
+export const getTrainingByIdApi = (id) => {
+    return fetch(`${URL_BASE}Training/${id}`)
+    //return fetch(URL_BASE);
+};

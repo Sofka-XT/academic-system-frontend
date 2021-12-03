@@ -1,4 +1,6 @@
 import { enviroment } from "../../environments/enviroment";
+import { collection, query, where, getDocs} from "firebase/firestore";
+import { db } from "../../config/firebase/firebase.config";
 
 const URL_BASE = enviroment.host;
 
@@ -14,7 +16,6 @@ export const ADD_TRAINING_NAME = "ADD_TRAINING_NAME";
 export const SET_STARTING_DATE = "SET_STARTING_DATE";
 export const UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING =
   "UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING";
-
 
 export const loading = () => ({ type: LOADING });
 
@@ -59,6 +60,7 @@ export function postTraining(training) {
           startingDate: data.startingDate,
           apprentices: data.apprentices,
           coaches: data.coaches,
+          categoriesToScrapCalendar: data.categoriesToScrapCalendar,
         })
       );
     } catch (error) {
@@ -66,6 +68,25 @@ export function postTraining(training) {
     }
   };
 }
+export const fetchCoachesFromFirebase = async () => {
+  const q = query(collection(db, "user"), where("tipo", "==", "COACH"));
+  const queryFromFirebase = await getDocs(q);
+  const coaches = [{
+    id: "0",
+    name: "Seleccione al menos un coach",
+  }]
+  
+  queryFromFirebase.forEach(doc => (
+    coaches.push({ 
+      id: doc.id,
+      name: doc?.name || "Nombre del caoch",
+      emailAddress: doc.id,
+      phoneNumber: doc?.phoneNumber,
+    })))
+
+  return coaches;
+}
+
 
 export const fetchCoaches = () => {
   // eslint-disable-next-line no-sparse-arrays

@@ -1,0 +1,42 @@
+.hr{
+    height: 2px !important;
+    color: black !important;
+    opacity: 1;
+}
+
+.table .thead-dark th {
+    color: #fff;
+    background-color: #212529;
+    border-color: #32383e;
+}
+
+.card-coach{
+    margin-right: 25px;
+    display: inline-flex;
+    box-shadow: 0 1px 5px 0 rgb(0 0 0 / 10%), 0 2px 11px 0 rgb(0 0 0 / 19%);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.card-coach-left{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100px;
+    height:80px;
+}
+
+.card-coach-right{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:180px;
+    height:80px;
+    background-image: linear-gradient(rgb(255, 115, 0), rgb(245, 213, 158));
+    border-radius: 0px 6px 6px 0px;
+}
+
+.content-coach{
+    overflow-x: auto;
+    padding: 10px;
+}

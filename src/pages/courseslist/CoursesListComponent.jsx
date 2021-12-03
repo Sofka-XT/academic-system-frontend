@@ -7,6 +7,7 @@ import { Pager } from "./components/Pager";
 
 const CoursesListComponent = ({dispatch,courses,loading, hasError}) => {
 
+
     useEffect(() => {
         dispatch(setAllCourses())
         }

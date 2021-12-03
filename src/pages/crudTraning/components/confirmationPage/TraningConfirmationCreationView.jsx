@@ -34,14 +34,10 @@ const TraningConfirmationCreationView = ({ setFormSent }) => {
           Lista de aprendices asignados para el training
         </h4>
         <CSVTableComponent data={traningSent.apprentices} />
+        <button className="btn btn-primary my-5" onClick={handleNewTraning}>
+          Crear un nuevo training
+        </button>
       </div>
-      <button
-        id="traning__new-traning-btn"
-        className="btn btn-primary btn-new-traning mt-5"
-        onClick={handleNewTraning}
-      >
-        Crear un nuevo training
-      </button>
     </div>
   );
 };

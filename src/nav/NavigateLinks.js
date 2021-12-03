@@ -4,7 +4,7 @@ export const coachLinks = [
     name: "INICIO",
   },
   {
-    path: "activetrainingcoach",
+    path: "activetraining",
     name: "TRAINING ACTIVO",
   },
   {
@@ -12,20 +12,20 @@ export const coachLinks = [
     name: "Crear Curso",
   },
   {
-    path: "courseslist",
-    name: "Ver Curso",
-  },
-  {
-    path: "programs",
-    name: "Programs activos",
+    path: "createTraining",
+    name: "Crear Training",
   },
   {
     path: "crearprograma",
     name: "Crear Programa",
   },
   {
-    path: "createTraining",
-    name: "Crear Training",
+    path: "courseslist",
+    name: "Ver Curso",
+  },
+  {
+    path: "programs",
+    name: "Programas activos",
   },
 ];
 
