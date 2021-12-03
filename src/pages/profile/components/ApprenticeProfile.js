@@ -5,28 +5,28 @@ const ApprenticeProfile = ({ profile }) => {
   return (
     <>
       {profile && (
-        <div class="ApprenticeProfileContainer">
-          <div class="profile">
-            <div class="profile-left">
+        <div className="ApprenticeProfileContainer">
+          <div className="profile">
+            <div className="profile-left">
               <img
                 src="http://assets.stickpng.com/images/585e4beacb11b227491c3399.png"
                 alt="profile-pic"
               />
             </div>
 
-            <div class="profile-datos">
+            <div className="profile-datos">
               <div>
                 <h1>{profile.apprenticeName}</h1>
               </div>
 
-              <div class="profile-data">
+              <div className="profile-data">
                 <ul>
                   <li>
-                    <span class="profile-stat-count">Celular: </span>{" "}
+                    <span className="profile-stat-count">Celular: </span>{" "}
                     {profile.phoneNumber}
                   </li>
                   <li>
-                    <span class="profile-stat-count">Correo: </span>
+                    <span className="profile-stat-count">Correo: </span>
                     {profile.email}
                   </li>
                 </ul>

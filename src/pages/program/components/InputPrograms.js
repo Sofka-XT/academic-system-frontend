@@ -44,7 +44,7 @@ export const InputPrograms = ({
           className="program-inputs-days"
           value={duration}
           onChange={(e) => {
-            handleDurationChange(e, category);
+            handleDurationChange(e);
           }}
         ></input>
       </div>

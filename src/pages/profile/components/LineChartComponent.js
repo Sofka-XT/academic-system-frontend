@@ -37,6 +37,12 @@ const LineChartComponent = ({apprentice}) =>
             text: `Grafica de rendimiento de ${apprentice?.apprenticeName}`,
           },
         },
+        scales: {
+          y: {
+              min: 0,
+              max: 100
+          }
+      },
       };
 
     const labels = apprentice?.categoriesName;
@@ -50,14 +56,14 @@ const LineChartComponent = ({apprentice}) =>
             backgroundColor: 'rgba(33, 17, 126, 0.8)',
           },
           {
-            label: 'Alerta amarilla',
+            label: '75%',
             data: labels?.map(() => 75),
             borderColor: 'rgb(230, 230, 61)',
             backgroundColor: 'rgba(230, 230, 61, 0.8)',
           },
           {
-            label: 'Alerta roja',
-            data: labels?.map((label, i) => 50),
+            label: '65%',
+            data: labels?.map((label, i) => 65),
             borderColor: 'rgb(205, 18, 18)',
             backgroundColor: 'rgba(205, 18, 18, 0.8)',
           }

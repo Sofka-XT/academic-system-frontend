@@ -3,9 +3,11 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../trainingDetailsPage/TrainingDetails.css'
 import { getTrainingByIdThunk } from '../../thunkAction/trainingThunk';
+import { useNavigate } from 'react-router'
 
 function TrainingDetails({training, dispatch}) {
     const params = useParams();
+    const navigate = useNavigate();
     
     useEffect(() => {
         dispatch(getTrainingByIdThunk(params.trainingid));
@@ -23,10 +25,21 @@ function TrainingDetails({training, dispatch}) {
 
     }
 
+    const viewApprenticeProfile = (email) => {
+        let loggedString = window.localStorage.getItem('loggedUser');
+        let loggedJson = JSON.parse(loggedString);
+        if(loggedJson.role === "COACH"){
+            navigate(`/dashboard/profile/${email}`);
+        }else{
+            navigate(`/dashboard/apprentice/profile/${email}`);
+        }
+        
+    }
+
     const renderApprentices = () => {
 
         return training && training.apprentices.map(apprentice => {
-            return<tr onClick={() => {console.log('click')}}>
+            return<tr className="row-hover" onClick={() => {viewApprenticeProfile(apprentice.emailAddress)}}>
                 <td>{apprentice.name}</td>
                 <td>{apprentice.emailAddress}</td>
                 <td>{apprentice.phoneNumber}</td>

@@ -81,7 +81,7 @@ export const routesApp = [
         component: <TrainingDetails/>,
       },
       {
-        path: "profile/*",
+        path: "profile/:email",
         name: "Apprentice Profile",
         component: <ProfilePageComponent />,
 
@@ -127,7 +127,7 @@ export const apprenticeRoutesApp = [
         component: <TrainingDetails/>,
       },
       {
-        path: "profile/*",
+        path: "profile/:email",
         name: "Apprentice Profile",
         component: <ProfilePageComponent />,
       },

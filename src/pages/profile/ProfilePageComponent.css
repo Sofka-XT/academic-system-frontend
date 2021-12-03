@@ -2,3 +2,9 @@
 {
     margin-bottom: 5%;
 }
+
+.profile-error-message
+{
+    font-weight: 700;
+    margin: 3% auto;
+}

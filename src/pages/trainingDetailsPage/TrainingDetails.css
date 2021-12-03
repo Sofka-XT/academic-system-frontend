@@ -40,3 +40,7 @@
     overflow-x: auto;
     padding: 10px;
 }
+
+.row-hover:hover{
+    cursor: pointer;
+}
