@@ -1,6 +1,6 @@
-import { clearSesion } from '../../api/auth/clearSesion';
-import { useAppDispatch } from '../../state/store.hook';
-import { signOut } from '../../thunkAction/authThunk';
+import { clearSesion } from "../../api/auth/clearSesion";
+import { useAppDispatch } from "../../state/store.hook";
+import { signOut } from "../../thunkAction/authThunk";
 
 export const SignOutButtonComponent = () => {
   const dispatch = useAppDispatch();
@@ -11,7 +11,11 @@ export const SignOutButtonComponent = () => {
   };
   return (
     <>
-      <button className="button-singout" id="logout button" onClick={handleSignOut}>
+      <button
+        className="button-singout"
+        id="logout button"
+        onClick={handleSignOut}
+      >
         Cerrar sesión
       </button>
     </>

@@ -127,21 +127,21 @@ main {
   text-align: center;
 }
 
-.trainings__input {
+.general__input {
   width: 80%;
 }
 
-.trainings__main-container {
+.general__main-container {
   /* background-color: red; */
   width: 100%;
 }
 
-.trainings__form {
+.general__form {
   padding: 10px;
   /* background-color: green; */
 }
 
-.training__input-form {
+.general__input-form {
   margin-top: 60px;
   /* background-color: red;
   border: 3px solid blue; */
@@ -151,7 +151,7 @@ main {
   justify-content: space-around;
 }
 
-.training__select-form {
+.general__select-form {
   margin-top: 60px;
   /* background-color: red;
   border: 3px solid blue; */
@@ -161,7 +161,7 @@ main {
   justify-content: space-around;
 }
 
-.training__output-form {
+.general__output-form {
   /* background-color: blue; */
   margin-top: 50px;
   display: flex;
@@ -169,7 +169,7 @@ main {
   flex-direction: row;
 }
 
-.training__input-form-name {
+.general__input-form-name {
   justify-content: space-evenly;
 }
 
@@ -186,7 +186,7 @@ main {
   margin: 20px auto 30px;
 }
 
-.trainings__select-input {
+.general__select-input {
   border: none;
   border-bottom: 2px solid black;
   font-size: 1em;
@@ -197,16 +197,16 @@ main {
   height: 100%;
 }
 
-.trainings__input-coaches {
+.general__input-coaches {
   margin-bottom: -36px;
   height: 57px;
 }
 
-.trainings__date-input {
+.general__date-input {
   width: 70%;
 }
 
-.trainings__btn-submit {
+.general__btn-submit {
   width: 120px;
   height: 38px;
   background-color: #0d6efd;
@@ -215,45 +215,45 @@ main {
   border-radius: 3px;
 }
 
-.trainings__btn-submit:focus {
+.general__btn-submit:focus {
   outline: none;
   border: 1px solid white;
 }
 
-.training__categoria,
-.training__starting-date {
+.general__categoria,
+.general__starting-date {
   width: 300px;
 }
 
-.trainings__input {
+.general__input {
   border: none;
   border-bottom: 2px solid black;
   font-size: 1.5em;
   padding: 10px;
 }
 
-.training__input-container {
+.general__input-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 400px;
 }
 
-.trainings__input-label {
+.general__input-label {
   padding: 15px 0px;
   font-size: 1.2em;
 }
 
-.training__btn-upload {
+.general__btn-upload {
   padding: 15px;
 }
 
-.training__coach-list {
+.general__coach-list {
   /* margin-top: 20px;
   width: 100%; */
 }
 
-.training__coach-selected {
+.general__coach-selected {
   min-width: 300px;
   overflow-wrap: wrap;
   /* border: 1px solid red; */
@@ -268,25 +268,25 @@ main {
   width: 20%;
 }
 
-.training__table-apprentices {
+.general__table-apprentices {
   width: 300px;
 }
 
-.training__table-container {
+.general__table-container {
   max-width: 1000px;
 }
 
-.training__table-apprentices {
+.general__table-apprentices {
   outline: 1px solid darkgray;
   margin-bottom: 100px;
 }
 
-.training__alert-primary {
+.general__alert-primary {
   width: 60%;
   margin: auto 20%;
 }
 
-.training__grid {
+.general__grid {
   width: 90%;
   margin: auto 5%;
   display: grid;
@@ -294,7 +294,7 @@ main {
   gap: 50px;
 }
 
-.training__item {
+.general__item {
   background: white;
   position: relative;
   object-fit: cover;
@@ -304,7 +304,7 @@ main {
   border-top-right-radius: 10px;
 }
 
-.training__img {
+.general__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -313,7 +313,7 @@ main {
   filter: grayscale(0.5);
 }
 
-.training__description {
+.general__description {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.7);
   top: 300px;
@@ -327,19 +327,19 @@ main {
   flex-direction: column;
 }
 
-.training__item:hover .training__description {
+.general__item:hover .general__description {
   visibility: visible;
   opacity: 1;
   transition: all 0.5s;
   transform: translateY(-300px);
 }
 
-.training__item:hover .training__img {
+.general__item:hover .general__img {
   transition: all 1s;
   transform: scale(1.3);
 }
 
-.training__description--title {
+.general__description--title {
   text-align: center;
   color: #fff;
   font-size: 1.3em;
@@ -347,13 +347,13 @@ main {
   margin-top: -50px;
 }
 
-.training__description--subtitle {
+.general__description--subtitle {
   font-size: 1.1em;
   margin-top: -10px;
   color: aliceblue;
 }
 
-.training__description--text {
+.general__description--text {
   margin: 10px 0;
   color: red;
 }
@@ -365,12 +365,12 @@ main {
   flex-wrap: wrap;
 }
 
-.training__tech-image {
+.general__tech-image {
   width: 10%;
   margin: 20px 5px;
 }
 
-.training__program-selected {
+.general__program-selected {
   font-size: 30px;
   position: absolute;
   top: 5px;
@@ -378,16 +378,22 @@ main {
   color: #40bad5;
 }
 
-.training__program-main-container {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 10px;
-  /* border-bottom: 10px solid blue; */
-  background-color: lightgray;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  box-shadow: rgba(33, 17, 126, 0.8) 0px 10px 0 0;
+.program-main-container {
+  border-radius: 8px;
+  box-shadow: rgba(205, 204, 208, 0.659) 2px 3px 10px 2px;
 }
 
+.bd-callout {
+  border-left-color: #9aa0ca !important;
+}
+.bd-callout-warning {
+  border: 1px solid #e9ecef;
+  border-left-width: 0.25rem;
+  width: 80%;
+  box-shadow: rgba(205, 204, 208, 0.659) 1px 3px 10px 2px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
 .screen-container {
   display: flex;
   flex-direction: column;
@@ -403,12 +409,12 @@ main {
   margin: 10px 10%;
 }
 
-.training__csv-div {
+.general__csv-div {
   display: flex;
   flex-direction: column;
 }
 
-.training__file-input {
+.general__file-input {
   padding-top: 100px;
   width: 100%;
   margin: auto auto;
@@ -423,4 +429,9 @@ main {
   top: 30px;
   right: 20px;
   width: 20%;
+}
+
+.top-image{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }

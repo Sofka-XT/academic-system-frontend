@@ -1,0 +1,7 @@
+.training__grid {
+  width: 90%;
+  margin: auto 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+}

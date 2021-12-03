@@ -1,0 +1,7 @@
+.screen-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-new-traning {
+}
