@@ -1,9 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
+import { getProgramTotalDuration } from "../../../../common/formTrainingHelpers/formTrainingHelpers";
 import * as actions from "../../../../state/crudTraining/crudTrainingActions";
 
-import './../FormInputTrainingComponent.css';
-import './programCardComponent.css';
+import "./../FormInputTrainingComponent.css";
+import "./programCardComponent.css";
 
 const ProgramCardComponent = ({ program, handleInputChange }) => {
   const dispatch = useDispatch();
@@ -17,7 +18,10 @@ const ProgramCardComponent = ({ program, handleInputChange }) => {
       },
     };
     handleInputChange(e);
-    dispatch({ type: actions.ADD_PROGRAM_SELECTED, payload: {programId : program.id, programSelected : program }});
+    dispatch({
+      type: actions.ADD_PROGRAM_SELECTED,
+      payload: { programId: program.id, programSelected: program },
+    });
   };
 
   return (
@@ -36,10 +40,7 @@ const ProgramCardComponent = ({ program, handleInputChange }) => {
             <hr />
           </h2>
           <h5 className="training__description--subtitle">
-            Duración:{" "}
-            {/* {program.courses.reduce((prevValue, currValue) => {
-              return prevValue + currValue;
-            }, 0)} */}
+            Duración: {getProgramTotalDuration(program)} días
           </h5>
         </div>
         <div

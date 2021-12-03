@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CSVReader } from "react-papaparse";
 import { useDispatch, useSelector } from "react-redux";
 
-import * as actions from "./../../../state/crudTraining/crudTrainingActions";
+import * as actions from "../../../state/crudTraining/crudTrainingActions";
 import { validateInputTraining } from "../../../state/crudTraining/traningValidations/validations";
 import {
   handleOnDrop,
@@ -10,7 +10,7 @@ import {
 } from "./../../../common/csvHelpers/csvHelpers";
 import {
   handleSelectCoach,
-  handleUnselectCoach
+  handleUnselectCoach,
 } from "./../../../common/formTrainingHelpers/formTrainingHelpers";
 
 import createCalendar from "../../../common/formTrainingHelpers/createCalendar";
@@ -19,16 +19,15 @@ import useForm from "./../../../hooks/useForm";
 
 import CSVTableComponent from "./csvTable/CSVTableComponent";
 import ProgramsListComponent from "./programs/ProgramsListComponent";
-import TraningConfirmationCreationView from "./../components/confirmationPage/TraningConfirmationCreationView";
+import TraningConfirmationCreationView from "./confirmationPage/TraningConfirmationCreationView";
 
 import Swal from "sweetalert2";
-
-import "./FormInputTrainingComponent.css";
+import "../../../common/styles/styles.css";
 
 const FormInputTrainingComponent = () => {
   const dispatch = useDispatch();
-  const {crudTrainingReducer} = useSelector(state => state);
-  const {programSelected} = crudTrainingReducer;
+  const { crudTrainingReducer } = useSelector((state) => state);
+  const { programSelected } = crudTrainingReducer;
   const [formSent, setFormSent] = useState(false);
   const [coachesList, setCoachesList] = useState(actions.fetchCoaches());
   const [tableState, setTableState] = useState(null);
@@ -53,9 +52,9 @@ const FormInputTrainingComponent = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();  
+    e.preventDefault();
     const trainingToCreate = createCalendar(formValues, programSelected);
-    console.log("training que se va a publicar")
+    console.log("training que se va a publicar");
     console.log(trainingToCreate);
 
     dispatch({
@@ -94,7 +93,7 @@ const FormInputTrainingComponent = () => {
     return (
       <div
         className="trainings__main-container"
-        style={{ paddingBottom: "50px" }}
+        style={{ paddingBottom: "20px" }}
       >
         <form onSubmit={handleSubmit} className="trainings__form">
           <div className="training__input-form training__input-form-name">
@@ -135,7 +134,9 @@ const FormInputTrainingComponent = () => {
                 }
               >
                 {coachesList.map((coach) => (
-                  <option value={coach.id}>{coach.name}</option>
+                  <option key={coach.id} value={coach.id}>
+                    {coach.name}
+                  </option>
                 ))}
               </select>
             </div>
@@ -163,7 +164,7 @@ const FormInputTrainingComponent = () => {
             {coaches.length > 0 ? (
               coaches.map((coach) => (
                 <div key={coach.id} className="training__coach-selected">
-                  <span className="text-center">{coach.name}</span>
+                  <span className="text-center mb-3">{coach.name}</span>
                   <button
                     id={`${coach.id}_button_delete_coach`}
                     className="btn btn-danger btn-delete-coach"
@@ -187,40 +188,39 @@ const FormInputTrainingComponent = () => {
               </div>
             )}
           </div>
-
         </form>
-          <ProgramsListComponent handleInputChange={handleInputChange} />
+        <ProgramsListComponent handleInputChange={handleInputChange} />
 
-          <div className="training__input-form">
-            <div className="training__input-container">
-              <div className="training__file-input">
-                <CSVReader
-                  id="csv_reader_training"
-                  onDrop={(csvInfo) =>
-                    handleOnDrop(
-                      csvInfo,
-                      setTableState,
-                      dispatch,
-                      handleInputChange
-                    )
-                  }
-                  addRemoveButton
-                  onRemoveFile={(e) => handleOnRemoveFile(e, setTableState)}
-                >
-                  <span className="training__csv-div text-center small">
-                    <p>Sube aquí el archivo .CSV de los aprendices</p>
-                    <button className="btn btn-primary w-6">
-                      Subir Archivo <i class="fas fa-upload ml-3"></i>
-                    </button>
-                    <small className="mt-1">
-                      (ó arrastra y suelta aquí el archivo)
-                    </small>
-                  </span>
-                </CSVReader>
-              </div>
+        <div className="training__input-form">
+          <div className="training__input-container">
+            <div className="training__file-input">
+              <CSVReader
+                id="csv_reader_training"
+                onDrop={(csvInfo) =>
+                  handleOnDrop(
+                    csvInfo,
+                    setTableState,
+                    dispatch,
+                    handleInputChange
+                  )
+                }
+                addRemoveButton
+                onRemoveFile={(e) => handleOnRemoveFile(e, setTableState)}
+              >
+                <span className="training__csv-div text-center small">
+                  <p>Sube aquí el archivo .CSV de los aprendices</p>
+                  <button className="btn btn-primary w-6">
+                    Subir Archivo <i class="fas fa-upload ml-3"></i>
+                  </button>
+                  <small className="mt-1">
+                    (ó arrastra y suelta aquí el archivo)
+                  </small>
+                </span>
+              </CSVReader>
             </div>
           </div>
-          
+        </div>
+
         {tableState && (
           <div className="section__title text-center m-5">
             <h2>Lista de estudiantes para el training</h2>
@@ -229,15 +229,15 @@ const FormInputTrainingComponent = () => {
         )}
         <CSVTableComponent data={tableState} />
         <div className="training__input-form">
-            <button
-                  type="submit"
-                  id="submit_training"
-                  onClick={handleSubmit}
-                  className="trainings__btn-submit"
-            >
-                  Crear <i class="fas fa-plus ml-3"></i>
-            </button>
-          </div>
+          <button
+            type="submit"
+            id="submit_training"
+            onClick={handleSubmit}
+            className="trainings__btn-submit btn btn-primary"
+          >
+            Crear <i class="fas fa-plus ml-3"></i>
+          </button>
+        </div>
       </div>
     );
   } else {

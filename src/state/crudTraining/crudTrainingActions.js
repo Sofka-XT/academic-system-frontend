@@ -15,7 +15,6 @@ export const SET_STARTING_DATE = "SET_STARTING_DATE";
 export const UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING =
   "UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING";
 
-
 export const loading = () => ({ type: LOADING });
 
 export const endLoading = () => ({ type: LOADED_SUCCESS });
@@ -59,7 +58,11 @@ export function postTraining(training) {
           startingDate: data.startingDate,
           apprentices: data.apprentices,
           coaches: data.coaches,
+<<<<<<< HEAD
           categoriesToScrapCalendar: data.categoriesToScrapCalendar
+=======
+          categoriesToScrapCalendar: data.categoriesToScrapCalendar,
+>>>>>>> 10066cf2f9ca2640c546ed1d3ba8055442116675
         })
       );
     } catch (error) {
