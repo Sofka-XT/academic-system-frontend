@@ -79,9 +79,9 @@ export const fetchCoachesFromFirebase = async () => {
   queryFromFirebase.forEach(doc => (
     coaches.push({ 
       id: doc.id,
-      name: doc?.name || "Nombre del caoch",
+      name: doc.data().name || doc.id,
       emailAddress: doc.id,
-      phoneNumber: doc?.phoneNumber,
+      phoneNumber: doc.data().phoneNumber || "Numero de telefono",
     })))
 
   return coaches;
