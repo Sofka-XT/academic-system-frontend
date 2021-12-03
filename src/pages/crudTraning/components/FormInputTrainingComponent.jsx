@@ -61,16 +61,13 @@ const FormInputTrainingComponent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const trainingToCreate = createCalendar(formValues, programSelected);
-    console.log("training que se va a publicar");
-    console.log(trainingToCreate);
-
     dispatch({
       type: actions.UPDATE_INFO_GLOBAL_BEFORE_POSTING_TRAINING,
       payload: { coaches, name, startingDate },
     });
     const { valid, message } = validateInputTraining(formValues);
     if (valid) {
+      const trainingToCreate = createCalendar(formValues, programSelected);
       dispatch(actions.postTraining(trainingToCreate));
       showSwalResponse(valid, message);
       setTableState(null);
